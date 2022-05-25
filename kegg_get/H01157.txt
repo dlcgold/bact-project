@@ -1,0 +1,25 @@
+ENTRY       H01157                      Disease
+NAME        Agrobacterium radiobacter infection
+DESCRIPTION Agrobacteria are small, gram-negative bacilli widely distributed in soil. They are best known for the phytopathogenicity, causing tumorigenic disease in plants. However, Agrobacterium spp. are also recognized as rare human pathogens affecting mostly immunocompromised or chronically debilitated hosts and patients with indwelling catheters. Clinical manifestations include bacteremia, peritonitis, and deltoid muscle myositis.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by alpha proteobacteria
+               H01157  Agrobacterium radiobacter infection
+PATHOGEN    Agrobacterium radiobacter
+REFERENCE   PMID:14735386
+  AUTHORS   Paphitou NI, Rolston KV
+  TITLE     Catheter-related bacteremia caused by Agrobacterium radiobacter in a cancer patient: case report and literature review.
+  JOURNAL   Infection 31:421-4 (2003)
+            DOI:10.1007/s15010-003-3175-5
+REFERENCE   PMID:12586984
+  AUTHORS   Amaya RA, Edwards MS
+  TITLE     Agrobacterium radiobacter bacteremia in pediatric patients: case report and review.
+  JOURNAL   Pediatr Infect Dis J 22:183-6 (2003)
+            DOI:10.1097/01.inf.0000048960.37470.ef
+REFERENCE   PMID:18539494
+  AUTHORS   Detrait M, D'Hondt L, Andre M, Lonchay C, Holemans X, Maton JP, Canon JL
+  TITLE     Agrobacterium radiobacter bacteremia in oncologic and geriatric patients: presentation of two cases and review of the literature.
+  JOURNAL   Int J Infect Dis 12:e7-10 (2008)
+            DOI:10.1016/j.ijid.2008.03.010
+///

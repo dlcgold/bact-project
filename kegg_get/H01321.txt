@@ -1,0 +1,30 @@
+ENTRY       H01321                      Disease
+NAME        Pneumococcal disease
+  SUBGROUP  Invasive pneumoniae disease
+            Non-invasive pneumoniae disease
+            Pneumonia due to Streptococcus pneumoniae
+DESCRIPTION Pneumococcal disease (PD) is infectious disease caused by Streptococcus pneumoniae (pneumococcus). PD is particularly common in younger children and in older adults and is roughly divided into invasive and non-invasive disease; the former refers to infections in which the microorganism is isolated from normal sterile body sites, such as the blood or the cerebrospinal fluid. Non-invasive PD can principally be divided into sinusitis, acute otitis media, and community-acquired pneumonia. S. pneumoniae remains the most common bacterial cause of community-acquired pneumonia. The invasive PD burden is mainly determined by pneumococcal meningitis, bacteremic pneumococcal pneumonia, and pneumococcal bacteremia without a primary focus. Incidence and mortality rates of both non-invasive and invasive disease have changed as a result of pneumococcal vaccination in children. However, especially elderly patients with comorbidities remain vulnerable to morbidity and mortality caused by PD.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H01321  Pneumococcal disease
+PATHOGEN    Streptococcus pneumoniae [GN:spn spd spw spx snd spnn sne spng snp spnm spno]
+DRUG        Penicillin G potassium [DR:D01053]
+            Pneumococcal vaccine polyvalent [DR:D08776]
+            Pneumococcal 13-valent conjugate vaccine [DR:D10455]
+            Pneumococcal 15-valent conjugate vaccine [DR:D12205]
+            Pneumococcal 20-valent conjugate vaccine [DR:D12207]
+DBLINKS     ICD-10: A40.3 A49.1
+            MeSH: D011008
+REFERENCE   PMID:24313448
+  AUTHORS   Drijkoningen JJ, Rohde GG
+  TITLE     Pneumococcal infection in adults: burden of disease.
+  JOURNAL   Clin Microbiol Infect 20 Suppl 5:45-51 (2014)
+            DOI:10.1111/1469-0691.12461
+REFERENCE   PMID:25343039 (description, drug)
+  AUTHORS   Feldman C, Anderson R
+  TITLE     Recent advances in our understanding of Streptococcus pneumoniae infection.
+  JOURNAL   F1000Prime Rep 6:82 (2014)
+            DOI:10.12703/P6-82
+///

@@ -1,0 +1,17 @@
+ENTRY       H01350                      Disease
+NAME        Morganella morganii infection
+DESCRIPTION The genera Morganella are gram-negative anaerobic rods and important opportunistic pathogens, which cause a wide variety of nosocomial infections following surgery. Morganella morganii can cause bacteremia and lead to major clinical problems, which are usually associated with common causes of catheter-associated bacteriuria, infections of the urinary and hepatobiliary tracts, wound infection, and septicemia.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by enterobacteria
+               H01350  Morganella morganii infection
+PATHOGEN    Morganella morganii subsp. morganii KT [GN:mmk]
+DBLINKS     ICD-10: B96.4
+            MeSH: D011512
+REFERENCE   PMID:23282187
+  AUTHORS   Chen YT, Peng HL, Shia WC, Hsu FR, Ken CF, Tsao YM, Chen CH, Liu CE, Hsieh MF, Chen HC, Tang CY, Ku TH
+  TITLE     Whole-genome sequencing and identification of Morganella morganii KT pathogenicity-related genes.
+  JOURNAL   BMC Genomics 13 Suppl 7:S4 (2012)
+            DOI:10.1186/1471-2164-13-S7-S4
+///

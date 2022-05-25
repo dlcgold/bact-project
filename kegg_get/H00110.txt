@@ -1,0 +1,39 @@
+ENTRY       H00110                      Disease
+NAME        Cholera
+DESCRIPTION Cholera is an infection of the small intestine caused by toxigenic strains of Vibrio cholerae, mostly belonging to the O1 serogroup but also to the O139 serogroup. Seven cholera pandemics have occurred since 1817, with six pandemics originating in India and the seventh pandemic originating in Indonesia in 1961. The last outbreak is dominated by an O1 variant named El Tor and has continued to the present. The O139 serogroup was first observed in 1992 in India and associated with epidemics in localized areas.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by other gamma proteobacteria
+               H00110  Cholera
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Gastroenteritis or colitis of infectious origin
+               Bacterial intestinal infections
+                1A00  Cholera
+                 H00110  Cholera
+PATHWAY     hsa05110  Vibrio cholerae infection
+PATHOGEN    Vibrio cholerae O1 [GN:vch vcf vcs vce vcq vcj vci vco vcr vcm]
+  MODULE    M00852  Vibrio cholerae pathogenicity signature, toxin coregulated pilus
+            M00850  Vibrio cholerae pathogenicity signature, cholera toxins
+DRUG        Tetracycline hydrochloride [DR:D02122]
+            Doxycycline [DR:D00307]
+            Doxycycline hyclate [DR:D02129]
+            Doxycycline calcium [DR:D03903]
+            Minocycline hydrochloride [DR:D00850]
+            Demeclocycline hydrochloride [DR:D00290]
+DBLINKS     ICD-11: 1A00
+            ICD-10: A00
+            MeSH: D002771
+            MedlinePlus: 000303
+REFERENCE   PMID:7704895
+  AUTHORS   Kaper JB, Morris JG Jr, Levine MM
+  TITLE     Cholera.
+  JOURNAL   Clin Microbiol Rev 8:48-86 (1995)
+            DOI:10.1128/CMR.8.1.48-86.1995
+REFERENCE   PMID:21803312
+  AUTHORS   Mandal S, Mandal MD, Pal NK
+  TITLE     Cholera: a great global concern.
+  JOURNAL   Asian Pac J Trop Med 4:573-80 (2011)
+            DOI:10.1016/S1995-7645(11)60149-1
+///

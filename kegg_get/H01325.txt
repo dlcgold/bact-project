@@ -1,0 +1,42 @@
+ENTRY       H01325                      Disease
+NAME        Actinomycosis
+DESCRIPTION Actinomycosis is an uncommon chronic granulomatous infection caused by several members of the order Actinomycetales, most notably, Actinomyces israelii. Additional species that are established but less common causes of actinomycosis include A. naeslundii/viscosus complex, A. odontolyticus, A. meyeri and A. gerencseriae.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by actinobacteria
+               H01325  Actinomycosis
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               1C10  Actinomycosis
+                H01325  Actinomycosis
+PATHOGEN    Actinomyces israelii
+            Actinomyces naeslundii
+            Actinomyces viscosus
+            Actinomyces odontolyticus
+            Actinomyces meyeri
+            Actinomyces gerencseriae
+DRUG        Tetracycline hydrochloride [DR:D02122]
+            Doxycycline [DR:D00307]
+            Doxycycline hyclate [DR:D02129]
+            Doxycycline calcium [DR:D03903]
+            Minocycline hydrochloride [DR:D00850]
+            Demeclocycline hydrochloride [DR:D00290]
+            Penicillin G potassium [DR:D01053]
+            Penicillin G sodium [DR:D05408]
+DBLINKS     ICD-11: 1C10
+            ICD-10: A42
+            MeSH: D000196
+            MedlinePlus: 000599
+REFERENCE   PMID:16582679
+  AUTHORS   Yildiz O, Doganay M
+  TITLE     Actinomycoses and Nocardia pulmonary infections.
+  JOURNAL   Curr Opin Pulm Med 12:228-34 (2006)
+            DOI:10.1097/01.mcp.0000219273.57933.48
+REFERENCE   PMID:25233694
+  AUTHORS   Vidakovic B, Macan D, Peric B, Spomenka M
+  TITLE     Actinomycosis of the cheek.
+  JOURNAL   Srp Arh Celok Lek 142:472-5 (2014)
+            DOI:10.2298/SARH1408472V
+///

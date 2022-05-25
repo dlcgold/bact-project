@@ -1,0 +1,25 @@
+ENTRY       H01041                      Disease
+NAME        Aerococcus urinae infection
+DESCRIPTION Aerococcus urinae is a rare pathogen that belongs to a gram-positive coccus. Most infections are mild, but fatal infections such as endocarditis and septicemia/urosepsis have also been described.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H01041  Aerococcus urinae infection
+PATHOGEN    Aerococcus urinae [GN:aun]
+REFERENCE   PMID:10747177
+  AUTHORS   Zhang Q, Kwoh C, Attorri S, Clarridge JE 3rd
+  TITLE     Aerococcus urinae in urinary tract infections.
+  JOURNAL   J Clin Microbiol 38:1703-5 (2000)
+            DOI:10.1128/JCM.38.4.1703-1705.2000
+REFERENCE   PMID:20660216
+  AUTHORS   de Jong MF, Soetekouw R, ten Kate RW, Veenendaal D
+  TITLE     Aerococcus urinae: severe and fatal bloodstream infections and endocarditis.
+  JOURNAL   J Clin Microbiol 48:3445-7 (2010)
+            DOI:10.1128/JCM.00835-10
+REFERENCE   PMID:10421047
+  AUTHORS   Schuur PM, Sabbe L, van der Wouw AJ, Montagne GJ, Buiting AG
+  TITLE     Three cases of serious infection caused by Aerococcus urinae.
+  JOURNAL   Eur J Clin Microbiol Infect Dis 18:368-71 (1999)
+            DOI:10.1007/PL00015022
+///

@@ -1,0 +1,16 @@
+ENTRY       H01148                      Disease
+NAME        Caulobacter infection
+DESCRIPTION The genus Caulobacter is a gram-negative bacteria characterized by asymmetric cell division and stalk. Although infection with Caulobacter species is rare, a case has been reported in a patient undergoing intermittent peritoneal dialysis.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by alpha proteobacteria
+               H01148  Caulobacter infection
+PATHOGEN    Caulobacter sp.
+COMMENT     The isolate in the first report was found to be sensitive to meropenem, imipenem, erythromycin (disk only), aminoglycosides, tetracycline, chloramphenicol, and sulfadiazine.
+REFERENCE   PMID:17267638
+  AUTHORS   Justesen US, Holt HM, Thiesson HC, Blom J, Nielsen XC, Dargis R, Kemp M, Christensen JJ
+  TITLE     Report of the first human case of Caulobacter sp. infection.
+  JOURNAL   J Clin Microbiol 45:1366-9 (2007)
+            DOI:10.1128/JCM.02380-06
+///

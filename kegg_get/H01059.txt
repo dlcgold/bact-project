@@ -1,0 +1,31 @@
+ENTRY       H01059                      Disease
+NAME        Capnocytophaga canimorsus infection
+DESCRIPTION Capnocytophaga canimorsus is a fastidious, gram-negative commensal bacterium in the normal oral flora of dogs and cats. The bacterium has been isolated from humans infected by dog, or cat bites, scratches or licks. The infection presents as fulminant sepsis, endocarditis, and purulent arthritis associated with high mortality and most cases occur in immunocompromised patients.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by bacteroidetes
+               H01059  Capnocytophaga canimorsus infection
+PATHOGEN    Capnocytophaga canimorsus [GN:ccm]
+COMMENT     Aztronam, polymyxin, fosfomycin, trimethoprim/sulfamethoxazole and aminoglycosides are not effective against C. canimorsus.
+REFERENCE   PMID:19268498
+  AUTHORS   Gaastra W, Lipman LJ
+  TITLE     Capnocytophaga canimorsus.
+  JOURNAL   Vet Microbiol 140:339-46 (2010)
+            DOI:10.1016/j.vetmic.2009.01.040
+REFERENCE   PMID:20407357
+  AUTHORS   Stiegler D, Gilbert JD, Warner MS, Byard RW
+  TITLE     Fatal dog bite in the absence of significant trauma: Capnocytophaga canimorsus infection and unexpected death.
+  JOURNAL   Am J Forensic Med Pathol 31:198-9 (2010)
+            DOI:10.1097/PAF.0b013e3181dfc98b
+REFERENCE   PMID:14970251
+  AUTHORS   Sandoe JA
+  TITLE     Capnocytophaga canimorsus endocarditis.
+  JOURNAL   J Med Microbiol 53:245-8 (2004)
+            DOI:10.1099/jmm.0.05274-0
+REFERENCE   PMID:7588825
+  AUTHORS   Valtonen M, Lauhio A, Carlson P, Multanen J, Sivonen A, Vaara M, Lahdevirta J
+  TITLE     Capnocytophaga canimorsus septicemia: fifth report of a cat-associated infection and five other cases.
+  JOURNAL   Eur J Clin Microbiol Infect Dis 14:520-3 (1995)
+            DOI:10.1007/BF02113430
+///

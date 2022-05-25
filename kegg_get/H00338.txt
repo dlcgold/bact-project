@@ -1,0 +1,44 @@
+ENTRY       H00338                      Disease
+NAME        Pseudomembranous colitis
+  SUPERGRP  Anaerobic infection [DS:H01410]
+DESCRIPTION Clostridium difficile is a gram-positive anaerobic bacillus that causes a broad spectrum of clinical symptoms ranging from mild diarrhea to severe pseudomembranous colitis. C. difficile can be transmitted by the fecal-oral route from person to person and instrument to patient.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H00338  Pseudomembranous colitis
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Gastroenteritis or colitis of infectious origin
+               Bacterial intestinal infections
+                1A04  Intestinal infections due to Clostridioides difficile
+                 H00338  Pseudomembranous colitis
+PATHOGEN    Clostridioides difficile [GN:cdf pdc cdc cdl]
+            toxin A/B [KO:K11063]
+            pore-forming toxin [KO:K06442 K11068]
+DRUG        Fidaxomicin [DR:D09394]
+            Bezlotoxumab [DR:D10453]
+DBLINKS     ICD-11: 1A04
+            ICD-10: A04.7
+            MeSH: D004761
+            MedlinePlus: 000259
+REFERENCE   (drug)
+  AUTHORS   Papadakis MA and McPhee SJ |(ed)
+  TITLE     Current Medical Diagnosis & Treatment 2007, Forty-Sixth Edition
+  JOURNAL   McGraw Hill Education
+REFERENCE   PMID:21609252
+  AUTHORS   Kachrimanidou M, Malisiovas N
+  TITLE     Clostridium difficile infection: a comprehensive review.
+  JOURNAL   Crit Rev Microbiol 37:178-87 (2011)
+            DOI:10.3109/1040841X.2011.556598
+REFERENCE   PMID:17640189
+  AUTHORS   Elliott B, Chang BJ, Golledge CL, Riley TV
+  TITLE     Clostridium difficile-associated diarrhoea.
+  JOURNAL   Intern Med J 37:561-8 (2007)
+            DOI:10.1111/j.1445-5994.2007.01403.x
+REFERENCE   PMID:15997485
+  AUTHORS   Bouza E, Munoz P, Alonso R
+  TITLE     Clinical manifestations, treatment and control of infections caused by Clostridium difficile.
+  JOURNAL   Clin Microbiol Infect 11 Suppl 4:57-64 (2005)
+            DOI:10.1111/j.1469-0691.2005.01165.x
+///

@@ -1,0 +1,42 @@
+ENTRY       H00349                      Disease
+NAME        Trachoma
+DESCRIPTION Trachoma is the leading infectious cause of blindness worldwide. Infections with serovars A, B, Ba, and C of Chlamydia trachomatis cause chronic keratoconjunctivitis in children with subsequent scarring and blindness in adults. Today, trachoma is largely found in poor, rural communities in low-income countries, particularly in sub-Saharan Africa.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by chlamydia
+               H00349  Trachoma
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               Other diseases due to chlamydiae
+                1C23  Trachoma
+                 H00349  Trachoma
+PATHOGEN    Chlamydia trachomatis [GN:cta cty cra ctrq ctrx ctrz ctj ctz ctct]
+DRUG        Tetracycline hydrochloride [DR:D02122]
+            Doxycycline [DR:D00307]
+            Doxycycline hyclate [DR:D02129]
+            Doxycycline calcium [DR:D03903]
+            Minocycline hydrochloride [DR:D00850]
+            Demeclocycline hydrochloride [DR:D00290]
+            Sulfacetamide sodium [DR:D00871]
+DBLINKS     ICD-11: 1C23
+            ICD-10: A71
+            MeSH: D014141
+            MedlinePlus: 001486
+REFERENCE   PMID:20374566
+  AUTHORS   Hu VH, Harding-Esch EM, Burton MJ, Bailey RL, Kadimpeul J, Mabey DC
+  TITLE     Epidemiology and control of trachoma: systematic review.
+  JOURNAL   Trop Med Int Health 15:673-91 (2010)
+            DOI:10.1111/j.1365-3156.2010.02521.x
+REFERENCE   PMID:21738814
+  AUTHORS   Smith JL, Haddad D, Polack S, Harding-Esch EM, Hooper PJ, Mabey DC, Solomon AW, Brooker S
+  TITLE     Mapping the global distribution of trachoma: why an updated atlas is needed.
+  JOURNAL   PLoS Negl Trop Dis 5:e973 (2011)
+            DOI:10.1371/journal.pntd.0000973
+REFERENCE   PMID:21412875 (drug)
+  AUTHORS   Evans JR, Solomon AW
+  TITLE     Antibiotics for trachoma.
+  JOURNAL   Cochrane Database Syst Rev CD001860 (2011)
+            DOI:10.1002/14651858.CD001860.pub3
+///

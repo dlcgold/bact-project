@@ -1,0 +1,52 @@
+ENTRY       H00339                      Disease
+NAME        Botulism
+  SUPERGRP  Anaerobic infection [DS:H01410]
+DESCRIPTION Botulism is an acute neuroparalytic illness caused by a botulinum toxin produced by Clostridium botulinum, an anaerobic, gram-positive bacterium. Botulism occurs in four forms: foodborne, wound, infant botulism, and adult intestinal toxemia. Botulinum toxin blocks acetylcholine release in a dose-dependent fashion, resulting in symmetrical, descending, and progressive muscle weakness. Delay in treatment may allow progression of paralysis.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H00339  Botulism
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Gastroenteritis or colitis of infectious origin
+               Bacterial foodborne intoxications
+                1A11  Botulism
+                 H00339  Botulism
+PATHOGEN    Clostridium botulinum [GN:cbo cba cbh cby cbl cbb cbi cbt cbf cbm cbj]
+            Clostridium butyricum
+            Clostridium baratii
+            botulinum neurotoxin (BoNT) [KO:K06011]
+            hyaluronidase/collagenase [KO:K01387 K08587]
+            pore-forming toxin [KO:K06442 K11068]
+DRUG        Penicillin G potassium [DR:D01053]
+            Penicillin G sodium [DR:D05408]
+DBLINKS     ICD-11: 1A11
+            ICD-10: A05.1
+            MeSH: D001906
+            MedlinePlus: 000598
+REFERENCE   PMID:21171845
+  AUTHORS   Zhang JC, Sun L, Nie QH
+  TITLE     Botulism, where are we now?
+  JOURNAL   Clin Toxicol (Phila) 48:867-79 (2010)
+            DOI:10.3109/15563650.2010.535003
+REFERENCE   PMID:18388640
+  AUTHORS   Dembek ZF, Smith LA, Rusnak JM
+  TITLE     Botulism: cause, effects, diagnosis, clinical and laboratory identification, and treatment modalities.
+  JOURNAL   Disaster Med Public Health Prep 1:122-34 (2007)
+            DOI:10.1097/DMP.0b013e318158c5fd
+REFERENCE   PMID:17224901
+  AUTHORS   Brook I
+  TITLE     Botulism: the challenge of diagnosis and treatment.
+  JOURNAL   Rev Neurol Dis 3:182-9 (2006)
+REFERENCE   PMID:21412916
+  AUTHORS   Chalk C, Benstead TJ, Keezer M
+  TITLE     Medical treatment for botulism.
+  JOURNAL   Cochrane Database Syst Rev CD008123 (2011)
+            DOI:10.1002/14651858.CD008123.pub2
+REFERENCE   PMID:12503947
+  AUTHORS   Robinson RF, Nahata MC
+  TITLE     Management of botulism.
+  JOURNAL   Ann Pharmacother 37:127-31 (2003)
+            DOI:10.1345/aph.1C034
+///

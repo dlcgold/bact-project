@@ -1,0 +1,34 @@
+ENTRY       H00308                      Disease
+NAME        Vibrio vulnificus infection
+DESCRIPTION Vibrio vulnificus is a gram-negative bacillus found in warm coastal waters. It causes two distinct syndromes: a primary septicemia related to seafood consumption and a necrotizing wound infection acquired by exposing open wounds to contaminated seawater.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by other gamma proteobacteria
+               H00308  Vibrio vulnificus infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Gastroenteritis or colitis of infectious origin
+               Bacterial intestinal infections
+                1A01  Intestinal infection due to other Vibrio
+                 H00308  Vibrio vulnificus infection
+PATHOGEN    Vibrio vulnificus [GN:vvu vvy vvm]
+            pore-forming toxin [KO:K10948 K10953]
+            membrane-damaging toxin [KO:K11018]
+DBLINKS     ICD-11: 1A01
+            ICD-10: A05.9
+            MeSH: C536348
+REFERENCE   (drug)
+  AUTHORS   Papadakis MA and McPhee SJ |(ed)
+  TITLE     Current Medical Diagnosis & Treatment 2007, Forty-Sixth Edition
+  JOURNAL   McGraw Hill Education
+REFERENCE   PMID:21177133 (description, env_factor, drug)
+  AUTHORS   Horseman MA, Surani S
+  TITLE     A comprehensive review of Vibrio vulnificus: an important cause of severe sepsis and skin and soft-tissue infection.
+  JOURNAL   Int J Infect Dis 15:e157-66 (2011)
+            DOI:10.1016/j.ijid.2010.11.003
+REFERENCE   PMID:17853628
+  AUTHORS   Bross MH, Soch K, Morales R, Mitchell RB
+  TITLE     Vibrio vulnificus infection: diagnosis and treatment.
+  JOURNAL   Am Fam Physician 76:539-44 (2007)
+///

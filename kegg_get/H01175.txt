@@ -1,0 +1,67 @@
+ENTRY       H01175                      Disease
+NAME        Staphylococcal infection
+DESCRIPTION Staphylococci are widespread as commensals of humans and animals where they colonize the skin or mucous membranes. Firstly, Staphylococcus lugdunensis is a most unusual coagulase-negative staphylococcus found on the human skin. It can cause infections at many sites including superficial skin infections, bacteremia, endocarditis, osteomyelitis, and breast abscess. Endocarditis caused by S. lugdunensis can lead to substantial morbidity and mortality. Secondly, Staphylococcus haemolyticus, found among the normal skin flora, is commonly isolated from the axillae, perineum, and inguinal areas of humans and causes septicemia, peritonitis, otitis, and urinary tract infections. S. haemolyticus is notorious for its multidrug resistance and historically early acquisition of resistance to methicillin and glycopeptide antibiotics. Finally, Staphylococcus pseudintermedius is an important opportunistic pathogen of dogs and cats. S. pseudintermedius colonization is very uncommon in humans. It is rarely isolated from human dog-bite wounds. The infection has been associated with wide range of symptoms such as bacteremia, a brain abscess, and pneumonia.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H01175  Staphylococcal infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Gastroenteritis or colitis of infectious origin
+               Bacterial foodborne intoxications
+                1A10  Foodborne staphylococcal intoxication
+                 H01175  Staphylococcal infection
+PATHOGEN    Staphylococcus lugdunensis [GN:slg sln]
+            Staphylococcus haemolyticus [GN:sha]
+            Staphylococcus pseudintermedius
+DRUG        Vancomycin hydrochloride [DR:D00926]
+            Bacitracin [DR:D00128]
+            Clindamycin palmitate hydrochloride [DR:D01990]
+            Clindamycin hydrochloride [DR:D02132]
+COMMENT     Treatment was most commonly initiated with vancomycin and narrowed as antibiotic susceptibilities allowed.
+            Methicillin resistance has been reported.
+DBLINKS     ICD-11: 1A10
+            ICD-10: A41.1
+            MeSH: D013203
+REFERENCE   PMID:21886051 (description, pathogen, drug)
+  AUTHORS   Klotchko A, Wallace MR, Licitra C, Sieger B
+  TITLE     Staphylococcus lugdunensis: an emerging pathogen.
+  JOURNAL   South Med J 104:509-14 (2011)
+            DOI:10.1097/SMJ.0b013e31821e91b1
+REFERENCE   PMID:21195974 (description, pathogen, drug)
+  AUTHORS   Liu PY, Huang YF, Tang CW, Chen YY, Hsieh KS, Ger LP, Chen YS, Liu YC
+  TITLE     Staphylococcus lugdunensis infective endocarditis: a literature review and analysis of risk factors.
+  JOURNAL   J Microbiol Immunol Infect 43:478-84 (2010)
+            DOI:10.1016/S1684-1182(10)60074-6
+REFERENCE   PMID:20434383 (description, pathogen)
+  AUTHORS   Chopra A, Gulati D, Woldenberg N, Singh M
+  TITLE     Intracardiac lead endocarditis due to Staphylococcus lugdunensis.
+  JOURNAL   Int J Infect Dis 14 Suppl 3:e291-3 (2010)
+            DOI:10.1016/j.ijid.2009.12.008
+REFERENCE   PMID:19447659 (marker)
+  AUTHORS   Pada S, Lye DC, Leo YS, Barkham T
+  TITLE     Utility of 16S ribosomal DNA sequencing in the diagnosis of Staphylococcus lugdunensis native valve infective endocarditis: case report and literature review.
+  JOURNAL   Int J Infect Dis 13:e511-3 (2009)
+            DOI:10.1016/j.ijid.2009.02.019
+REFERENCE   PMID:21930571 (descirption, pathogen)
+  AUTHORS   van Duijkeren E, Catry B, Greko C, Moreno MA, Pomba MC, Pyorala S, Ruzauskas M, Sanders P, Threlfall EJ, Torren-Edo J, Torneke K
+  TITLE     Review on methicillin-resistant Staphylococcus pseudintermedius.
+  JOURNAL   J Antimicrob Chemother 66:2705-14 (2011)
+            DOI:10.1093/jac/dkr367
+REFERENCE   PMID:20178486 (descirpiton, pathogen)
+  AUTHORS   Fitzgerald JR
+  TITLE     The Staphylococcus intermedius group of bacterial pathogens: species re-classification, pathogenesis and the emergence of meticillin resistance.
+  JOURNAL   Vet Dermatol 20:490-5 (2009)
+            DOI:10.1111/j.1365-3164.2009.00828.x
+REFERENCE   PMID:19246166
+  AUTHORS   Weese JS, van Duijkeren E
+  TITLE     Methicillin-resistant Staphylococcus aureus and Staphylococcus pseudintermedius in veterinary medicine.
+  JOURNAL   Vet Microbiol 140:418-29 (2010)
+            DOI:10.1016/j.vetmic.2009.01.039
+REFERENCE   PMID:16237012
+  AUTHORS   Takeuchi F, Watanabe S, Baba T, Yuzawa H, Ito T, Morimoto Y, Kuroda M, Cui L, Takahashi M, Ankai A, Baba S, Fukui S, Lee JC, Hiramatsu K.
+  TITLE     Whole-genome sequencing of staphylococcus haemolyticus uncovers the extreme plasticity of its genome and the evolution of human-colonizing staphylococcal species.
+  JOURNAL   J Bacteriol 187:7292-308 (2005)
+            DOI:10.1128/JB.187.21.7292-7308.2005
+///

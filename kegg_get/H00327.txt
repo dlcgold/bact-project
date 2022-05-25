@@ -1,0 +1,24 @@
+ENTRY       H00327                      Disease
+NAME        Trench fever
+DESCRIPTION Trench fever is a disease caused by the facultative intracellular gram-negative bacterium Bartonella quintana. It affected several million people worldwide during the two world wars. The incidence of trench fever dramatically decreased after World War II, but recently it reemerged in urban homeless populations of developed countries. The most frequent presentation of trench fever includes repeated cycles of high fever, headache, and dizziness.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by alpha proteobacteria
+               H00327  Trench fever
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               1C11  Bartonellosis
+                H00327  Trench fever
+PATHOGEN    Bartonella quintana [GN:bqu]
+COMMENT     Vector: Pediculus humanus (human body louse)
+DBLINKS     ICD-11: 1C11.1
+            ICD-10: A79.0
+            MeSH: D014205
+REFERENCE   PMID:22360386
+  AUTHORS   Badiaga S, Brouqui P
+  TITLE     Human louse-transmitted infectious diseases.
+  JOURNAL   Clin Microbiol Infect 18:332-7 (2012)
+            DOI:10.1111/j.1469-0691.2012.03778.x
+///

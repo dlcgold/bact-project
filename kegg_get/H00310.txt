@@ -1,0 +1,46 @@
+ENTRY       H00310                      Disease
+NAME        Q fever
+DESCRIPTION Q fever is a worldwide zoonosis caused by Coxiella burnetii, a gram-negative obligate intracellular bacterium. This infection has many different reservoirs that mainly consist of dairy cattle. Infection in humans is often asymptomatic, but may appear either in an acute form accompanied mainly by fever (self-limited flu-like disease, pneumonia, or hepatitis) or in a chronic form (mainly endocarditis).
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by other gamma proteobacteria
+               H00310  Q fever
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               Rickettsioses
+                1C33  Q fever
+                 H00310  Q fever
+PATHOGEN    Coxiella burnetii [GN:cbu cbs cbg cbc]
+DRUG        Tetracycline hydrochloride [DR:D02122]
+            Doxycycline [DR:D00307]
+            Doxycycline hyclate [DR:D02129]
+            Doxycycline calcium [DR:D03903]
+            Minocycline hydrochloride [DR:D00850]
+            Demeclocycline hydrochloride [DR:D00290]
+COMMENT     Vector: Rhipicephalus sanguineus (brown dog tick)
+DBLINKS     ICD-11: 1C33
+            ICD-10: A78
+            MeSH: D011778
+            MedlinePlus: 000611 001337
+REFERENCE   PMID:22125041
+  AUTHORS   Delsing CE, Warris A, Bleeker-Rovers CP
+  TITLE     Q fever: still more queries than answers.
+  JOURNAL   Adv Exp Med Biol 719:133-43 (2011)
+            DOI:10.1007/978-1-4614-0204-6_12
+REFERENCE   PMID:12693856
+  AUTHORS   Kovacova E, Kazar J
+  TITLE     Q fever--still a query and underestimated infectious disease.
+  JOURNAL   Acta Virol 46:193-210 (2002)
+REFERENCE   PMID:16481501
+  AUTHORS   Kazar J
+  TITLE     Coxiella burnetii infection.
+  JOURNAL   Ann N Y Acad Sci 1063:105-14 (2005)
+            DOI:10.1196/annals.1355.018
+REFERENCE   PMID:15196898
+  AUTHORS   Woldehiwet Z
+  TITLE     Q fever (coxiellosis): epidemiology and pathogenesis.
+  JOURNAL   Res Vet Sci 77:93-100 (2004)
+            DOI:10.1016/j.rvsc.2003.09.001
+///

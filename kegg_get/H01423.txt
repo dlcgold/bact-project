@@ -1,0 +1,63 @@
+ENTRY       H01423                      Disease
+NAME        Penicillin-resistant Streptococcus pneumoniae infection
+DESCRIPTION Streptococcus pneumoniae is a common causative pathogen in community-acquired respiratory tract infections (RTIs), including acute otitis media, acute bacterial exacerbations of chronic bronchitis, acute bacterial sinusitis, and community-acquired pneumonia. It is also a major cause of bacteremia. Pneumococcal antibiotic resistance towards different families of antibiotics, in particular, penicillin and the macrocodes, continues to be a much-debated issue. The main mechanism of resistance in clinical isolates of S. pneumoniae involves the alteration of penicillin target proteins, the so-called penicillin binding protein (PBPs), which cause reduced affinities and/or binding capacities for the antibiotic molecule.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H01423  Penicillin-resistant Streptococcus pneumoniae infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             21 Symptoms, signs or clinical findings, not elsewhere classified
+              General symptoms, signs or clinical findings
+               Finding of microorganism resistant to antimicrobial drugs
+                MG51  Finding of gram positive bacteria resistant to antimicrobial drugs
+                 H01423  Penicillin-resistant Streptococcus pneumoniae infection
+PATHOGEN    Streptococcus pneumoniae [GN:spw snd spnn sne]
+COMMENT     S. pneumoniae genes containing mutations:
+            pbp1A [SPW:SPCG_0365] [KO:K05366]
+            pbp2X [SPW:SPCG_0339] [KO:K12556]
+            pbp2B [SPW:SPCG_1645] [KO:K00687]
+DBLINKS     ICD-11: MG51.10
+            ICD-10: J13
+            MeSH: D013290
+REFERENCE   PMID:18201146 (description, comment)
+  AUTHORS   Aspa J, Rajas O, de Castro FR
+  TITLE     Pneumococcal antimicrobial resistance: therapeutic strategy and management in community-acquired pneumonia.
+  JOURNAL   Expert Opin Pharmacother 9:229-41 (2008)
+            DOI:10.1517/14656566.9.2.229
+REFERENCE   PMID:18190701
+  AUTHORS   Jenkins SG, Brown SD, Farrell DJ
+  TITLE     Trends in antibacterial resistance among Streptococcus pneumoniae isolated in the USA: update from PROTEKT US Years 1-4.
+  JOURNAL   Ann Clin Microbiol Antimicrob 7:1 (2008)
+            DOI:10.1186/1476-0711-7-1
+REFERENCE   PMID:19366363 (pathogen, comment)
+  AUTHORS   Reinert RR
+  TITLE     The antimicrobial resistance profile of Streptococcus pneumoniae.
+  JOURNAL   Clin Microbiol Infect 15 Suppl 3:7-11 (2009)
+            DOI:10.1111/j.1469-0691.2009.02724.x
+REFERENCE   PMID:19114491 (pathogen)
+  AUTHORS   Croucher NJ, Walker D, Romero P, Lennard N, Paterson GK, Bason NC, Mitchell AM, Quail MA, Andrew PW, Parkhill J, Bentley SD, Mitchell TJ
+  TITLE     Role of conjugative elements in the evolution of the multidrug-resistant pandemic clone Streptococcus pneumoniaeSpain23F ST81.
+  JOURNAL   J Bacteriol 191:1480-9 (2009)
+            DOI:10.1128/JB.01343-08
+REFERENCE   PMID:22134942 (drug)
+  AUTHORS   Rivera AM, Boucher HW
+  TITLE     Current concepts in antimicrobial therapy against select gram-positive organisms: methicillin-resistant Staphylococcus aureus, penicillin-resistant pneumococci, and vancomycin-resistant enterococci.
+  JOURNAL   Mayo Clin Proc 86:1230-43 (2011)
+            DOI:10.4065/mcp.2011.0514
+REFERENCE   PMID:21308542 (drug)
+  AUTHORS   Hameed N, Tunkel AR
+  TITLE     Treatment of Drug-resistant Pneumococcal Meningitis.
+  JOURNAL   Curr Infect Dis Rep 12:274-81 (2010)
+            DOI:10.1007/s11908-010-0110-7
+REFERENCE   PMID:16524418 (drug)
+  AUTHORS   Faella F, Pagliano P, Fusco U, Attanasio V, Conte M
+  TITLE     Combined treatment with ceftriaxone and linezolid of pneumococcal meningitis: a case series including penicillin-resistant strains.
+  JOURNAL   Clin Microbiol Infect 12:391-4 (2006)
+            DOI:10.1111/j.1469-0691.2006.01352.x
+REFERENCE   PMID:19233207 (comment)
+  AUTHORS   Contreras-Martel C, Dahout-Gonzalez C, Martins Ados S, Kotnik M, Dessen A
+  TITLE     PBP active site flexibility as the key mechanism for beta-lactam resistance in pneumococci.
+  JOURNAL   J Mol Biol 387:899-909 (2009)
+            DOI:10.1016/j.jmb.2009.02.024
+///

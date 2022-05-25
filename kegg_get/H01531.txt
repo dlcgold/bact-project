@@ -1,0 +1,37 @@
+ENTRY       H01531                      Disease
+NAME        Bejel;
+            Endemic syphilis
+DESCRIPTION Treponemal infections occurring in humans comprise venereal syphilis and the non-venereal endemic treponematoses. The non-venereal endemic treponematoses are yaws, pinta, and bejel. Bejel, also known as endemic syphilis, is endemic in many parts of the world including Saudi Arabia. The disease usually occurs in patients living in primitive environments with low standard of hygiene. Clinical manifestations of bejel are divided into various stages. Patches on the mucous membranes, angular stomatitis, nonitchy skin eruptions, and generalized lymphadenopathy are the most important early manifestations. In the late stage, affection of skin, bones, and cartilage may lead to severe destruction, especially of the nose and palate.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by spirochaetes
+               H01531  Bejel
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               1C1F  Endemic non-venereal syphilis
+                H01531  Bejel
+PATHOGEN    Treponema pallidum subsp. endemicum
+DRUG        Penicillin G benzathine [DR:D02157]
+            Penicillin G procaine [DR:D02461]
+COMMENT     See also H01318 Yaws and H01530 Pinta.
+DBLINKS     ICD-11: 1C1F
+            ICD-10: A65
+            MeSH: D014211
+REFERENCE   PMID:10330597
+  AUTHORS   Engelkens HJ, Vuzevski VD, Stolz E
+  TITLE     Nonvenereal treponematoses in tropical countries.
+  JOURNAL   Clin Dermatol 17:143-52; discussion 105-6 (1999)
+            DOI:10.1016/S0738-081X(99)00007-3
+REFERENCE   PMID:2249914
+  AUTHORS   Tabbara KF
+  TITLE     Endemic syphilis (Bejel).
+  JOURNAL   Int Ophthalmol 14:379-81 (1990)
+            DOI:10.1007/BF00163561
+REFERENCE   PMID:11825779 (pathogen)
+  AUTHORS   Antal GM, Lukehart SA, Meheus AZ
+  TITLE     The endemic treponematoses.
+  JOURNAL   Microbes Infect 4:83-94 (2002)
+            DOI:10.1016/S1286-4579(01)01513-1
+///

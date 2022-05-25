@@ -1,0 +1,40 @@
+ENTRY       H00329                      Disease
+NAME        Foodborne Bacillus cereus intoxication
+DESCRIPTION Bacillus cereus is a gram-positive aerobic-to-facultatively anaerobic bacterium that causes gastrointestinal infections. The organism produces an emetic or diarrheal syndrome induced by an emetic toxin and enterotoxin, respectively. The emetic type infections are frequently associated with the consumption of rice-based dishes, while the diarrheal type is transmitted mostly by milk products, vegetables, and meat. B. cereus is also recognized as an infrequent cause of local and systemic nongastrointestinal infections.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H00329  Foodborne Bacillus cereus intoxication
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Gastroenteritis or colitis of infectious origin
+               Bacterial foodborne intoxications
+                1A13  Foodborne Bacillus cereus intoxication
+                 H00329  Foodborne Bacillus cereus intoxication
+PATHOGEN    Bacillus cereus [GN:bcr bcb bcu bcg bcx bnc]
+            Bacillus cytotoxicus [GN:bcy]
+DBLINKS     ICD-11: 1A13
+            ICD-10: A05.4
+            MeSH: D016863
+REFERENCE   PMID:8269390
+  AUTHORS   Drobniewski FA
+  TITLE     Bacillus cereus and related species.
+  JOURNAL   Clin Microbiol Rev 6:324-38 (1993)
+            DOI:10.1128/cmr.6.4.324
+REFERENCE   PMID:20375358
+  AUTHORS   Bottone EJ
+  TITLE     Bacillus cereus, a volatile human pathogen.
+  JOURNAL   Clin Microbiol Rev 23:382-98 (2010)
+            DOI:10.1128/CMR.00073-09
+REFERENCE   PMID:10742691
+  AUTHORS   Kotiranta A, Lounatmaa K, Haapasalo M
+  TITLE     Epidemiology and pathogenesis of Bacillus cereus infections.
+  JOURNAL   Microbes Infect 2:189-98 (2000)
+            DOI:10.1016/S1286-4579(00)00269-0
+REFERENCE   PMID:15771198
+  AUTHORS   Schoeni JL, Wong AC
+  TITLE     Bacillus cereus food poisoning and its toxins.
+  JOURNAL   J Food Prot 68:636-48 (2005)
+            DOI:10.4315/0362-028X-68.3.636
+///

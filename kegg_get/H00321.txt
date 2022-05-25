@@ -1,0 +1,44 @@
+ENTRY       H00321                      Disease
+NAME        Campylobacter infection;
+            Campylobacteriosis
+DESCRIPTION Campylobacter infection is a diarrhoeal disease most commonly caused by Campylobacter jejuni. Campylobacter is a commensal microorganism of the gastrointestinal tract of many wild animals, farm animals, and companion animals, and it is responsible for zoonoses. The transmission occurs via the fecal-oral route through ingestion of contaminated food and water. Serious sequelae of Campylobacter infection are reported, including Guillian-Barre syndrome.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by epsilon proteobacteria
+               H00321  Campylobacter infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Gastroenteritis or colitis of infectious origin
+               Bacterial intestinal infections
+                1A06  Gastroenteritis due to Campylobacter
+                 H00321  Campylobacter infection
+              Other bacterial diseases
+               1C40  Campylobacteriosis
+                H00321  Campylobacter infection
+PATHOGEN    Campylobacter jejuni [GN:cje cjj cju cjn cjm cjy cjr cjd]
+DRUG        Tetracycline hydrochloride [DR:D02122]
+            Doxycycline [DR:D00307]
+            Doxycycline hyclate [DR:D02129]
+            Doxycycline calcium [DR:D03903]
+            Minocycline hydrochloride [DR:D00850]
+            Demeclocycline hydrochloride [DR:D00290]
+COMMENT     Reservoirs: wild birds
+DBLINKS     ICD-11: 1C40 1A06
+            ICD-10: A04.5
+            MeSH: D002169
+REFERENCE   PMID:10081669
+  AUTHORS   Altekruse SF, Stern NJ, Fields PI, Swerdlow DL
+  TITLE     Campylobacter jejuni--an emerging foodborne pathogen.
+  JOURNAL   Emerg Infect Dis 5:28-35 (1999)
+            DOI:10.3201/eid0501.990104
+REFERENCE   PMID:7267960
+  AUTHORS   Schmidt U, Chmel H, Kaminski Z, Sen P
+  TITLE     The clinical spectrum of Campylobacter fetus infections: report of five cases and review of the literature.
+  JOURNAL   Q J Med 49:431-42 (1980)
+REFERENCE   PMID:9310640
+  AUTHORS   Jousimies-Somer H
+  TITLE     Recently described clinically important anaerobic bacteria: taxonomic aspects and update.
+  JOURNAL   Clin Infect Dis 25 Suppl 2:S78-87 (1997)
+            DOI:10.1086/516227
+///

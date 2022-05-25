@@ -1,0 +1,30 @@
+ENTRY       H02379                      Disease
+NAME        Rickettsialpox
+DESCRIPTION Rickettsialpox is an infectious disease caused by Rickettsia akari, an intracellular gram-negative bacteria, and transmitted by the house mouse mite, Liponyssoides sanguineus. It was initially described in 1946 in New York City and has been reported, mostly in urban environments in the United States, South Africa, Korea, and parts of Russia.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by alpha proteobacteria
+               H02379  Rickettsialpox
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               Rickettsioses
+                1C32  Rickettsialpox
+                 H02379  Rickettsialpox
+PATHOGEN    Rickettsia akari [GN:rak]
+DRUG        Doxycycline [DR:D00307]
+            Doxycycline hyclate [DR:D02129]
+DBLINKS     ICD-11: 1C32
+            MeSH: D000073605
+REFERENCE   PMID:8727130
+  AUTHORS   Heymann WR
+  TITLE     Rickettsialpox.
+  JOURNAL   Clin Dermatol 14:279-82 (1996)
+            DOI:10.1016/0738-081x(96)00012-0
+REFERENCE   PMID:15577753
+  AUTHORS   Saini R, Pui JC, Burgin S
+  TITLE     Rickettsialpox: report of three cases and a review.
+  JOURNAL   J Am Acad Dermatol 51:S137-42 (2004)
+            DOI:10.1016/j.jaad.2004.03.036
+///

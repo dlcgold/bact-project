@@ -1,0 +1,28 @@
+ENTRY       H01406                      Disease
+NAME        Streptococcus suis infection
+DESCRIPTION Streptococcus suis, a Gram positive coccus, is a zoonotic pathogen that infects pigs and can occasionally cause serious infections in humans. The first case in humans was reported in Denmark in 1968. Human infection with S. suis occurs sporadically in Europe and North-America and case reports suggest that it is almost exclusively related to occupational exposure to pigs or pork products. Incidences of human infection with S. suis are greater in S.E. Asia and China. Meningitis is the most common presentation in humans, but septicaemia and endocarditis are also seen.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H01406  Streptococcus suis infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Certain staphylococcal or streptococcal diseases
+               1B53  Meningitis due to Streptococcus
+                H01406  Streptococcus suis infection
+PATHOGEN    Streptococcus suis [GN:ssb ssu ssv sss ssw]
+DBLINKS     ICD-11: 1B53
+            ICD-10: G00.2
+            MeSH: D008581
+REFERENCE   PMID:19603075
+  AUTHORS   Holden MT, Hauser H, Sanders M, Ngo TH, Cherevach I, Cronin A, Goodhead I, Mungall K, Quail MA, Price C, Rabbinowitsch E, Sharp S, Croucher NJ, Chieu TB, Mai NT, Diep TS, Chinh NT, Kehoe M, Leigh JA, Ward PN, Dowson CG, Whatmore AM, Chanter N, Iversen P, Gottschalk M, Slater JD, Smith HE, Spratt BG, Xu J, Ye C, Bentley S, Barrell BG, Schultsz C, Maskell DJ, Parkhill J
+  TITLE     Rapid evolution of virulence and drug resistance in the emerging zoonotic pathogen Streptococcus suis.
+  JOURNAL   PLoS One 4:e6072 (2009)
+            DOI:10.1371/journal.pone.0006072
+REFERENCE   PMID:17375201
+  AUTHORS   Chen C, Tang J, Dong W, Wang C, Feng Y, Wang J, Zheng F, Pan X, Liu D, Li M, Song Y, Zhu X, Sun H, Feng T, Guo Z, Ju A, Ge J, Dong Y, Sun W, Jiang Y, Wang J, Yan J, Yang H, Wang X, Gao GF, Yang R, Wang J, Yu J.
+  TITLE     A glimpse of streptococcal toxic shock syndrome from comparative genomics of S. suis 2 Chinese isolates.
+  JOURNAL   PLoS One 2:e315 (2007)
+            DOI:10.1371/journal.pone.0000315
+///

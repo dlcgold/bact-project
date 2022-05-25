@@ -1,0 +1,30 @@
+ENTRY       H00324                      Disease
+NAME        Scrub typhus
+DESCRIPTION Scrub typhus, also known as tsutsugamushi disease, is a zoonosis caused by Orientia tsutsugamushi, an obligate intracellular bacterium that is transmitted by the Leptotrombidium species mite. The disease is confined to East Asia and characterized by fever, rash, eschar, pneumonitis, meningitis, and disseminated intravascular coagulation.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by alpha proteobacteria
+               H00324  Scrub typhus
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               Rickettsioses
+                1C30  Typhus fever
+                 H00324  Scrub typhus
+PATHOGEN    Orientia tsutsugamushi [GN:ots ott] (mite-borne typhus)
+COMMENT     Vector: Leptotrombidium deliense, L. fletcheri and L. arenicola
+DBLINKS     ICD-11: 1C30.3
+            ICD-10: A75.3
+            MeSH: D012612
+REFERENCE   PMID:11226850
+  AUTHORS   Seong SY, Choi MS, Kim IS
+  TITLE     Orientia tsutsugamushi infection: overview and immune responses.
+  JOURNAL   Microbes Infect 3:11-21 (2001)
+            DOI:10.1016/S1286-4579(00)01352-6
+REFERENCE   PMID:21458586
+  AUTHORS   Ge Y, Rikihisa Y
+  TITLE     Subversion of host cell signaling by Orientia tsutsugamushi.
+  JOURNAL   Microbes Infect 13:638-48 (2011)
+            DOI:10.1016/j.micinf.2011.03.003
+///

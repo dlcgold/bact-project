@@ -1,0 +1,38 @@
+ENTRY       H01455                      Disease
+NAME        Necrotizing fasciitis
+  SUPERGRP  Streptococcal infection [DS:H00333]
+DESCRIPTION Necrotizing fasciitis (NF) is a severe life-threatening soft tissue infection characterized by rapidly spreading necrosis of the fascia and the subcutaneous tissue. Although more common in adults, NF also affects the pediatric population. Many bacterial organisms can cause NF, but group A Streptococcus is the most common monomicrobial cause of disease. Other bacterial pathogens that have been implicated in NF include Staphylococcus aureus, Clostridium species, and mixed Gram-negative and anaerobic organisms.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by bacteria
+               H01455  Necrotizing fasciitis
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Pyogenic bacterial infections of the skin or subcutaneous tissues
+               1B71  Necrotising fasciitis
+                H01455  Necrotizing fasciitis
+PATHOGEN    Streptococcus pyogenes [GN:spya sps stg stx]
+            Staphylococcus aureus [GN:saun]
+            Ochrobactrum anthropi
+            Myroides sp.
+DBLINKS     ICD-11: 1B71
+            ICD-10: M72.6
+            MeSH: D019115
+            MedlinePlus: 001443
+REFERENCE   PMID:26548496
+  AUTHORS   Arif N, Yousfi S, Vinnard C
+  TITLE     Deaths from necrotizing fasciitis in the United States, 2003-2013.
+  JOURNAL   Epidemiol Infect 1-7 (2015)
+            DOI:10.1017/S0950268815002745
+REFERENCE   PMID:22158285
+  AUTHORS   Jamal N, Teach SJ
+  TITLE     Necrotizing fasciitis.
+  JOURNAL   Pediatr Emerg Care 27:1195-9; quiz 1200-2 (2011)
+            DOI:10.1097/PEC.0b013e31823b583c
+REFERENCE   PMID:25745004 (pathogen)
+  AUTHORS   Burghartz M, Bunk B, Sproer C, Voget S, Daniel R, Overmann J, Jahn M
+  TITLE     Complete Genome Sequence of the Urethral Catheter Isolate Myroides sp. A21.
+  JOURNAL   Genome Announc 3:e00068-15 (2015)
+            DOI:10.1128/genomeA.00068-15
+///

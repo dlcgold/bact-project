@@ -1,0 +1,32 @@
+ENTRY       H01330                      Disease
+NAME        Brazilian purpuric fever
+DESCRIPTION Brazilian purpuric fever (BPF) is a pediatric disease caused by Haemophilus influenzae biogroup aegyptius (H. aegyptius) and is often fatal. This disease is characterized by purulent conjunctivitis and subsequent acute onset of nausea, vomiting, hemorrhagic skin lesions, fever, prostration, and shock. Vascular destruction is a distinctive trait.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by other gamma proteobacteria
+               H01330  Brazilian purpuric fever
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               1C18  Brazilian purpuric fever
+                H01330  Brazilian purpuric fever
+PATHOGEN    Haemophilus influenzae biogroup aegyptius [GN:hif]
+DBLINKS     ICD-11: 1C18
+            ICD-10: A48.4
+            MeSH: D006192
+REFERENCE   PMID:3262623
+  AUTHORS   Brenner DJ, Mayer LW, Carlone GM, Harrison LH, Bibb WF, Brandileone MC, Sottnek FO, Irino K, Reeves MW, Swenson JM, et al.
+  TITLE     Biochemical, genetic, and epidemiologic characterization of Haemophilus influenzae biogroup aegyptius (Haemophilus aegyptius) strains associated with Brazilian purpuric fever.
+  JOURNAL   J Clin Microbiol 26:1524-34 (1988)
+            DOI:10.1128/JCM.26.8.1524-1534.1988
+REFERENCE   PMID:9727086
+  AUTHORS   Smoot LM, Bell EC, Paz RL, Corbin KA, Hall DD, Steenbergen JN, Harner AC, Actis LA.
+  TITLE     Molecular and genetic analysis of iron uptake proteins in the brazilian purpuric fever clone of Haemophilus influenzae biogroup aegyptius.
+  JOURNAL   Front Biosci 3:D989-96 (1998)
+            DOI:10.2741/a339
+REFERENCE   PMID:21413340
+  AUTHORS   Musher DM
+  TITLE     Haemophilus Species
+  JOURNAL   Medical Microbiology (1996)
+///

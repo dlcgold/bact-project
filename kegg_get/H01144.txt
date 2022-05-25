@@ -1,0 +1,21 @@
+ENTRY       H01144                      Disease
+NAME        Ochrobactrum anthropi infection
+DESCRIPTION Ochrobactrum anthropi is an ubiquitous oxidase-producing gram-negative bacillus. The pathogen is recognized increasingly as a causative agent of central catheter-related infections, causing bloodstream infection in patients on hemodialysis.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by alpha proteobacteria
+               H01144  Ochrobactrum anthropi infection
+PATHOGEN    Ochrobactrum anthropi [GN:oan oah]
+COMMENT     The pathogen usually displays resistance to commonly used broad-spectrum antimicrobial agents, including penicillins and cephalosporins.
+REFERENCE   PMID:12324938
+  AUTHORS   Daxboeck F, Zitta S, Assadian O, Krause R, Wenisch C, Kovarik J
+  TITLE     Ochrobactrum anthropi bloodstream infection complicating hemodialysis.
+  JOURNAL   Am J Kidney Dis 40:E17 (2002)
+            DOI:10.1053/ajkd.2002.35759
+REFERENCE   PMID:22099546
+  AUTHORS   Shrishrimal K
+  TITLE     Recurrent Ochrobactrum anthropi and Shewanella putrefaciens bloodstream infection complicating hemodialysis.
+  JOURNAL   Hemodial Int 16:113-5 (2012)
+            DOI:10.1111/j.1542-4758.2011.00586.x
+///

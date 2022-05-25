@@ -1,0 +1,21 @@
+ENTRY       H01374                      Disease
+NAME        Helicobacter cinaedi infection
+DESCRIPTION Helicobacter cinaedi (previously called Campylobacter cinaedi) causes cellulitis, bacteremia and diarrhea frequently in immunocompromised patients and occasionally in immunocompetent individuals. In addition to these things, Nosocomial H. cinaedi infections have recently been reported.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by epsilon proteobacteria
+               H01374  Helicobacter cinaedi infection
+PATHOGEN    Helicobacter cinaedi [GN:hcp hcb]
+DBLINKS     MeSH: D016481
+REFERENCE   PMID:22740670
+  AUTHORS   Goto T, Ogura Y, Hirakawa H, Tomida J, Morita Y, Akaike T, Hayashi T, Kawamura Y
+  TITLE     Complete genome sequence of Helicobacter cinaedi strain PAGU611, isolated in a case of human bacteremia.
+  JOURNAL   J Bacteriol 194:3744-5 (2012)
+            DOI:10.1128/JB.00645-12
+REFERENCE   PMID:23012276
+  AUTHORS   Miyoshi-Akiyama T, Takeshita N, Ohmagari N, Kirikae T
+  TITLE     Complete genome sequence of Helicobacter cinaedi type strain ATCC BAA-847.
+  JOURNAL   J Bacteriol 194:5692 (2012)
+            DOI:10.1128/JB.01347-12
+///

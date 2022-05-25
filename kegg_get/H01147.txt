@@ -1,0 +1,23 @@
+ENTRY       H01147                      Disease
+NAME        Methylobacterium infection
+DESCRIPTION Methylobacterium species are fastidious, pink-pigmented, gram-negative bacilli that rarely cause human infections. It has been reported to that the bacterium can cause catheter-related infection in both immunocompromised and immunocompetent patients.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by alpha proteobacteria
+               H01147  Methylobacterium infection
+PATHOGEN    Methylobacterium radiotolerans
+            Methylobacterium thiocyanatum
+            Methylobacterium aminovorans
+            Methylobacterium lusitanum
+REFERENCE   PMID:21734032
+  AUTHORS   Lai CC, Cheng A, Liu WL, Tan CK, Huang YT, Chung KP, Lee MR, Hsueh PR
+  TITLE     Infections caused by unusual Methylobacterium species.
+  JOURNAL   J Clin Microbiol 49:3329-31 (2011)
+            DOI:10.1128/JCM.01241-11
+REFERENCE   PMID:1600002
+  AUTHORS   Kaye KM, Macone A, Kazanjian PH
+  TITLE     Catheter infection caused by Methylobacterium in immunocompromised hosts: report of three cases and review of the literature.
+  JOURNAL   Clin Infect Dis 14:1010-4 (1992)
+            DOI:10.1093/clinids/14.5.1010
+///

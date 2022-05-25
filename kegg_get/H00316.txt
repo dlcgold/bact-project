@@ -1,0 +1,37 @@
+ENTRY       H00316                      Disease
+NAME        Glanders
+DESCRIPTION Glanders is an infectious disease of equines that can be transmitted to humans. It is usually an occupational disease, affecting individuals in contact with infected animals such as veterinarians, grooms, and farmers. The causative agent of glanders is Burkholderia mallei, a gram-negative aerobic bacterium. In equines and humans, B. mallei infection can present as either nasal-pulmonary infections (glanders) or cutaneous infections (farcy).
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by beta proteobacteria
+               H00316  Glanders
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Certain zoonotic bacterial diseases
+               1B92  Glanders
+                H00316  Glanders
+PATHOGEN    Burkholderia mallei [GN:bma bmn]
+DBLINKS     ICD-11: 1B92
+            ICD-10: A24.0
+            MeSH: D005896
+REFERENCE   PMID:19585782
+  AUTHORS   Larsen JC, Johnson NH
+  TITLE     Pathogenesis of Burkholderia pseudomallei and Burkholderia mallei.
+  JOURNAL   Mil Med 174:647-51 (2009)
+REFERENCE   PMID:18221181
+  AUTHORS   Gilad J
+  TITLE     Burkholderia mallei and Burkholderia pseudomallei: the causative micro-organisms of glanders and melioidosis.
+  JOURNAL   Recent Pat Antiinfect Drug Discov 2:233-41 (2007)
+            DOI:10.2174/157489107782497335
+REFERENCE   PMID:20528691
+  AUTHORS   Galyov EE, Brett PJ, DeShazer D
+  TITLE     Molecular insights into Burkholderia pseudomallei and Burkholderia mallei pathogenesis.
+  JOURNAL   Annu Rev Microbiol 64:495-517 (2010)
+            DOI:10.1146/annurev.micro.112408.134030
+REFERENCE   PMID:22398248
+  AUTHORS   Waag DM, England MJ, DeShazer D
+  TITLE     Humoral immune responses in a human case of glanders.
+  JOURNAL   Clin Vaccine Immunol 19:814-6 (2012)
+            DOI:10.1128/CVI.05567-11
+///

@@ -1,0 +1,24 @@
+ENTRY       H01409                      Disease
+NAME        Methicillin-sensitive Staphylococcus aureus (MSSA) infection
+DESCRIPTION Staphylococcus aureus is a Gram-positive human commensal bacterium persistently colonizing the anterior nares of about 30% of the human population. Methicillin-resistant S. aureus (MRSA) is known to have evolved from methicillin-susceptible S. aureus (MSSA) after acquiring the staphylococcal cassette chromosome mec (SCCmec) element which includes the mecA gene coding for resistance to the antibiotic methicillin. A highly cytotoxic and clinically virulent methicillin-sensitive strain, S. aureus strain 6850 is a well-characterized prototype strain isolated from a patient with a skin abscess which had progressed to S. aureus bacteremia, osteomyelitis, septic arthritis, and multiple systemic abscesses.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H01409  Methicillin-sensitive Staphylococcus aureus (MSSA) infection
+PATHWAY     hsa05150  Staphylococcus aureus infection
+PATHOGEN    Staphylococcus aureus [GN:sas suc sud saue]
+DRUG        Quinupristin and dalfopristin [DR:D00854]
+DBLINKS     ICD-10: B95
+            MeSH: D013203
+REFERENCE   PMID:24072870
+  AUTHORS   Fraunholz M, Bernhardt J, Schuldes J, Daniel R, Hecker M, Sinha B
+  TITLE     Complete Genome Sequence of Staphylococcus aureus 6850, a Highly Cytotoxic and Clinically Virulent Methicillin-Sensitive Strain with Distant Relatedness to Prototype Strains.
+  JOURNAL   Genome Announc 1:e00775-13 (2013)
+            DOI:10.1128/genomeA.00775-13
+REFERENCE   PMID:23183202
+  AUTHORS   Lim KT, Yeo CC, Suhaili Z, Thong KL
+  TITLE     Comparison of methicillin-resistant and methicillin-sensitive Staphylococcus aureus strains isolated from a tertiary hospital in Terengganu, Malaysia.
+  JOURNAL   Jpn J Infect Dis 65:502-9 (2012)
+            DOI:10.7883/yoken.65.502
+///

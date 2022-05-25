@@ -1,0 +1,26 @@
+ENTRY       H01083                      Disease
+NAME        Bordetella bronchiseptica infection
+DESCRIPTION Bordetella bronchiseptica is a common pathogen among dogs and pigs, but has rarely been implicated in human infections. Human infections caused by B. bronchiseptica occur mostly in immunocompromised patients and often present as pneumonia.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by beta proteobacteria
+               H01083  Bordetella bronchiseptica infection
+PATHOGEN    Bordetella bronchiseptica [GN:bbr]
+DBLINKS     MeSH: D001885
+REFERENCE   PMID:2373090
+  AUTHORS   Meis JF, van Griethuijsen AJ, Muytjens HL
+  TITLE     Bordetella bronchiseptica bronchitis in an immunosuppressed patient.
+  JOURNAL   Eur J Clin Microbiol Infect Dis 9:366-7 (1990)
+            DOI:10.1007/BF01973748
+REFERENCE   PMID:3571462
+  AUTHORS   Papasian CJ, Downs NJ, Talley RL, Romberger DJ, Hodges GR
+  TITLE     Bordetella bronchiseptica bronchitis.
+  JOURNAL   J Clin Microbiol 25:575-7 (1987)
+            DOI:10.1128/JCM.25.3.575-577.1987
+REFERENCE   PMID:11168091
+  AUTHORS   Petrocheilou-Paschou V, Georgilis K, Kostis E, Prifti H, Zakopoulos N, Stamatelopoulos S
+  TITLE     Bronchitis caused by Bordetella bronchiseptica in an elderly woman.
+  JOURNAL   Clin Microbiol Infect 6:147-8 (2000)
+            DOI:10.1046/j.1469-0691.2000.00034-1.x
+///

@@ -1,0 +1,27 @@
+ENTRY       H01515                      Disease
+NAME        Scarlet fever;
+            Scarlatina
+  SUPERGRP  Streptococcal infection [DS:H00333]
+DESCRIPTION Scarlet fever, also called scarlatina, is caused by Streptococcus pyogenes (GroupA Streptococcus, GAS). The important diagnostic signs of scarlet fever include fever, sore throat, rash and bright red tongue with a "strawberry" appearance. Scarlet fever can affect people of all ages, but it is usually attacking children under 10.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H01515  Scarlet fever
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Certain staphylococcal or streptococcal diseases
+               1B50  Scarlet fever
+                H01515  Scarlet fever
+PATHOGEN    Streptococcus pyogenes
+DRUG        Penicillin G procaine [DR:D02461]
+DBLINKS     ICD-11: 1B50
+            ICD-10: A38
+            MeSH: D012541
+            MedlinePlus: 000974
+REFERENCE   PMID:24331532
+  AUTHORS   You YH, Song YY, Yan XM, Wang HB, Zhang MH, Tao XX, Li LL, Zhang YX, Jiang XH, Zhang BH, Zhou H, Xiao D, Jin LM, Feng ZJ, Luo FJ, Zhang JZ
+  TITLE     Molecular epidemiological characteristics of Streptococcus pyogenes strains involved in an outbreak of scarlet fever in China, 2011.
+  JOURNAL   Biomed Environ Sci 26:877-85 (2013)
+            DOI:10.3967/bes2013.016
+///

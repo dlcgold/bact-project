@@ -1,0 +1,49 @@
+ENTRY       H00345                      Disease
+NAME        Nocardiosis
+DESCRIPTION Nocardiosis is an uncommon gram-positive bacterial infection that affects mainly patients with deficient cell-mediated immunity. It has been reported worldwide in all ages and ethnic groups. Pulmonary disease is the most common clinical presentation especially in immunocompromised patients. Nocardiosis also occurs in disseminated form, affecting lungs, central nervous system, skin, and the soft tissues.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by actinobacteria
+               H00345  Nocardiosis
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               1C1B  Nocardiosis
+                H00345  Nocardiosis
+PATHOGEN    Nocardia farcinica [GN:nfa]
+            Nocardia brasiliensis
+            Nocardia asteroides sensu stricto
+            Nocardia nova
+            Nocardia cyriacigeorgica [GN:ncy]
+DRUG        Sulfadiazine [DR:D00587]
+DBLINKS     ICD-11: 1C1B
+            ICD-10: A43
+            MeSH: D009617
+            MedlinePlus: 000679
+REFERENCE   PMID:20306281
+  AUTHORS   Ambrosioni J, Lew D, Garbino J
+  TITLE     Nocardiosis: updated clinical review and experience at a tertiary center.
+  JOURNAL   Infection 38:89-97 (2010)
+            DOI:10.1007/s15010-009-9193-9
+REFERENCE   PMID:20463251
+  AUTHORS   Sullivan DC, Chapman SW
+  TITLE     Bacteria that masquerade as fungi: actinomycosis/nocardia.
+  JOURNAL   Proc Am Thorac Soc 7:216-21 (2010)
+            DOI:10.1513/pats.200907-077AL
+REFERENCE   PMID:16614249
+  AUTHORS   Brown-Elliott BA, Brown JM, Conville PS, Wallace RJ Jr
+  TITLE     Clinical and laboratory features of the Nocardia spp. based on current molecular taxonomy.
+  JOURNAL   Clin Microbiol Rev 19:259-82 (2006)
+            DOI:10.1128/CMR.19.2.259-282.2006
+REFERENCE   PMID:18427245
+  AUTHORS   Martinez R, Reyes S, Menendez R
+  TITLE     Pulmonary nocardiosis: risk factors, clinical features, diagnosis and prognosis.
+  JOURNAL   Curr Opin Pulm Med 14:219-27 (2008)
+            DOI:10.1097/MCP.0b013e3282f85dd3
+REFERENCE   PMID:19387343
+  AUTHORS   Lalitha P
+  TITLE     Nocardia keratitis.
+  JOURNAL   Curr Opin Ophthalmol 20:318-23 (2009)
+            DOI:10.1097/ICU.0b013e32832c3bcc
+///

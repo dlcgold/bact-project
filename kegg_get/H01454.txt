@@ -1,0 +1,28 @@
+ENTRY       H01454                      Disease
+NAME        Colonic spirochetosis
+DESCRIPTION Colonic spirochetosis (CS) is a disease caused by the Brachyspira genus, Brachyspira aalborgi and Brachyspira pilosicoli. B. pilosicoli induces disease in both humans and animals, whereas B. aalborgi affects only humans and higher primates. CS is a polymicrobial disease characterized by persistent intimate mucosal epithelial cell attachment of spirochetes alone or together with certain enterohepatic Helicobacter species. Symptoms in humans include diarrhea, rectal bleeding, and abdominal cramps.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by spirochaetes
+               H01454  Colonic spirochetosis
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Gastroenteritis or colitis of infectious origin
+               Bacterial intestinal infections
+                1A0Y  Other specified bacterial intestinal infections
+                 H01454  Colonic spirochetosis
+PATHOGEN    Brachyspira pilosicoli
+DBLINKS     ICD-11: 1A0Y
+            ICD-10: A04.9 A69.9
+REFERENCE   PMID:16013401
+  AUTHORS   Smith JL
+  TITLE     Colonic spirochetosis in animals and humans.
+  JOURNAL   J Food Prot 68:1525-34 (2005)
+            DOI:10.4315/0362-028X-68.7.1525
+REFERENCE   PMID:23469345 (pathogen)
+  AUTHORS   Lin C, den Bakker HC, Suzuki H, Lefebure T, Ponnala L, Sun Q, Stanhope MJ, Wiedmann M, Duhamel GE
+  TITLE     Complete Genome Sequence of the Porcine Strain Brachyspira pilosicoli P43/6/78(T.).
+  JOURNAL   Genome Announc 1:e00215-12 (2013)
+            DOI:10.1128/genomeA.00215-12
+///

@@ -1,0 +1,24 @@
+ENTRY       H01397                      Disease
+NAME        Tick-borne lymphadenopathy;
+            Tick-borne lymphadenitis
+DESCRIPTION Rickettsia species are arthropod-associated intracellular bacteria and cause diseases in human such as Tick-borne lymphadenopathy, Typhus fever and Spotted fever. Rickettsia slovaca has been isolated from Dermacentor ticks and is the main agent of tick-borne lymphadenopathy (TIBOLA), which is found only in Europe. Its symptoms are generally mild and can be characterized by inoculation eschar on the scalp and cervical lymphadenopathies after a tick bite. Moreover, most of the cases occur during European cool months related to the activity of Dermacentor ticks.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by alpha proteobacteria
+               H01397  Tick-borne lymphadenopathy
+PATHOGEN    Rickettsia slovaca [GN:rsv]
+COMMENT     Intermediate host: Dermacentor marginatus and Dermacentor reticulatus
+DBLINKS     ICD-10: R59 L04 I88
+            MeSH: D008199 D008206
+REFERENCE   PMID:22374949
+  AUTHORS   Fournier PE, El Karkouri K, Robert C, Medigue C, Raoult D
+  TITLE     Complete genome sequence of Rickettsia slovaca, the agent of tick-borne lymphadenitis.
+  JOURNAL   J Bacteriol 194:1612 (2012)
+            DOI:10.1128/JB.06625-11
+REFERENCE   PMID:19547738
+  AUTHORS   Dobler G, Wolfel R
+  TITLE     Typhus and other rickettsioses: emerging infections in Germany.
+  JOURNAL   Dtsch Arztebl Int 106:348-54 (2009)
+            DOI:10.3238/arztebl.2009.0348
+///

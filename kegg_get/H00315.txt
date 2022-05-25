@@ -1,0 +1,45 @@
+ENTRY       H00315                      Disease
+NAME        Gonococcal infection;
+            Gonorrhea
+DESCRIPTION Gonorrhea is an ancient disease caused by the strict human pathogen Neisseria gonorrhoeae. It remains a major public health concern and multidrug-resistant forms of gonorrhea have been discovered.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by beta proteobacteria
+               H00315  Gonococcal infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Predominantly sexually transmitted infections
+               Gonococcal infection
+                1A70  Gonococcal genitourinary infection
+                 H00315  Gonococcal infection
+                1A71  Gonococcal pelviperitonitis
+                 H00315  Gonococcal infection
+                1A72  Gonococcal infection of other sites
+                 H00315  Gonococcal infection
+PATHOGEN    Neisseria gonorrhoeae [GN:ngo ngk]
+DRUG        Doxycycline [DR:D00307]
+            Doxycycline hyclate [DR:D02129]
+            Doxycycline calcium [DR:D03903]
+            Erythromycin lactobionate [DR:D02009]
+            Ampicillin hydrate [DR:D01251]
+            Amoxicillin [DR:D00229]
+            Penicillin G potassium [DR:D01053]
+            Cefuroxime axetil [DR:D00914]
+            Cefuroxime sodium [DR:D00915]
+            Cefixime [DR:D07640]
+            Ciprofloxacin hydrochloride [DR:D02216]
+DBLINKS     ICD-11: 1A70 1A71 1A72
+            ICD-10: A54
+            MeSH: D006069
+            MedlinePlus: 007267
+REFERENCE   PMID:22163356 (drug)
+  AUTHORS   Campos-Outcalt D
+  TITLE     CDC update on gonorrhea: expand treatment to limit resistance.
+  JOURNAL   J Fam Pract 60:736-40 (2011)
+REFERENCE   PMID:22239555
+  AUTHORS   Unemo M, Shafer WM
+  TITLE     Antibiotic resistance in Neisseria gonorrhoeae: origin, evolution, and lessons learned for the future.
+  JOURNAL   Ann N Y Acad Sci 1230:E19-28 (2011)
+            DOI:10.1111/j.1749-6632.2011.06215.x
+///

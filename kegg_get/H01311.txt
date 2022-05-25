@@ -1,0 +1,28 @@
+ENTRY       H01311                      Disease
+NAME        Enteroinvasive Escherichia coli (EIEC) infection
+DESCRIPTION Enteroinvasive Escherichia coli (EIEC) infection is common in developing countries and comparatively rare in developed countries. EIEC invades intestinal epithelial cells, causing necrosis, ulceration of the mucous membrane, resulting in a dysentery-like syndrome with fever and mucous-bloody stools. EIEC strains contain a large invasion-associated plasmid, which are nearly identical to those of Shigella species.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by enterobacteria
+               H01311  Enteroinvasive Escherichia coli (EIEC) infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Gastroenteritis or colitis of infectious origin
+               Bacterial intestinal infections
+                1A03  Intestinal infections due to Escherichia coli
+                 H01311  Enteroinvasive Escherichia coli (EIEC) infection
+PATHOGEN    Escherichia coli (EIEC)
+DBLINKS     ICD-11: 1A03.2
+            ICD-10: A04.2
+REFERENCE   PMID:16182469
+  AUTHORS   Parsot C
+  TITLE     Shigella spp. and enteroinvasive Escherichia coli pathogenicity factors.
+  JOURNAL   FEMS Microbiol Lett 252:11-8 (2005)
+            DOI:10.1016/j.femsle.2005.08.046
+REFERENCE   PMID:21901636
+  AUTHORS   van den Beld MJ, Reubsaet FA
+  TITLE     Differentiation between Shigella, enteroinvasive Escherichia coli (EIEC) and noninvasive Escherichia coli.
+  JOURNAL   Eur J Clin Microbiol Infect Dis 31:899-904 (2012)
+            DOI:10.1007/s10096-011-1395-7
+///

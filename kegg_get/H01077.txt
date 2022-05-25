@@ -1,0 +1,26 @@
+ENTRY       H01077                      Disease
+NAME        Bordetella hinzii infection
+DESCRIPTION Bordetella hinzii is a recently added species to the genus Bordetella that is isolated from poultry with respiratory disease. B. hinzii is a potential human pathogen in immunocompromised patients or patients with underlying disease.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by beta proteobacteria
+               H01077  Bordetella hinzii infection
+PATHOGEN    Bordetella hinzii [GN:bhz]
+DBLINKS     MeSH: D001885
+REFERENCE   PMID:7814500
+  AUTHORS   Cookson BT, Vandamme P, Carlson LC, Larson AM, Sheffield JV, Kersters K, Spach DH
+  TITLE     Bacteremia caused by a novel Bordetella species, "B. hinzii".
+  JOURNAL   J Clin Microbiol 32:2569-71 (1994)
+            DOI:10.1128/JCM.32.10.2569-2571.1994
+REFERENCE   PMID:8815118
+  AUTHORS   Funke G, Hess T, von Graevenitz A, Vandamme P
+  TITLE     Characteristics of Bordetella hinzii strains isolated from a cystic fibrosis patient over a 3-year period.
+  JOURNAL   J Clin Microbiol 34:966-9 (1996)
+            DOI:10.1128/JCM.34.4.966-969.1996
+REFERENCE   PMID:7857806
+  AUTHORS   Vandamme P, Hommez J, Vancanneyt M, Monsieurs M, Hoste B, Cookson B, Wirsing von Konig CH, Kersters K, Blackall PJ
+  TITLE     Bordetella hinzii sp. nov., isolated from poultry and humans.
+  JOURNAL   Int J Syst Bacteriol 45:37-45 (1995)
+            DOI:10.1099/00207713-45-1-37
+///

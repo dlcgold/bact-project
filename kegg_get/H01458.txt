@@ -1,0 +1,53 @@
+ENTRY       H01458                      Disease
+NAME        Nontuberculous mycobacterial infection
+  SUBGROUP  Mycobacterium avium complex (MAC) pulmonary disease [DS:H02029]
+            Rapidly growing mycobacteria infection [DS:H01462]
+            Buruli ulcer [DS:H01042]
+DESCRIPTION Mycobacteria species other than the obligate pathogens Mycobacterium tuberculosis complex and Mycobacterium leprae are known as nontuberculous mycobacteria (NTM) or atypical mycobacteria. NTM are normal inhabitants of soil and treated water. Although generally of low pathogenicity to humans, NTM can cause a wide range of clinical diseases, for instance, pulmonary disease is most frequent, followed by lymphadenitis in children, skin disease and other extrapulmonary or disseminated infections in the severely immunocompromised.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by actinobacteria
+               H01458  Nontuberculous mycobacterial infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Mycobacterial diseases
+               1B21  Infections due to non-tuberculous mycobacteria
+                H01458  Nontuberculous mycobacterial infection
+PATHOGEN    Mycobacterium avium
+            Mycobacterium intracellulare [GN:mit mia mir]
+            Mycobacterium chimaera [GN:mchi]
+            Mycobacterium marinum [GN:mmi]
+            Mycobacterium sp. MOTT36Y [GN:mmm]
+            Mycobacterium haemophilum [GN:mhad]
+            Mycobacterium shigaense [GN:mshg]
+            Mycobacterium florentinum [GN:mfj]
+            Mycobacterium stomatepiae [GN:msto]
+            Mycobacterium noviomagense [GN:mnv]
+            Mycobacterium seoulense [GN:mseo]
+            Mycobacterium heckeshornense [GN:mhek]
+            Mycobacterium gallinarum [GN:mgau]
+            Mycobacterium doricum [GN:mdr]
+            Mycobacterium abscessus [GN:mab mmv mabb mabl]
+            Mycobacterium chelonae [GN:mche]
+            Mycobacterium sp. JDM601 [GN:mjd]
+            Mycolicibacterium aichiense [GN:maic]
+            Mycolicibacterium insubricum [GN:mij]
+            Mycolicibacterium alvei [GN:malv]
+            Mycolicibacterium aubagnense [GN:maub]
+            Mycolicibacterium phocaicum [GN:mphu]
+DRUG        Azithromycin hydrate [DR:D02134]
+DBLINKS     ICD-11: 1B21
+            ICD-10: A31.9
+            MeSH: D009165
+REFERENCE   PMID:23460010
+  AUTHORS   van Ingen J
+  TITLE     Diagnosis of nontuberculous mycobacterial infections.
+  JOURNAL   Semin Respir Crit Care Med 34:103-9 (2013)
+            DOI:10.1055/s-0033-1333569
+REFERENCE   PMID:26143432
+  AUTHORS   Gonzalez-Santiago TM, Drage LA
+  TITLE     Nontuberculous Mycobacteria: Skin and Soft Tissue Infections.
+  JOURNAL   Dermatol Clin 33:563-77 (2015)
+            DOI:10.1016/j.det.2015.03.017
+///

@@ -1,0 +1,32 @@
+ENTRY       H01410                      Disease
+NAME        Anaerobic infection
+  SUBGROUP  Foodborne Clostridium perfringens intoxication [DS:H00335]
+            Gas gangrene [DS:H00336]
+            Botulism [DS:H00339]
+            Tetanus [DS:H00337]
+            Pseudomembranous colitis [DS:H00338]
+            Propionibacterium acnes infection [DS:H01446]
+            Acne vulgaris [DS:H01445]
+            Periodontal diseases [DS:H01408]
+            Acute necrotizing ulcerative gingivitis [DS:H01440]
+            Bacteroides infection [DS:H02076]
+DESCRIPTION Anaerobic infections are common and some are serious with a high mortality rate. The clinically important anaerobes are several genera of Gram-negative rods (Bacteroides, Prevotella, Porphyromonas, Fusobacterium and Bilophila). Among the Gram-positive anaerobes, there are cocci (primarily Peptostreptococcus) and sporeforming (Clostridium) and non-sporeforming bacilli (especially Actinomyces and Propionibacterium). In terms of frequency, there are four major sites of anaerobic infection - pleuropulmonary, intra-abdominal, female genital tract, and skin and soft tissue infections (with or without involvement of underlying bone). Infectious diseases caused by these anaerobes include following symptoms, bacteremia, brain abscess, neck space infections and infections following head and neck surgery, chronic sinusitis and otitis media, dental and oral infections, pleuropulmonary infections, intra-abdominal infections, female genital tract infections, non-puerperal breast abscesses and diabetic foot ulcers.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by bacteria
+               H01410  Anaerobic infection
+DRUG        Metronidazole [DR:D00409]
+COMMENT     Infectious disease caused by Bacteroides spp., Prevotella spp., Porphyromonas spp., Porphyromonas spp., Fusobacterium spp., Peptostreptococcus spp., Clostridium spp., Bilophila spp. and Actinomyces spp..
+DBLINKS     ICD-10: A49 B96
+REFERENCE   PMID:16887500
+  AUTHORS   Finegold SM
+  TITLE     Anaerobic infections in humans: an overview.
+  JOURNAL   Anaerobe 1:3-9 (1995)
+            DOI:10.1016/S1075-9964(95)80340-8
+REFERENCE   PMID:18263572
+  AUTHORS   Goto T, Yamashita A, Hirakawa H, Matsutani M, Todo K, Ohshima K, Toh H, Miyamoto K, Kuhara S, Hattori M, Shimizu T, Akimoto S.
+  TITLE     Complete genome sequence of Finegoldia magna, an anaerobic opportunistic pathogen.
+  JOURNAL   DNA Res 15:39-47 (2008)
+            DOI:10.1093/dnares/dsm030
+///

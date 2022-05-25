@@ -1,0 +1,35 @@
+ENTRY       H00298                      Disease
+NAME        Yersiniosis
+DESCRIPTION Yersiniosis (non-plague) is an infectious disease caused by two species, Yersinia enterocolitica and Y. pseudotuberculosis, which is zoonotic, capable of being transmitted from infected animals to man. Routes of transmission include fecal-oral spread via ingestion of contaminated food as the most common route and consumption of contaminated water supplies. Yersiniosis occurs more commonly in regions with temperate rather than tropical or subtropical climates.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by enterobacteria
+               H00298  Yersiniosis
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Gastroenteritis or colitis of infectious origin
+               Bacterial intestinal infections
+                1A05  Intestinal infections due to Yersinia enterocolitica
+                 H00298  Yersiniosis
+              Certain zoonotic bacterial diseases
+               1B9A  Extraintestinal yersiniosis
+                H00298  Yersiniosis
+PATHWAY     hsa05135  Yersinia infection
+PATHOGEN    Yersinia pseudotuberculosis [GN:yps ypi ypq]
+            Yersinia enterocolitica [GN:yen yep yey yef]
+            superantigen [KO:K11010]
+DBLINKS     ICD-11: 1A05 1B9A
+            ICD-10: A04.6 A28.2
+            MeSH: D015009
+REFERENCE   PMID:10192708
+  AUTHORS   Smego RA, Frean J, Koornhof HJ
+  TITLE     Yersiniosis I: microbiological and clinicoepidemiological aspects of plague and non-plague Yersinia infections.
+  JOURNAL   Eur J Clin Microbiol Infect Dis 18:1-15 (1999)
+            DOI:10.1007/s100960050219
+REFERENCE   PMID:15721832
+  AUTHORS   Pujol C, Bliska JB
+  TITLE     Turning Yersinia pathogenesis outside in: subversion of macrophage function by intracellular yersiniae.
+  JOURNAL   Clin Immunol 114:216-26 (2005)
+            DOI:10.1016/j.clim.2004.07.013
+///

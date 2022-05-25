@@ -1,0 +1,55 @@
+ENTRY       H00323                      Disease
+NAME        Spotted fever;
+            Tick-borne rickettsioses
+DESCRIPTION Tick-borne rickettsioses are caused by gram-negative obligate intracellular bacteria belonging to the spotted fever group (SFG) of the genus Rickettsia within the family Rickettsiaceae in the order Rickettsiales. The diseases present with high fever, an inoculation eschar, and a maculopapular rash.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by alpha proteobacteria
+               H00323  Spotted fever
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               Rickettsioses
+                1C31  Spotted fever
+                 H00323  Spotted fever
+PATHOGEN    Rickettsia rickettsii [GN:rri] (Rocky Mountain spotted fever)
+            Rickettsia conorii [GN:rco] (African tick typhus / Boutonneuse fever)
+            Rickettsia felis [GN:rfe] (flea-borne spotted fever)
+            Rickettsia sibirica (North Asian tick fever / Siberian tick typhus)
+            Rickettsia massiliae [GN:rms]
+            Rickettsia africae [GN:raf]
+            Rickettsia japonica [GN:rja] (Japanese spotted fever)
+            Rickettsia heilongjiangensis [GN:rhe] (Far-Eastern spotted fever)
+DRUG        Tetracycline hydrochloride [DR:D02122]
+            Doxycycline [DR:D00307]
+            Doxycycline hyclate [DR:D02129]
+            Doxycycline calcium [DR:D03903]
+            Minocycline hydrochloride [DR:D00850]
+            Demeclocycline hydrochloride [DR:D00290]
+COMMENT     Vectors: Rhipicephalus sanguineus (brown dog tick) for Rickettsia conorii
+DBLINKS     ICD-11: 1C31
+            ICD-10: A77
+            MeSH: D012373 D001907
+            MedlinePlus: 000654
+REFERENCE   PMID:16223955
+  AUTHORS   Parola P, Paddock CD, Raoult D
+  TITLE     Tick-borne rickettsioses around the world: emerging diseases challenging old concepts.
+  JOURNAL   Clin Microbiol Rev 18:719-56 (2005)
+            DOI:10.1128/CMR.18.4.719-756.2005
+REFERENCE   PMID:19358804
+  AUTHORS   Socolovschi C, Mediannikov O, Raoult D, Parola P
+  TITLE     The relationship between spotted fever group Rickettsiae and ixodid ticks.
+  JOURNAL   Vet Res 40:34 (2009)
+            DOI:10.1051/vetres/2009017
+REFERENCE   PMID:15225980
+  AUTHORS   Parola P
+  TITLE     Tick-borne rickettsial diseases: emerging risks in Europe.
+  JOURNAL   Comp Immunol Microbiol Infect Dis 27:297-304 (2004)
+            DOI:10.1016/j.cimid.2004.03.006
+REFERENCE   PMID:18755389
+  AUTHORS   Cazorla C, Socolovschi C, Jensenius M, Parola P
+  TITLE     Tick-borne diseases: tick-borne spotted fever rickettsioses in Africa.
+  JOURNAL   Infect Dis Clin North Am 22:531-44, ix-x (2008)
+            DOI:10.1016/j.idc.2008.03.009
+///

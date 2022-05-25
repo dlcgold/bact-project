@@ -1,0 +1,34 @@
+ENTRY       H01422                      Disease
+NAME        Carbapenem-resistant bacterial infection
+  SUBGROUP  Carbapenem-resistant Enterobacteriaceae (CRE) infection
+            Carbapenem-resistant Pseudomonas aeruginosa infection
+            Carbapenem-resistant Acinetobacter baumannii infection
+DESCRIPTION Carbapenems [DG:DG01458] are a class of beta-lactam antibiotics often used as the last resort treatment for severe bacterial infections. Thus, the appearance of carbapenem resistance caused by acquisition of carbapenem-hydrolyzing beta-lactamases (carbapenemases), especially among Enterobacteriaceae, Pseudomonas and Acinetobacter, is considered as a global health threat.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by bacteria
+               H01422  Carbapenem-resistant bacterial infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             21 Symptoms, signs or clinical findings, not elsewhere classified
+              General symptoms, signs or clinical findings
+               Finding of microorganism resistant to antimicrobial drugs
+                MG50  Finding of gram negative bacteria resistant to antimicrobial drugs
+                 H01422  Carbapenem-resistant bacterial infection
+PATHOGEN    Enterobacteriaceae
+            Pseudomonas
+            Acinetobacter
+  MODULE    M00851  Carbapenem resistance
+DBLINKS     ICD-11: MG50.02 MG50.24 MG50.92 MG50.A0 MG50.C0
+            ICD-10: U82.8
+REFERENCE   PMID:24360201
+  AUTHORS   Nordmann P
+  TITLE     Carbapenemase-producing Enterobacteriaceae: overview of a major public health challenge.
+  JOURNAL   Med Mal Infect 44:51-6 (2014)
+            DOI:10.1016/j.medmal.2013.11.007
+REFERENCE   PMID:21859938
+  AUTHORS   Papp-Wallace KM, Endimiani A, Taracila MA, Bonomo RA
+  TITLE     Carbapenems: past, present, and future.
+  JOURNAL   Antimicrob Agents Chemother 55:4943-60 (2011)
+            DOI:10.1128/AAC.00296-11
+///

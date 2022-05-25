@@ -1,0 +1,32 @@
+ENTRY       H00280                      Disease
+NAME        Enterotoxigenic Escherichia coli (ETEC) infection
+DESCRIPTION Enterotoxigenic Escherichia coli (ETEC) infection is one of the main causes of infantile diarrhea in developing countries and an important etiologic agent for traveler's diarrhea. ETEC strains colonize the small intestine, secrete heat-labile (cholera toxin-like) and heat-stable enterotoxins, and cause watery diarrhea.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by enterobacteria
+               H00280  Enterotoxigenic Escherichia coli (ETEC) infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Gastroenteritis or colitis of infectious origin
+               Bacterial intestinal infections
+                1A03  Intestinal infections due to Escherichia coli
+                 H00280  Enterotoxigenic Escherichia coli (ETEC) infection
+PATHOGEN    Escherichia coli O78:H11 [GN:elh]
+            Escherichia coli O139:H28 [GN:ecw]
+  MODULE    M00853  ETEC pathogenicity signature, colonization factors
+            M00576  ETEC pathogenicity signature, heat-labile and heat-stable enterotoxins
+DBLINKS     ICD-11: 1A03.1
+            ICD-10: A04.1
+            MeSH: D004927
+REFERENCE   PMID:16020685
+  AUTHORS   Qadri F, Svennerholm AM, Faruque AS, Sack RB
+  TITLE     Enterotoxigenic Escherichia coli in developing countries: epidemiology, microbiology, clinical features, treatment, and prevention.
+  JOURNAL   Clin Microbiol Rev 18:465-83 (2005)
+            DOI:10.1128/CMR.18.3.465-483.2005
+REFERENCE   PMID:16958845
+  AUTHORS   Turner SM, Scott-Tucker A, Cooper LM, Henderson IR
+  TITLE     Weapons of mass destruction: virulence factors of the global killer enterotoxigenic Escherichia coli.
+  JOURNAL   FEMS Microbiol Lett 263:10-20 (2006)
+            DOI:10.1111/j.1574-6968.2006.00401.x
+///

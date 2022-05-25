@@ -1,0 +1,25 @@
+ENTRY       H01399                      Disease
+NAME        Bacillus thuringiensis infection
+DESCRIPTION Bacillus thuringiensis is a close taxonomic relative of Bacillus cereus and an insect pathogen that is widely used as a biopesticide. Additionally, this bacterium is known to induce myonecrosis in immunosuppressed mice after cutaneous infection. Human infection is unusual, and apart from gastrointestinal tract infections or those following laboratory contamination, there are only two clinical reports of B. thuringiensis infection. Both the cases were isolated from severe human tissue necrosis by burn wounds or severe war wounds.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H01399  Bacillus thuringiensis infection
+PATHOGEN    Bacillus thuringiensis [GN:btk]
+REFERENCE   PMID:9215586
+  AUTHORS   Damgaard PH, Granum PE, Bresciani J, Torregrossa MV, Eilenberg J, Valentino L
+  TITLE     Characterization of Bacillus thuringiensis isolated from infections in burn wounds.
+  JOURNAL   FEMS Immunol Med Microbiol 18:47-53 (1997)
+            DOI:10.1111/j.1574-695X.1997.tb01026.x
+REFERENCE   PMID:10340711
+  AUTHORS   Hernandez E, Ramisse F, Cruel T, le Vagueresse R, Cavallo JD
+  TITLE     Bacillus thuringiensis serotype H34 isolated from human and insecticidal strains serotypes 3a3b and H14 can lead to death of immunocompetent mice after pulmonary infection.
+  JOURNAL   FEMS Immunol Med Microbiol 24:43-7 (1999)
+            DOI:10.1111/j.1574-695X.1999.tb01263.x
+REFERENCE   PMID:9650985
+  AUTHORS   Hernandez E, Ramisse F, Ducoureau JP, Cruel T, Cavallo JD
+  TITLE     Bacillus thuringiensis subsp. konkukian (serotype H34) superinfection: case report and experimental evidence of pathogenicity in immunosuppressed mice.
+  JOURNAL   J Clin Microbiol 36:2138-9 (1998)
+            DOI:10.1128/JCM.36.7.2138-2139.1998
+///

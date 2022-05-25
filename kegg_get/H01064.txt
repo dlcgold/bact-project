@@ -1,0 +1,20 @@
+ENTRY       H01064                      Disease
+NAME        Simkania negevensis infection
+DESCRIPTION Simkania negevensis is a recently found Chlamydia-like organism. It is associated with respiratory diseases such as pneumonia in adults and bronchiolitis in infants.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by chlamydia
+               H01064  Simkania negevensis infection
+PATHOGEN    Simkania negevensis [GN:sng]
+REFERENCE   PMID:17852931 (description, env_factor)
+  AUTHORS   Heiskanen-Kosma T, Paldanius M, Korppi M
+  TITLE     Simkania negevensis may be a true cause of community acquired pneumonia in children.
+  JOURNAL   Scand J Infect Dis 40:127-30 (2008)
+            DOI:10.1080/00365540701558680
+REFERENCE   PMID:12941393 (description, env_factor)
+  AUTHORS   Friedman MG, Dvoskin B, Kahane S
+  TITLE     Infections with the chlamydia-like microorganism Simkania negevensis, a possible emerging pathogen.
+  JOURNAL   Microbes Infect 5:1013-21 (2003)
+            DOI:10.1016/S1286-4579(03)00188-6
+///

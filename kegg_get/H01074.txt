@@ -1,0 +1,33 @@
+ENTRY       H01074                      Disease
+NAME        Aeromonas infection
+DESCRIPTION Members of the genus Aeromonas are gram-negative bacteria that inhabit various aquatic environments. It can cause a wide spectrum of disease in humans as well as other animals, with gastroenteritis being the most common type of infection. Wound infections and septicaemia are the second and third common disease caused by Aeromonas after gastroenteritis.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by other gamma proteobacteria
+               H01074  Aeromonas infection
+PATHOGEN    Aeromonas hydrophila [GN:aha]
+            Aeromonas veronii
+            Aeromonas media
+            Aeromonas caviae [GN:acav]
+            Aeromonas schubertii
+            Aeromonas jandaei
+            Aeromonas trota
+            Aeromonas bestiarum
+            Aeromonas popoffii
+REFERENCE   PMID:21163298
+  AUTHORS   Parker JL, Shaw JG
+  TITLE     Aeromonas spp. clinical microbiology and disease.
+  JOURNAL   J Infect 62:109-18 (2011)
+            DOI:10.1016/j.jinf.2010.12.003
+REFERENCE   PMID:20065325
+  AUTHORS   Janda JM, Abbott SL
+  TITLE     The genus Aeromonas: taxonomy, pathogenicity, and infection.
+  JOURNAL   Clin Microbiol Rev 23:35-73 (2010)
+            DOI:10.1128/CMR.00039-09
+REFERENCE   PMID:17401708
+  AUTHORS   von Graevenitz A
+  TITLE     The role of Aeromonas in diarrhea: a review.
+  JOURNAL   Infection 35:59-64 (2007)
+            DOI:10.1007/s15010-007-6243-4
+///

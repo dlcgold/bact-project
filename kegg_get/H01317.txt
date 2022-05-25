@@ -1,0 +1,28 @@
+ENTRY       H01317                      Disease
+NAME        Aggressive periodontitis
+DESCRIPTION Aggressive periodontitis is a disease of the periodontium occurring in an otherwise healthy adolescent, which is characterized by a rapid loss of alveolar bone around more than one tooth of the permanent dentition. Because it tends to have a familial aggregation, host predisposition seems to play a key role in the pathogenesis of aggressive periodontitis. It occurs in localized and generalized forms.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by other gamma proteobacteria
+               H01317  Aggressive periodontitis
+            Human diseases in ICD-11 classification [BR:br08403]
+             13 Diseases of the digestive system
+              Diseases or disorders of orofacial complex
+               DA0C  Periodontal disease
+                H01317  Aggressive periodontitis
+PATHOGEN    Aggregatibacter actinomycetemcomitans [GN:aat aan]
+            Porphyromonas gingivalis
+DBLINKS     ICD-11: DA0C.2
+            ICD-10: K05
+            MeSH: D010518
+REFERENCE   PMID:10875695
+  TITLE     Parameter on aggressive periodontitis. American Academy of Periodontology.
+  JOURNAL   J Periodontol 71:867-9 (2000)
+            DOI:10.1902/jop.2000.71.5-S.867
+REFERENCE   PMID:24738584
+  AUTHORS   Albandar JM
+  TITLE     Aggressive periodontitis: case definition and diagnostic criteria.
+  JOURNAL   Periodontol 2000 65:13-26 (2014)
+            DOI:10.1111/prd.12014
+///

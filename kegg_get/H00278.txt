@@ -1,0 +1,27 @@
+ENTRY       H00278                      Disease
+NAME        Enteropathogenic Escherichia coli (EPEC) infection
+DESCRIPTION Enteropathogenic Escherichia coli (EPEC) was the first pathotype of E. coli identified in the 1940s, and remains a common cause of infantile diarrhea in developing countries. EPEC and EHEC [DS:H00277] strains are characterized by the type III secretion system and its cognate effectors encoded in the locus of enterocyte effacement (LEE), but EPEC does not release diffusible toxins.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by enterobacteria
+               H00278  Enteropathogenic Escherichia coli (EPEC) infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Gastroenteritis or colitis of infectious origin
+               Bacterial intestinal infections
+                1A03  Intestinal infections due to Escherichia coli
+                 H00278  Enteropathogenic Escherichia coli (EPEC) infection
+PATHWAY     hsa05130  Pathogenic Escherichia coli infection
+PATHOGEN    Escherichia coli O127:H6 [GN:ecg]
+            Escherichia coli O55:H7 [GN:eok elr]
+  MODULE    M00542  EHEC/EPEC pathogenicity signature, T3SS and effectors
+DBLINKS     ICD-11: 1A03.0
+            ICD-10: A04.0
+            MeSH: D004927
+REFERENCE   PMID:18455741
+  AUTHORS   Ochoa TJ, Barletta F, Contreras C, Mercado E
+  TITLE     New insights into the epidemiology of enteropathogenic Escherichia coli infection.
+  JOURNAL   Trans R Soc Trop Med Hyg 102:852-6 (2008)
+            DOI:10.1016/j.trstmh.2008.03.017
+///

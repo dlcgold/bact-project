@@ -1,0 +1,42 @@
+ENTRY       H00336                      Disease
+NAME        Gas gangrene;
+            Clostridial myonecrosis
+  SUPERGRP  Anaerobic infection [DS:H01410]
+DESCRIPTION Gas gangrene is a rare and devastating wound infection. The Clostridium perfringens, septicum, and histolyticum are the principal causes of trauma-associated gas gangrene. It is characterized by fever, pain, edema, myonecrosis and gas production. Recently, there has also been an increased incidence of spontaneous gas gangrene caused by Clostridium septicum.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H00336  Gas gangrene
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               1C16  Gas gangrene
+                H00336  Gas gangrene
+PATHOGEN    Clostridium perfringens [GN:cpe cpf cpr]
+            hyaluronidase/collagenase [KO:K01186 K01197 K01387 K08587]
+            pore-forming toxin [KO:K03699 K06442 K11031 K11058 K11068]
+            membrane-damaging toxin [KO:K16619]
+            enterotoxin [KO:K11059 K11060 K11061 K11062]
+            beta2 toxin [KO:K11057]
+DRUG        Penicillin G potassium [DR:D01053]
+            Penicillin G sodium [DR:D05408]
+DBLINKS     ICD-11: 1C16
+            ICD-10: A48.0
+            MeSH: D005738
+            MedlinePlus: 000620
+REFERENCE   PMID:14468017
+  AUTHORS   MACLENNAN JD
+  TITLE     The histotoxic clostridial infections of man.
+  JOURNAL   Bacteriol Rev 26:177-276 (1962)
+REFERENCE   PMID:10832675
+  AUTHORS   Sasaki T, Nanjo H, Takahashi M, Sugiyama T, Ono I, Masuda H
+  TITLE     Non-traumatic gas gangrene in the abdomen: report of six autopsy cases.
+  JOURNAL   J Gastroenterol 35:382-90 (2000)
+            DOI:10.1007/s005350050365
+REFERENCE   PMID:22120198
+  AUTHORS   Stevens DL, Aldape MJ, Bryant AE
+  TITLE     Life-threatening clostridial infections.
+  JOURNAL   Anaerobe 18:254-9 (2012)
+            DOI:10.1016/j.anaerobe.2011.11.001
+///

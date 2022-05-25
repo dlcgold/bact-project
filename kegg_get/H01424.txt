@@ -1,0 +1,34 @@
+ENTRY       H01424                      Disease
+NAME        Group A streptococcal pharyngitis;
+            Group A streptococcal tonsillitis;
+            Group A streptococcal pharyngotonsillitis
+  SUPERGRP  Streptococcal infection [DS:H00333]
+DESCRIPTION Group A streptococcal pharyngitis is an acute infection of the oropharynx and/or nasopharynx that is caused by group A streptococcus (Streptococcus pyogenes). Group A streptococcus is responsible for 5-15% of cases of pharyngitis in adults and 20-30% of cases in children, and is the most common cause of bacterial pharyngitis. The disorder is primarily a disease of children between 5 and 15 years of age, and, in temperate climates, it usually occurs in the winter and early spring. The onset of symptoms in patients is often abrupt. In addition to throat pain, symptoms may include fever, chills, malaise, headache, and particularly in younger children abdominal pain, nausea, and vomiting. Cough, coryza, and conjunctivitis are not typical symptoms of streptococcal pharyngitis, and, if present, they suggest an alternative cause such as a viral infection. In most persons, fever resolves within 3-5 days, and throat pain resolves within 1 week, even without specific treatment. Antibiotic treatment reduces the risk of subsequent development of acute rheumatic fever and suppurative complications.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H01424  Group A streptococcal pharyngitis
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Certain staphylococcal or streptococcal diseases
+               1B51  Streptococcal pharyngitis
+                H01424  Group A streptococcal pharyngitis
+PATHOGEN    Streptococcus pyogenes [GN:sph spi spj spa spb]
+DRUG        Ceftibuten hydrate [DR:D02121]
+            Cefdinir monohydrate [DR:D11571]
+            Cefditoren pivoxil [DR:D01628]
+            Clarithromycin [DR:D00276]
+DBLINKS     ICD-11: 1B51
+            ICD-10: J02.0
+REFERENCE   PMID:12087516
+  AUTHORS   Bisno AL, Gerber MA, Gwaltney JM Jr, Kaplan EL, Schwartz RH
+  TITLE     Practice guidelines for the diagnosis and management of group A streptococcal pharyngitis. Infectious Diseases Society of America.
+  JOURNAL   Clin Infect Dis 35:113-25 (2002)
+            DOI:10.1086/340949
+REFERENCE   PMID:21323542 (description, drug)
+  AUTHORS   Wessels MR
+  TITLE     Clinical practice. Streptococcal pharyngitis.
+  JOURNAL   N Engl J Med 364:648-55 (2011)
+            DOI:10.1056/NEJMcp1009126
+///

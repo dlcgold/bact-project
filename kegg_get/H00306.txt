@@ -1,0 +1,35 @@
+ENTRY       H00306                      Disease
+NAME        Pasteurellosis
+DESCRIPTION Pasteurella species are gram-negative facultative anaerobic bacilli found in the animal's oral cavity. Most human infections are caused by dog or cat bites. Disseminated Pasteurella infections can lead to serious diseases including septic shock and meningitis mostly in infants and pregnant women.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by other gamma proteobacteria
+               H00306  Pasteurellosis
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Certain zoonotic bacterial diseases
+               1B99  Pasteurellosis
+                H00306  Pasteurellosis
+PATHOGEN    Pasteurella multocida [GN:pmu pmv pmul]
+            Pasteurella canis
+            Pasteurella multocida subsp septica
+            Pasteurella stomatis
+            Pasteurella dagmatis
+DRUG        Penicillin G potassium [DR:D01053]
+            Penicillin G sodium [DR:D05408]
+COMMENT     Pasteurella are usually not susceptible to dicloxacillin, cephalexin, clindamycin, or erythromycin.
+            Potential virulence factors include capsular lipopolysaccharide, a cytotoxin, and iron acquisition proteins.
+DBLINKS     ICD-11: 1B99
+            ICD-10: A28.0
+            MeSH: D010326 D012766
+REFERENCE   PMID:6371440
+  AUTHORS   Weber DJ, Wolfson JS, Swartz MN, Hooper DC
+  TITLE     Pasteurella multocida infections. Report of 34 cases and review of the literature.
+  JOURNAL   Medicine (Baltimore) 63:133-54 (1984)
+REFERENCE   PMID:19555903
+  AUTHORS   Oehler RL, Velez AP, Mizrachi M, Lamarche J, Gompf S
+  TITLE     Bite-related and septic syndromes caused by cats and dogs.
+  JOURNAL   Lancet Infect Dis 9:439-47 (2009)
+            DOI:10.1016/S1473-3099(09)70110-0
+///

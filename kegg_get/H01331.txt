@@ -1,0 +1,40 @@
+ENTRY       H01331                      Disease
+NAME        Dental caries;
+            Dental decay
+DESCRIPTION Dental caries occurs due to demineralization of enamel and dentine (the hard tissues of the teeth) by organic acids formed by bacteria in dental plaque through the anaerobic metabolism of sugars derived from the diet. The 2 primary bacteria involved in caries formation are mutans streptococci and lactobacilli. When sugars or other fermentable carbohydrates are ingested, the resulting fall in dental plaque pH caused by organic acids increases the solubility of calcium hydroxyapatite in the dental hard tissues and demineralization occurs as calcium is lost from the tooth surface. The pH at which demineralization occurs is often referred to as the critical pH and is approximately 5.5.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by bacteria
+               H01331  Dental caries
+            Human diseases in ICD-11 classification [BR:br08403]
+             13 Diseases of the digestive system
+              Diseases or disorders of orofacial complex
+               DA08  Diseases of hard tissues of teeth
+                H01331  Dental caries
+PATHOGEN    Streptococcus mutans [GN:smu smc smut smj]
+            Cryptobacterium curtum [GN:ccu]
+            Lactobacilli
+DRUG        Sodium fluoride [DR:D00943]
+            Stannous fluoride [DR:D05919]
+            Sodium fluoride and phosphoric acid [DR:D08736]
+DBLINKS     ICD-11: DA08.0
+            ICD-10: K02
+            MedlinePlus: 001055
+            MeSH: D003731
+REFERENCE   PMID:14972061 (description, env_factor, pathogen)
+  AUTHORS   Moynihan P, Petersen PE
+  TITLE     Diet, nutrition and the prevention of dental diseases.
+  JOURNAL   Public Health Nutr 7:201-26 (2004)
+            DOI:10.1079/PHN2003589
+REFERENCE   PMID:14522753 (description, env_factor, pathogen)
+  AUTHORS   Touger-Decker R, van Loveren C
+  TITLE     Sugars and dental caries.
+  JOURNAL   Am J Clin Nutr 78:881S-892S (2003)
+            DOI:10.1093/ajcn/78.4.881S
+REFERENCE   PMID:20331803 (pathogen)
+  AUTHORS   Piwat S, Teanpaisan R, Thitasomakul S, Thearmontree A, Dahlen G
+  TITLE     Lactobacillus species and genotypes associated with dental caries in Thai preschool children.
+  JOURNAL   Mol Oral Microbiol 25:157-64 (2010)
+            DOI:10.1111/j.2041-1014.2009.00556.x
+///

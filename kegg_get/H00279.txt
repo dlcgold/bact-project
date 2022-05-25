@@ -1,0 +1,49 @@
+ENTRY       H00279                      Disease
+NAME        Uropathogenic Escherichia coli (UPEC) infection
+DESCRIPTION Uropathogenic Escherichia coli (UPEC) infection is a prevalent infectious disease with potentially severe complications. UPEC, the most common etiological agent of community-acquired urinary tract infections (UTIs), accounts for >80% of UTI infections worldwide. Once inside the urinary tract, UPEC preferentially colonizes the bladder and causes cystitis, but can also ascend through the ureters into the kidneys, causing pyelonephritis.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by enterobacteria
+               H00279  Uropathogenic Escherichia coli (UPEC) infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             16 Diseases of the genitourinary system
+              Diseases of the urinary system
+               Certain specified diseases of urinary system
+                GC08  Urinary tract infection, site not specified
+                 H00279  Uropathogenic Escherichia coli (UPEC) infection
+PATHOGEN    Escherichia coli (UPEC) [GN:ecp ena ecos eum ect eci ecc ecoj]
+            pore-forming toxin [KO:K11003 K11004 K11005]
+DBLINKS     ICD-11: GC08.0
+            ICD-10: N39
+            MeSH: D004927
+REFERENCE   PMID:9551528
+  AUTHORS   Matsumoto T
+  TITLE     [Virulence factors and host responses in urinary tract infections].
+  JOURNAL   J UOEH 20:45-60 (1998)
+            DOI:10.7888/juoeh.20.45
+REFERENCE   PMID:16100859 (drug)
+  AUTHORS   Mehnert-Kay SA
+  TITLE     Diagnosis and management of uncomplicated urinary tract infections.
+  JOURNAL   Am Fam Physician 72:451-6 (2005)
+REFERENCE   PMID:16406777
+  AUTHORS   Svanborg C, Bergsten G, Fischer H, Godaly G, Gustafsson M, Karpman D, Lundstedt AC, Ragnarsdottir B, Svensson M, Wullt B
+  TITLE     Uropathogenic Escherichia coli as a model of host-parasite interaction.
+  JOURNAL   Curr Opin Microbiol 9:33-9 (2006)
+            DOI:10.1016/j.mib.2005.12.012
+REFERENCE   PMID:17458672
+  AUTHORS   Yamamoto S
+  TITLE     Molecular epidemiology of uropathogenic Escherichia coli.
+  JOURNAL   J Infect Chemother 13:68-73 (2007)
+            DOI:10.1007/s10156-007-0506-y
+REFERENCE   PMID:18482721
+  AUTHORS   Wiles TJ, Kulesus RR, Mulvey MA
+  TITLE     Origins and virulence mechanisms of uropathogenic Escherichia coli.
+  JOURNAL   Exp Mol Pathol 85:11-9 (2008)
+            DOI:10.1016/j.yexmp.2008.03.007
+REFERENCE   PMID:18616559
+  AUTHORS   Dhakal BK, Kulesus RR, Mulvey MA
+  TITLE     Mechanisms and consequences of bladder cell invasion by uropathogenic Escherichia coli.
+  JOURNAL   Eur J Clin Invest 38 Suppl 2:2-11 (2008)
+            DOI:10.1111/j.1365-2362.2008.01986.x
+///

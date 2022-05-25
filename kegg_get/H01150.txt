@@ -1,0 +1,15 @@
+ENTRY       H01150                      Disease
+NAME        Phenylobacterium infection
+DESCRIPTION Phenylobacterium is a gram-negative rod bacterium. The first case of cutaneous infectious granuloma caused by this bacterium was reported in 2010.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by alpha proteobacteria
+               H01150  Phenylobacterium infection
+PATHOGEN    Phenylobacterium
+REFERENCE   PMID:20394459
+  AUTHORS   Zhu XH, Li F, Xu JH, Xiang LH, Kang KF
+  TITLE     Cutaneous infectious granuloma caused by Phenylobacterium in an adult with myelodysplastic syndrome: a first case report.
+  JOURNAL   Am J Clin Dermatol 11:363-6 (2010)
+            DOI:10.2165/11533200-000000000-00000
+///

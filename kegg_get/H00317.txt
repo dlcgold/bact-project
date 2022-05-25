@@ -1,0 +1,33 @@
+ENTRY       H00317                      Disease
+NAME        Melioidosis
+DESCRIPTION Melioidosis is an infection caused by the gram-negative soil-dwelling bacillus Burkholderia pseudomallei. It predominantly affects people in regular contact with soil and water and is endemic in areas of Southeast Asia and Northern Australia. There are many possible disease manifestations including melioidosis septic shock, pneumonia, and hepatic and splenic abscesses.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by beta proteobacteria
+               H00317  Melioidosis
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               1C42  Melioidosis
+                H00317  Melioidosis
+PATHOGEN    Burkholderia pseudomallei [GN:bps bpm bpl bpd bpr bpse bpz bpq]
+DBLINKS     ICD-11: 1C42
+            ICD-10: A24.1 A24.2 A24.3 A24.4
+            MeSH: D008554
+REFERENCE   PMID:21558159
+  AUTHORS   Limmathurotsakul D, Peacock SJ
+  TITLE     Melioidosis: a clinical overview.
+  JOURNAL   Br Med Bull 99:125-39 (2011)
+            DOI:10.1093/bmb/ldr007
+REFERENCE   PMID:16541135
+  AUTHORS   Wiersinga WJ, van der Poll T, White NJ, Day NP, Peacock SJ
+  TITLE     Melioidosis: insights into the pathogenicity of Burkholderia pseudomallei.
+  JOURNAL   Nat Rev Microbiol 4:272-82 (2006)
+            DOI:10.1038/nrmicro1385
+REFERENCE   PMID:15831829
+  AUTHORS   Cheng AC, Currie BJ
+  TITLE     Melioidosis: epidemiology, pathophysiology, and management.
+  JOURNAL   Clin Microbiol Rev 18:383-416 (2005)
+            DOI:10.1128/CMR.18.2.383-416.2005
+///

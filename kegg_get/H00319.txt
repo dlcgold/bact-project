@@ -1,0 +1,51 @@
+ENTRY       H00319                      Disease
+NAME        Pertussis;
+            Whooping cough
+DESCRIPTION Pertussis, or whooping cough, caused by the gram-negative bacillus Bordetella pertussis, is a highly contagious, acute respiratory disease of humans. Despite high vaccination rates, this illness has re-emerged worldwide, causing approximately 300 000 deaths each year. Waning immunity after childhood immunization has resulted in a growing pool of susceptible adolescents and adults who are capable of transmitting pertussis to vulnerable unvaccinated or incompletely vaccinated infants. The hallmark symptoms of pertussis are paroxysmal coughing with whooping and post-tussive vomiting. Persistent coughing may last for weeks to months with a gradual decrease in frequency and severity. However, it should be noted that B. pertussis infections, particularly in hosts with partial immunity to the bacterium, may also follow a much milder or subclinical course. Complications that are frequently associated with classical pertussis include pneumonia, otitis media, seizures, encephalopathy, and (brain) hemorrhages.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by beta proteobacteria
+               H00319  Pertussis
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               1C12  Whooping cough
+                H00319  Pertussis
+PATHWAY     hsa05133  Pertussis
+PATHOGEN    Bordetella pertussis [GN:bpe bpc bpet]
+            Bordetella parapertussis [GN:bpa]
+  MODULE    M00574  Pertussis pathogenicity signature, pertussis toxin
+            M00575  Pertussis pathogenicity signature, T1SS
+DRUG        Erythromycin [DR:D00140]
+            Erythromycin ethylsuccinate [DR:D01361]
+            Erythromycin stearate [DR:D02184]
+DBLINKS     ICD-11: 1C12
+            ICD-10: A37
+            MeSH: D014917
+            MedlinePlus: 001561
+REFERENCE   PMID:21204863
+  AUTHORS   de Gouw D, Diavatopoulos DA, Bootsma HJ, Hermans PW, Mooi FR
+  TITLE     Pertussis: a matter of immune modulation.
+  JOURNAL   FEMS Microbiol Rev 35:441-74 (2011)
+            DOI:10.1111/j.1574-6976.2010.00257.x
+REFERENCE   PMID:19879977
+  AUTHORS   Mooi FR
+  TITLE     Bordetella pertussis and vaccination: the persistence of a genetically monomorphic pathogen.
+  JOURNAL   Infect Genet Evol 10:36-49 (2010)
+            DOI:10.1016/j.meegid.2009.10.007
+REFERENCE   PMID:10943406
+  AUTHORS   Locht C
+  TITLE     Molecular aspects of Bordetella pertussis pathogenesis.
+  JOURNAL   Int Microbiol 2:137-44 (1999)
+REFERENCE   PMID:20109046
+  AUTHORS   Heininger U
+  TITLE     Update on pertussis in children.
+  JOURNAL   Expert Rev Anti Infect Ther 8:163-73 (2010)
+            DOI:10.1586/eri.09.124
+REFERENCE   PMID:16522501
+  AUTHORS   Munoz FM
+  TITLE     Pertussis in infants, children, and adolescents: diagnosis, treatment, and prevention.
+  JOURNAL   Semin Pediatr Infect Dis 17:14-9 (2006)
+            DOI:10.1053/j.spid.2005.11.005
+///

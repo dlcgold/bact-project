@@ -1,0 +1,41 @@
+ENTRY       H00347                      Disease
+NAME        Chlamydia infection
+DESCRIPTION Chlamydia trachomatis is a gram-negative, obligate intracellular bacterium that causes the most common sexually transmissible diseases in the world. Chlamydial infection can cause cervicitis in women and urethritis in men. Most of these infections are asymptomatic but, if not treated, can lead to non-gonococcal urethritis and post-gonococcal urethritis in men. Urethritis can be complicated by acute epididymitis.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by chlamydia
+               H00347  Chlamydia infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Predominantly sexually transmitted infections
+               Sexually transmissible infections due to chlamydia
+                1A81  Non-ulcerative sexually transmitted chlamydial infection
+                 H00347  Chlamydia infection
+PATHOGEN    Chlamydia trachomatis [GN:ctr ctrd ctro ctrt ctg ctk csw ces ctrb ctre ctrs cfs cfw ctfw ctrf ctch ctn ctq ctv ctw ctrg ctri ctra ctrh ctrj ctrk]
+DRUG        Azithromycin [DR:D07486]
+            Azithromycin hydrate [DR:D02134]
+DBLINKS     ICD-11: 1A81
+            ICD-10: A56.0 N37.0
+            MeSH: D002690
+            MedlinePlus: 000659 000439
+REFERENCE
+  AUTHORS   Papadakis MA and McPhee SJ |(ed)
+  TITLE     Current Medical Diagnosis & Treatment 2007, Forty-Sixth Edition
+  JOURNAL   McGraw Hill Education
+REFERENCE   PMID:20358033
+  AUTHORS   Rohde G, Straube E, Essig A, Reinhold P, Sachse K
+  TITLE     Chlamydial zoonoses.
+  JOURNAL   Dtsch Arztebl Int 107:174-80 (2010)
+            DOI:10.3238/arztebl.2010.0174
+REFERENCE   PMID:19220334
+  AUTHORS   Bebear C, de Barbeyrac B
+  TITLE     Genital Chlamydia trachomatis infections.
+  JOURNAL   Clin Microbiol Infect 15:4-10 (2009)
+            DOI:10.1111/j.1469-0691.2008.02647.x
+REFERENCE   PMID:8993862
+  AUTHORS   Black CM
+  TITLE     Current methods of laboratory diagnosis of Chlamydia trachomatis infections.
+  JOURNAL   Clin Microbiol Rev 10:160-84 (1997)
+            DOI:10.1128/CMR.10.1.160-184.1997
+///

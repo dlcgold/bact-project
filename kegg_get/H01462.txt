@@ -1,0 +1,46 @@
+ENTRY       H01462                      Disease
+NAME        Rapidly growing mycobacteria infection
+  SUPERGRP  Nontuberculous mycobacterial infection [DS:H01458]
+DESCRIPTION Nontuberculous mycobacteria (NTM) are classified into 2 categories: slow-growing mycobacteria (SGM) and rapidly-growing mycobacteria (RGM), based on interval to colony formation by subculture on solid media. More than 50 species of RGM have been identified, more than a third of which are opportunistic human pathogens. The most frequently encountered RGM that cause human infections are Mycobacterium abscessus, Mycobacterium chelonae, Mycobacterium fortuitum (complex), Mycobacterium mucogenicum, and Mycobacterium neoaurum. RGM, generally of low virulence, are capable of causing a wide spectrum of infections. Many RGM species, well-known and recently described species, caused significant infections in patients with cancer, including catheter-related bacteremia, disseminated infection, bronchopulmonary infections, dermatitis, cellulitis, and others.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by actinobacteria
+               H01462  Rapidly growing mycobacteria infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Mycobacterial diseases
+               1B21  Infections due to non-tuberculous mycobacteria
+                H01462  Rapidly growing mycobacteria infection
+PATHOGEN    Mycobacterium abscessus [GN:mab mmv mabb mabl]
+            Mycobacterium chelonae [GN:mche]
+COMMENT     See also H01458 Nontuberculous mycobacterial infection.
+DBLINKS     ICD-11: 1B21
+            ICD-10: A31.9
+            MeSH: D009165
+REFERENCE   PMID:23114094
+  AUTHORS   Kim CJ, Kim NH, Song KH, Choe PG, Kim ES, Park SW, Kim HB, Kim NJ, Kim EC, Park WB, Oh MD
+  TITLE     Differentiating rapid- and slow-growing mycobacteria by difference in time to growth detection in liquid media.
+  JOURNAL   Diagn Microbiol Infect Dis 75:73-6 (2013)
+            DOI:10.1016/j.diagmicrobio.2012.09.019
+REFERENCE   PMID:25503461
+  AUTHORS   Sekizuka T, Kai M, Nakanaga K, Nakata N, Kazumi Y, Maeda S, Makino M, Hoshino Y, Kuroda M
+  TITLE     Complete genome sequence and comparative genomic analysis of Mycobacterium massiliense JCM 15300 in the Mycobacterium abscessus group reveal a conserved genomic island MmGI-1 related to putative lipid metabolism.
+  JOURNAL   PLoS One 9:e114848 (2014)
+            DOI:10.1371/journal.pone.0114848
+REFERENCE   PMID:23347634
+  AUTHORS   El Helou G, Viola GM, Hachem R, Han XY, Raad II
+  TITLE     Rapidly growing mycobacterial bloodstream infections.
+  JOURNAL   Lancet Infect Dis 13:166-74 (2013)
+            DOI:10.1016/S1473-3099(12)70316-X
+REFERENCE   PMID:17875513
+  AUTHORS   Han XY, De I, Jacobson KL
+  TITLE     Rapidly growing mycobacteria: clinical and microbiologic studies of 115 cases.
+  JOURNAL   Am J Clin Pathol 128:612-21 (2007)
+            DOI:10.1309/1KB2GKYT1BUEYLB5
+REFERENCE   PMID:16705584
+  AUTHORS   De Groote MA, Huitt G
+  TITLE     Infections due to rapidly growing mycobacteria.
+  JOURNAL   Clin Infect Dis 42:1756-63 (2006)
+            DOI:10.1086/504381
+///

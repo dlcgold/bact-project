@@ -1,0 +1,25 @@
+ENTRY       H01021                      Disease
+NAME        Rhodococcus equi infection
+DESCRIPTION Rhodococcus equi is an aerobic, gram-positive bacillus. R. equi infection is rare in humans, but it can cause potentially fatal disease in immunocompromised patients. Although the clinical spectrum of R. equi infection is broad, pulmonary involvement is a predominant feature in most cases.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by actinobacteria
+               H01021  Rhodococcus equi infection
+PATHOGEN    Rhodococcus equi [GN:req]
+REFERENCE   PMID:20954468
+  AUTHORS   Guyssens V, Vandekerckhove L, Colle I, De Rudder P, Blots S, Vogelaers D
+  TITLE     Invasive infection with Rhodococcus equi--two case reports and review of literature.
+  JOURNAL   Acta Clin Belg 65:271-5 (2010)
+            DOI:10.1179/acb.2010.058
+REFERENCE   PMID:20417417
+  AUTHORS   Yamshchikov AV, Schuetz A, Lyon GM
+  TITLE     Rhodococcus equi infection.
+  JOURNAL   Lancet Infect Dis 10:350-9 (2010)
+            DOI:10.1016/S1473-3099(10)70068-2
+REFERENCE   PMID:1810733
+  AUTHORS   Vestbo J, Lundgren JD, Gaub J, Roder B, Gutschik E
+  TITLE     Severe Rhodococcus equi pneumonia: case report and literature review.
+  JOURNAL   Eur J Clin Microbiol Infect Dis 10:762-8 (1991)
+            DOI:10.1007/BF01972506
+///

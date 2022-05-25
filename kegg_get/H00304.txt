@@ -1,0 +1,45 @@
+ENTRY       H00304                      Disease
+NAME        Haemophilus influenzae infection
+DESCRIPTION Haemophilus influenzae type b (Hib) infections are a major cause of severe infections in children between 2 months and 5 years of age worldwide. It affects approximately 25000 patients each year. Severity of the symptoms of Hib infection depends on the patient's age, and infants between 4 months and 1 year of age are at highest risk for meningitis. Invasive disease due to Hib may produce various clinical syndromes including meningitis, arthritis, pneumonia,	 cellulitis, osteomyelitis, and epiglottitis. Mucosal infections, such as bronchitis, sinusitis and conjunctivitis, and otitis media, can also be caused by Hib, but they are considered to be noninvasive disease.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by other gamma proteobacteria
+               H00304  Haemophilus influenzae infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Non-viral and unspecified infections of the central nervous system
+               1D01  Infectious meningitis not elsewhere classified
+                H00304  Haemophilus influenzae infection
+             12 Diseases of the respiratory system
+              Lung infections
+               CA40  Pneumonia
+                H00304  Haemophilus influenzae infection
+               CA42  Acute bronchitis
+                H00304  Haemophilus influenzae infection
+PATHOGEN    Haemophilus influenzae [GN:hin hit hip hiq hiu hik hih]
+COMMENT     American Indians and Alaskan Eskimos are at increased risk specifically for meningitis caused by Hib.
+DBLINKS     ICD-11: 1D01.00 CA40.02 CA42.4
+            ICD-10: A41.3 A49.2 G00.0 J14 J20.1
+            MeSH: D006192
+REFERENCE   PMID:2194406 (description, drug, comment)
+  AUTHORS   Janai H, Stutman HR, Marks MI
+  TITLE     Invasive Haemophilus influenzae type B infections: a continuing challenge.
+  JOURNAL   Am J Infect Control 18:160-6 (1990)
+            DOI:10.1016/0196-6553(90)90181-Q
+REFERENCE   PMID:22244051 (drug)
+  AUTHORS   Ladhani SN
+  TITLE     Two decades of experience with the Haemophilus influenzae serotype b conjugate vaccine in the United Kingdom.
+  JOURNAL   Clin Ther 34:385-99 (2012)
+            DOI:10.1016/j.clinthera.2011.11.027
+REFERENCE   PMID:20980793 (drug)
+  AUTHORS   Fitzwater SP, Watt JP, Levine OS, Santosham M
+  TITLE     Haemophilus influenzae type b conjugate vaccines: considerations for vaccination schedules and implications for developing countries.
+  JOURNAL   Hum Vaccin 6:810-8 (2010)
+            DOI:10.4161/hv.6.10.13017
+REFERENCE   PMID:3325012 (drug)
+  AUTHORS   Gilbert GL
+  TITLE     Epidemiology and prevention of invasive Haemophilus influenzae type b infection.
+  JOURNAL   Aust Paediatr J 23:323-7 (1987)
+            DOI:10.1111/j.1440-1754.1987.tb00283.x
+///

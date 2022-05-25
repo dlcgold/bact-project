@@ -1,0 +1,40 @@
+ENTRY       H01315                      Disease
+NAME        Erysipeloid;
+            Swine erysipelas
+DESCRIPTION Erysipelothrix rhusiopathiae is a non-sporulating, gram-positive, rod-shaped bacterium which was identified as the etiologic agent of swine erysipelas. Infection in man is occupationally related, occurring principally as a result of contact with animals, and mainly found in animal breeders, veterinarians, slaughterhouse workers, and other occupations. Non-occupational cases are very rare. Three forms of human disease have been recognized, including a mild cutaneous infection known as erysipeloid, a diffuse cutaneous form, and a serious although rare systemic complication with septicemia and endocarditis.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H01315  Erysipeloid
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Certain zoonotic bacterial diseases
+               1B96  Erysipeloid
+                H01315  Erysipeloid
+PATHOGEN    Erysipelothrix rhusiopathiae [GN:erh]
+DRUG        Penicillin G procaine [DR:D02461]
+DBLINKS     ICD-11: 1B96
+            ICD-10: A26
+            MeSH: D004887 D013554
+REFERENCE   PMID:19663854
+  AUTHORS   Veraldi S, Girgenti V, Dassoni F, Gianotti R
+  TITLE     Erysipeloid: a review.
+  JOURNAL   Clin Exp Dermatol 34:859-62 (2009)
+            DOI:10.1111/j.1365-2230.2009.03444.x
+REFERENCE   PMID:19733019
+  AUTHORS   Wang Q, Chang BJ, Riley TV
+  TITLE     Erysipelothrix rhusiopathiae.
+  JOURNAL   Vet Microbiol 140:405-17 (2010)
+            DOI:10.1016/j.vetmic.2009.08.012
+REFERENCE   PMID:10482289
+  AUTHORS   Brooke CJ, Riley TV
+  TITLE     Erysipelothrix rhusiopathiae: bacteriology, epidemiology and clinical manifestations of an occupational pathogen.
+  JOURNAL   J Med Microbiol 48:789-99 (1999)
+            DOI:10.1099/00222615-48-9-789
+REFERENCE   PMID:2680056
+  AUTHORS   Reboli AC, Farrar WE
+  TITLE     Erysipelothrix rhusiopathiae: an occupational pathogen.
+  JOURNAL   Clin Microbiol Rev 2:354-9 (1989)
+            DOI:10.1128/cmr.2.4.354
+///

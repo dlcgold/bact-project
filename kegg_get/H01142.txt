@@ -1,0 +1,17 @@
+ENTRY       H01142                      Disease
+NAME        Ehrlichia ewingii infection
+DESCRIPTION Human ehrlichiosis is a recently recognized tick-borne infection. Ehrlichia ewingii has been identified as a cause of human disease in addition to formerly known pathogenic Ehrlichia species.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by alpha proteobacteria
+               H01142  Ehrlichia ewingii infection
+PATHOGEN    Ehrlichia ewingii
+COMMENT     Other diseases caused by Ehrlichia species include: Human granulocytic anaplasmosis (H01139), Sennetsu neorickettsiosis (H01140), and Human monocytic ehrlichiosis (H01141).
+DBLINKS     MeSH: D016873
+REFERENCE   PMID:10403852
+  AUTHORS   Buller RS, Arens M, Hmiel SP, Paddock CD, Sumner JW, Rikhisa Y, Unver A, Gaudreault-Keener M, Manian FA, Liddell AM, Schmulewitz N, Storch GA
+  TITLE     Ehrlichia ewingii, a newly recognized agent of human ehrlichiosis.
+  JOURNAL   N Engl J Med 341:148-55 (1999)
+            DOI:10.1056/NEJM199907153410303
+///

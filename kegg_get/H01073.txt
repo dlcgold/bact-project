@@ -1,0 +1,27 @@
+ENTRY       H01073                      Disease
+NAME        Shewanella infection
+DESCRIPTION Shewanella putrefaciens and Shewanella algae, which are frequently found in non-human sources, are opportunistically pathogenic for humans. Shewanella infection is associated with a wide clinical spectrum including bacteremia/septicemia, skin and soft-tissue infection, biliary tract infection, peritonitis, and empyema, and soft-tissue infection is most frequent. Bacteremia/septicemia can cause death in some cases.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by other gamma proteobacteria
+               H01073  Shewanella infection
+PATHOGEN    Shewanella putrefaciens
+            Shewanella algae
+COMMENT     S. putrefaciens are resistant to cefazolin and cefoxitin.
+REFERENCE   PMID:22325004
+  AUTHORS   Liu PY, Lin CF, Wu MJ, Kao CC, Shi ZY
+  TITLE     Shewanella bloodstream infection.
+  JOURNAL   Hemodial Int 16:578-9 (2012)
+            DOI:10.1111/j.1542-4758.2012.00664.x
+REFERENCE   PMID:18565779
+  AUTHORS   Tsai MS, You HL, Tang YF, Liu JW
+  TITLE     Shewanella soft tissue infection: case report and literature review.
+  JOURNAL   Int J Infect Dis 12:e119-24 (2008)
+            DOI:10.1016/j.ijid.2008.03.020
+REFERENCE   PMID:9332516
+  AUTHORS   Chen YS, Liu YC, Yen MY, Wang JH, Wang JH, Wann SR, Cheng DL
+  TITLE     Skin and soft-tissue manifestations of Shewanella putrefaciens infection.
+  JOURNAL   Clin Infect Dis 25:225-9 (1997)
+            DOI:10.1086/514537
+///

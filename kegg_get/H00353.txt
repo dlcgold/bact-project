@@ -1,0 +1,47 @@
+ENTRY       H00353                      Disease
+NAME        Lyme borreliosis;
+            Lyme disease
+DESCRIPTION Lyme borreliosis is the multisystem infectious disease caused by the tick-borne spirochetes Borrelia. Localized infection is typically manifested by erythema migrans skin lesions. A broad variety of peripheral nerve disorders (Lyme neuroborreliosis) can occur as well. Late Lyme borreliosis usually manifests as arthritis or the skin disorder known as acrodermatitis chronica atrophicans.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by spirochaetes
+               H00353  Lyme borreliosis
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               1C1G  Lyme borreliosis
+                H00353  Lyme borreliosis
+PATHOGEN    Borrelia burgdorferi (Lyme disease) [GN:bbu bbz bbn bbj]
+            Borrelia garinii [GN:bga bgb bgc]
+            Borrelia afzelii [GN:baf bafz bafh bafe]
+            Borrelia bissettii [GN:bbs]
+            Borrelia mayonii [GN:bmay]
+DRUG        Doxycycline hyclate [DR:D02129]
+            Cefuroxime axetil [DR:D00914]
+COMMENT     Vector: Ixodes sp. (tick)
+DBLINKS     ICD-11: 1C1G
+            ICD-10: A69.2
+            MeSH: D008193
+            MedlinePlus: 001319
+REFERENCE   PMID:21903253
+  AUTHORS   Stanek G, Wormser GP, Gray J, Strle F
+  TITLE     Lyme borreliosis.
+  JOURNAL   Lancet 379:461-73 (2012)
+            DOI:10.1016/S0140-6736(11)60103-7
+REFERENCE   PMID:12872317
+  AUTHORS   Halperin JJ
+  TITLE     Lyme disease and the peripheral nervous system.
+  JOURNAL   Muscle Nerve 28:133-43 (2003)
+            DOI:10.1002/mus.10337
+REFERENCE   PMID:21958583
+  AUTHORS   Zajkowska J, Czupryna P, Pancewicz SA, Kondrusik M, Moniuszko A
+  TITLE     Acrodermatitis chronica atrophicans.
+  JOURNAL   Lancet Infect Dis 11:800 (2011)
+            DOI:10.1016/S1473-3099(10)70121-3
+REFERENCE   PMID:15547252
+  AUTHORS   Glockner G, Lehmann R, Romualdi A, Pradella S, Schulte-Spechtel U, Schilhabel M, Wilske B, Suhnel J, Platzer M.
+  TITLE     Comparative analysis of the Borrelia garinii genome.
+  JOURNAL   Nucleic Acids Res 32:6038-46 (2004)
+            DOI:10.1093/nar/gkh953
+///

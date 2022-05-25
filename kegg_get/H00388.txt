@@ -1,0 +1,42 @@
+ENTRY       H00388                      Disease
+NAME        Non-chlamydial non-gonococcal urethritis
+DESCRIPTION Urethritis in men is one of the most common sexually transmitted diseases. Recently, it has been suggested that various pathogenic microorganisms such as Mycoplasma genitalium and Ureaplasma urealyticum are causative agents of non-chlamydial nongonococcal urethritis. M. genitalium is also linked to several inflammatory reproductive tract syndromes in women.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H00388  Non-chlamydial non-gonococcal urethritis
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Predominantly sexually transmitted infections
+               1A9Y  Other specified predominantly sexually transmitted infections
+                H00388  Non-chlamydial non-gonococcal urethritis
+PATHOGEN    Mycoplasma genitalium [GN:mge mgu mgc mgq mgx]
+            Mycoplasma penetrans [GN:mpe]
+            Mycoplasma hominis [GN:mho]
+            Ureaplasma urealyticum [GN:uue]
+            Ureaplasma parvum [GN:uur upa]
+DBLINKS     ICD-11: 1A9Y
+            ICD-10: A63.8
+            MeSH: D045704
+            MedlinePlus: 000439
+REFERENCE   PMID:19177768
+  AUTHORS   Deguchi T, Yasuda M, Maeda S
+  TITLE     [Non-chlamydial non-gonococcal urethritis]
+  JOURNAL   Nippon Rinsho 67:167-71 (2009)
+REFERENCE   PMID:14678525
+  AUTHORS   Jensen JS
+  TITLE     Mycoplasma genitalium: the aetiological agent of urethritis and other sexually transmitted diseases.
+  JOURNAL   J Eur Acad Dermatol Venereol 18:1-11 (2004)
+            DOI:10.1111/j.1468-3083.2004.00923.x
+REFERENCE   PMID:15364301
+  AUTHORS   Ishihara S, Yasuda M, Ito S, Maeda S, Deguchi T
+  TITLE     Mycoplasma genitalium urethritis in men.
+  JOURNAL   Int J Antimicrob Agents 24 Suppl 1:S23-7 (2004)
+            DOI:10.1016/j.ijantimicag.2004.02.006
+REFERENCE   PMID:20706675
+  AUTHORS   Larsen B, Hwang J
+  TITLE     Mycoplasma, Ureaplasma, and adverse pregnancy outcomes: a fresh look.
+  JOURNAL   Infect Dis Obstet Gynecol 2010:521921 (2010)
+            DOI:10.1155/2010/521921
+///

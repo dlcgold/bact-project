@@ -1,0 +1,36 @@
+ENTRY       H00303                      Disease
+NAME        Serratia infection
+DESCRIPTION Serratia species are gram-negative bacilli of the Enterobacteriaceae that cause hospital-acquired infection. Numerous outbreaks have been reported in association with medical devices and neonatal intensive care unit. S. marcescens strains that have been involved in outbreaks have often been resistant to multiple antibiotics.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by enterobacteria
+               H00303  Serratia infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               1C41  Bacterial infection of unspecified site
+                H00303  Serratia infection
+PATHOGEN    Serratia marcescens [GN:smar]
+            Serratia proteamaculans [GN:spe]
+            Serratia liquefaciens
+COMMENT     Infections caused by S. marcescens may be difficult to treat because of resistance to a variety of antibiotics, including ampicillin and first and second generation cephalosporins.
+DBLINKS     ICD-11: 1C41
+            ICD-10: A49.8
+            MeSH: D016868
+REFERENCE   PMID:21976608
+  AUTHORS   Mahlen SD
+  TITLE     Serratia infections: from military experiments to current practice.
+  JOURNAL   Clin Microbiol Rev 24:755-91 (2011)
+            DOI:10.1128/CMR.00017-11
+REFERENCE   PMID:9368530
+  AUTHORS   Hejazi A, Falkiner FR
+  TITLE     Serratia marcescens.
+  JOURNAL   J Med Microbiol 46:903-12 (1997)
+            DOI:10.1099/00222615-46-11-903
+REFERENCE   PMID:9211156
+  AUTHORS   van Ogtrop ML, van Zoeren-Grobben D, Verbakel-Salomons EM, van Boven CP
+  TITLE     Serratia marcescens infections in neonatal departments: description of an outbreak and review of the literature.
+  JOURNAL   J Hosp Infect 36:95-103 (1997)
+            DOI:10.1016/S0195-6701(97)90115-8
+///

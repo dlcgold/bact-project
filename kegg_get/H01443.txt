@@ -1,0 +1,43 @@
+ENTRY       H01443                      Disease
+NAME        Viridans group streptococcal infection
+DESCRIPTION The viridans group streptococci (VGS), a heterogenous group of streptococcal species, are the predominant species of the human oral flora and commonly inhabit other areas of the upper respiratory, gastrointestinal, and female genital tracts. VGS are usually organisms of low virulence. However, VGS are a major cause of sepsis and pneumonia in neutropenic individuals, and an important cause of sepsis and meningitis in neonates. These organisms are also occasional pathogens in healthy children and adults, causing infections such as subacute endocarditis. Although VGS resistance to penicillin and the macrolide-lincosamide-streptogramin B (MLS) drugs is an evolving problem, several drugs remain uniformly active against the VGS. Thus far, VGS resistance to vancomycin, linezolid, and daptomycin remains extremely rare.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H01443  Viridans group streptococcal infection
+PATHOGEN    Streptococcus mitis
+            Streptococcus pseudopneumoniae [GN:std]
+            Streptococcus sanguinis [GN:ssa]
+            Streptococcus parasanguinis [GN:scf]
+            Streptococcus gordonii [GN:sgo]
+            Streptococcus constellatus [GN:scg scon scos]
+            Streptococcus ilei [GN:sig sip]
+            Streptococcus intermedius [GN:sib siu]
+            Streptococcus anginosus [GN:sang sanc sans]
+            Streptococcus mutans [GN:smu smc smut smj]
+            Streptococcus sobrinus
+            Streptococcus salivarius [GN:ssr stf]
+            Streptococcus vestibularis
+            Streptococcus thermophilus
+            Streptococcus equinus
+            Streptococcus gallolyticus [GN:sga sgg sgt]
+            Streptococcus infantarius
+DBLINKS     ICD-10: A49.1 B95.4
+            MeSH: D013290
+REFERENCE   PMID:20810781 (description, pathogen)
+  AUTHORS   Doern CD, Burnham CA
+  TITLE     It's not easy being green: the viridans group streptococci, with a focus on pediatric clinical manifestations.
+  JOURNAL   J Clin Microbiol 48:3829-35 (2010)
+            DOI:10.1128/JCM.01563-10
+REFERENCE   PMID:10720803 (description, pathogen)
+  AUTHORS   Shenep JL
+  TITLE     Viridans-group streptococcal infections in immunocompromised hosts.
+  JOURNAL   Int J Antimicrob Agents 14:129-35 (2000)
+            DOI:10.1016/S0924-8579(99)00172-7
+REFERENCE   PMID:17588233 (pathogen)
+  AUTHORS   Reilly AF, Lange BJ
+  TITLE     Infections with viridans group streptococci in children with cancer.
+  JOURNAL   Pediatr Blood Cancer 49:774-80 (2007)
+            DOI:10.1002/pbc.21250
+///

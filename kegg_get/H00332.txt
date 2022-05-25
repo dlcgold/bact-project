@@ -1,0 +1,54 @@
+ENTRY       H00332                      Disease
+NAME        Listeriosis
+DESCRIPTION Listeriosis is a severe foodborne infection with a high case fatality rate caused by Listeria monocytogenes. High-risk groups for listeriosis include elderly and immunocompromised patients, pregnant women, newborns, and infants.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H00332  Listeriosis
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               1C1A  Listeriosis
+                H00332  Listeriosis
+PATHOGEN    Listeria monocytogenes [GN:lmo lmn lmy lmoc lmoe lmob lmod lmoq lmr lmom lmf lmc lmog lmp lmol lmoj lmoz lmx lmz lmon lmot lmoa]
+            pore-forming toxin [KO:K11031]
+DRUG        Doxycycline [DR:D00307]
+            Doxycycline hyclate [DR:D02129]
+            Doxycycline calcium [DR:D03903]
+            Minocycline hydrochloride [DR:D00850]
+            Demeclocycline hydrochloride [DR:D00290]
+            Erythromycin [DR:D00140]
+            Erythromycin ethylsuccinate [DR:D01361]
+            Erythromycin stearate [DR:D02184]
+            Penicillin G potassium [DR:D01053]
+            Penicillin G sodium [DR:D05408]
+DBLINKS     ICD-11: 1C1A
+            ICD-10: A32
+            MeSH: D008088
+            MedlinePlus: 001380
+REFERENCE   PMID:22037557
+  AUTHORS   Munoz P, Rojas L, Bunsow E, Saez E, Sanchez-Cambronero L, Alcala L, Rodriguez-Creixems M, Bouza E
+  TITLE     Listeriosis: An emerging public health problem especially among the elderly.
+  JOURNAL   J Infect 64:19-33 (2012)
+            DOI:10.1016/j.jinf.2011.10.006
+REFERENCE   PMID:19332898
+  AUTHORS   Rebagliati V, Philippi R, Rossi M, Troncoso A
+  TITLE     Prevention of foodborne listeriosis.
+  JOURNAL   Indian J Pathol Microbiol 52:145-9 (2009)
+            DOI:10.4103/0377-4929.48903
+REFERENCE   PMID:17094698
+  AUTHORS   Jemmi T, Stephan R
+  TITLE     Listeria monocytogenes: food-borne pathogen and hygiene indicator.
+  JOURNAL   Rev Sci Tech 25:571-80 (2006)
+REFERENCE   PMID:16161698
+  AUTHORS   ILSI Research Foundation; Risk Science Institute.
+  TITLE     Achieving continuous improvement in reductions in foodborne listeriosis--a risk-based approach.
+  JOURNAL   J Food Prot 68:1932-94 (2005)
+            DOI:10.4315/0362-028X-68.9.1932
+REFERENCE   PMID:12648845
+  AUTHORS   Rocourt J, BenEmbarek P, Toyofuku H, Schlundt J
+  TITLE     Quantitative risk assessment of Listeria monocytogenes in ready-to-eat foods: the FAO/WHO approach.
+  JOURNAL   FEMS Immunol Med Microbiol 35:263-7 (2003)
+            DOI:10.1016/S0928-8244(02)00468-6
+///

@@ -1,0 +1,50 @@
+ENTRY       H00320                      Disease
+NAME        Helicobacter pylori infection
+DESCRIPTION Helicobacter pylori (HP) is a gram-negative pathogenic bacterium that specifically colonizes in the gastric epithelium and causes chronic gastritis, peptic ulcer disease, and/or gastric malignancies. Persistent infection can cause inflammation and gastritis that may lead to carcinogenesis. Transmission is still not entirely clarified, but human-to-human spread through oral-oral or fecal-oral route is thought to be the most plausible. The prevalence of HP infection varies between different geographical regions; generally, the prevalence is about 30% in developed and up to 80% in developing countries. Although HP may sometimes be eradicated by antibiotics given for other infections, infection usually persists life-long unless specific combination antibiotic therapy is taken.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by epsilon proteobacteria
+               H00320  Helicobacter pylori infection
+PATHWAY     hsa05120  Epithelial cell signaling in Helicobacter pylori infection
+PATHOGEN    Helicobacter pylori [GN:hpy hpj hpa hps hpg hpp hpb hpl hpi hpq hpw hef hpf heq hex hpv hey hpya hpyk hpyb hpyc hpyd hpye hpyf hpyg hpyh hpyj heb hez]
+  MODULE    M00564  Helicobacter pylori pathogenicity signature, cagA pathogenicity island
+DRUG        Omeprazole magnesium [DR:D05259]
+            Lansoprazole [DR:D00355]
+            Rabeprazole sodium [DR:D00724]
+            Esomeprazole magnesium [DR:D01984]
+            Esomeprazole magnesium dihydrate [DR:D11114]
+            Omeprazole, clarithromycin and amoxicillin [DR:D10246]
+            Amoxicillin hydrate, clarithromycin and lansoprazole [DR:D08774]
+            Bismuth subcitrate, tetracycline and metronidazole [DR:D10245]
+            Vonoprazan, amoxicillin and clarithromycin [DR:D10775]
+            Omeprazole magnesium, amoxicillin and rifabutin [DR:D11858]
+            Amoxicillin [DR:D00229]
+            Clarithromycin [DR:D00276]
+DBLINKS     ICD-10: A49.8
+            MeSH: D016481
+REFERENCE
+  AUTHORS   Papadakis MA, Tierney LM (ed).
+  TITLE     [Current Medical Diagnosis & Treatment 2004, Forty-Third Edition] (In Japanese)
+  JOURNAL   Nikkei Business Publications, Inc. (2004)
+REFERENCE   PMID:21546717
+  AUTHORS   Albaker WI
+  TITLE     Helicobacter pylori infection and its relationship to metabolic syndrome: is it a myth or fact?
+  JOURNAL   Saudi J Gastroenterol 17:165-9 (2011)
+            DOI:10.4103/1319-3767.80377
+REFERENCE   PMID:21896079
+  AUTHORS   Goh KL, Chan WK, Shiota S, Yamaoka Y
+  TITLE     Epidemiology of Helicobacter pylori infection and public health implications.
+  JOURNAL   Helicobacter 16 Suppl 1:1-9 (2011)
+            DOI:10.1111/j.1523-5378.2011.00874.x
+REFERENCE   PMID:17309745
+  AUTHORS   Kabir S
+  TITLE     The current status of Helicobacter pylori vaccines: a review.
+  JOURNAL   Helicobacter 12:89-102 (2007)
+            DOI:10.1111/j.1523-5378.2007.00478.x
+REFERENCE   PMID:14501997
+  AUTHORS   Moss SF, Sood S
+  TITLE     Helicobacter pylori.
+  JOURNAL   Curr Opin Infect Dis 16:445-51 (2003)
+            DOI:10.1097/01.qco.0000092816.64370.e2
+///

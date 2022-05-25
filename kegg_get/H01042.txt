@@ -1,0 +1,34 @@
+ENTRY       H01042                      Disease
+NAME        Buruli ulcer
+  SUPERGRP  Nontuberculous mycobacterial infection [DS:H01458]
+DESCRIPTION Buruli ulcer (BU) is a neglected emerging disease that has recently been reported in some countries especially in central and western Africa. BU is a serious necrotizing cutaneous infection caused by Mycobacterium ulcerans that is related to the aquatic environment. BU is characterized by indolent, typically painless necrotizing skin lesions.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by actinobacteria
+               H01042  Buruli ulcer
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Mycobacterial diseases
+               1B21  Infections due to non-tuberculous mycobacteria
+                H01042  Buruli ulcer
+PATHOGEN    Mycobacterium ulcerans [GN:mul]
+DBLINKS     ICD-11: 1B21.20
+            ICD-10: A31.1
+            MeSH: D054312
+REFERENCE   PMID:21179505
+  AUTHORS   Merritt RW, Walker ED, Small PL, Wallace JR, Johnson PD, Benbow ME, Boakye DA
+  TITLE     Ecology and transmission of Buruli ulcer disease: a systematic review.
+  JOURNAL   PLoS Negl Trop Dis 4:e911 (2010)
+            DOI:10.1371/journal.pntd.0000911
+REFERENCE   PMID:21095521
+  AUTHORS   Walsh DS, Portaels F, Meyers WM
+  TITLE     Buruli ulcer: Advances in understanding Mycobacterium ulcerans infection.
+  JOURNAL   Dermatol Clin 29:1-8 (2011)
+            DOI:10.1016/j.det.2010.09.006
+REFERENCE   PMID:22004037
+  AUTHORS   Converse PJ, Nuermberger EL, Almeida DV, Grosset JH
+  TITLE     Treating Mycobacterium ulcerans disease (Buruli ulcer): from surgery to antibiotics, is the pill mightier than the knife?
+  JOURNAL   Future Microbiol 6:1185-98 (2011)
+            DOI:10.2217/fmb.11.101
+///

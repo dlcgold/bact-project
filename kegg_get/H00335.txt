@@ -1,0 +1,40 @@
+ENTRY       H00335                      Disease
+NAME        Foodborne Clostridium perfringens intoxication
+  SUPERGRP  Anaerobic infection [DS:H01410]
+DESCRIPTION Clostridium perfringens is a spore-forming, gram-positive, anaerobic bacterium consisting of five types (A-E), according to the major toxins they produce. It causes two different foodborne diseases: Type A food poisoning and Type C food poisoning. Type A causes relatively mild diarrhea common in the industrialized countries, whereas Type C is a rare but very serious cause of necrotic enteritis.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H00335  Foodborne Clostridium perfringens intoxication
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Gastroenteritis or colitis of infectious origin
+               Bacterial foodborne intoxications
+                1A12  Foodborne Clostridium perfringens intoxication
+                 H00335  Foodborne Clostridium perfringens intoxication
+PATHOGEN    Clostridium perfringens [GN:cpe cpf cpr]
+            hyaluronidase/collagenase [KO:K01186 K01197 K01387 K08587]
+            pore-forming toxin [KO:K03699 K06442 K11031 K11068]
+            membrane-damaging toxin [KO:K16619]
+            enterotoxin [KO:K11059 K11060 K11061 K11062]
+            enterotoxin Cpe [KO:K11058]
+            beta2 toxin [KO:K11057]
+DBLINKS     ICD-11: 1A12
+            ICD-10: A05.2
+            MeSH: D003015
+REFERENCE
+  AUTHORS   Papadakis MA and McPhee SJ |(ed)
+  TITLE     Current Medical Diagnosis & Treatment 2007, Forty-Sixth Edition
+  JOURNAL   McGraw Hill Education
+REFERENCE   PMID:11981970
+  AUTHORS   Brynestad S, Granum PE
+  TITLE     Clostridium perfringens and foodborne infections.
+  JOURNAL   Int J Food Microbiol 74:195-202 (2002)
+            DOI:10.1016/S0168-1605(01)00680-8
+REFERENCE   PMID:21315973
+  AUTHORS   Lindstrom M, Heikinheimo A, Lahti P, Korkeala H
+  TITLE     Novel insights into the epidemiology of Clostridium perfringens type A food poisoning.
+  JOURNAL   Food Microbiol 28:192-8 (2011)
+            DOI:10.1016/j.fm.2010.03.020
+///

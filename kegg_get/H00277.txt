@@ -1,0 +1,43 @@
+ENTRY       H00277                      Disease
+NAME        Enterohemorrhagic Escherichia coli (EHEC) infection
+DESCRIPTION Enterohemorrhagic Escherichia coli (EHEC) infection is typically contracted through consumption of contaminated food or contact with contaminated water, animal feces or infected animals. EHEC is also referred to as verocytotoxin producing E. coli (VTEC) or Shiga toxin producing E. coli (STEC). The serotype O157:H7 is first associated with human disease after a multistate outbreak in the United States in 1982 involving contaminated hamburgers.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by enterobacteria
+               H00277  Enterohemorrhagic Escherichia coli (EHEC) infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Gastroenteritis or colitis of infectious origin
+               Bacterial intestinal infections
+                1A03  Intestinal infections due to Escherichia coli
+                 H00277  Enterohemorrhagic Escherichia coli (EHEC) infection
+PATHWAY     hsa05130  Pathogenic Escherichia coli infection
+NETWORK     nt06121  TLR signaling (viruses and bacteria)
+            nt06123  TNF signaling (viruses and bacteria)
+            nt06125  Membrane trafficking (bacteria)
+            nt06131  Apoptosis (viruses and bacteria)
+            nt06135  Cytoskeletal regulation (viruses and bacteria)
+            nt06139  NLR signaling (viruses and bacteria)
+PATHOGEN    Escherichia coli O157:H7 [GN:ece ecs ecf etw elx]
+            Escherichia coli O26:H11 [GN:eoj]
+            Escherichia coli O111:H- [GN:eoi]
+            Escherichia coli O103:H2 [GN:eoh]
+            Escherichia coli O104:H4 [GN:esl eso esm]
+            Escherichia coli O145:H28 [GN:ecoo ecoh]
+  MODULE    M00542  EHEC/EPEC pathogenicity signature, T3SS and effectors
+            M00363  EHEC pathogenicity signature, Shiga toxin
+DBLINKS     ICD-11: 1A03.3
+            ICD-10: A04.3
+            MeSH: D004927
+REFERENCE   PMID:17890332
+  AUTHORS   Baker DR, Moxley RA, Steele MB, Lejeune JT, Christopher-Hennings J, Chen DG, Hardwidge PR, Francis DH
+  TITLE     Differences in virulence among Escherichia coli O157:H7 strains isolated from humans during disease outbreaks and from healthy cattle.
+  JOURNAL   Appl Environ Microbiol 73:7338-46 (2007)
+            DOI:10.1128/AEM.00755-07
+REFERENCE   PMID:23133618
+  AUTHORS   Ahmed SA, Awosika J, Baldwin C, Bishop-Lilly KA, Biswas B, Broomall S, Chain PS, Chertkov O, Chokoshvili O, Coyne S, Davenport K, Detter JC, Dorman W, Erkkila TH, Folster JP, Frey KG, George M, Gleasner C, Henry M, Hill KK, Hubbard K, Insalaco J, Johnson S, Kitzmiller A, Krepps M, Lo CC, Luu T, McNew LA, Minogue T, Munk CA, Osborne B, Patel M, Reitenga KG, Rosenzweig CN, Shea A, Shen X, Strockbine N, Tarr C, Teshima H, van Gieson E, Verratti K, Wolcott M, Xie G, Sozhamannan S, Gibbons HS
+  TITLE     Genomic comparison of Escherichia coli O104:H4 isolates from 2009 and 2011 reveals plasmid, and prophage heterogeneity, including shiga toxin encoding phage stx2.
+  JOURNAL   PLoS One 7:e48228 (2012)
+            DOI:10.1371/journal.pone.0048228
+///

@@ -1,0 +1,22 @@
+ENTRY       H01414                      Disease
+NAME        Hafnia alvei infection
+DESCRIPTION The genus Hafnia, a member of the family Enterobacteriaceae, is occasionally implicated in both intestinal and extraintestinal infections in humans. Hafnia alvei is a facultative anaerobic opportunistic pathogen that is also known to play a role in microbial food spoilage. This species has been isolated from a wide range of nosocomial infections, including septicaemia, as well as respiratory, enteric, and urinary tract infections.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by enterobacteria
+               H01414  Hafnia alvei infection
+PATHOGEN    Hafnia alvei [GN:hav]
+DBLINKS     ICD-10: A41
+            MeSH: D018805 D004756
+REFERENCE   PMID:25075225
+  AUTHORS   Tan JY, Yin WF, Chan KG
+  TITLE     Gene clusters of Hafnia alvei strain FB1 important in survival and pathogenesis: a draft genome perspective.
+  JOURNAL   Gut Pathog 6:29 (2014)
+            DOI:10.1186/1757-4749-6-29
+REFERENCE   PMID:16418520
+  AUTHORS   Janda JM, Abbott SL
+  TITLE     The genus Hafnia: from soup to nuts.
+  JOURNAL   Clin Microbiol Rev 19:12-8 (2006)
+            DOI:10.1128/CMR.19.1.12-28.2006
+///

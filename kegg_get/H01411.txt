@@ -1,0 +1,23 @@
+ENTRY       H01411                      Disease
+NAME        Saccharomonospora viridis infection
+DESCRIPTION Saccharomonospora viridis is the type species of the genus Saccharomonospora which belongs to the family Pseudonocardiaceae. Members of the species are frequently found in hot compost and hay, and its spores can cause farmer's lung disease, bagassosis, and humidifier fever. Spores of S. viridis are readily dispersed in air, and the prolonged exposure to spores can apparently result in acute respiratory distress which may lead to irreversible lung damage.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by actinobacteria
+               H01411  Saccharomonospora viridis infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             12 Diseases of the respiratory system
+              Lung diseases due to external agents
+               Pneumonitis
+                CA70  Hypersensitivity pneumonitis due to organic dust
+                 H01411  Saccharomonospora viridis infection
+PATHOGEN    Saccharomonospora viridis [GN:svi]
+DBLINKS     ICD-11: CA70
+            ICD-10: J67
+REFERENCE   PMID:21304650
+  AUTHORS   Pati A, Sikorski J, Nolan M, Lapidus A, Copeland A, Glavina Del Rio T, Lucas S, Chen F, Tice H, Pitluck S, Cheng JF, Chertkov O, Brettin T, Han C, Detter JC, Kuske C, Bruce D, Goodwin L, Chain P, D'haeseleer P, Chen A, Palaniappan K, Ivanova N, Mavromatis K, Mikhailova N, Rohde M, Tindall BJ, Goker M, Bristow J, Eisen JA, Markowitz V, Hugenholtz P, Kyrpides NC, Klenk HP
+  TITLE     Complete genome sequence of Saccharomonospora viridis type strain (P101).
+  JOURNAL   Stand Genomic Sci 1:141-9 (2009)
+            DOI:10.4056/sigs.20263
+///

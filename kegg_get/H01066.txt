@@ -1,0 +1,31 @@
+ENTRY       H01066                      Disease
+NAME        Bordetella petrii infection
+DESCRIPTION Bordetella petrii is one of the members of the genus Bordetella, that includes human pathogen B. pertussis. Unlike other members of Bordetella, B. petrii is an environmental species but sometimes can infect immunocompetent humans.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by beta proteobacteria
+               H01066  Bordetella petrii infection
+PATHOGEN    Bordetella petrii [GN:bpt]
+DBLINKS     MeSH: D001885
+REFERENCE   PMID:21470449
+  AUTHORS   Le Coustumier A, Njamkepo E, Cattoir V, Guillot S, Guiso N
+  TITLE     Bordetella petrii infection with long-lasting persistence in human.
+  JOURNAL   Emerg Infect Dis 17:612-8 (2011)
+            DOI:10.3201/eid1704.101480
+REFERENCE   PMID:17314377
+  AUTHORS   Stark D, Riley LA, Harkness J, Marriott D
+  TITLE     Bordetella petrii from a clinical sample in Australia: isolation and molecular identification.
+  JOURNAL   J Med Microbiol 56:435-7 (2007)
+            DOI:10.1099/jmm.0.46976-0
+REFERENCE   PMID:18826580
+  AUTHORS   Gross R, Guzman CA, Sebaihia M, dos Santos VA, Pieper DH, Koebnik R, Lechner M, Bartels D, Buhrmester J, Choudhuri JV, Ebensen T, Gaigalat L, Herrmann S, Khachane AN, Larisch C, Link S, Linke B, Meyer F, Mormann S, Nakunst D, Ruckert C, Schneiker-Bekel S, Schulze K, Vorholter FJ, Yevsa T, Engle JT, Goldman WE, Puhler A, Gobel UB, Goesmann A, Blocker H, Kaiser O, Martinez-Arias R
+  TITLE     The missing link: Bordetella petrii is endowed with both the metabolic versatility of environmental bacteria and virulence traits of pathogenic Bordetellae.
+  JOURNAL   BMC Genomics 9:449 (2008)
+            DOI:10.1186/1471-2164-9-449
+REFERENCE   PMID:15831828
+  AUTHORS   Mattoo S, Cherry JD
+  TITLE     Molecular pathogenesis, epidemiology, and clinical manifestations of respiratory infections due to Bordetella pertussis and other Bordetella subspecies.
+  JOURNAL   Clin Microbiol Rev 18:326-82 (2005)
+            DOI:10.1128/CMR.18.2.326-382.2005
+///

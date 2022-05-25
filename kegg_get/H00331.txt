@@ -1,0 +1,35 @@
+ENTRY       H00331                      Disease
+NAME        Vancomycin-resistant Staphylococcal aureus (VRSA) infection
+DESCRIPTION Vancomycin-resistant Staphylococcus aureus (VRSA) represents strains of S. aureus that have ability of resistance to the glycopeptide antibiotic vancomycin. S. aureus is the most common cause of nosocomial infections. The glycopeptides-notably vancomycin-have traditionally been the mainstay of treatment of methicillin-resistant S. aureus (MRSA) but overuse has led to the emergence of vancomycin-intermediate and vancomycin-resistant S. aureus (VISA and VRSA, respectively). Limited treatment options make resistant S. aureus infections particularly difficult and costly to treat, especially in areas of poor antibiotic penetration, such as joint spaces and the central nervous system. A gene known as vanA is a major determinant, which is transferable and can be acquired by sensitive bacteria from resistant organisms.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H00331  Vancomycin-resistant Staphylococcal aureus (VRSA) infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             21 Symptoms, signs or clinical findings, not elsewhere classified
+              General symptoms, signs or clinical findings
+               Finding of microorganism resistant to antimicrobial drugs
+                MG51  Finding of gram positive bacteria resistant to antimicrobial drugs
+                 H00331  Vancomycin-resistant Staphylococcal aureus (VRSA) infection
+PATHWAY     hsa05150  Staphylococcus aureus infection
+PATHOGEN    Staphylococcus aureus [GN:saw saj suv suk]
+DBLINKS     ICD-11: MG51.01
+            ICD-10: U83.0
+            MeSH: D013203
+REFERENCE   PMID:11871491 (drug)
+  AUTHORS   Hiramatsu K
+  TITLE     Vancomycin-resistant Staphylococcus aureus: a new model of antibiotic resistance.
+  JOURNAL   Lancet Infect Dis 1:147-55 (2001)
+            DOI:10.1016/S1473-3099(01)00091-3
+REFERENCE   PMID:16575232
+  AUTHORS   Todd B
+  TITLE     Beyond MRSA: VISA and VRSA: what will ward off these pathogens in health care facilities?
+  JOURNAL   Am J Nurs 106:28-30 (2006)
+            DOI:10.1097/00000446-200604000-00021
+REFERENCE   PMID:16445720
+  AUTHORS   Appelbaum PC
+  TITLE     The emergence of vancomycin-intermediate and vancomycin-resistant Staphylococcus aureus.
+  JOURNAL   Clin Microbiol Infect 12 Suppl 1:16-23 (2006)
+            DOI:10.1111/j.1469-0691.2006.01344.x
+///

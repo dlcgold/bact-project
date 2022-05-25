@@ -1,0 +1,20 @@
+ENTRY       H01332                      Disease
+NAME        Helicobacter heilmannii infection
+DESCRIPTION Helicobacter heilmannii (H. heilmannii) infection is a relatively rare causative agent of gastroduodenal diseases in children. H. heilmannii frequently colonizes gastric mucosa of animals, mainly cats and dogs, from where it can be transmitted to humans. Generally, H. heilmannii infection is associated with mild gastritis. However, association with duodenal ulcer, acute gastric mucosal lesion, and gastric carcinoma have been observed. Also, a close association with low-grade primary gastric mucosa-associated lymphoid tissue (MALT) lymphoma has been described both in humans and in experimental animals.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by epsilon proteobacteria
+               H01332  Helicobacter heilmannii infection
+PATHOGEN    Helicobacter heilmannii [GN:hhm]
+DBLINKS     MeSH: D016481
+REFERENCE   PMID:15982214
+  AUTHORS   Okiyama Y, Matsuzawa K, Hidaka E, Sano K, Akamatsu T, Ota H
+  TITLE     Helicobacter heilmannii infection: clinical, endoscopic and histopathological features in Japanese patients.
+  JOURNAL   Pathol Int 55:398-404 (2005)
+            DOI:10.1111/j.1440-1827.2005.01844.x
+REFERENCE   PMID:22653899
+  AUTHORS   Iwanczak B, Biernat M, Iwanczak F, Grabinska J, Matusiewicz K, Gosciniak G
+  TITLE     The clinical aspects of Helicobacter heilmannii infection in children with dyspeptic symptoms.
+  JOURNAL   J Physiol Pharmacol 63:133-6 (2012)
+///

@@ -1,0 +1,16 @@
+ENTRY       H01080                      Disease
+NAME        Ralstonia pickettii infection
+DESCRIPTION Ralstonia pickettii is a gram-negative aerobic bacillus that can cause infections, mainly of the respiratory tract, in immunocompromised and cystic fibrosis patients.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by beta proteobacteria
+               H01080  Ralstonia pickettii infection
+PATHOGEN    Ralstonia pickettii
+COMMENT     Resistance can occur to ciprofloxacin, trimethoprim-sulphamethoxazole, piperacillin-tazobactam, imipenem-cilastatin and ceftazidime.
+REFERENCE   PMID:16441445
+  AUTHORS   Stelzmueller I, Biebl M, Wiesmayr S, Eller M, Hoeller E, Fille M, Weiss G, Lass-Floerl C, Bonatti H
+  TITLE     Ralstonia pickettii-innocent bystander or a potential threat?
+  JOURNAL   Clin Microbiol Infect 12:99-101 (2006)
+            DOI:10.1111/j.1469-0691.2005.01309.x
+///

@@ -1,0 +1,47 @@
+ENTRY       H00343                      Disease
+NAME        Diphtheria
+DESCRIPTION Diphtheria is a contagious and potentially life-threatening childhood disease caused by Corynebacterium diphtheriae. In industrialized countries, immunization against diphtheria became widespread in the 1940s and the incidence of the disease markedly decreased. However, diphtheria still remains endemic in several regions including Africa, India, Bangladesh, Vietnam, the tropics, and South America. Moreover, a large proportion of adults in industrialized countries are now susceptible to diphtheria because the protection by vaccine does not last for long time unless periodic booster is given.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by actinobacteria
+               H00343  Diphtheria
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               1C17  Diphtheria
+                H00343  Diphtheria
+PATHOGEN    Corynebacterium diphtheriae [GN:cdi cdp cdz cdd cdw cdv]
+            diphtheria toxin [KO:K00776]
+DRUG        Erythromycin [DR:D00140]
+            Erythromycin ethylsuccinate [DR:D01361]
+            Erythromycin lactobionate [DR:D02009]
+            Erythromycin stearate [DR:D02184]
+            Penicillin G potassium [DR:D01053]
+            Penicillin G procaine [DR:D02461]
+            Penicillin G sodium [DR:D05408]
+            Freeze-dried diphtheria antitoxin, equine [DR:D03925]
+DBLINKS     ICD-11: 1C17
+            ICD-10: A36
+            MeSH: D004165
+            MedlinePlus: 001608
+REFERENCE   (drug)
+  AUTHORS   Papadakis MA, Tierney LM (ed).
+  TITLE     [Current Medical Diagnosis & Treatment 2004, Forty-Third Edition] (In Japanese)
+  JOURNAL   Nikkei Business Publications, Inc. (2004)
+REFERENCE   PMID:15049077
+  AUTHORS   Mattos-Guaraldi AL, Moreira LO, Damasco PV, Hirata Junior R
+  TITLE     Diphtheria remains a threat to health in the developing world--an overview.
+  JOURNAL   Mem Inst Oswaldo Cruz 98:987-93 (2003)
+            DOI:10.1590/S0074-02762003000800001
+REFERENCE   PMID:7489768
+  AUTHORS   Galazka AM, Robertson SE
+  TITLE     Diphtheria: changing patterns in the developing world and the industrialized world.
+  JOURNAL   Eur J Epidemiol 11:107-17 (1995)
+            DOI:10.1007/BF01719955
+REFERENCE   PMID:7489783
+  AUTHORS   Galazka AM, Robertson SE, Oblapenko GP
+  TITLE     Resurgence of diphtheria.
+  JOURNAL   Eur J Epidemiol 11:95-105 (1995)
+            DOI:10.1007/BF01719954
+///

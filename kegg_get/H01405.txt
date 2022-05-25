@@ -1,0 +1,20 @@
+ENTRY       H01405                      Disease
+NAME        Lactococcus garvieae infection
+DESCRIPTION Lactococcus garvieae, catalase-negative, facultative anaerobic cocci, is a major pathogen of fish and causes fatal hemorrhagic septicemia in fish such as yellowtail and trout, and it has also been isolated from buffaloes with mastitis, and clinical specimens of human blood, urine, and skin. However, it is an unusual human pathogen. Only a few infections have been described so far, including several cases of infective endocarditis on native or prosthetic valve, one case of osteomyelitis, and septicaemia with liver abscess.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H01405  Lactococcus garvieae infection
+PATHOGEN    Lactococcus garvieae [GN:lgv]
+REFERENCE   PMID:21935642
+  AUTHORS   Nadrah K, Cerar T, Papst L, Volkar-Meglic J, Maticic M, Karner P, Vidmar L, Premru MM, Beovic B
+  TITLE     Lactococcus garvieae septicaemia in a patient with artificial heart valves.
+  JOURNAL   Wien Klin Wochenschr 123:677-9 (2011)
+            DOI:10.1007/s00508-011-0059-z
+REFERENCE   PMID:21829716
+  AUTHORS   Morita H, Toh H, Oshima K, Yoshizaki M, Kawanishi M, Nakaya K, Suzuki T, Miyauchi E, Ishii Y, Tanabe S, Murakami M, Hattori M
+  TITLE     Complete genome sequence and comparative analysis of the fish pathogen Lactococcus garvieae.
+  JOURNAL   PLoS One 6:e23184 (2011)
+            DOI:10.1371/journal.pone.0023184
+///

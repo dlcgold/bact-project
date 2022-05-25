@@ -1,0 +1,25 @@
+ENTRY       H01050                      Disease
+NAME        Tsukamurella infection
+DESCRIPTION Tsukamurella species are aerobic gram-positive rods from the order Actinomycetales. They have been uncommonly reported as a cause of different human infections, including peritonitis, conjunctivitis, meningitis, tenosynovitis, prosthetic joint infections, cutaneous infections, tuberculosis-like respiratory infection, and catheter-related bloodstream infections.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by actinobacteria
+               H01050  Tsukamurella infection
+PATHOGEN    Tsukamurella paurometabola [GN:tpr]
+            Tsukamurella tyrosinosolvens [GN:tsm]
+            Tsukamurella pulmonis
+            Tsukamurella inchonensis
+            Tsukamurella strandjordae
+COMMENT     Tsukamurella spp. are resistant to cefoxitin, ampicillin, and amoxicillin/clavulanic acid.
+REFERENCE   PMID:18810513
+  AUTHORS   Bouza E, Perez-Parra A, Rosal M, Martin-Rabadan P, Rodriguez-Creixems M, Marin M
+  TITLE     Tsukamurella: a cause of catheter-related bloodstream infections.
+  JOURNAL   Eur J Clin Microbiol Infect Dis 28:203-10 (2009)
+            DOI:10.1007/s10096-008-0607-2
+REFERENCE   PMID:12228839
+  AUTHORS   Schwartz MA, Tabet SR, Collier AC, Wallis CK, Carlson LC, Nguyen TT, Kattar MM, Coyle MB
+  TITLE     Central venous catheter-related bacteremia due to Tsukamurella species in the immunocompromised host: a case series and review of the literature.
+  JOURNAL   Clin Infect Dis 35:e72-7 (2002)
+            DOI:10.1086/342561
+///

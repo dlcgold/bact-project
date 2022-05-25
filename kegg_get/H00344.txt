@@ -1,0 +1,69 @@
+ENTRY       H00344                      Disease
+NAME        Leprosy;
+            Hansen disease
+DESCRIPTION Leprosy, also called Hansen's disease, is a chronic infection caused by Mycobacterium leprae (M. leprae) and the more recently discovered Mycobacterium lepromatosis (M. lepromatosis). It primarily affects peripheral nerves, skin and mucosa particularly the upper respiratory tract.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by actinobacteria
+               H00344  Leprosy
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Mycobacterial diseases
+               1B20  Leprosy
+                H00344  Leprosy
+REL_PATHWAY hsa04612  Antigen processing and presentation
+            hsa04650  Natural killer cell mediated cytotoxicity
+            hsa04620  Toll-like receptor signaling pathway
+            hsa04060  Cytokine-cytokine receptor interaction
+            hsa04141  Protein processing in endoplasmic reticulum
+GENE        (LPRS3) TLR2 (polymorphism) [HSA:7097] [KO:K10159]
+            (LPRS4) LTA (polymorphism) [HSA:4049] [KO:K05468]
+            (LPRS5) TLR1 (polymorphism) [HSA:7096] [KO:K05398]
+            PRKN (polymorphism) [HSA:5071] [KO:K04556]
+            HLA [HSA:3105 3106 3107 3133 3134 3135] [KO:K06751]
+PATHOGEN    Mycobacterium leprae [GN:mle] (from India)
+            Mycobacterium leprae [GN:mlb] (from Brazil)
+            Mycobacterium lepromatosis [GN:mlm]
+DRUG        Dapsone [DR:D00592]
+DBLINKS     ICD-11: 1B20
+            ICD-10: A30
+            MeSH: D007918
+            OMIM: 613223 246300 610988 607572 609888
+            MedlinePlus: 001347
+REFERENCE   PMID:21616456
+  AUTHORS   Rodrigues LC, Lockwood DNj
+  TITLE     Leprosy now: epidemiology, progress, challenges, and research gaps.
+  JOURNAL   Lancet Infect Dis 11:464-70 (2011)
+            DOI:10.1016/S1473-3099(11)70006-8
+REFERENCE   PMID:32339201
+  AUTHORS   Ploemacher T, Faber WR, Menke H, Rutten V, Pieters T
+  TITLE     Reservoirs and transmission routes of leprosy; A systematic review.
+  JOURNAL   PLoS Negl Trop Dis 14:e0008276 (2020)
+            DOI:10.1371/journal.pntd.0008276
+REFERENCE   PMID:15726416 (TLR2)
+  AUTHORS   Malhotra D, Relhan V, Reddy BS, Bamezai R
+  TITLE     TLR2 Arg677Trp polymorphism in leprosy: revisited.
+  JOURNAL   Hum Genet 116:413-5 (2005)
+            DOI:10.1007/s00439-004-1249-9
+REFERENCE   PMID:17353895 (LTA)
+  AUTHORS   Alcais A, Alter A, Antoni G, Orlova M, Nguyen VT, Singh M, Vanderborght PR, Katoch K, Mira MT, Vu HT, Ngyuen TH, Nguyen NB, Moraes M, Mehra N, Schurr E, Abel L
+  TITLE     Stepwise replication identifies a low-producing lymphotoxin-alpha allele as a major risk factor for early-onset leprosy.
+  JOURNAL   Nat Genet 39:517-22 (2007)
+            DOI:10.1038/ng2000
+REFERENCE   PMID:17548585 (TLR1)
+  AUTHORS   Johnson CM, Lyle EA, Omueti KO, Stepensky VA, Yegin O, Alpsoy E, Hamann L, Schumann RR, Tapping RI
+  TITLE     Cutting edge: A common polymorphism impairs cell surface trafficking and functional responses of TLR1 but protects against leprosy.
+  JOURNAL   J Immunol 178:7520-4 (2007)
+            DOI:10.4049/jimmunol.178.12.7520
+REFERENCE   PMID:14737177 (PRKN)
+  AUTHORS   Mira MT, Alcais A, Nguyen VT, Moraes MO, Di Flumeri C, Vu HT, Mai CP, Nguyen TH, Nguyen NB, Pham XK, Sarno EN, Alter A, Montpetit A, Moraes ME, Moraes JR, Dore C, Gallant CJ, Lepage P, Verner A, Van De Vosse E, Hudson TJ, Abel L, Schurr E
+  TITLE     Susceptibility to leprosy is associated with PARK2 and PACRG.
+  JOURNAL   Nature 427:636-40 (2004)
+            DOI:10.1038/nature02326
+REFERENCE   PMID:16728267 (HLA)
+  AUTHORS   Geluk A, Ottenhoff TH
+  TITLE     HLA and leprosy in the pre and postgenomic eras.
+  JOURNAL   Hum Immunol 67:439-45 (2006)
+            DOI:10.1016/j.humimm.2006.03.009
+///

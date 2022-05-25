@@ -1,0 +1,62 @@
+ENTRY       H00313                      Disease
+NAME        Multidrug-resistant Pseudomonas aeruginosa infection
+DESCRIPTION Pseudomonas aeruginosa is an opportunistic pathogen that may cause severe invasive diseases in critically ill patients. In the 21st century, when the life expectancy of highly susceptible immunocompromised groups has been extended in most countries, P. aeruginosa plays an increasingly prominent role in hospital infections. This organism shows a remarkable capacity to resist antibiotics, either intrinsically (because of constitutive expression of beta-lactamases and efflux pumps, combined with low permeability of the outer-membrane) or following acquisition of resistance genes (e.g., genes for beta-lactamases, or enzymes inactivating aminoglycosides or modifying their target), over-expression of efflux pumps, decreased expression of porins, or mutations in quinolone targets. These mechanisms mediate the multidrug-resistant (MDR) phenotype in P. aeruginosa.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by other gamma proteobacteria
+               H00313  Multidrug-resistant Pseudomonas aeruginosa infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             21 Symptoms, signs or clinical findings, not elsewhere classified
+              General symptoms, signs or clinical findings
+               Finding of microorganism resistant to antimicrobial drugs
+                MG50  Finding of gram negative bacteria resistant to antimicrobial drugs
+                 H00313  Multidrug-resistant Pseudomonas aeruginosa infection
+PATHOGEN    Pseudomonas aeruginosa [GN:pap pnc prp]
+COMMENT     P. aeruginosa genes containing mutations:
+            nalC [KO:K18130]
+            nalD [KO:K18135]
+DBLINKS     ICD-11: MG50.8
+            ICD-10: A49.8 J15.1
+            MeSH: D011552
+REFERENCE   PMID:20715920
+  AUTHORS   Hirsch EB, Tam VH
+  TITLE     Impact of multidrug-resistant Pseudomonas aeruginosa infection on patient outcomes.
+  JOURNAL   Expert Rev Pharmacoecon Outcomes Res 10:441-51 (2010)
+            DOI:10.1586/erp.10.49
+REFERENCE   PMID:17266725
+  AUTHORS   Mesaros N, Nordmann P, Plesiat P, Roussel-Delvallez M, Van Eldere J, Glupczynski Y, Van Laethem Y, Jacobs F, Lebecque P, Malfroot A, Tulkens PM, Van Bambeke F
+  TITLE     Pseudomonas aeruginosa: resistance and therapeutic options at the turn of the new millennium.
+  JOURNAL   Clin Microbiol Infect 13:560-78 (2007)
+            DOI:10.1111/j.1469-0691.2007.01681.x
+REFERENCE   PMID:24409175
+  AUTHORS   Morita Y, Tomida J, Kawamura Y
+  TITLE     Responses of Pseudomonas aeruginosa to antimicrobials.
+  JOURNAL   Front Microbiol 4:422 (2014)
+            DOI:10.3389/fmicb.2013.00422
+REFERENCE   PMID:20107499 (pathogen)
+  AUTHORS   Roy PH, Tetu SG, Larouche A, Elbourne L, Tremblay S, Ren Q, Dodson R, Harkins D, Shay R, Watkins K, Mahamoud Y, Paulsen IT
+  TITLE     Complete genome sequence of the multiresistant taxonomic outlier Pseudomonas aeruginosa PA7.
+  JOURNAL   PLoS One 5:e8842 (2010)
+            DOI:10.1371/journal.pone.0008842
+REFERENCE   PMID:22123763 (pathogen)
+  AUTHORS   Miyoshi-Akiyama T, Kuwahara T, Tada T, Kitao T, Kirikae T
+  TITLE     Complete genome sequence of highly multidrug-resistant Pseudomonas aeruginosa NCGM2.S1, a representative strain of a cluster endemic to Japan.
+  JOURNAL   J Bacteriol 193:7010 (2011)
+            DOI:10.1128/JB.06312-11
+REFERENCE   PMID:23908295 (pathogen)
+  AUTHORS   Jeukens J, Boyle B, Bianconi I, Kukavica-Ibrulj I, Tummler B, Bragonzi A, Levesque RC
+  TITLE     Complete Genome Sequence of Persistent Cystic Fibrosis Isolate Pseudomonas aeruginosa Strain RP73.
+  JOURNAL   Genome Announc 1:e00568-13 (2013)
+            DOI:10.1128/genomeA.00568-13
+REFERENCE   PMID:25070493 (drug)
+  AUTHORS   Nakamura I, Yamaguchi T, Tsukimori A, Sato A, Fukushima S, Matsumoto T
+  TITLE     New options of antibiotic combination therapy for multidrug-resistant Pseudomonas aeruginosa.
+  JOURNAL   Eur J Clin Microbiol Infect Dis 34:83-7 (2015)
+            DOI:10.1007/s10096-014-2192-x
+REFERENCE   PMID:16641429 (comment)
+  AUTHORS   Quale J, Bratu S, Gupta J, Landman D
+  TITLE     Interplay of efflux system, ampC, and oprD expression in carbapenem resistance of Pseudomonas aeruginosa clinical isolates.
+  JOURNAL   Antimicrob Agents Chemother 50:1633-41 (2006)
+            DOI:10.1128/AAC.50.5.1633-1641.2006
+///

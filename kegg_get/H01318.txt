@@ -1,0 +1,43 @@
+ENTRY       H01318                      Disease
+NAME        Yaws
+DESCRIPTION Treponemal infections occurring in humans comprise venereal syphilis and the non-venereal endemic treponematoses. The non-venereal endemic treponematoses are yaws, pinta, and endemic syphilis. Yaws is a chronic, relapsing disease predominantly affecting children living in certain tropical regions. Clinical manifestations of yaws are divided into various stages. Early stage skin lesions are infectious and can persist for weeks or months. Involvement of the bones of the upper and lower limbs and the fingers and toes can cause pain and digital swelling. After the early stage lesions subside due to the host immune response, the patient enters a latent stage that can be lifelong.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by spirochaetes
+               H01318  Yaws
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               1C1D  Yaws
+                H01318  Yaws
+PATHOGEN    Treponema pallidum subsp. pertenue [GN:tpc tpg tpm]
+DRUG        Tetracycline hydrochloride [DR:D02122]
+            Doxycycline [DR:D00307]
+            Doxycycline hyclate [DR:D02129]
+            Doxycycline calcium [DR:D03903]
+            Minocycline hydrochloride [DR:D00850]
+            Demeclocycline hydrochloride [DR:D00290]
+            Penicillin G benzathine [DR:D02157]
+            Penicillin G procaine [DR:D02461]
+COMMENT     See also H01530 Pinta and H01531 Bejel.
+DBLINKS     ICD-11: 1C1D
+            ICD-10: A66
+            MeSH: D015001
+            MedlinePlus: 001341
+REFERENCE   PMID:10330597
+  AUTHORS   Engelkens HJ, Vuzevski VD, Stolz E
+  TITLE     Nonvenereal treponematoses in tropical countries.
+  JOURNAL   Clin Dermatol 17:143-52; discussion 105-6 (1999)
+            DOI:10.1016/S0738-081X(99)00007-3
+REFERENCE   PMID:25870417
+  AUTHORS   Stamm LV
+  TITLE     Yaws: 110 years after Castellani's discovery of Treponema pallidum subspecies pertenue.
+  JOURNAL   Am J Trop Med Hyg 93:4-6 (2015)
+            DOI:10.4269/ajtmh.15-0147
+REFERENCE   PMID:11825779 (pathogen)
+  AUTHORS   Antal GM, Lukehart SA, Meheus AZ
+  TITLE     The endemic treponematoses.
+  JOURNAL   Microbes Infect 4:83-94 (2002)
+            DOI:10.1016/S1286-4579(01)01513-1
+///

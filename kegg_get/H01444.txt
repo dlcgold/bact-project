@@ -1,0 +1,23 @@
+ENTRY       H01444                      Disease
+NAME        Enterococcal infection
+DESCRIPTION Enterococci are Gram-positive, catalase-negative, non-spore-forming, facultative anaerobic bacteria, which usually inhabit the alimentary tract of humans in addition to being isolated from environmental and animal sources. The species of the greatest clinical importance are Enterococcus faecalis and Enterococcus faecium. Enterococcal infections include urinary tract infections, hepatobiliary sepsis, endocarditis, surgical wound infection, bacteraemia and neonatal sepsis.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H01444  Enterococcal infection
+PATHOGEN    Enterococcus faecalis
+            Enterococcus faecium
+            Enterococcus avium [GN:eav]
+DBLINKS     ICD-10: A41 I39 N39
+REFERENCE   PMID:24585051
+  AUTHORS   Yuen GJ, Ausubel FM
+  TITLE     Enterococcus infection biology: lessons from invertebrate host models.
+  JOURNAL   J Microbiol 52:200-10 (2014)
+            DOI:10.1007/s12275-014-4011-6
+REFERENCE   PMID:19383684
+  AUTHORS   Fisher K, Phillips C
+  TITLE     The ecology, epidemiology and virulence of Enterococcus.
+  JOURNAL   Microbiology 155:1749-57 (2009)
+            DOI:10.1099/mic.0.026385-0
+///

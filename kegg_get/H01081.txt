@@ -1,0 +1,21 @@
+ENTRY       H01081                      Disease
+NAME        Achromobacter xylosoxidans keratitis
+DESCRIPTION Achromobacter xylosoxidans is a gram-negative bacterium that belongs to the genus Alicaligenes. This organism can rarely cause keratitis in patients who had worn contact lenses.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by beta proteobacteria
+               H01081  Achromobacter xylosoxidans keratitis
+PATHOGEN    Achromobacter xylosoxidans
+COMMENT     Achromobacter xylosoxidans is resistant to aminoglycosides.
+REFERENCE   PMID:22323886
+  AUTHORS   Park JH, Song NH, Koh JW
+  TITLE     Achromobacter xylosoxidans Keratitis after Contact Lens Usage.
+  JOURNAL   Korean J Ophthalmol 26:49-53 (2012)
+            DOI:10.3341/kjo.2012.26.1.49
+REFERENCE   PMID:21993586
+  AUTHORS   Ahmed AA, Pineda R
+  TITLE     Alcaligenes xylosoxidans contact lens-related keratitis--a case report and literature review.
+  JOURNAL   Eye Contact Lens 37:386-9 (2011)
+            DOI:10.1097/ICL.0b013e318235893a
+///

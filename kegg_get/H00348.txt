@@ -1,0 +1,45 @@
+ENTRY       H00348                      Disease
+NAME        Lymphogranuloma venereum
+DESCRIPTION Chlamydia trachomatis is a gram-negative, obligate intracellular bacterium that causes the most common sexually transmissible diseases in the world. Serovars L1, L2, L2a and L3 of C. trachomatis are the agents of lymphogranuloma venereum, a disease found in isolated groups of men who have sex with men (MSM) across Western Europe, North America, and Australia.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by chlamydia
+               H00348  Lymphogranuloma venereum
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Predominantly sexually transmitted infections
+               Sexually transmissible infections due to chlamydia
+                1A80  Chlamydial lymphogranuloma
+                 H00348  Lymphogranuloma venereum
+PATHOGEN    Chlamydia trachomatis [GN:ctrp ctlj ctlx ctll ctb ctrr ctlf ctli ctl ctru ctrl ctrv ctrm ctla ctlm ctls ctlz ctlc ctln ctlb ctlq cto ctrn]
+DRUG        Tetracycline hydrochloride [DR:D02122]
+            Doxycycline [DR:D00307]
+            Doxycycline hyclate [DR:D02129]
+            Doxycycline calcium [DR:D03903]
+            Minocycline hydrochloride [DR:D00850]
+            Demeclocycline hydrochloride [DR:D00290]
+DBLINKS     ICD-11: 1A80
+            ICD-10: A55
+            MeSH: D008219
+            MedlinePlus: 000634
+REFERENCE
+  AUTHORS   Papadakis MA and McPhee SJ |(ed)
+  TITLE     Current Medical Diagnosis & Treatment 2007, Forty-Sixth Edition
+  JOURNAL   McGraw Hill Education
+REFERENCE   PMID:20358033
+  AUTHORS   Rohde G, Straube E, Essig A, Reinhold P, Sachse K
+  TITLE     Chlamydial zoonoses.
+  JOURNAL   Dtsch Arztebl Int 107:174-80 (2010)
+            DOI:10.3238/arztebl.2010.0174
+REFERENCE   PMID:19220334
+  AUTHORS   Bebear C, de Barbeyrac B
+  TITLE     Genital Chlamydia trachomatis infections.
+  JOURNAL   Clin Microbiol Infect 15:4-10 (2009)
+            DOI:10.1111/j.1469-0691.2008.02647.x
+REFERENCE   PMID:8993862
+  AUTHORS   Black CM
+  TITLE     Current methods of laboratory diagnosis of Chlamydia trachomatis infections.
+  JOURNAL   Clin Microbiol Rev 10:160-84 (1997)
+            DOI:10.1128/CMR.10.1.160-184.1997
+///

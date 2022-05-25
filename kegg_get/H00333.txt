@@ -1,0 +1,56 @@
+ENTRY       H00333                      Disease
+NAME        Streptococcal infection
+  SUBGROUP  Group A streptococcal pharyngitis [DS:H01424]
+            Invasive streptococcal disease [DS:H01426]
+            Necrotizing fasciitis [DS:H01455]
+            Scarlet fever [DS:H01515]
+            Erysipelas [DS:H01517]
+DESCRIPTION Streptococci are gram-positive bacteria. Among the beta-hemolytic streptococci, Streptococcus pyogenes (Group A streptococci, GAS) and Streptococcus agalactiae (Group B streptococci, GBS) are major human pathogens. GAS causes over 600 million cases of infections each year, ranging from mild pharyngitis to severe streptococcal toxic shock-like syndrome (STSS), and GBS causes neonatal invasive infections including sepsis, pneumonia, and meningitis.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H00333  Streptococcal infection
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Certain staphylococcal or streptococcal diseases
+               1B51  Streptococcal pharyngitis
+                H00333  Streptococcal infection
+               1B53  Meningitis due to Streptococcus
+                H00333  Streptococcal infection
+             12 Diseases of the respiratory system
+              Lung infections
+               CA40  Pneumonia
+                H00333  Streptococcal infection
+PATHOGEN    Streptococcus pyogenes [GN:spy spz spym spya spm spg sps sph spi spj spk spf spa spb stg stx soz stz spyh spyo]
+            Streptococcus agalactiae [GN:sag san sak sagt sagn]
+            pore-forming toxin [KO:K11031 K11045 K11046]
+            pore-forming toxin [KO:K11052]
+            superantigen [KO:K11040]
+            ADP-ribosyltransferase SpyA [KO:K11044]
+DRUG        Clindamycin phosphate [DR:D01073]
+            Clindamycin palmitate hydrochloride [DR:D01990]
+            Clindamycin hydrochloride [DR:D02132]
+DBLINKS     ICD-11: 1B51 1B53 CA40.07
+            ICD-10: A40 A49.1 G00.2 J02.0 J03.0 J15.3 J15.4 M60.0A P36.0 P36.1
+            MeSH: D013290
+REFERENCE   (drug)
+  AUTHORS   Papadakis MA and McPhee SJ |(ed)
+  TITLE     Current Medical Diagnosis & Treatment 2007, Forty-Sixth Edition
+  JOURNAL   McGraw Hill Education
+REFERENCE   PMID:21921933
+  AUTHORS   Cole JN, Barnett TC, Nizet V, Walker MJ
+  TITLE     Molecular insight into invasive group A streptococcal disease.
+  JOURNAL   Nat Rev Microbiol 9:724-36 (2011)
+            DOI:10.1038/nrmicro2648
+REFERENCE   PMID:21415743
+  AUTHORS   Lynskey NN, Lawrenson RA, Sriskandan S
+  TITLE     New understandings in Streptococcus pyogenes.
+  JOURNAL   Curr Opin Infect Dis 24:196-202 (2011)
+            DOI:10.1097/QCO.0b013e3283458f7e
+REFERENCE   PMID:21672083
+  AUTHORS   Melin P
+  TITLE     Neonatal group B streptococcal disease: from pathogenesis to preventive strategies.
+  JOURNAL   Clin Microbiol Infect 17:1294-303 (2011)
+            DOI:10.1111/j.1469-0691.2011.03576.x
+///

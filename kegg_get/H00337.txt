@@ -1,0 +1,39 @@
+ENTRY       H00337                      Disease
+NAME        Tetanus
+  SUPERGRP  Anaerobic infection [DS:H01410]
+DESCRIPTION Tetanus is a serious, often fatal intoxication caused by infection of Clostridium tetani, a gram-positive bacterium, through cuts or wounds. Mortality rate among untreated patients is high. Tetanus affects the muscles and nerves and manifests as muscle spasms in the jaw (lockjaw). Tetanus can be prevented by getting the tetanus vaccine.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by Gram-positive bacteria
+               H00337  Tetanus
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               1C13  Tetanus
+                H00337  Tetanus
+PATHOGEN    Clostridium tetani [GN:ctc]
+            tetanus toxin (TeTx) [KO:K08644]
+            pore-forming toxin [KO:K06442 K11031 K11068]
+DRUG        Penicillin G potassium [DR:D01053]
+            Penicillin G sodium [DR:D05408]
+            Chlorpromazine hydrochloride [DR:D00789]
+DBLINKS     ICD-11: 1C13
+            ICD-10: A33 A34 A35
+            MeSH: D013742
+            MedlinePlus: 000615
+REFERENCE   PMID:22111470
+  AUTHORS   Otero-Maldonado M, Bosques-Rosado M, Soto-Malave R, Deliz-Roldan B, Bertran-Pasarell J, Vargas Otero P
+  TITLE     Tetanus is still present in the 21st century: case report and review of literature.
+  JOURNAL   Bol Asoc Med P R 103:41-7 (2011)
+REFERENCE   PMID:9416389
+  AUTHORS   Ernst ME, Klepser ME, Fouts M, Marangos MN
+  TITLE     Tetanus: pathophysiology and management.
+  JOURNAL   Ann Pharmacother 31:1507-13 (1997)
+            DOI:10.1177/106002809703101211
+REFERENCE   PMID:18588497
+  AUTHORS   Brook I
+  TITLE     Current concepts in the management of Clostridium tetani infection.
+  JOURNAL   Expert Rev Anti Infect Ther 6:327-36 (2008)
+            DOI:10.1586/14787210.6.3.327
+///

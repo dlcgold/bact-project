@@ -1,0 +1,47 @@
+ENTRY       H01440                      Disease
+NAME        Acute necrotizing ulcerative gingivitis;
+            Vincent gingivitis;
+            Vincent angina;
+            Trench mouth
+  SUPERGRP  Anaerobic infection [DS:H01410]
+DESCRIPTION Acute necrotizing ulcerative gingivitis, also known as Trench mouth, Vincent angina and Vincent gingivitis is an acute bacterial infection of the gingiva caused by spirochetes, fusiform bacteria, or an overgrowth of normal oral flora. Predisposing factors include poor oral hygiene, advancing age, impaired nutritional status, smoking or chewing tobacco, immunosuppression, preexisting gingivitis, extreme stress, or lack of sleep. If the symptom progresses, the periodontium may be destroyed. Possible systemic manifestations include fever, anorexia, weakness, and fatigue.
+CATEGORY    Infectious disease
+BRITE       Infectious diseases [BR:br08401]
+             Bacterial infections
+              Infections caused by bacteria
+               H01440  Acute necrotizing ulcerative gingivitis
+            Human diseases in ICD-11 classification [BR:br08403]
+             01 Certain infectious or parasitic diseases
+              Other bacterial diseases
+               1C1H  Necrotising ulcerative gingivitis
+                H01440  Acute necrotizing ulcerative gingivitis
+PATHOGEN    Fusobacterium nucleatum
+            Fusobacterium fusiforme
+            Fusobacterium periodonticurm
+            Fusobacterium naviforme
+            Fusobacterium alocis
+            Fusobacterium sulci
+            Leptotrichia buccalis
+            Borrelia vincentii
+DRUG        Tetracycline hydrochloride [DR:D02122]
+            Doxycycline [DR:D00307]
+            Doxycycline hyclate [DR:D02129]
+            Doxycycline calcium [DR:D03903]
+            Minocycline hydrochloride [DR:D00850]
+            Demeclocycline hydrochloride [DR:D00290]
+            Penicillin G procaine [DR:D02461]
+DBLINKS     ICD-11: 1C1H
+            ICD-10: A69.1 K05
+            MeSH: D005892
+            MedlinePlus: 001044
+REFERENCE   PMID:2196849 (description, pathogen)
+  AUTHORS   Holbrook WP, Cawson RA
+  TITLE     The problem of the taxonomy of the fusiform bacillus of acute necrotizing ulcerative gingivitis (Vincent's gingivitis).
+  JOURNAL   Antonie Van Leeuwenhoek 57:55-8 (1990)
+            DOI:10.1007/BF00400337
+REFERENCE   PMID:21248581 (description, pathogen)
+  AUTHORS   Carlson DS, Pfadt E
+  TITLE     Vincent and Ludwig angina: two damaging oral infections.
+  JOURNAL   Nursing 41:55-8 (2011)
+            DOI:10.1097/01.NURSE.0000392916.76411.2f
+///

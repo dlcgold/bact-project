@@ -223,8 +223,7 @@ def main():
                         article = result['PubmedArticle'][0]['MedlineCitation']['Article']
                         if 'Abstract' in article:
                             f.write(article['Abstract']['AbstractText'][0])
-                            # print(article['Abstract']['AbstractText'][0])
-    geo_list = []
+    geo_list_abs = []
 
     if not os.path.exists('ser_abs'):
         os.makedirs('ser_abs')
@@ -235,40 +234,98 @@ def main():
             if not os.path.isfile(f"ser_abs/{id_file}.ser"):
                 with open("abstract_get/" + filename, "r") as f:
                     text = str(f.read())
-                    print(filename)
+                    # print(filename)
                     tmp = geo_data(id_file, text, geo.geoparse(text))
-                    geo_list.append(tmp)
+                    geo_list_abs.append(tmp)
                     with open(f"ser_abs/{tmp.id}.ser", "wb") as fw:
                         pickle.dump(tmp, fw)
     else:
         for filename in os.listdir("ser_abs"):
             with open(f"ser_abs/{filename}", "rb") as f:
-                geo_list.append(pickle.load(f))
-    print(len(geo_list))
-    geo_abs_df = pd.DataFrame(columns=["id", "lat", "lon"])
-    for geo_elem in geo_list:
+                geo_list_abs.append(pickle.load(f))
+    print(len(geo_list_abs))
+
+    geo_df = pd.DataFrame(columns=["id", "lat", "lon", "type"])
+    for geo_elem in geo_list_abs:
         if geo_elem.geo_dict:
             id = geo_elem.id
             for single_elem in geo_elem.geo_dict:
                 print(single_elem)
                 if 'geo' in single_elem:
-                    geo_abs_df.loc[len(geo_abs_df.index)] = [id,
+                    geo_df.loc[len(geo_df.index)] = [id,
                                                      float(single_elem['geo']['lat']),
-                                                     float(single_elem['geo']['lon'])]
-    print(geo_abs_df)
-    fig = px.scatter_mapbox(geo_abs_df,
+                                                     float(single_elem['geo']['lon']),
+                                                     "Abstract"]
+    print(geo_df)
+
+    geo_list_title = []
+    if not os.path.exists('ser_title'):
+        os.makedirs('ser_title')
+    if len(os.listdir("ser_title")) == 0:
+        geo = Geoparser()
+        for bact_tmp in bacts:
+            count = 0
+            for paper_tmp in bact_tmp.papers:
+                tmp = geo_data(paper_tmp.pmid, paper_tmp.title, geo.geoparse(paper_tmp.title))
+                geo_list_title.append(tmp)
+                with open(f"ser_title/{paper_tmp.pmid}_{count}.ser", "wb") as fw:
+                    pickle.dump(tmp, fw)
+    else:
+        for filename in os.listdir("ser_title"):
+            with open(f"ser_title/{filename}", "rb") as f:
+                geo_list_title.append(pickle.load(f))
+
+    for geo_elem in geo_list_title:
+        if geo_elem.geo_dict:
+            id = geo_elem.id
+            for single_elem in geo_elem.geo_dict:
+                print(single_elem)
+                if 'geo' in single_elem:
+                    geo_df.loc[len(geo_df.index)] = [id,
+                                                     float(single_elem['geo']['lat']),
+                                                     float(single_elem['geo']['lon']),
+                                                     "Title"]
+
+    geo_list_bact = []
+    if not os.path.exists('ser_bacts'):
+        os.makedirs('ser_bacts')
+    if len(bacts) != len(os.listdir("ser_bacts")):
+        geo = Geoparser()
+        for bact_tmp in bacts:
+            tmp = geo_data(bact_tmp.id, bact_tmp.description, geo.geoparse(bact_tmp.description))
+            geo_list_bact.append(tmp)
+            with open(f"ser_bacts/{bact_tmp.id}.ser", "wb") as fw:
+                pickle.dump(tmp, fw)
+    else:
+        for filename in os.listdir("ser_bacts"):
+            with open(f"ser_bacts/{filename}", "rb") as f:
+                geo_list_bact.append(pickle.load(f))
+    for geo_elem in geo_list_bact:
+        if geo_elem.geo_dict:
+            id = geo_elem.id
+            for single_elem in geo_elem.geo_dict:
+                print(single_elem)
+                if 'geo' in single_elem:
+                    geo_df.loc[len(geo_df.index)] = [id,
+                                                     float(single_elem['geo']['lat']),
+                                                     float(single_elem['geo']['lon']),
+                                                     "Description"]
+    # print(geo_df)
+
+    fig = px.scatter_mapbox(geo_df,
                             hover_name="id",
                             lat="lat",
                             lon="lon",
+                            color="type",
                             size_max=15,
                             zoom=1,
                             width=1080,
                             height=720,
-                            color_discrete_sequence=["fuchsia"],
+                            color_discrete_sequence=["red", "blue", "yellow"],
                             mapbox_style="open-street-map"
                             )
-
     fig.show()
+
 
 if __name__ == "__main__":
     main()

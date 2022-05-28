@@ -252,7 +252,7 @@ def main():
                 geo_list_abs.append(pickle.load(f))
     # print(len(geo_list_abs))
 
-    geo_df = pd.DataFrame(columns=["id", "lat", "lon", "type"])
+    geo_df = pd.DataFrame(columns=["name", "id", "lat", "lon", "type"])
     for geo_elem in geo_list_abs:
         if geo_elem.geo_dict:
             id_tmp = geo_elem.id_geo
@@ -316,22 +316,6 @@ def main():
                                                      float(single_elem['geo']['lat']),
                                                      float(single_elem['geo']['lon']),
                                                      "Description"]
-
-    print("Produce Map")
-    fig = px.scatter_mapbox(geo_df,
-                            hover_name="id",
-                            lat="lat",
-                            lon="lon",
-                            color="type",
-                            title="Without drugs",
-                            # size_max=15,
-                            zoom=1,
-                            width=1080,
-                            height=720,
-                            color_discrete_sequence=["red", "blue", "green"],
-                            mapbox_style="open-street-map"
-                            )
-    fig.show()
 
     print("parse KEGG data with drugs")
     bacts_drug = []
@@ -441,7 +425,35 @@ def main():
                                                                float(single_elem['geo']['lon']),
                                                                "Description"]
 
-    print("Produce Map with drugs")
+    geo_df_total = pd.DataFrame(columns=["id", "lat", "lon", "type", "Drug"])
+    for index, row in geo_df.iterrows():
+        geo_df_total.loc[len(geo_df_total.index)] = [row.id,
+                                                     row.lat,
+                                                     row.lon,
+                                                     row.type,
+                                                     "No Drug"]
+    for index, row in geo_df_drug.iterrows():
+        geo_df_total.loc[len(geo_df_total.index)] = [row.id,
+                                                     row.lat,
+                                                     row.lon,
+                                                     row.type,
+                                                     "Drug"]
+    print("Produce Maps")
+    fig = px.scatter_mapbox(geo_df,
+                            hover_name="id",
+                            lat="lat",
+                            lon="lon",
+                            color="type",
+                            title="Without drugs",
+                            # size_max=15,
+                            zoom=1,
+                            width=1080,
+                            height=720,
+                            color_discrete_sequence=["red", "blue", "green"],
+                            mapbox_style="open-street-map"
+                            )
+    fig.show()
+
     fig = px.scatter_mapbox(geo_df_drug,
                             hover_name="id",
                             lat="lat",
@@ -456,20 +468,7 @@ def main():
                             mapbox_style="open-street-map"
                             )
     fig.show()
-    print("Final Map")
-    geo_df_total = pd.DataFrame(columns=["id", "lat", "lon", "type", "Drug"])
-    for index, row in geo_df.iterrows():
-        geo_df_total.loc[len(geo_df_total.index)] = [row.id,
-                                                     row.lat,
-                                                     row.lon,
-                                                     row.type,
-                                                     "No Drug"]
-    for index, row in geo_df_drug.iterrows():
-        geo_df_total.loc[len(geo_df_total.index)] = [row.id,
-                                                     row.lat,
-                                                     row.lon,
-                                                     row.type,
-                                                     "Drug"]
+
     fig = px.scatter_mapbox(geo_df_total,
                             hover_name="id",
                             lat="lat",

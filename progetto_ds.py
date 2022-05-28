@@ -252,7 +252,7 @@ def main():
                 geo_list_abs.append(pickle.load(f))
     # print(len(geo_list_abs))
 
-    geo_df = pd.DataFrame(columns=["name", "id", "lat", "lon", "type"])
+    geo_df = pd.DataFrame(columns=["id", "lat", "lon", "type"])
     for geo_elem in geo_list_abs:
         if geo_elem.geo_dict:
             id_tmp = geo_elem.id_geo

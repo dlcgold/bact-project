@@ -104,11 +104,10 @@ def parse(data):
             drugs.append(Drug(name, spl[-1].replace("[", "").replace("]", "")))
             drug_bool = True
         elif drug_bool and spl[0].upper() != spl[0]:
-            name = "".join(spl[i] + " " for i in range(0, len(spl)))
+            name = "".join(spl[i] + " " for i in range(0, len(spl) - 1))
             drugs.append(Drug(name, spl[-1].replace("[", "").replace("]", "")))
         elif drug_bool and spl[0].upper() == spl[0]:
             drug_bool = False
-
         if not paper_bool and spl[0] == "REFERENCE":
             if len(spl) > 1 and spl[1].split(":")[0] == "PMID":
                 id_tmp = spl[1].split(":")[1].replace('\n', ' ')
@@ -132,6 +131,7 @@ def parse(data):
     bact_tmp = Bact(bact_name, "ds:" + bact_id, bact_des, bact_cat, bact_sub, drugs, papers)
     # print(bact_tmp)
     return bact_tmp
+
 
 def is_valid(item, bact_names):
     word = item['word']

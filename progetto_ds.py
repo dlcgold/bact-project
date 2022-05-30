@@ -72,10 +72,11 @@ class DrugBankObj():
         except:
             self.index = 'NoID'
 
-        # try:
-        #     self.page = retrive_page(self.url)
-        # except:
-        #     self.page = 'NoPage'
+    def get_page(self):
+        try:
+            return retrive_page(self.url)
+        except:
+            return 'NoPage'
 
 
 def parse(data):
@@ -576,7 +577,7 @@ def main():
                         pickle.dump(tmp, fw)
                         no_id_count += 1
 
-        print(f"{db_count} vs {drug_count} | lost {drug_count-db_count} drugs")
+        print(f"{db_count} vs {drug_count} | lost {drug_count - db_count} drugs")
 
 
 if __name__ == "__main__":

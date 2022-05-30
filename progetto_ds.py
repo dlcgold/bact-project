@@ -2,15 +2,16 @@
 progetto-ds.ipynb
 """
 
-import os
 import pickle
-
+import os
 import requests as requests
 from Bio import Entrez
 from Bio.KEGG import REST
 from mordecai import Geoparser
 import pandas as pd
 import plotly.express as px
+import requests as req
+from bs4 import BeautifulSoup as bfs
 
 Entrez.email = "d.cozzi@campus.unimib.it"
 
@@ -55,6 +56,26 @@ class GeoData:
         self.id_geo = id_geo
         self.text = text
         self.geo_dict = geo_dict
+
+
+class DrugBankObj():
+    def __init__(self, drugname):
+        self.drugname = drugname
+        self.query_url = 'https://go.drugbank.com/unearth/q?searcher=drugs&query=' + self.drugname
+        try:
+            self.url = get_drugbank_link(retrive_page(self.query_url))
+        except:
+            self.url = 'NoURL'
+
+        try:
+            self.index = str(get_db_index(retrive_page(self.url)))
+        except:
+            self.index = 'NoID'
+
+        # try:
+        #     self.page = retrive_page(self.url)
+        # except:
+        #     self.page = 'NoPage'
 
 
 def parse(data):
@@ -125,11 +146,7 @@ def parse(data):
             paper_bool = False
             papers.append(Paper(id_tmp, authors_tmp, title_tmp, journal_tmp, doi_tmp))
 
-    # print(drugs)
-    # print(papers)
-
     bact_tmp = Bact(bact_name, "ds:" + bact_id, bact_des, bact_cat, bact_sub, drugs, papers)
-    # print(bact_tmp)
     return bact_tmp
 
 
@@ -158,9 +175,35 @@ def is_valid(item, bact_names):
     return valid
 
 
+def retrive_page(url):
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0'
+    }
+    response = req.get(url, headers)
+    soup = bfs(response.content, 'html.parser')
+    return soup
+
+
+def get_drugbank_link(soup):
+    links = []
+    for link in soup.find_all('link'):
+        if 'drugbank' in link.get('href'):
+            links.append(link.get('href'))
+    if len(links) == 0:
+        return ""
+    return links[0]
+
+
+def get_db_index(soup):
+    for link in soup.find_all('link'):
+        if 'drugbank' in link.get('href'):
+            return link.get('href').split('/')[-1]
+
+
 def main():
     # Estrazione batteri
     print("getting bacterial infections list")
+    type_infection = "Bacterial infections"
     bactetial_infections = REST.kegg_get("br:br08401").read()
     H_list = []
     check = True
@@ -168,7 +211,7 @@ def main():
     for line in bactetial_infections.splitlines():
         if not check:
             break
-        if line == "ABacterial infections":
+        if line == f"A{type_infection}":
             bact_bool = True
             continue
         if bact_bool:
@@ -513,6 +556,27 @@ def main():
                             mapbox_style="open-street-map"
                             )
     fig.show()
+
+    if not os.path.exists('ser_drug_bank') or not os.listdir("ser_drug_bank"):
+        db_count = 0
+        drug_count = 0
+        if not os.path.exists('ser_drug_bank'):
+            os.makedirs('ser_drug_bank')
+        no_id_count = 0
+        for bact_tmp in bacts:
+            for drug_tmp in bact_tmp.drugs:
+                drug_count += 1
+                tmp = DrugBankObj(drug_tmp.name)
+                if tmp.index != "NoID":
+                    db_count += 1
+                    with open(f"ser_drug_bank/{tmp.index}.ser", "wb") as fw:
+                        pickle.dump(tmp, fw)
+                else:
+                    with open(f"ser_drug_bank/{tmp.index}_{no_id_count}.ser", "wb") as fw:
+                        pickle.dump(tmp, fw)
+                        no_id_count += 1
+
+        print(f"{db_count} vs {drug_count} | lost {drug_count-db_count} drugs")
 
 
 if __name__ == "__main__":

@@ -520,7 +520,7 @@ def main():
             with open(f"ser_abs_drug/{filename}", "rb") as f:
                 geo_list_abs_drug.append(pickle.load(f))
     # print(len(geo_list_abs))
-
+    geo_df_drug = pd.DataFrame(columns=["id", "lat", "lon", "type"])
     for geo_elem in geo_list_abs_drug:
         if geo_elem.geo_dict:
             id_tmp = geo_elem.id_geo
@@ -608,17 +608,17 @@ def main():
                                                      row.type,
                                                      "Drug"]
 
-    with open("filtered/filtered_title.ser", mode="wb") as f:
+    with open("filtered_title.ser", mode="wb") as f:
         pickle.dump(filtered_title, f)
-    with open("filtered/filtered_abs.ser", mode="wb") as f:
+    with open("filtered_abs.ser", mode="wb") as f:
         pickle.dump(filtered_abs, f)
-    with open("filtered/filtered_bact.ser", mode="wb") as f:
+    with open("filtered_bact.ser", mode="wb") as f:
         pickle.dump(filtered_bact, f)
-    with open("filtered/filtered_title_drug.ser", mode="wb") as f:
+    with open("filtered_title_drug.ser", mode="wb") as f:
         pickle.dump(filtered_title_drug, f)
-    with open("filtered/filtered_abs_drug.ser", mode="wb") as f:
+    with open("filtered_abs_drug.ser", mode="wb") as f:
         pickle.dump(filtered_abs_drug, f)
-    with open("filtered/filtered_bact_drug.ser", mode="wb") as f:
+    with open("filtered_bact_drug.ser", mode="wb") as f:
         pickle.dump(filtered_bact_drug, f)
 
     total = []

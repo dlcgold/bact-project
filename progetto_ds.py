@@ -2,6 +2,7 @@
 progetto-ds.ipynb
 """
 
+import json
 import pickle
 import os
 import requests as requests
@@ -201,6 +202,7 @@ def get_db_index(soup):
             return link.get('href').split('/')[-1]
 
 
+
 def main():
     # Estrazione batteri
     print("getting bacterial infections list")
@@ -209,6 +211,14 @@ def main():
     H_list = []
     check = True
     bact_bool = False
+
+    filtered_bact = []
+    filtered_abs = []
+    filtered_title = []
+    filtered_bact_drug = []
+    filtered_abs_drug = []
+    filtered_title_drug = []
+
     for line in bactetial_infections.splitlines():
         if not check:
             break
@@ -326,17 +336,22 @@ def main():
                 geo_list_abs.append(pickle.load(f))
     # print(len(geo_list_abs))
 
+    
+
     geo_df = pd.DataFrame(columns=["id", "lat", "lon", "type"])
     for geo_elem in geo_list_abs:
         if geo_elem.geo_dict:
             id_tmp = geo_elem.id_geo
             for single_elem in geo_elem.geo_dict:
                 if 'geo' in single_elem:
-                    geo_df.loc[len(geo_df.index)] = [id_tmp,
-                                                     float(single_elem['geo']['lat']),
-                                                     float(single_elem['geo']['lon']),
-                                                     "Abstract"]
-
+                    if not is_valid(single_elem, bact_names):
+                        filtered_abs.append(single_elem)
+                    else: 
+                        geo_df.loc[len(geo_df.index)] = [id_tmp,
+                                                        float(single_elem['geo']['lat']),
+                                                        float(single_elem['geo']['lon']),
+                                                        "Abstract"]
+    
     print("Extract geo_data from titles")
     geo_list_title = []
     if not os.path.exists('ser_title'):
@@ -354,16 +369,19 @@ def main():
         for filename in os.listdir("ser_title"):
             with open(f"ser_title/{filename}", "rb") as f:
                 geo_list_title.append(pickle.load(f))
-
+    
     for geo_elem in geo_list_title:
         if geo_elem.geo_dict:
             id_tmp = geo_elem.id_geo
             for single_elem in geo_elem.geo_dict:
                 if 'geo' in single_elem:
-                    geo_df.loc[len(geo_df.index)] = [id_tmp,
-                                                     float(single_elem['geo']['lat']),
-                                                     float(single_elem['geo']['lon']),
-                                                     "Title"]
+                    if not is_valid(single_elem, bact_names):
+                        filtered_title.append(single_elem)
+                    else:
+                        geo_df.loc[len(geo_df.index)] = [id_tmp,
+                                                        float(single_elem['geo']['lat']),
+                                                        float(single_elem['geo']['lon']),
+                                                        "Title"]
 
     print("Extract geo data from descriptions")
     geo_list_bact = []
@@ -381,15 +399,20 @@ def main():
         for filename in os.listdir("ser_bacts"):
             with open(f"ser_bacts/{filename}", "rb") as f:
                 geo_list_bact.append(pickle.load(f))
+
+
     for geo_elem in geo_list_bact:
         if geo_elem.geo_dict:
             id_tmp = geo_elem.id_geo
             for single_elem in geo_elem.geo_dict:
                 if 'geo' in single_elem:
-                    geo_df.loc[len(geo_df.index)] = [id_tmp,
-                                                     float(single_elem['geo']['lat']),
-                                                     float(single_elem['geo']['lon']),
-                                                     "Description"]
+                    if not is_valid(single_elem, bact_names):
+                        filtered_bact.append(single_elem)
+                    else: 
+                        geo_df.loc[len(geo_df.index)] = [id_tmp,
+                                                        float(single_elem['geo']['lat']),
+                                                        float(single_elem['geo']['lon']),
+                                                        "Description"]
 
     print("parse KEGG data with drugs")
     bacts_drug = []
@@ -435,15 +458,20 @@ def main():
     # print(len(geo_list_abs))
 
     geo_df_drug = pd.DataFrame(columns=["id", "lat", "lon", "type"])
+
+    
     for geo_elem in geo_list_abs_drug:
         if geo_elem.geo_dict:
             id_tmp = geo_elem.id_geo
             for single_elem in geo_elem.geo_dict:
                 if 'geo' in single_elem:
-                    geo_df_drug.loc[len(geo_df_drug.index)] = [id_tmp,
-                                                               float(single_elem['geo']['lat']),
-                                                               float(single_elem['geo']['lon']),
-                                                               "Abstract"]
+                    if not is_valid(single_elem, bact_names):
+                        filtered_abs_drug.append(single_elem)
+                    else: 
+                        geo_df_drug.loc[len(geo_df_drug.index)] = [id_tmp,
+                                                                float(single_elem['geo']['lat']),
+                                                                float(single_elem['geo']['lon']),
+                                                                "Abstract"]
 
     print("Extract geo_data from titles  with drugs")
     geo_list_title_drug = []
@@ -468,10 +496,13 @@ def main():
             id_tmp = geo_elem.id_geo
             for single_elem in geo_elem.geo_dict:
                 if 'geo' in single_elem:
-                    geo_df_drug.loc[len(geo_df_drug.index)] = [id_tmp,
-                                                               float(single_elem['geo']['lat']),
-                                                               float(single_elem['geo']['lon']),
-                                                               "Title"]
+                    if not is_valid(single_elem, bact_names):
+                            filtered_title_drug.append(single_elem)
+                    else: 
+                        geo_df_drug.loc[len(geo_df_drug.index)] = [id_tmp,
+                                                                float(single_elem['geo']['lat']),
+                                                                float(single_elem['geo']['lon']),
+                                                                "Title"]
 
     print("Extract geo data from descriptions with drugs")
     geo_list_bact_drug = []
@@ -494,10 +525,13 @@ def main():
             id_tmp = geo_elem.id_geo
             for single_elem in geo_elem.geo_dict:
                 if 'geo' in single_elem:
-                    geo_df_drug.loc[len(geo_df_drug.index)] = [id_tmp,
-                                                               float(single_elem['geo']['lat']),
-                                                               float(single_elem['geo']['lon']),
-                                                               "Description"]
+                    if not is_valid(single_elem, bact_names):
+                        filtered_bact_drug.append(single_elem)
+                    else: 
+                        geo_df_drug.loc[len(geo_df_drug.index)] = [id_tmp,
+                                                                float(single_elem['geo']['lat']),
+                                                                float(single_elem['geo']['lon']),
+                                                                "Description"]
 
     geo_df_total = pd.DataFrame(columns=["id", "lat", "lon", "type", "Drug"])
     for index, row in geo_df.iterrows():
@@ -512,6 +546,37 @@ def main():
                                                      row.lon,
                                                      row.type,
                                                      "Drug"]
+                                                     
+    with open("filtered_title.ser", mode="wb") as f:
+        pickle.dump(filtered_title,f)
+    with open("filtered_abs.ser", mode="wb") as f:
+        pickle.dump(filtered_abs,f)
+    with open("filtered_bact.ser", mode="wb") as f:
+        pickle.dump(filtered_bact,f)
+    with open("filtered_title_drug.ser", mode="wb") as f:
+        pickle.dump(filtered_title_drug,f)
+    with open("filtered_abs_drug.ser", mode="wb") as f:
+        pickle.dump(filtered_abs_drug,f)
+    with open("filtered_bact_drug.ser", mode="wb") as f:
+        pickle.dump(filtered_bact_drug,f)
+
+    total = []
+    total += (filtered_title)
+    total += (filtered_title_drug)
+    total += (filtered_abs)
+    total += (filtered_abs_drug)
+    total += (filtered_bact)
+    total += (filtered_bact_drug)
+    with open("filtered_total.ser", mode="wb") as f:
+        pickle.dump(total,f)
+    print("filtered title: " + str(len(filtered_title)))
+    print("filtered title drug: " + str(len(filtered_title_drug)))
+    print("filtered abs: " + str(len(filtered_abs)))
+    print("filtered abs drug: " + str(len(filtered_abs_drug)))
+    print("filtered bact: " + str(len(filtered_bact)))
+    print("filtered bact drug: " + str(len(filtered_bact_drug)))
+    print("total filtered: " + str(len(total)))
+
     print("Produce Maps")
     fig = px.scatter_mapbox(geo_df,
                             hover_name="id",

@@ -123,11 +123,11 @@ def parse(data):
 
         if not drug_bool and spl[0] == "DRUG":
             name = "".join(spl[i] + " " for i in range(1, len(spl) - 1))
-            drugs.append(Drug(name, spl[-1].replace("[", "").replace("]", "")))
+            drugs.append(Drug(name, spl[-1].replace("[", "").replace("]", "").split(':')[-1]))
             drug_bool = True
         elif drug_bool and spl[0].upper() != spl[0]:
             name = "".join(spl[i] + " " for i in range(0, len(spl) - 1))
-            drugs.append(Drug(name, spl[-1].replace("[", "").replace("]", "")))
+            drugs.append(Drug(name, spl[-1].replace("[", "").replace("]", "").split(':')[-1]))
         elif drug_bool and spl[0].upper() == spl[0]:
             drug_bool = False
         if not paper_bool and spl[0] == "REFERENCE":
@@ -150,6 +150,22 @@ def parse(data):
     bact_tmp = Bact(bact_name, "ds:" + bact_id, bact_des, bact_cat, bact_sub, drugs, papers)
     return bact_tmp
 
+
+def list_diff(li1, li2):
+    return list(set(li1) - set(li2)) + list(set(li2) - set(li1))
+ 
+
+def get_drug_kegg(drug_id):
+    sngOrg = REST.kegg_get([drug_id]).read()
+    drug_name = ""
+    for line in sngOrg.splitlines():
+        spl = line.split()
+        if spl[0] == "NAME":
+            drug_name = "".join(spl[i]+ " "  for i in range(1, len(spl))).strip()
+            if drug_name[-1] == ";":
+                drug_name = drug_name[:len(drug_name)-1]
+            break
+    return Drug(drug_name, drug_id)
 
 def is_valid(item, bact_names):
     word = item['word']
@@ -200,6 +216,30 @@ def get_db_index(soup):
         if 'drugbank' in link.get('href'):
             return link.get('href').split('/')[-1]
 
+
+
+# kegg_drugs GET
+def get_kegg_drugs(query):
+    query = query.replace(" ", "+")
+    db = "drug"
+    url = f"https://www.genome.jp/dbget-bin/www_bfind_sub?mode=bfind&max_hit=1000&locale=en&serv=gn&dbkey={db}&keywords={query}"
+
+    headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0'
+    }
+
+    response = req.get(url,headers)
+    soup = bfs(response.content, 'html.parser')
+    links = []
+    for link in soup.find_all('a'):
+        links.append(link.get('href'))
+    drugs = []
+    for entry in links:
+        if "entry" in entry:        
+            tmp = entry.split('/')[-1]
+            if tmp[0]=="D":
+                drugs.append(tmp)
+    return(drugs)
 
 def main():
     # Estrazione batteri
@@ -285,7 +325,20 @@ def main():
         with open("kegg_get/" + filename, "r") as f:
             tmp_bact = parse(str(f.read()))
             bact_names += (' ' + tmp_bact.name.lower())
+            tmp_extra_drugs = get_kegg_drugs(tmp_bact.name)
+            if len(tmp_extra_drugs) > 0:
+                tmp_drugs = []
+                for elem in tmp_bact.drugs:
+                    tmp_drugs.append(elem.id_drug)
+                #print(tmp_drugs)
+                diffs = list_diff(tmp_extra_drugs, tmp_drugs)
+                print("add extra drugs")
+                if len(diffs) > 0:
+                    for elem in diffs:
+                        if elem not in tmp_drugs:
+                            tmp_bact.drugs.append(Drug(get_drug_kegg(elem),elem))
             bacts.append(tmp_bact)
+
 
     print(f"Total: {len(bacts)} batteries")
 
@@ -395,7 +448,21 @@ def main():
     bacts_drug = []
     for filename in os.listdir("kegg_get_drug"):
         with open("kegg_get_drug/" + filename, "r") as f:
-            bacts_drug.append(parse(str(f.read())))
+            tmp_bact = parse(str(f.read()))
+            bacts_drug.append(tmp_bact)
+            tmp_extra_drugs = get_kegg_drugs(tmp_bact.name)
+            if len(tmp_extra_drugs) > 0:
+                tmp_drugs = []
+                for elem in tmp_bact.drugs:
+                    tmp_drugs.append(elem.id_drug)
+                #print(tmp_drugs)
+                diffs = list_diff(tmp_extra_drugs, tmp_drugs)
+                print("add extra drugs")
+                if len(diffs) > 0:
+                    for elem in diffs:
+                        if elem not in tmp_drugs:
+                            tmp_bact.drugs.append(Drug(get_drug_kegg(elem),elem))
+            bacts.append(tmp_bact)
     print(f"Total: {len(bacts_drug)} batteries with drugs")
 
     print("Extract geo_data from abstract with drugs")

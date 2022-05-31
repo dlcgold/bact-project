@@ -8,6 +8,7 @@ abstract_get_drug/
 kegg_get_drug/
 ser_abs_drug/
 ser_bacts_drug/
+ser_drug_bank/
 ser_title_drug/
 geonames_index/
 test_full_infections/

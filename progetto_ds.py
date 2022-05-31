@@ -607,18 +607,19 @@ def main():
                                                      row.lon,
                                                      row.type,
                                                      "Drug"]
-
-    with open("filtered_title.ser", mode="wb") as f:
+    if not os.path.exists('filtered'):
+        os.makedirs('filtered')
+    with open("filtered/filtered_title.ser", mode="wb") as f:
         pickle.dump(filtered_title, f)
-    with open("filtered_abs.ser", mode="wb") as f:
+    with open("filtered/filtered_abs.ser", mode="wb") as f:
         pickle.dump(filtered_abs, f)
-    with open("filtered_bact.ser", mode="wb") as f:
+    with open("filtered/filtered_bact.ser", mode="wb") as f:
         pickle.dump(filtered_bact, f)
-    with open("filtered_title_drug.ser", mode="wb") as f:
+    with open("filtered/filtered_title_drug.ser", mode="wb") as f:
         pickle.dump(filtered_title_drug, f)
-    with open("filtered_abs_drug.ser", mode="wb") as f:
+    with open("filtered/filtered_abs_drug.ser", mode="wb") as f:
         pickle.dump(filtered_abs_drug, f)
-    with open("filtered_bact_drug.ser", mode="wb") as f:
+    with open("filtered/filtered_bact_drug.ser", mode="wb") as f:
         pickle.dump(filtered_bact_drug, f)
 
     total = []
@@ -628,7 +629,7 @@ def main():
     total += (filtered_abs_drug)
     total += (filtered_bact)
     total += (filtered_bact_drug)
-    with open("filtered_total.ser", mode="wb") as f:
+    with open("filtered/filtered_total.ser", mode="wb") as f:
         pickle.dump(total, f)
     print("filtered title: " + str(len(filtered_title)))
     print("filtered title drug: " + str(len(filtered_title_drug)))
@@ -693,7 +694,6 @@ def main():
         for bact_tmp in bacts:
             for drug_tmp in bact_tmp.drugs:
                 drug_count += 1
-                print(drug_tmp)
                 tmp = DrugBankObj(drug_tmp.name)
                 if tmp.index != "NoID":
                     db_count += 1

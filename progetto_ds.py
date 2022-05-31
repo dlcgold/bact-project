@@ -123,10 +123,12 @@ def parse(data):
 
         if not drug_bool and spl[0] == "DRUG":
             name = "".join(spl[i] + " " for i in range(1, len(spl) - 1))
+            name = name.strip()
             drugs.append(Drug(name, spl[-1].replace("[", "").replace("]", "").split(':')[-1]))
             drug_bool = True
         elif drug_bool and spl[0].upper() != spl[0]:
             name = "".join(spl[i] + " " for i in range(0, len(spl) - 1))
+            name = name.strip()
             drugs.append(Drug(name, spl[-1].replace("[", "").replace("]", "").split(':')[-1]))
         elif drug_bool and spl[0].upper() == spl[0]:
             drug_bool = False
@@ -336,7 +338,7 @@ def main():
                 if len(diffs) > 0:
                     for elem in diffs:
                         if elem not in tmp_drugs:
-                            tmp_bact.drugs.append(Drug(get_drug_kegg(elem),elem))
+                            tmp_bact.drugs.append(get_drug_kegg(elem))
             bacts.append(tmp_bact)
 
 
@@ -461,7 +463,7 @@ def main():
                 if len(diffs) > 0:
                     for elem in diffs:
                         if elem not in tmp_drugs:
-                            tmp_bact.drugs.append(Drug(get_drug_kegg(elem),elem))
+                            tmp_bact.drugs.append(get_drug_kegg(elem))
             bacts.append(tmp_bact)
     print(f"Total: {len(bacts_drug)} batteries with drugs")
 
@@ -634,6 +636,7 @@ def main():
         for bact_tmp in bacts:
             for drug_tmp in bact_tmp.drugs:
                 drug_count += 1
+                print(drug_tmp)
                 tmp = DrugBankObj(drug_tmp.name)
                 if tmp.index != "NoID":
                     db_count += 1

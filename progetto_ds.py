@@ -628,7 +628,7 @@ def main():
     total += (filtered_abs_drug)
     total += (filtered_bact)
     total += (filtered_bact_drug)
-    with open("filtered/filtered_total.ser", mode="wb") as f:
+    with open("filtered_total.ser", mode="wb") as f:
         pickle.dump(total, f)
     print("filtered title: " + str(len(filtered_title)))
     print("filtered title drug: " + str(len(filtered_title_drug)))

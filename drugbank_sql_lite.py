@@ -173,6 +173,16 @@ def get_drugs_for_all(target_id):
         drugs.append(tmp[0])
     return drugs
 
+def get_drugs_inter_for_drug(drug_id):
+    conn = connect_db()
+    drugs = []
+    sql = "SELECT `drug-interactions` FROM dbdf WHERE `drugbank-id` = ?"
+    cursor = conn.execute(sql, (drug_id,))
+    for tmp in cursor:
+        # print(tmp[0])
+        drugs_id = re.findall("DB[0-9]{5}", tmp[0])
+        drugs += drugs_id
+    return drugs
 
 # tmp = db_uniprot_conv("DB00014")
 # tmp = db_pubchem_conv("DB00014")
@@ -188,4 +198,5 @@ def get_drugs_for_all(target_id):
 # tmp = get_drugs_for_carriers_transporters("BE0000530")
 # tmp = get_drugs_for_all("BE0000530")
 # tmp = get_target_name("BE0000530")
-# print(tmp)
+#tmp = get_drugs_inter_for_drug("DB15865")
+#print(tmp)

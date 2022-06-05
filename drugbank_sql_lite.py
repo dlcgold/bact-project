@@ -4,6 +4,19 @@ import pandas as pd
 import requests as req
 from bs4 import BeautifulSoup as bfs
 
+import urllib
+
+
+class Target:
+    def __init__(self, db_id, uniprot_id, uniprot_name):
+        self.db_id = db_id
+        self.uniprot_id = uniprot_id
+        self.uniprot_name = uniprot_name
+
+    def __repr__(self):
+        return f"{self.uniprot_name}, ({self.db_id, self.uniprot_id})"
+
+
 
 def connect_db():
     return sqlite3.connect('drugbank_all_full_database.xml/drugbank_5.1.9.db')
@@ -30,7 +43,7 @@ def get_target_name(target_id):
     return soup.title(text=True)[0].split("|")[0].strip()
 
 
-def db_uniprot_conv(drug_id):
+def db_target_uniprot(drug_id):
     df = db_uniprof_df()
     uniprots = []
     df_tmp = df[df["DrugBank ID"] == drug_id]
@@ -97,6 +110,7 @@ def get_pharmacodyn_drug(drug_id):
         phd = row[0]
     return phd
 
+
 def get_groups_drug(drug_id):
     conn = connect_db()
     sql = "SELECT groups FROM dbdf WHERE `drugbank-id` = ?"
@@ -105,6 +119,7 @@ def get_groups_drug(drug_id):
     for row in cursor:
         group = row[0]
     return group
+
 
 def get_targets_drug(drug_id):
     conn = connect_db()
@@ -115,6 +130,29 @@ def get_targets_drug(drug_id):
         # print(tmp[0])
         targets_id = re.findall("BE[0-9]{7}", tmp[0])
         targets += targets_id
+    return targets
+
+
+def get_targets_full_drug(drug_id):
+    # TODO vedere se si riesce a prendere l'id da uniprot
+    conn = connect_db()
+    uniprot = db_target_uniprot(drug_id)
+    targets = []
+    sql = "SELECT targets FROM dbdf WHERE `drugbank-id` = ?"
+    cursor = conn.execute(sql, (drug_id,))
+    count = 0
+    for tmp in cursor:
+        targets_id = re.findall("BE[0-9]{7}", tmp[0])
+        for tmp in targets_id:
+            if count < len(uniprot):
+                targets.append(Target(tmp, uniprot[count][0], uniprot[count][1]))
+            else:
+                name = get_target_name(tmp)
+                if name is not None:
+                    targets.append(Target(tmp, "NA", name))
+                else:
+                    targets.append(Target(tmp, "NA", "NA"))
+            count += 1
     return targets
 
 
@@ -228,11 +266,12 @@ def get_patents_drug(drug_id):
     return patents
 
 
-# tmp = db_uniprot_conv("DB00014")
+# tmp = db_target_uniprot("DB00004")
 # tmp = db_pubchem_conv("DB00014")
 # tmp = get_name_drug("DB14738")
 # tmp = get_id_drug("Zinc")
-# tmp = get_targets_drug("DB14738")
+# tmp = get_targets_drug("DB00014")
+# tmp = get_targets_full_drug("DB14738")
 # tmp = get_description_drug("DB14738")
 # tmp = get_pharmacodyn_drug("DB14738")
 # tmp = get_groups_drug("DB14738")
@@ -248,4 +287,4 @@ def get_patents_drug(drug_id):
 # tmp = get_drugs_inter_for_drug("DB15865")
 # tmp = get_patents_drug("DB01175")
 
-print(tmp)
+#print(tmp)

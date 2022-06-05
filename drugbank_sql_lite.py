@@ -78,6 +78,25 @@ def get_description_drug(drug_id):
     return des
 
 
+def get_indication_drug(drug_id):
+    conn = connect_db()
+    sql = "SELECT indication FROM dbdf WHERE `drugbank-id` = ?"
+    cursor = conn.execute(sql, (drug_id,))
+    ind = ""
+    for row in cursor:
+        ind = row[0]
+    return ind
+
+
+def get_pharmacodyn_drug(drug_id):
+    conn = connect_db()
+    sql = "SELECT pharmacodynamics FROM dbdf WHERE `drugbank-id` = ?"
+    cursor = conn.execute(sql, (drug_id,))
+    phd = ""
+    for row in cursor:
+        phd = row[0]
+    return phd
+
 def get_targets_drug(drug_id):
     conn = connect_db()
     targets = []
@@ -206,6 +225,8 @@ def get_patents_drug(drug_id):
 # tmp = get_id_drug("Zinc")
 # tmp = get_targets_drug("DB14738")
 # tmp = get_description_drug("DB14738")
+# tmp = get_pharmacodyn_drug("DB14738")
+# tmp = get_indication_drug("DB01175")
 # tmp = get_pathways_drug("DB07718")
 # tmp = get_enzymes_drug("DB09130")
 # tmp = get_carriers_transporters_drug("DB09130")
@@ -215,5 +236,6 @@ def get_patents_drug(drug_id):
 # tmp = get_drugs_for_all("BE0000530")
 # tmp = get_target_name("BE0000530")
 # tmp = get_drugs_inter_for_drug("DB15865")
-tmp = get_patents_drug("DB01175")
+# tmp = get_patents_drug("DB01175")
+
 print(tmp)

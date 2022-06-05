@@ -97,6 +97,15 @@ def get_pharmacodyn_drug(drug_id):
         phd = row[0]
     return phd
 
+def get_groups_drug(drug_id):
+    conn = connect_db()
+    sql = "SELECT groups FROM dbdf WHERE `drugbank-id` = ?"
+    cursor = conn.execute(sql, (drug_id,))
+    group = ""
+    for row in cursor:
+        group = row[0]
+    return group
+
 def get_targets_drug(drug_id):
     conn = connect_db()
     targets = []
@@ -226,6 +235,7 @@ def get_patents_drug(drug_id):
 # tmp = get_targets_drug("DB14738")
 # tmp = get_description_drug("DB14738")
 # tmp = get_pharmacodyn_drug("DB14738")
+# tmp = get_groups_drug("DB14738")
 # tmp = get_indication_drug("DB01175")
 # tmp = get_pathways_drug("DB07718")
 # tmp = get_enzymes_drug("DB09130")

@@ -194,10 +194,10 @@ def get_carriers_transporters_drug(drug_id):
     return [carriers, trasporters]
 
 
-def get_drugs_for_target(target_id):
+def get_drugs_for_target(target):
     conn = connect_db()
     drugs = []
-    target_wild = f"%{target_id}%"
+    target_wild = f"%{target}%"
     sql = "SELECT `drugbank-id` FROM dbdf WHERE targets LIKE ?"
     cursor = conn.execute(sql, (target_wild,))
     for tmp in cursor:
@@ -205,10 +205,10 @@ def get_drugs_for_target(target_id):
     return drugs
 
 
-def get_drugs_for_enzyme(enzyme_id):
+def get_drugs_for_enzyme(enzyme):
     conn = connect_db()
     drugs = []
-    enzyme_wild = f"%{enzyme_id}%"
+    enzyme_wild = f"%{enzyme}%"
     sql = "SELECT `drugbank-id` FROM dbdf WHERE enzymes LIKE ?"
     cursor = conn.execute(sql, (enzyme_wild,))
     for tmp in cursor:
@@ -216,10 +216,10 @@ def get_drugs_for_enzyme(enzyme_id):
     return drugs
 
 
-def get_drugs_for_carriers_transporters(ct_id):
+def get_drugs_for_carriers_transporters(ct):
     conn = connect_db()
     drugs = []
-    ct_wild = f"%{ct_id}%"
+    ct_wild = f"%{ct}%"
     sql = "SELECT `drugbank-id` FROM dbdf WHERE carriers LIKE ? OR transporters LIKE ?"
     cursor = conn.execute(sql, (ct_wild, ct_wild,))
     for tmp in cursor:
@@ -227,10 +227,10 @@ def get_drugs_for_carriers_transporters(ct_id):
     return drugs
 
 
-def get_drugs_for_all(target_id):
+def get_drugs_for_all(target):
     conn = connect_db()
     drugs = []
-    target_wild = f"%{target_id}%"
+    target_wild = f"%{target}%"
     sql = "SELECT `drugbank-id` FROM dbdf " \
           "WHERE targets LIKE ? OR enzymes LIKE ? " \
           "OR carriers LIKE ? OR transporters LIKE ?"
@@ -286,5 +286,4 @@ def get_patents_drug(drug_id):
 # tmp = get_target_name("BE0000530")
 # tmp = get_drugs_inter_for_drug("DB15865")
 # tmp = get_patents_drug("DB01175")
-
-#print(tmp)
+# print(tmp)

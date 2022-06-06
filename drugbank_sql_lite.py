@@ -7,6 +7,8 @@ from bs4 import BeautifulSoup as bfs
 import urllib
 
 
+# TODO unire query per ottenere oggetti Target senza passare da scraping
+
 class Target:
     def __init__(self, db_id, uniprot_id, uniprot_name):
         self.db_id = db_id
@@ -15,7 +17,6 @@ class Target:
 
     def __repr__(self):
         return f"{self.uniprot_name}, ({self.db_id, self.uniprot_id})"
-
 
 
 def connect_db():
@@ -131,6 +132,39 @@ def get_targets_drug(drug_id):
         targets_id = re.findall("BE[0-9]{7}", tmp[0])
         targets += targets_id
     return targets
+
+
+def get_targets_doi_drug(drug_id):
+    conn = connect_db()
+    targets = []
+    sql = "SELECT targets FROM dbdf WHERE `drugbank-id` = ?"
+    cursor = conn.execute(sql, (drug_id,))
+    for tmp in cursor:
+        # print(tmp[0])
+        targets_id = re.findall("10[.][0-9]{4,9}[/][-._;()\/:A-Z0-9a-z]+[.]", tmp[0])
+        targets += targets_id
+    final_targets = []
+    for elem in targets:
+        if elem[-1] == '.':
+            final_targets.append(elem.strip()[:len(elem)-1])
+        else:
+            final_targets.append(elem)
+    return final_targets
+
+
+def get_targets_name_drug(drug_id):
+    conn = connect_db()
+    targets = []
+    sql = "SELECT targets FROM dbdf WHERE `drugbank-id` = ?"
+    cursor = conn.execute(sql, (drug_id,))
+    for tmp in cursor:
+        # print(tmp[0])
+        targets_id = re.findall("BE[0-9]{7}[A-Z][a-z0-9\ ]*", tmp[0])
+        targets += targets_id
+    final_targets = []
+    for elem in targets:
+        final_targets.append(elem.strip()[9:len(elem)])
+    return final_targets
 
 
 def get_targets_full_drug(drug_id):
@@ -286,4 +320,6 @@ def get_patents_drug(drug_id):
 # tmp = get_target_name("BE0000530")
 # tmp = get_drugs_inter_for_drug("DB15865")
 # tmp = get_patents_drug("DB01175")
-# print(tmp)
+# tmp = get_drugs_for_all("BE0005831")
+tmp = get_targets_doi_drug("DB00002")
+print(tmp)

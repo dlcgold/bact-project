@@ -146,7 +146,7 @@ def get_targets_doi_drug(drug_id):
     final_targets = []
     for elem in targets:
         if elem[-1] == '.':
-            final_targets.append(elem.strip()[:len(elem)-1])
+            final_targets.append(elem.strip()[:len(elem) - 1])
         else:
             final_targets.append(elem)
     return final_targets
@@ -201,6 +201,19 @@ def get_pathways_drug(drug_id):
         pathways += targets_id
     return pathways
 
+def get_pathways_name_drug(drug_id):
+    conn = connect_db()
+    pathways = []
+    sql = "SELECT pathways FROM dbdf WHERE `drugbank-id` = ?"
+    cursor = conn.execute(sql, (drug_id,))
+    for tmp in cursor:
+        # print(tmp[0])
+        targets_id = re.findall("SMP[0-9]{7}[A-Z][a-z0-9]*[ and ]*[A-Z][a-z0-9]*", tmp[0])
+        pathways += targets_id
+    final_targets = []
+    for elem in pathways:
+        final_targets.append(elem.strip()[10:len(elem)].replace("disease", ""))
+    return final_targets
 
 def get_enzymes_drug(drug_id):
     conn = connect_db()
@@ -249,6 +262,15 @@ def get_drugs_for_enzyme(enzyme):
         drugs.append(tmp[0])
     return drugs
 
+def get_drugs_for_pathway(pathway):
+    conn = connect_db()
+    drugs = []
+    enzyme_wild = f"%{pathway}%"
+    sql = "SELECT `drugbank-id` FROM dbdf WHERE pathways LIKE ?"
+    cursor = conn.execute(sql, (enzyme_wild,))
+    for tmp in cursor:
+        drugs.append(tmp[0])
+    return drugs
 
 def get_drugs_for_carriers_transporters(ct):
     conn = connect_db()
@@ -299,7 +321,6 @@ def get_patents_drug(drug_id):
         patents += patents_id
     return patents
 
-
 # tmp = db_target_uniprot("DB00004")
 # tmp = db_pubchem_conv("DB00014")
 # tmp = get_name_drug("DB14738")
@@ -311,6 +332,7 @@ def get_patents_drug(drug_id):
 # tmp = get_groups_drug("DB14738")
 # tmp = get_indication_drug("DB01175")
 # tmp = get_pathways_drug("DB07718")
+tmp = get_pathways_name_drug("DB07718")
 # tmp = get_enzymes_drug("DB09130")
 # tmp = get_carriers_transporters_drug("DB09130")
 # tmp = get_drugs_for_target("BE0005831")
@@ -321,5 +343,6 @@ def get_patents_drug(drug_id):
 # tmp = get_drugs_inter_for_drug("DB15865")
 # tmp = get_patents_drug("DB01175")
 # tmp = get_drugs_for_all("BE0005831")
-tmp = get_targets_doi_drug("DB00002")
+# tmp = get_targets_doi_drug("DB00002")
+# tmp = get_drugs_for_pathway("SMP0000006")
 print(tmp)

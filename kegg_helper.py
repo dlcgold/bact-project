@@ -48,7 +48,7 @@ def conv_id_to_kegg_name(drug_id):
             name_bool = True
         elif spl[0].upper() == spl[0] and name_bool:
             break
-    return names
+    return list(set(names))
 
 
 def conv_db_id_to_kegg_id(db_id):
@@ -59,10 +59,10 @@ def conv_db_id_to_kegg_id(db_id):
 def conv_kegg_id_to_db_id(kegg_id):
     kegg_names = conv_id_to_kegg_name(kegg_id)
     names = []
-    for tmp in kegg_names:
-        if get_id_drug(tmp) != "":
-            names.append(get_id_drug(tmp))
-    return names
+    for tmp_name in kegg_names:
+        if get_id_drug(tmp_name) != "":
+            names.append(get_id_drug(tmp_name))
+    return list(set(names))
 
 
 # tmp = get_pathway_target_from_kegg("D11713")

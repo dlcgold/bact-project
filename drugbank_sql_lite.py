@@ -114,7 +114,7 @@ def get_pharmacodyn_drug(drug_id):
 
 def get_groups_drug(drug_id):
     conn = connect_db()
-    sql = "SELECT groups FROM dbdf WHERE `drugbank-id` = ?"
+    sql = "SELECT `groups` FROM dbdf WHERE `drugbank-id` = ?"
     cursor = conn.execute(sql, (drug_id,))
     group = ""
     for row in cursor:
@@ -200,11 +200,13 @@ def get_pathways_drug(drug_id):
         targets_id = re.findall("SMP[0-9]{7}", tmp[0])
         pathways += targets_id
     return pathways
-    
+
 
 def get_pathways_name_drug(drug_id):
-    words_to_remove = ["diseaseD","Disease", "Type","Action","disease","type","action","Metabolic","metabolic", "Pathway","signaling","Signaling","Physiological","physiological","drug_action","drug_metabolism"]
-    
+    words_to_remove = ["diseaseD", "Disease", "Type", "Action", "disease", "type", "action",
+                       "Metabolic", "metabolic", "Pathway", "signaling", "Signaling",
+                       "Physiological", "physiological", "drug_action", "drug_metabolism"]
+
     conn = connect_db()
     pathways = []
     sql = "SELECT pathways FROM dbdf WHERE `drugbank-id` = ?"
@@ -213,16 +215,17 @@ def get_pathways_name_drug(drug_id):
         # print(tmp[0])
         targets_id = re.findall("SMP[0-9]{7}[A-Z][a-z0-9]*[ and ]*[A-Z][a-z0-9]*", tmp[0])
         pathways += targets_id
-        
+
     final_targets = []
     for elem in pathways:
         raw = elem.strip()[10:len(elem)]
         for w in words_to_remove:
-            raw = raw.replace(w,"")
+            raw = raw.replace(w, "")
         clean = raw.strip()
         final_targets.append(clean)
-    
-    return set(final_targets)
+
+    return list(set(final_targets))
+
 
 def get_enzymes_drug(drug_id):
     conn = connect_db()
@@ -271,6 +274,7 @@ def get_drugs_for_enzyme(enzyme):
         drugs.append(tmp[0])
     return drugs
 
+
 def get_drugs_for_pathway(pathway):
     conn = connect_db()
     drugs = []
@@ -280,6 +284,7 @@ def get_drugs_for_pathway(pathway):
     for tmp in cursor:
         drugs.append(tmp[0])
     return drugs
+
 
 def get_drugs_for_carriers_transporters(ct):
     conn = connect_db()
@@ -330,6 +335,7 @@ def get_patents_drug(drug_id):
         patents += patents_id
     return patents
 
+
 # tmp = db_target_uniprot("DB00004")
 # tmp = db_pubchem_conv("DB00014")
 # tmp = get_name_drug("DB14738")
@@ -354,6 +360,6 @@ def get_patents_drug(drug_id):
 # tmp = get_drugs_for_all("BE0005831")
 # tmp = get_targets_doi_drug("DB00002")
 # tmp = get_drugs_for_pathway("SMP0000006")
-tmp = get_drugs_for_pathway("hsa05144")
+# tmp = get_drugs_for_pathway("hsa05144")
 
-print(tmp)
+# print(tmp)

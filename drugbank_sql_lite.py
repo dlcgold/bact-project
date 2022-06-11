@@ -20,7 +20,7 @@ class Target:
 
 
 def connect_db():
-    return sqlite3.connect('drugbank_all_full_database.xml/drugbank_5.1.9.db')
+    return sqlite3.connect('drugbank_5.1.9.db')
 
 
 def db_uniprof_df():
@@ -200,8 +200,11 @@ def get_pathways_drug(drug_id):
         targets_id = re.findall("SMP[0-9]{7}", tmp[0])
         pathways += targets_id
     return pathways
+    
 
 def get_pathways_name_drug(drug_id):
+    words_to_remove = ["diseaseD","Disease", "Type","Action","disease","type","action","Metabolic","metabolic", "Pathway","signaling","Signaling","Physiological","physiological","drug_action","drug_metabolism"]
+    
     conn = connect_db()
     pathways = []
     sql = "SELECT pathways FROM dbdf WHERE `drugbank-id` = ?"
@@ -210,10 +213,16 @@ def get_pathways_name_drug(drug_id):
         # print(tmp[0])
         targets_id = re.findall("SMP[0-9]{7}[A-Z][a-z0-9]*[ and ]*[A-Z][a-z0-9]*", tmp[0])
         pathways += targets_id
+        
     final_targets = []
     for elem in pathways:
-        final_targets.append(elem.strip()[10:len(elem)].replace("disease", ""))
-    return final_targets
+        raw = elem.strip()[10:len(elem)]
+        for w in words_to_remove:
+            raw = raw.replace(w,"")
+        clean = raw.strip()
+        final_targets.append(clean)
+    
+    return set(final_targets)
 
 def get_enzymes_drug(drug_id):
     conn = connect_db()
@@ -332,7 +341,7 @@ def get_patents_drug(drug_id):
 # tmp = get_groups_drug("DB14738")
 # tmp = get_indication_drug("DB01175")
 # tmp = get_pathways_drug("DB07718")
-tmp = get_pathways_name_drug("DB07718")
+# tmp = get_pathways_name_drug("DB01175")
 # tmp = get_enzymes_drug("DB09130")
 # tmp = get_carriers_transporters_drug("DB09130")
 # tmp = get_drugs_for_target("BE0005831")
@@ -345,4 +354,6 @@ tmp = get_pathways_name_drug("DB07718")
 # tmp = get_drugs_for_all("BE0005831")
 # tmp = get_targets_doi_drug("DB00002")
 # tmp = get_drugs_for_pathway("SMP0000006")
+tmp = get_drugs_for_pathway("hsa05144")
+
 print(tmp)

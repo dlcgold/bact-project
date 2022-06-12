@@ -24,6 +24,8 @@ def parse(data):
     papers = []
     pathways = []
     pathways_bool = False
+    pathogens = []
+    pathogens_bool = False
     for line in data.splitlines():
         spl = line.split()
         if spl[0] == "NAME":
@@ -56,6 +58,19 @@ def parse(data):
         elif drug_bool and spl[0].upper() == spl[0]:
             drug_bool = False
 
+
+        if not pathogens_bool and spl[0] == "PATHOGEN":
+            name = "".join(spl[i] + " " for i in range(1, len(spl)))
+            name = name.strip().split('[')[0].strip()
+            pathogens.append(name)
+            pathogens_bool = True
+        elif pathogens_bool and spl[0].upper() != spl[0]:
+            name = "".join(spl[i] + " " for i in range(0, len(spl)))
+            name = name.strip().split('[')[0].strip()
+            pathogens.append(name)
+        elif pathogens_bool and spl[0].upper() == spl[0]:
+            pathogens_bool = False
+
         if not drug_bool and spl[0] == "PATHWAY":
             name = "".join(spl[i] + " " for i in range(2, len(spl)))
             name = name.strip()
@@ -85,7 +100,7 @@ def parse(data):
             paper_bool = False
             papers.append(Paper(id_tmp, authors_tmp, title_tmp, journal_tmp, doi_tmp))
 
-    bact_tmp = Bact(bact_name, "ds:" + bact_id, bact_des, bact_cat, bact_sub, drugs, papers, pathways)
+    bact_tmp = Bact(bact_name, "ds:" + bact_id, bact_des, bact_cat, bact_sub, drugs, papers, pathways, pathogens)
     return bact_tmp
 
 

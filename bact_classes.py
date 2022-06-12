@@ -11,7 +11,7 @@ class Paper:
 
 
 class Bact:
-    def __init__(self, name, id_bact, description, category, sub, drugs, papers, pathways):
+    def __init__(self, name, id_bact, description, category, sub, drugs, papers, pathways, pathogens):
         self.name = name
         self.id_bact = id_bact
         self.drugs = drugs
@@ -20,6 +20,7 @@ class Bact:
         self.description = description
         self.category = category
         self.sub = sub
+        self.pathogens = pathogens
 
     def __repr__(self):
         return f"{self.name} ({self.id_bact})\n{self.drugs}\n ({self.papers})"
@@ -86,3 +87,8 @@ def get_drugbank_link(soup):
     if len(links) == 0:
         return ""
     return links[0]
+
+def get_db_index(soup):
+    for link in soup.find_all('link'):
+        if 'drugbank' in link.get('href'):
+            return link.get('href').split('/')[-1]

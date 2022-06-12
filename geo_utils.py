@@ -19,7 +19,7 @@ def is_valid(item, bact_names):
     # Wikipedia pages related to species show an infobox containing
     # their scientific classification
 
-    response = requests.get(url="https://en.wikipedia.org/wiki/" + word.replace(" ", "_"))
+    response = req.get(url="https://en.wikipedia.org/wiki/" + word.replace(" ", "_"))
     if response.status_code == 200:
         is_species = response.text.find("Scientific classification") != -1
 

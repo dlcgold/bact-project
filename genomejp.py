@@ -39,7 +39,8 @@ def get_drugs_for_disease_name(disease):
 
 
 def get_drugs_for_pathway_kegg(pathway):
-    if not os.path.exists('pathways_obj'):
+    if not os.path.exists(f"pathways_obj/{pathway}.ser"):
+        print("not serialized")
         return get_drugs_for_id(pathway)
     else:
         with open(f"pathways_obj/{pathway}.ser", "rb") as f:
@@ -50,7 +51,7 @@ def get_drugs_for_pathway_kegg(pathway):
 # disease, malaria
 # id = "H00361"
 # pathway
-id = "hsa04340"
+id = "hsa05216"
 tmp = get_drugs_for_pathway_kegg(id)
 # tmp = get_drugs_for_disease_name("japanese encephalitis")
 

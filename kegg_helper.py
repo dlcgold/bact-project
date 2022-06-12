@@ -1,9 +1,24 @@
 from Bio import Entrez
 from Bio.KEGG import REST
 from drugbank_sql_lite import *
+from bact_classes import *
+import requests as req
+from bs4 import BeautifulSoup as bfs
+
 
 Entrez.email = "d.cozzi@campus.unimib.it"
 
+def get_drug_kegg(drug_id):
+    sngOrg = REST.kegg_get([drug_id]).read()
+    drug_name = ""
+    for line in sngOrg.splitlines():
+        spl = line.split()
+        if spl[0] == "NAME":
+            drug_name = "".join(spl[i] + " " for i in range(1, len(spl))).strip()
+            if drug_name[-1] == ";":
+                drug_name = drug_name[:len(drug_name) - 1]
+            break
+    return Drug(drug_name, drug_id)
 
 def get_pathway_target_from_kegg(drug_id):
     data = REST.kegg_get(drug_id).read()
@@ -13,11 +28,11 @@ def get_pathway_target_from_kegg(drug_id):
         spl = line.strip().split()
         if spl[0] == "PATHWAY":
             name = "".join(spl[i] + " " for i in range(2, len(spl)))
-            pathways.append((spl[1].split("(")[0], name))
+            pathways.append((spl[1].split("(")[0], name.strip()))
             path_bool = True
         elif spl[0].upper() != spl[0] and path_bool:
             name = "".join(spl[i] + " " for i in range(1, len(spl)))
-            pathways.append((spl[0].split("(")[0], name))
+            pathways.append((spl[0].split("(")[0], name.strip()))
             path_bool = True
         elif spl[0].upper() == spl[0] and path_bool:
             break
@@ -64,6 +79,29 @@ def conv_kegg_id_to_db_id(kegg_id):
             names.append(get_id_drug(tmp_name))
     return list(set(names))
 
+# kegg_drugs GET by id or name of patogen
+def get_genomejp_drugs(query):
+    query = query.replace(" ", "+")
+    db = "drug"
+    url = f"https://www.genome.jp/dbget-bin/www_bfind_sub?mode=bfind&max_hit=1000&locale=en&serv=gn&dbkey={db}&keywords={query}"
+
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0'
+    }
+
+    response = req.get(url, headers)
+    soup = bfs(response.content, 'html.parser')
+    links = []
+    for link in soup.find_all('a'):
+        links.append(link.get('href'))
+    drugs = []
+    for entry in links:
+        if "entry" in entry:
+            tmp = entry.split('/')[-1]
+            if tmp[0] == "D":
+                drugs.append(tmp)
+    return list(set(drugs))
+
 
 # tmp = get_pathway_target_from_kegg("D11713")
 # name = get_name_drug("DB00135")
@@ -71,5 +109,5 @@ def conv_kegg_id_to_db_id(kegg_id):
 # tmp = conv_name_to_kegg_id(name)
 # tmp = conv_db_id_to_kegg_id("DB00135")
 # tmp = conv_id_to_kegg_name("D11713")
-tmp = conv_kegg_id_to_db_id("D11713")
-print(tmp)
+# tmp = conv_kegg_id_to_db_id("D11713")
+# print(tmp)

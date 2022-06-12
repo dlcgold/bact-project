@@ -378,7 +378,7 @@ def main():
             bacts.append(tmp_bact)
 
     print(f"Total: {len(bacts)} batteries")
-
+    # TODO mettere in funzione il geo parsing
     # print("Extract geo_data from abstract")
     # if not os.path.exists('abstract_get') or not os.listdir("abstract_get"):
     #     if not os.path.exists('abstract_get'):

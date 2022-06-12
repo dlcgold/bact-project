@@ -6,6 +6,7 @@ import os
 import pickle
 from Bio.KEGG import REST
 
+
 def get_drugs_for_id(id):
     url = f"https://www.genome.jp/entry/{id}"
 
@@ -17,8 +18,9 @@ def get_drugs_for_id(id):
     soup = bfs(response.content, 'html.parser')
     links = soup.select('a[href*="/entry/D"]')
     drugs = [l['href'][-6:] for l in links]
-    
+
     return drugs
+
 
 def get_drugs_for_disease_name(disease):
     query = disease.replace(" ", "+")
@@ -32,8 +34,9 @@ def get_drugs_for_disease_name(disease):
     soup = bfs(response.content, 'html.parser')
     links = soup.select('a[href*="/entry/D"]')
     drugs = [l['href'][-6:] for l in links]
-    
+
     return drugs
+
 
 def get_drugs_for_pathway_kegg(pathway):
     if not os.path.exists('pathways_obj'):
@@ -43,11 +46,12 @@ def get_drugs_for_pathway_kegg(pathway):
             p = pickle.load(f)
             return p['drugs']
 
-#disease, malaria
-#id = "H00361"
-#pathway
+
+# disease, malaria
+# id = "H00361"
+# pathway
 id = "hsa04340"
 tmp = get_drugs_for_pathway_kegg(id)
-#tmp = get_drugs_for_disease_name("japanese encephalitis")
+# tmp = get_drugs_for_disease_name("japanese encephalitis")
 
 print(tmp)

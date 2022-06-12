@@ -31,10 +31,11 @@ class Paper:
 
 
 class Bact:
-    def __init__(self, name, id_bact, description, category, sub, drugs, papers):
+    def __init__(self, name, id_bact, description, category, sub, drugs, papers, pathways):
         self.name = name
         self.id_bact = id_bact
         self.drugs = drugs
+        self.pathways = pathways
         self.papers = papers
         self.description = description
         self.category = category
@@ -51,6 +52,15 @@ class Drug:
 
     def __repr__(self):
         return f"{self.name}, ({self.id_drug})"
+
+
+class Pathway:
+    def __init__(self, name, id_path):
+        self.name = name
+        self.id_path = id_path
+
+    def __repr__(self):
+        return f"{self.name}, ({self.id_path})"
 
 
 class GeoData:
@@ -103,6 +113,8 @@ def parse(data):
     bact_des = ""
     drugs = []
     papers = []
+    pathways = []
+    pathways_bool = False
     for line in data.splitlines():
         spl = line.split()
         if spl[0] == "NAME":
@@ -134,6 +146,19 @@ def parse(data):
             drugs.append(Drug(name, spl[-1].replace("[", "").replace("]", "").split(':')[-1]))
         elif drug_bool and spl[0].upper() == spl[0]:
             drug_bool = False
+
+        if not drug_bool and spl[0] == "PATHWAY":
+            name = "".join(spl[i] + " " for i in range(2, len(spl)))
+            name = name.strip()
+            pathways.append(Pathway(name, spl[1]))
+            pathways_bool = True
+        elif pathways_bool and spl[0].upper() != spl[0]:
+            name = "".join(spl[i] + " " for i in range(1, len(spl)))
+            name = name.strip()
+            pathways.append(Pathway(name, spl[0]))
+        elif pathways_bool and spl[0].upper() == spl[0]:
+            pathways_bool = False
+
         if not paper_bool and spl[0] == "REFERENCE":
             if len(spl) > 1 and spl[1].split(":")[0] == "PMID":
                 id_tmp = spl[1].split(":")[1].replace('\n', ' ')
@@ -243,7 +268,7 @@ def get_kegg_drugs(query):
             tmp = entry.split('/')[-1]
             if tmp[0] == "D":
                 drugs.append(tmp)
-    return (drugs)
+    return list(set(drugs))
 
 
 def main():
@@ -713,7 +738,7 @@ def main():
     for bact_tmp in bacts:
         name = bact_tmp.name.replace("infection", "").strip()
         if name[-1] == ";":
-            name = name[:len(name)-1]
+            name = name[:len(name) - 1]
 
         drugs_db = get_drugs_for_target(name)
         if len(drugs_db) != 0:

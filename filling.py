@@ -395,7 +395,8 @@ def main():
     for bact_tmp in bacts_db_path:
         if len(bact_tmp.drugs) == 0:
             bacts_db_path_without_drugs.append(bact_tmp)
-    print(f"{len(bacts_db_path_without_drugs)} {type_infection} found w/out drugs after db")
+    print(f"{len(bacts_db_path_without_drugs)} {type_infection} found w/out drugs after drugbank "
+          f"filling by pathways")
 
     if len(bacts_db_path_without_drugs) != len(bacts):
         bar_data_db_path = {}

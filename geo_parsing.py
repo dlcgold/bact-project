@@ -29,6 +29,7 @@ def geo_parse(bacts, type_print=""):
     path_ser_title = f"ser_title_{type_print}"
     path_ser_bacts = f"ser_bacts_{type_print}"
     print("Extract geo_data from abstract")
+
     if not os.path.exists(path_abs) or not os.listdir(path_abs):
         if not os.path.exists(path_abs):
             os.makedirs(path_abs)
@@ -55,8 +56,8 @@ def geo_parse(bacts, type_print=""):
             if not os.path.isfile(f"ser_abs_{type_print}/{id_file}.ser"):
                 with open(f"abstract_get_{type_print}/" + filename, "r") as f:
                     lines = f.readlines()
-                    if len(lines) == 2:
-                        text = str(lines[1])
+                    if len(lines) >= 2:
+                        text = " ".join(lines[1:])
                         tmp = GeoData(id_file, text, geo.geoparse(text), lines[0])
                         geo_list_abs.append(tmp)
                         with open(f"ser_abs_{type_print}/{tmp.id_geo}.ser", "wb") as fw:

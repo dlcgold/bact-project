@@ -198,31 +198,30 @@ def display_map(geo_df, title, color, color_discrete_sequence):
 
 def fix_lon_lat(df):
     lat_df = df.sort_values(by='lat')
-    print(lat_df)
     curr_lat = float(lat_df.loc[[0], "lat"])
-    curr_incr = 1
+    curr_incr = 0.5
     for idx, row in lat_df.iterrows():
         tmp_lat = float(row["lat"])
-        print(tmp_lat, curr_lat)
-        print(tmp_lat != curr_lat)
         if tmp_lat != curr_lat:
             curr_lat = float(row["lat"])
         else:
             lat_df.at[idx, "lat"] = float(row["lat"]) + curr_incr
-            curr_incr += 1
+            if idx != len(lat_df) - 1 and float(lat_df.at[idx, "lat"]) == float(
+                    lat_df.at[idx + 1, "lat"]):
+                lat_df.at[idx + 1, "lat"] = float(lat_df.at[idx + 1, "lat"]) + 0.5
+            curr_incr += 0.5
     lon_df = lat_df.sort_values(by='lon')
-    print(lon_df)
     curr_lon = float(lon_df.loc[[0], "lon"])
-    curr_incr = 1
+    curr_incr = 0.5
     for idx, row in lon_df.iterrows():
         tmp_lon = float(row["lon"])
-        print(tmp_lon, curr_lon)
-        print(tmp_lon != curr_lon)
         if tmp_lon != curr_lon:
             curr_lon = float(row["lon"])
         else:
             lon_df.at[idx, "lon"] = float(row["lon"]) + curr_incr
-            print(row["lon"])
-            curr_incr += 1
+            curr_incr += 0.5
+            if idx != len(lon_df) - 1 and float(lon_df.at[idx, "lon"]) == float(
+                    lon_df.at[idx + 1, "lon"]):
+                lon_df.at[idx + 1, "lon"] = float(lon_df.at[idx + 1, "lon"]) + 0.5
     final_df = lon_df.sort_index()
     return final_df

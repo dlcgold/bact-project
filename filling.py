@@ -62,19 +62,11 @@ def main():
     print(f"{len(bacts)} bacterial infections found w/out drugs")
     print(bacts)
 
-<<<<<<< HEAD
     bacts_nodrug_df = geo_parse(bacts, "nodrug")
     bacts_nodrug_map_display = display_map(bacts_nodrug_df,
                                     "Locations associated to bacteria without drugs",
                                     "type",
                                     ["red", "blue", "green"])
-=======
-    # bacts_map_df = geo_parse(bacts, "test2")
-    # bacts_map_display = display_map(bacts_map_df,
-    #                                 "Locations associated to bacteria with drugs",
-    #                                 "type",
-    #                                 ["red", "blue", "green"])
->>>>>>> 855cff33ba7fd31eb017abc80d67617aadfb001f
 
     print("parse KEGG data with drugs")
     bacts_drug = []

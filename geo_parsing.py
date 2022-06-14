@@ -154,7 +154,7 @@ def geo_parse(bacts, type_print=""):
                                                          float(single_elem['geo']['lon']),
                                                          "Description"]
 
-    return geo_df
+    return fix_lon_lat(geo_df)
 
 
 def merge_geo_df(df1, df2, label1, label2):
@@ -194,3 +194,27 @@ def display_map(geo_df, title, color, color_discrete_sequence):
     fig.show()
 
     return fig
+
+
+def fix_lon_lat(df):
+    lat_df = df.sort_values(by='lat')
+    curr_lat = float(lat_df.loc[[0], "lat"])
+    curr_incr = 1
+    for i in range(1, len(lat_df)):
+        tmp_lat = float(lat_df.loc[[i], "lat"])
+        if tmp_lat != curr_lat:
+            curr_lat = float(lat_df.loc[[i], "lat"])
+        else:
+            lat_df.loc[[i], "lat"] = lat_df.loc[[i], "lat"] + curr_incr
+            curr_incr += 1
+    lon_df = lat_df.sort_values(by='lon')
+    curr_lon = float(lon_df.loc[[0], "lon"])
+    curr_incr = 1
+    for i in range(1, len(lon_df)):
+        tmp_lon = float(lon_df.loc[[i], "lon"])
+        if tmp_lon != curr_lon:
+            curr_lon = float(lon_df.loc[[i], "lon"])
+        else:
+            lon_df.loc[[i], "lon"] = lon_df.loc[[i], "lon"] + curr_incr
+            curr_incr += 1
+    return lon_df

@@ -1,3 +1,6 @@
+import requests as req
+from bs4 import BeautifulSoup as bfs
+
 class Paper:
     def __init__(self, pmid, authors, title, journal, doi):
         self.pmid = pmid
@@ -11,7 +14,8 @@ class Paper:
 
 
 class Bact:
-    def __init__(self, name, id_bact, description, category, sub, drugs, papers, pathways, pathogens):
+    def __init__(self, name, id_bact, description, category, sub, drugs, papers, pathways,
+                 pathogens):
         self.name = name
         self.id_bact = id_bact
         self.drugs = drugs
@@ -27,9 +31,10 @@ class Bact:
 
 
 class Drug:
-    def __init__(self, name, id_drug):
+    def __init__(self, name, id_drug, origin=""):
         self.name = name
         self.id_drug = id_drug
+        self.origin = origin
 
     def __repr__(self):
         return f"{self.name}, ({self.id_drug})"
@@ -71,6 +76,7 @@ class DrugBankObj():
         except:
             return 'NoPage'
 
+
 def retrive_page(url):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0'
@@ -78,6 +84,7 @@ def retrive_page(url):
     response = req.get(url, headers)
     soup = bfs(response.content, 'html.parser')
     return soup
+
 
 def get_drugbank_link(soup):
     links = []
@@ -87,6 +94,7 @@ def get_drugbank_link(soup):
     if len(links) == 0:
         return ""
     return links[0]
+
 
 def get_db_index(soup):
     for link in soup.find_all('link'):

@@ -1,10 +1,8 @@
-import pandas as pd
-import requests as req
-from bs4 import BeautifulSoup as bfs
-
 import os
 import pickle
-from Bio.KEGG import REST
+
+import requests as req
+from bs4 import BeautifulSoup as bfs
 
 
 def get_drugs_for_id(id):

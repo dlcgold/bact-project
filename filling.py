@@ -114,10 +114,10 @@ def main():
     # Filling from genomejp by pathogen query
     print("Filling from genomejp by pathogen query")
     bact_names = ""  # for geo parsing
-    bacts_genomejp = []
-    if not os.path.exists('genomejp') or not os.listdir("genomejp"):
-        if not os.path.exists('genomejp'):
-            os.makedirs('genomejp')
+    bacts_genomejp_patho = []
+    if not os.path.exists('genomejp_patho') or not os.listdir("genomejp_patho"):
+        if not os.path.exists('genomejp_patho'):
+            os.makedirs('genomejp_patho')
         for tmp_bact in bacts:
             bact_names += (' ' + tmp_bact.name.lower())
             tmp_extra_drugs = get_drugs_for_disease_name(tmp_bact.name)
@@ -126,36 +126,39 @@ def main():
                 for elem in tmp_bact.drugs:
                     tmp_drugs.append(elem.id_drug)
                 diffs = list_diff(tmp_extra_drugs, tmp_drugs)
-                print("adding extra drugs from genomejp")
+                print("adding extra drugs from genomejp by pathogen")
                 if len(diffs) > 0:
                     for elem in diffs:
                         if elem not in tmp_drugs:
-                            tmp_bact.drugs.append(get_drug_kegg(elem))
-            with open(f"genomejp/{tmp_bact.id_bact}.txt", "wb") as f:
+                            tmp_drug = get_drug_kegg(elem)
+                            tmp_drug.origin = "Genomejp Pathogen"
+                            tmp_bact.drugs.append(tmp_drug)
+            with open(f"genomejp_patho/{tmp_bact.id_bact}.txt", "wb") as f:
                 pickle.dump(tmp_bact, f)
-            bacts_genomejp.append(tmp_bact)
+            bacts_genomejp_patho.append(tmp_bact)
     else:
-        for filename in os.listdir("genomejp"):
-            with open("genomejp/" + filename, "rb") as f:
-                bacts_genomejp.append(pickle.load(f))
-    print(len(bacts))
-    no_drug_after_genomejp = []
-    for bact in bacts_genomejp:
+        for filename in os.listdir("genomejp_patho"):
+            with open("genomejp_patho/" + filename, "rb") as f:
+                bacts_genomejp_patho.append(pickle.load(f))
+
+    no_drug_after_genomejp_patho = []
+    for bact in bacts_genomejp_patho:
         if len(bact.drugs) == 0:
-            no_drug_after_genomejp.append(bact)
-    print(f"{len(no_drug_after_genomejp)} bacterial infections found w/out drugs after genomejp")
+            no_drug_after_genomejp_patho.append(bact)
+    print(f"{len(no_drug_after_genomejp_patho)} bacterial infections found w/out drugs after "
+          f"genomejp by pathogen")
 
-    if len(no_drug_after_genomejp) != len(bacts):
+    if len(no_drug_after_genomejp_patho) != len(bacts):
         # bar plot by quantity of infection by subgroups after genomejp
-        bar_data_genome = {}
+        bar_data_genome_patho = {}
 
-        for bact in bacts_genomejp:
-            if bact.sub not in bar_data_genome.keys():
-                bar_data_genome[bact.sub] = 0
+        for bact in bacts_genomejp_patho:
+            if bact.sub not in bar_data_genome_patho.keys():
+                bar_data_genome_patho[bact.sub] = 0
             if len(bact.drugs) > 0:
-                bar_data_genome[bact.sub] += 1
+                bar_data_genome_patho[bact.sub] += 1
         bar_data_no_genome = {}
-        for key, value in bar_data_genome.items():
+        for key, value in bar_data_genome_patho.items():
             bar_data_no_genome[key] = bar_data[key] - value
 
         fig, ax = plt.subplots()
@@ -170,8 +173,8 @@ def main():
                 np_no_genome_values[i] = bar_data_no_genome[key]
             if key in bar_data_drugs.keys():
                 np_drugs_values[i] = bar_data_drugs[key]
-            if key in bar_data_genome.keys():
-                np_genome_values[i] = bar_data_genome[key]
+            if key in bar_data_genome_patho.keys():
+                np_genome_values[i] = bar_data_genome_patho[key]
             i += 1
 
         ax.bar(delta, np_no_genome_values, color='red', width=width, label="Without drug")
@@ -180,65 +183,126 @@ def main():
         ax.bar(delta + width, np_genome_values, bottom=np_drugs_values,
                color='orange', width=width, label="Filled with genomejp")
         plt.title("Bacterial infections with/without drugs by subgroup after\n"
-                  "filling with genomejp")
+                  "filling with genomejp by pathogen")
         plt.ylabel("Quantity of infections")
         plt.xticks(delta + width / 2, labels_genome, rotation=45, fontsize=7)
         y_int = range(0,
                       math.ceil(max(np_drugs_values + np_genome_values)) + 1)
         plt.yticks(y_int)
         ax.legend()
-        fname = './plot_print/comparative_drugs_bar_plot_after_genomejp.png'
+        fname = './plot_print/comparative_drugs_bar_plot_after_genomejp_patho.png'
         plt.show()
         fig.set_size_inches((16, 12), forward=False)
         fig.savefig(fname, dpi=500)
 
         for key in keys:
-            if key in bar_data_genome.keys():
+            if key in bar_data_genome_patho.keys():
                 if key not in bar_data_drugs.keys():
-                    bar_data_drugs[key] = bar_data_genome[key]
+                    bar_data_drugs[key] = bar_data_genome_patho[key]
                 else:
-                    bar_data_drugs[key] = bar_data_drugs[key] + bar_data_genome[key]
+                    bar_data_drugs[key] = bar_data_drugs[key] + bar_data_genome_patho[key]
         for key in keys:
-            if key in bar_data.keys() and key in bar_data_genome.keys():
-                bar_data[key] = bar_data[key] - bar_data_genome[key]
+            if key in bar_data.keys() and key in bar_data_genome_patho.keys():
+                bar_data[key] = bar_data[key] - bar_data_genome_patho[key]
             if key in bar_data.keys() and bar_data[key] == 0:
                 bar_data.pop(key)
-        bacts = no_drug_after_genomejp
+    bacts = no_drug_after_genomejp_patho
 
-    print("Filling from genomejp by pathogen query")
-    bact_names = ""  # for geo parsing
-    bacts_genomejp_pathway = []
-    if not os.path.exists('genomejp') or not os.listdir("genomejp"):
-        if not os.path.exists('genomejp'):
-            os.makedirs('genomejp')
+    print("Filling from genomejp by pathway query")
+    bact_names_path = ""  # for geo parsing
+    bacts_genomejp_path = []
+    if not os.path.exists('genomejp_path') or not os.listdir("genomejp_path"):
+        if not os.path.exists('genomejp_path'):
+            os.makedirs('genomejp_path')
         for tmp_bact in bacts:
-            bact_names += (' ' + tmp_bact.name.lower())
-            tmp_extra_drugs = get_drugs_for_disease_name(tmp_bact.name)
+            bact_names_path += (' ' + tmp_bact.name.lower())
+            tmp_extra_drugs = []
+            for path in tmp_bact.pathways:
+                tmp_extra_drugs += get_drugs_for_pathway_kegg(path.id_path)
             if len(tmp_extra_drugs) > 0:
                 tmp_drugs = []
                 for elem in tmp_bact.drugs:
                     tmp_drugs.append(elem.id_drug)
                 diffs = list_diff(tmp_extra_drugs, tmp_drugs)
-                print("adding extra drugs from genomejp")
+                print("adding extra drugs from genomejp by pathway")
                 if len(diffs) > 0:
                     for elem in diffs:
                         if elem not in tmp_drugs:
-                            tmp_bact.drugs.append(get_drug_kegg(elem))
-            with open(f"genomejp/{tmp_bact.id_bact}.txt", "wb") as f:
+                            tmp_drug = get_drug_kegg(elem)
+                            tmp_drug.origin = "Origin Pathway"
+                            tmp_bact.drugs.append(tmp_drug)
+            with open(f"genomejp_path/{tmp_bact.id_bact}.txt", "wb") as f:
                 pickle.dump(tmp_bact, f)
-            bacts_genomejp_pathway.append(tmp_bact)
+            bacts_genomejp_path.append(tmp_bact)
     else:
-        for filename in os.listdir("genomejp"):
-            with open("genomejp/" + filename, "rb") as f:
-                bacts_genomejp_pathway.append(pickle.load(f))
+        for filename in os.listdir("genomejp_path"):
+            with open("genomejp_path/" + filename, "rb") as f:
+                bacts_genomejp_path.append(pickle.load(f))
     # print(len(bacts))
-    no_drug_after_genomejp = []
-    for bact in bacts_genomejp_pathway:
+    no_drug_after_genomejp_path = []
+    for bact in bacts_genomejp_path:
         if len(bact.drugs) == 0:
-            no_drug_after_genomejp.append(bact)
-    print(f"{len(no_drug_after_genomejp)} {type_infection} found w/out drugs after genomejp")
+            no_drug_after_genomejp_path.append(bact)
+    print(f"{len(no_drug_after_genomejp_path)} {type_infection} found w/out drugs after genomejp "
+          f"pathway")
+    if len(no_drug_after_genomejp_path) != len(bacts):
+        # bar plot by quantity of infection by subgroups after genomejp
+        bar_data_genome_path = {}
+        for bact in bacts_genomejp_path:
+            if bact.sub not in bar_data_genome_path.keys():
+                bar_data_genome_path[bact.sub] = 0
+            if len(bact.drugs) > 0:
+                bar_data_genome_path[bact.sub] += 1
+        bar_data_no_genome = {}
+        for key, value in bar_data_genome_path.items():
+            bar_data_no_genome[key] = bar_data[key] - value
 
-    # TODO AGGIUNGERE PARTE PLOT ANCHE SE INUTILE
+        fig, ax = plt.subplots()
+        np_no_genome_values = np.zeros(len(keys))
+        np_drugs_values = np.zeros(len(keys))
+        np_genome_values = np.zeros(len(keys))
+        labels_genome = []
+        i = 0
+        for key in keys:
+            labels_genome.append(key.replace("Infections caused by", "").strip())
+            if key in bar_data_no_genome.keys():
+                np_no_genome_values[i] = bar_data_no_genome[key]
+            if key in bar_data_drugs.keys():
+                np_drugs_values[i] = bar_data_drugs[key]
+            if key in bar_data_genome_path.keys():
+                np_genome_values[i] = bar_data_genome_path[key]
+            i += 1
+
+        ax.bar(delta, np_no_genome_values, color='red', width=width, label="Without drug")
+        ax.bar(delta + width, np_drugs_values, color='green', width=width,
+               label="With drug")
+        ax.bar(delta + width, np_genome_values, bottom=np_drugs_values,
+               color='orange', width=width, label="Filled with genomejp")
+        plt.title("Bacterial infections with/without drugs by subgroup after\n"
+                  "filling with genomejp by pathway")
+        plt.ylabel("Quantity of infections")
+        plt.xticks(delta + width / 2, labels_genome, rotation=45, fontsize=7)
+        y_int = range(0,
+                      math.ceil(max(np_drugs_values + np_genome_values)) + 1)
+        plt.yticks(y_int)
+        ax.legend()
+        fname = './plot_print/comparative_drugs_bar_plot_after_genomejp_path.png'
+        plt.show()
+        fig.set_size_inches((16, 12), forward=False)
+        fig.savefig(fname, dpi=500)
+
+        for key in keys:
+            if key in bar_data_genome_path.keys():
+                if key not in bar_data_drugs.keys():
+                    bar_data_drugs[key] = bar_data_genome_path[key]
+                else:
+                    bar_data_drugs[key] = bar_data_drugs[key] + bar_data_genome_path[key]
+        for key in keys:
+            if key in bar_data.keys() and key in bar_data_genome_path.keys():
+                bar_data[key] = bar_data[key] - bar_data_genome_path[key]
+            if key in bar_data.keys() and bar_data[key] == 0:
+                bar_data.pop(key)
+    bacts = no_drug_after_genomejp_path
 
     print("Filling from drugbank by pathogen")
     bacts_db = []
@@ -274,7 +338,9 @@ def main():
                     if len(diffs) > 0:
                         for elem in diffs:
                             if elem not in tmp_drugs:
-                                tmp_bact.drugs.append(get_drug_kegg(elem))
+                                tmp_drug = get_drug_kegg(elem)
+                                tmp_drug.origin = "DrugBank pathogen"
+                                tmp_bact.drugs.append(tmp_drug)
             with open(f"db_patho/{tmp_bact.id_bact}.txt", "wb") as f:
                 pickle.dump(tmp_bact, f)
             bacts_db.append(tmp_bact)
@@ -346,7 +412,7 @@ def main():
                 bar_data[key] = bar_data[key] - bar_data_db[key]
             if key in bar_data.keys() and bar_data[key] == 0:
                 bar_data.pop(key)
-        bacts = bacts_db_without_drugs
+    bacts = bacts_db_without_drugs
 
     print("Filling from drugbank by pathways")
     bacts_db_path = []
@@ -358,7 +424,7 @@ def main():
                 tmp_extra_drugs = []
                 for path_tmp in tmp_bact.pathways:
                     db_drugs = get_drugs_for_pathway(path_tmp)
-                    #print(db_drugs)
+                    # print(db_drugs)
                     tmp_drugs = []
                     for tmp in db_drugs:
                         print(tmp)
@@ -382,7 +448,9 @@ def main():
                     if len(diffs) > 0:
                         for elem in diffs:
                             if elem not in tmp_drugs:
-                                tmp_bact.drugs.append(get_drug_kegg(elem))
+                                tmp_drug = get_drug_kegg(elem)
+                                tmp_drug.origin = "DrugBank Pathway"
+                                tmp_bact.drugs.append(tmp_drug)
             with open(f"db_path/{tmp_bact.id_bact}.txt", "wb") as f:
                 pickle.dump(tmp_bact, f)
             bacts_db_path.append(tmp_bact)
@@ -453,7 +521,9 @@ def main():
                 bar_data[key] = bar_data[key] - bar_data_db_path[key]
             if key in bar_data.keys() and bar_data[key] == 0:
                 bar_data.pop(key)
-        bacts = bacts_db_path_without_drugs
+    bacts = bacts_db_path_without_drugs
+
+
 
 
 if __name__ == "__main__":

@@ -12,10 +12,11 @@
 #2. kegg Genome entry
 #3. prendo l'assembly con le statistics
     # BIOsample con Geotagging (per i bacterical)
-    # gc content
-    # protein count
-    # protein list 
-        # protein sample con geotagging (ridondante con biosample)
+    # GENOME
+        # gc content
+        # protein count
+        # protein list 
+            # protein sample con geotagging (ridondante con biosample)
 
         
 

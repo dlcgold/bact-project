@@ -27,9 +27,10 @@ class Bact:
 
 
 class Drug:
-    def __init__(self, name, id_drug):
+    def __init__(self, name, id_drug, origin=""):
         self.name = name
         self.id_drug = id_drug
+        self.origin = origin
 
     def __repr__(self):
         return f"{self.name}, ({self.id_drug})"

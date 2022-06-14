@@ -11,6 +11,7 @@ Entrez.email = "d.cozzi@campus.unimib.it"
 
 
 def main():
+    # TODO aggiungere ogni volta provenenienza del filling ad ogni Drug (init già pronto)
     print("getting bacterial infections list")
     type_infection = "Bacterial infections"
     bactetial_infections = REST.kegg_get("br:br08401").read()

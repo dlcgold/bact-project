@@ -1,20 +1,20 @@
-import pickle
 import os
-import requests as requests
-from Bio import Entrez
-from Bio.KEGG import REST
-from mordecai import Geoparser
-import pandas as pd
-from bact_classes import *
-from utils import *
-import plotly.express as px
+import pickle
 
+import pandas as pd
+import plotly.express as px
+from Bio import Entrez
+from mordecai import Geoparser
+
+from utils import *
 
 """    filtered_bact_drug = []
     filtered_abs_drug = []
     filtered_title_drug = []"""
 
-def geo_parse(bacts):
+
+def geo_parse(bacts, type_print=""):
+    geo = Geoparser()
     # geo locations filtered
     filtered_bact = []
     filtered_abs = []
@@ -24,136 +24,162 @@ def geo_parse(bacts):
     for tmp_bact in bacts:
         bact_names += (' ' + tmp_bact.name.lower())
 
+    path_abs = f"abstract_get_{type_print}"
+    path_ser_abs = f"ser_abs_{type_print}"
+    path_ser_title = f"ser_title_{type_print}"
+    path_ser_bacts = f"ser_bacts_{type_print}"
     print("Extract geo_data from abstract")
-    if not os.path.exists('abstract_get') or not os.listdir("abstract_get"):
-        if not os.path.exists('abstract_get'):
-            os.makedirs('abstract_get')
+    if not os.path.exists(path_abs) or not os.listdir(path_abs):
+        if not os.path.exists(path_abs):
+            os.makedirs(path_abs)
         for bact_tmp in bacts:
+            bact_name = bact_tmp.name.strip()
+            if bact_name[-1] == ';':
+                bact_name = bact_name[:-1]
             for paper_tmp in bact_tmp.papers:
                 if paper_tmp.pmid:
-                    with open(f"abstract_get/{paper_tmp.pmid}.txt", "w") as f:
+                    with open(f"abstract_get_{type_print}/{paper_tmp.pmid}.txt", "w") as f:
                         pubmed_entry = Entrez.efetch(db="pubmed",
                                                      id=paper_tmp.pmid,
                                                      retmode="xml")
                         result = Entrez.read(pubmed_entry)
                         article = result['PubmedArticle'][0]['MedlineCitation']['Article']
                         if 'Abstract' in article:
-                            f.write(article['Abstract']['AbstractText'][0])
+                            f.write(f"{bact_name}\n{article['Abstract']['AbstractText'][0]}")
     geo_list_abs = []
-    if not os.path.exists('ser_abs'):
-        os.makedirs('ser_abs')
-    if len(os.listdir("abstract_get")) != len(os.listdir("ser_abs")):
-        geo = Geoparser()
-        for filename in os.listdir("abstract_get"):
+    if not os.path.exists(path_ser_abs):
+        os.makedirs(path_ser_abs)
+    if len(os.listdir(path_abs)) != len(os.listdir(path_ser_abs)):
+        for filename in os.listdir(path_abs):
             id_file = filename.split(".")[0]
-            if not os.path.isfile(f"ser_abs/{id_file}.ser"):
-                with open("abstract_get/" + filename, "r") as f:
-                    text = str(f.read())
-                    tmp = GeoData(id_file, text, geo.geoparse(text))
-                    geo_list_abs.append(tmp)
-                    with open(f"ser_abs/{tmp.id_geo}.ser", "wb") as fw:
-                        pickle.dump(tmp, fw)
+            if not os.path.isfile(f"ser_abs_{type_print}/{id_file}.ser"):
+                with open(f"abstract_get_{type_print}/" + filename, "r") as f:
+                    lines = f.readlines()
+                    if len(lines) == 2:
+                        text = str(lines[1])
+                        tmp = GeoData(id_file, text, geo.geoparse(text), lines[0])
+                        geo_list_abs.append(tmp)
+                        with open(f"ser_abs_{type_print}/{tmp.id_geo}.ser", "wb") as fw:
+                            pickle.dump(tmp, fw)
+
     else:
-        for filename in os.listdir("ser_abs"):
-            with open(f"ser_abs/{filename}", "rb") as f:
+        for filename in os.listdir(path_ser_abs):
+            with open(f"ser_abs_{type_print}/{filename}", "rb") as f:
                 geo_list_abs.append(pickle.load(f))
 
-    geo_df = pd.DataFrame(columns=["id", "lat", "lon", "type"])
+    geo_df = pd.DataFrame(columns=["id", "name", "lat", "lon", "type"])
     for geo_elem in geo_list_abs:
         if geo_elem.geo_dict:
             id_tmp = geo_elem.id_geo
+            name_tmp = geo_elem.name.strip()
+            if name_tmp[-1] == ';':
+                name_tmp = name_tmp[:-1]
             for single_elem in geo_elem.geo_dict:
                 if 'geo' in single_elem:
                     if not is_valid(single_elem, bact_names):
                         filtered_abs.append(single_elem)
                     else:
                         geo_df.loc[len(geo_df.index)] = [id_tmp,
+                                                         name_tmp,
                                                          float(single_elem['geo']['lat']),
                                                          float(single_elem['geo']['lon']),
                                                          "Abstract"]
     print("Extract geo_data from titles")
     geo_list_title = []
-    if not os.path.exists('ser_title'):
-        os.makedirs('ser_title')
-    if len(os.listdir("ser_title")) == 0:
-        geo = Geoparser()
+    if not os.path.exists(path_ser_title):
+        os.makedirs(path_ser_title)
+    if len(os.listdir(path_ser_title)) == 0:
         for bact_tmp in bacts:
             count = 0
+            name_tmp = bact_tmp.name.strip()
+            if name_tmp[-1] == ';':
+                name_tmp = name_tmp[:-1]
             for paper_tmp in bact_tmp.papers:
-                tmp = GeoData(paper_tmp.pmid, paper_tmp.title, geo.geoparse(paper_tmp.title))
+                tmp = GeoData(paper_tmp.pmid, paper_tmp.title,
+                              geo.geoparse(paper_tmp.title), name_tmp)
                 geo_list_title.append(tmp)
-                with open(f"ser_title/{paper_tmp.pmid}_{count}.ser", "wb") as fw:
+                with open(f"ser_title_{type_print}/{paper_tmp.pmid}_{count}.ser", "wb") as fw:
                     pickle.dump(tmp, fw)
     else:
-        for filename in os.listdir("ser_title"):
-            with open(f"ser_title/{filename}", "rb") as f:
+        for filename in os.listdir(path_ser_title):
+            with open(f"ser_title_{type_print}/{filename}", "rb") as f:
                 geo_list_title.append(pickle.load(f))
-
 
     for geo_elem in geo_list_title:
         if geo_elem.geo_dict:
             id_tmp = geo_elem.id_geo
+            name_tmp = geo_elem.name.strip()
+            if name_tmp[-1] == ';':
+                name_tmp = name_tmp[:-1]
             for single_elem in geo_elem.geo_dict:
                 if 'geo' in single_elem:
                     if not is_valid(single_elem, bact_names):
                         filtered_title.append(single_elem)
                     else:
                         geo_df.loc[len(geo_df.index)] = [id_tmp,
+                                                         name_tmp,
                                                          float(single_elem['geo']['lat']),
                                                          float(single_elem['geo']['lon']),
                                                          "Title"]
 
     print("Extract geo data from descriptions")
     geo_list_bact = []
-    if not os.path.exists('ser_bacts'):
-        os.makedirs('ser_bacts')
-    if len(bacts) != len(os.listdir("ser_bacts")):
-        geo = Geoparser()
+    if not os.path.exists(path_ser_bacts):
+        os.makedirs(path_ser_bacts)
+    if len(bacts) != len(os.listdir(path_ser_bacts)):
         for bact_tmp in bacts:
             tmp = GeoData(bact_tmp.id_bact, bact_tmp.description,
-                          geo.geoparse(bact_tmp.description))
+                          geo.geoparse(bact_tmp.description), bact_tmp.name)
             geo_list_bact.append(tmp)
-            with open(f"ser_bacts/{bact_tmp.id_bact}.ser", "wb") as fw:
+            with open(f"ser_bacts_{type_print}/{bact_tmp.id_bact}.ser", "wb") as fw:
                 pickle.dump(tmp, fw)
     else:
-        for filename in os.listdir("ser_bacts"):
-            with open(f"ser_bacts/{filename}", "rb") as f:
+        for filename in os.listdir(path_ser_bacts):
+            with open(f"ser_bacts_{type_print}/{filename}", "rb") as f:
                 geo_list_bact.append(pickle.load(f))
     for geo_elem in geo_list_bact:
         if geo_elem.geo_dict:
             id_tmp = geo_elem.id_geo
+            name_tmp = geo_elem.name.strip()
+            if name_tmp[-1] == ';':
+                name_tmp = name_tmp[:-1]
             for single_elem in geo_elem.geo_dict:
                 if 'geo' in single_elem:
                     if not is_valid(single_elem, bact_names):
                         filtered_bact.append(single_elem)
                     else:
                         geo_df.loc[len(geo_df.index)] = [id_tmp,
+                                                         name_tmp,
                                                          float(single_elem['geo']['lat']),
                                                          float(single_elem['geo']['lon']),
                                                          "Description"]
 
     return geo_df
 
+
 def merge_geo_df(no_drug, drug):
-    geo_df_total = pd.DataFrame(columns=["id", "lat", "lon", "type", "drug"])
+    geo_df_total = pd.DataFrame(columns=["id", "name", "lat", "lon", "type", "drug"])
     for index, row in no_drug.iterrows():
         geo_df_total.loc[len(geo_df_total.index)] = [row.id,
+                                                     row.name,
                                                      row.lat,
                                                      row.lon,
                                                      row.type,
                                                      "no drug"]
     for index, row in drug.iterrows():
         geo_df_total.loc[len(geo_df_total.index)] = [row.id,
+                                                     row.name,
                                                      row.lat,
                                                      row.lon,
                                                      row.type,
                                                      "drug"]
     return geo_df_total
 
+
 def display_map(geo_df, title, color, color_discrete_sequence):
     print(f"Producing map: {title}")
     fig = px.scatter_mapbox(geo_df,
-                            hover_name="id",
+                            hover_name="name",
                             lat="lat",
                             lon="lon",
                             color=color,

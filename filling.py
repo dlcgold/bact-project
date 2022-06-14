@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from genomejp import *
+from geo_parsing import *
 from kegg_helper import *
-from utils import *
 
 Entrez.email = "d.cozzi@campus.unimib.it"
 
@@ -59,6 +59,12 @@ def main():
             tmp_bact = parse(str(f.read()))
             bacts.append(tmp_bact)
     print(f"{len(bacts)} bacterial infections found w/out drugs")
+
+    bacts_map_df = geo_parse(bacts, "test")
+    bacts_map_display = display_map(bacts_map_df,
+                                    "Locations associated to bacteria with drugs",
+                                    "type",
+                                    ["red", "blue", "green"])
 
     print("parse KEGG data with drugs")
     bacts_drug = []
@@ -522,8 +528,6 @@ def main():
             if key in bar_data.keys() and bar_data[key] == 0:
                 bar_data.pop(key)
     bacts = bacts_db_path_without_drugs
-
-
 
 
 if __name__ == "__main__":

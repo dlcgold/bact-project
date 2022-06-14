@@ -1,6 +1,7 @@
 import requests as req
 from bs4 import BeautifulSoup as bfs
 
+
 class Paper:
     def __init__(self, pmid, authors, title, journal, doi):
         self.pmid = pmid
@@ -50,8 +51,9 @@ class Pathway:
 
 
 class GeoData:
-    def __init__(self, id_geo, text, geo_dict):
+    def __init__(self, id_geo, text, geo_dict, name=""):
         self.id_geo = id_geo
+        self.name = name
         self.text = text
         self.geo_dict = geo_dict
 

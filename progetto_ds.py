@@ -2,21 +2,12 @@
 progetto-ds.ipynb
 """
 
-from copy import copy
 from copy import deepcopy
-import json
-import pickle
-import os
-import requests as requests
-from Bio import Entrez
+
 from Bio.KEGG import REST
-from mordecai import Geoparser
-import pandas as pd
-from geo_parsing import *
-import plotly.express as px
-import requests as req
-from bs4 import BeautifulSoup as bfs
+
 from drugbank_sql_lite import *
+from geo_parsing import *
 
 Entrez.email = "d.cozzi@campus.unimib.it"
 
@@ -179,7 +170,8 @@ def parse(data):
             paper_bool = False
             papers.append(Paper(id_tmp, authors_tmp, title_tmp, journal_tmp, doi_tmp))
 
-    bact_tmp = Bact(bact_name, "ds:" + bact_id, bact_des, bact_cat, bact_sub, drugs, papers, pathways)
+    bact_tmp = Bact(bact_name, "ds:" + bact_id, bact_des, bact_cat, bact_sub, drugs, papers,
+                    pathways)
     return bact_tmp
 
 
@@ -350,7 +342,7 @@ def main():
 
     print(drug_list)
     print(no_drug_list)
-    
+
     # sngOrg = REST.kegg_get(["H00349"]).read()
     # print('DRUG' in sngOrg)
 
@@ -382,7 +374,7 @@ def main():
                             tmp_bact.drugs.append(get_drug_kegg(elem))"""
             bacts.append(tmp_bact)
 
-    #print(f"Total: {len(bacts)} bacteria")
+    # print(f"Total: {len(bacts)} bacteria")
 
     bacts_nodrug = deepcopy(bacts)
 
@@ -397,7 +389,7 @@ def main():
                 tmp_drugs = []
                 for elem in tmp_bact.drugs:
                     tmp_drugs.append(elem.id_drug)
-                 # print(tmp_drugs)
+                # print(tmp_drugs)
                 diffs = list_diff(tmp_extra_drugs, tmp_drugs)
                 print("add extra drugs")
                 if len(diffs) > 0:
@@ -416,7 +408,7 @@ def main():
     geo_df_drug = geo_parse(bacts_drug)
 
     geo_df_total = merge_geo_df(geo_df_nodrug, geo_df_drug)
-    
+
     """
     # Dump data
     if not os.path.exists('dumps'):
@@ -439,12 +431,14 @@ def main():
     with open(f"dumps/geo_list_drug.ser", "wb") as fw:
         pickle.dump(geo_list_drug, fw)
     """
-   
-    drugs_map = display_map(geo_df_drug,"Locations associated to bacteria with drugs", "type",["red", "blue", "green"])
-    nodrugs_map = display_map(geo_df_nodrug,"Locations associated to bacteria without drugs","type",["red", "blue", "green"])
-    all_map = display_map(geo_df_total,"Locations associated to all bacteria","drug",["red","green"])
-    
-    
+
+    drugs_map = display_map(geo_df_drug, "Locations associated to bacteria with drugs", "type",
+                            ["red", "blue", "green"])
+    nodrugs_map = display_map(geo_df_nodrug, "Locations associated to bacteria without drugs",
+                              "type", ["red", "blue", "green"])
+    all_map = display_map(geo_df_total, "Locations associated to all bacteria", "drug",
+                          ["red", "green"])
+
     #
     # if not os.path.exists('ser_drug_bank') or not os.listdir("ser_drug_bank"):
     #     db_count = 0

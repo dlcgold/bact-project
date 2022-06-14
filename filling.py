@@ -11,7 +11,6 @@ Entrez.email = "d.cozzi@campus.unimib.it"
 
 
 def main():
-    # TODO aggiungere ogni volta provenenienza del filling ad ogni Drug (init già pronto)
     print("getting bacterial infections list")
     type_infection = "Bacterial infections"
     bactetial_infections = REST.kegg_get("br:br08401").read()
@@ -523,6 +522,8 @@ def main():
             if key in bar_data.keys() and bar_data[key] == 0:
                 bar_data.pop(key)
     bacts = bacts_db_path_without_drugs
+
+
 
 
 if __name__ == "__main__":

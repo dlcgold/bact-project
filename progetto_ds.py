@@ -2,6 +2,7 @@
 progetto-ds.ipynb
 """
 
+import json
 import pickle
 import os
 import requests as requests

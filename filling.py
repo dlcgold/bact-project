@@ -60,11 +60,11 @@ def main():
             bacts.append(tmp_bact)
     print(f"{len(bacts)} bacterial infections found w/out drugs")
 
-    bacts_map_df = geo_parse(bacts, "test")
-    bacts_map_display = display_map(bacts_map_df,
-                                    "Locations associated to bacteria with drugs",
-                                    "type",
-                                    ["red", "blue", "green"])
+    # bacts_map_df = geo_parse(bacts, "test")
+    # bacts_map_display = display_map(bacts_map_df,
+    #                                 "Locations associated to bacteria with drugs",
+    #                                 "type",
+    #                                 ["red", "blue", "green"])
 
     print("parse KEGG data with drugs")
     bacts_drug = []

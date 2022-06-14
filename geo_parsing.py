@@ -157,22 +157,22 @@ def geo_parse(bacts, type_print=""):
     return geo_df
 
 
-def merge_geo_df(no_drug, drug):
-    geo_df_total = pd.DataFrame(columns=["id", "name", "lat", "lon", "type", "drug"])
-    for index, row in no_drug.iterrows():
+def merge_geo_df(df1, df2, label1, label2):
+    geo_df_total = pd.DataFrame(columns=["id", "name", "lat", "lon", "type", "label"])
+    for index, row in df1.iterrows():
         geo_df_total.loc[len(geo_df_total.index)] = [row.id,
                                                      row.name,
                                                      row.lat,
                                                      row.lon,
                                                      row.type,
-                                                     "no drug"]
-    for index, row in drug.iterrows():
+                                                     label1]
+    for index, row in df2.iterrows():
         geo_df_total.loc[len(geo_df_total.index)] = [row.id,
                                                      row.name,
                                                      row.lat,
                                                      row.lon,
                                                      row.type,
-                                                     "drug"]
+                                                     label2]
     return geo_df_total
 
 

@@ -11,8 +11,8 @@ Entrez.email = "d.cozzi@campus.unimib.it"
 
 
 def main():
-    print("getting bacterial infections list")
     type_infection = "Bacterial infections"
+    print(f"getting {type_infection} list")
     bactetial_infections = REST.kegg_get("br:br08401").read()
     H_list = []
     check = True

@@ -9,14 +9,16 @@ from bact_classes import *
 from utils import *
 import plotly.express as px
 
+
+"""    filtered_bact_drug = []
+    filtered_abs_drug = []
+    filtered_title_drug = []"""
+
 def geo_parse(bacts):
     # geo locations filtered
     filtered_bact = []
     filtered_abs = []
     filtered_title = []
-    filtered_bact_drug = []
-    filtered_abs_drug = []
-    filtered_title_drug = []
 
     bact_names = ""
     for tmp_bact in bacts:
@@ -87,6 +89,7 @@ def geo_parse(bacts):
             with open(f"ser_title/{filename}", "rb") as f:
                 geo_list_title.append(pickle.load(f))
 
+
     for geo_elem in geo_list_title:
         if geo_elem.geo_dict:
             id_tmp = geo_elem.id_geo
@@ -131,20 +134,37 @@ def geo_parse(bacts):
 
     return geo_df
 
+def merge_geo_df(no_drug, drug):
+    geo_df_total = pd.DataFrame(columns=["id", "lat", "lon", "type", "drug"])
+    for index, row in no_drug.iterrows():
+        geo_df_total.loc[len(geo_df_total.index)] = [row.id,
+                                                     row.lat,
+                                                     row.lon,
+                                                     row.type,
+                                                     "no drug"]
+    for index, row in drug.iterrows():
+        geo_df_total.loc[len(geo_df_total.index)] = [row.id,
+                                                     row.lat,
+                                                     row.lon,
+                                                     row.type,
+                                                     "drug"]
+    return geo_df_total
 
-def display_map(geo_df):
-    print("Produce Maps")
+def display_map(geo_df, title, color, color_discrete_sequence):
+    print(f"Producing map: {title}")
     fig = px.scatter_mapbox(geo_df,
                             hover_name="id",
                             lat="lat",
                             lon="lon",
-                            color="type",
-                            title="Without drugs",
+                            color=color,
+                            title=title,
                             # size_max=15,
                             zoom=1,
                             width=1080,
                             height=720,
-                            color_discrete_sequence=["red", "blue", "green"],
+                            color_discrete_sequence=color_discrete_sequence,
                             mapbox_style="open-street-map"
                             )
     fig.show()
+
+    return fig

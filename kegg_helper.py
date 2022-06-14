@@ -1,9 +1,24 @@
 from Bio import Entrez
 from Bio.KEGG import REST
 from drugbank_sql_lite import *
+from bact_classes import *
+import requests as req
+from bs4 import BeautifulSoup as bfs
+
 
 Entrez.email = "d.cozzi@campus.unimib.it"
 
+def get_drug_kegg(drug_id):
+    sngOrg = REST.kegg_get([drug_id]).read()
+    drug_name = ""
+    for line in sngOrg.splitlines():
+        spl = line.split()
+        if spl[0] == "NAME":
+            drug_name = "".join(spl[i] + " " for i in range(1, len(spl))).strip()
+            if drug_name[-1] == ";":
+                drug_name = drug_name[:len(drug_name) - 1]
+            break
+    return Drug(drug_name, drug_id)
 
 def get_pathway_target_from_kegg(drug_id):
     data = REST.kegg_get(drug_id).read()
@@ -13,11 +28,11 @@ def get_pathway_target_from_kegg(drug_id):
         spl = line.strip().split()
         if spl[0] == "PATHWAY":
             name = "".join(spl[i] + " " for i in range(2, len(spl)))
-            pathways.append((spl[1].split("(")[0], name))
+            pathways.append((spl[1].split("(")[0], name.strip()))
             path_bool = True
         elif spl[0].upper() != spl[0] and path_bool:
             name = "".join(spl[i] + " " for i in range(1, len(spl)))
-            pathways.append((spl[0].split("(")[0], name))
+            pathways.append((spl[0].split("(")[0], name.strip()))
             path_bool = True
         elif spl[0].upper() == spl[0] and path_bool:
             break
@@ -65,11 +80,12 @@ def conv_kegg_id_to_db_id(kegg_id):
     return list(set(names))
 
 
+
 # tmp = get_pathway_target_from_kegg("D11713")
 # name = get_name_drug("DB00135")
 # print(name)
 # tmp = conv_name_to_kegg_id(name)
 # tmp = conv_db_id_to_kegg_id("DB00135")
 # tmp = conv_id_to_kegg_name("D11713")
-tmp = conv_kegg_id_to_db_id("D11713")
-print(tmp)
+# tmp = conv_kegg_id_to_db_id("D11713")
+# print(tmp)

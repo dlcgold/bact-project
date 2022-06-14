@@ -50,7 +50,7 @@ def geo_parse(bacts, type_print=""):
     geo_list_abs = []
     if not os.path.exists(path_ser_abs):
         os.makedirs(path_ser_abs)
-    if len(os.listdir(path_abs)) != len(os.listdir(path_ser_abs)):
+    if len(os.listdir(path_abs)) == 0:
         for filename in os.listdir(path_abs):
             id_file = filename.split(".")[0]
             if not os.path.isfile(f"ser_abs_{type_print}/{id_file}.ser"):
@@ -67,7 +67,6 @@ def geo_parse(bacts, type_print=""):
         for filename in os.listdir(path_ser_abs):
             with open(f"ser_abs_{type_print}/{filename}", "rb") as f:
                 geo_list_abs.append(pickle.load(f))
-
     geo_df = pd.DataFrame(columns=["id", "name", "lat", "lon", "type"])
     for geo_elem in geo_list_abs:
         if geo_elem.geo_dict:

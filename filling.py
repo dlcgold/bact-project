@@ -62,7 +62,7 @@ def main():
 
     bacts_map_df = geo_parse(bacts, "test2")
     print(len(bacts_map_df))
-    bacts_map_df.to_csv("test.csv")
+    bacts_map_df.to_csv("test2.csv")
     bacts_map_display = display_map(bacts_map_df,
                                     "Locations associated to bacteria with drugs",
                                     "type",

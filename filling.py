@@ -59,10 +59,11 @@ def main():
             tmp_bact = parse(str(f.read()))
             bacts.append(tmp_bact)
     print(f"{len(bacts)} bacterial infections found w/out drugs")
+    print(bacts)
 
-    bacts_map_df = geo_parse(bacts, "test2")
-    bacts_map_display = display_map(bacts_map_df,
-                                    "Locations associated to bacteria with drugs",
+    bacts_nodrug_df = geo_parse(bacts, "nodrug")
+    bacts_nodrug_map_display = display_map(bacts_nodrug_df,
+                                    "Locations associated to bacteria without drugs",
                                     "type",
                                     ["red", "blue", "green"])
 
@@ -73,6 +74,17 @@ def main():
             tmp_bact = parse(str(f.read()))
             bacts_drug.append(tmp_bact)
     print(f"{len(bacts_drug)} bacterial infections found w/ drugs")
+    print(bacts_drug)
+
+    bacts_drug_df = geo_parse(bacts_drug, "drug")
+    bacts_drug_map_display = display_map(bacts_drug_df,"Locations associated to bacteria with drugs", "type",["red", "blue", "green"])
+
+    geo_df_total = merge_geo_df(bacts_nodrug_df, bacts_drug_df, "no drug", "drug")
+    bacts_all_map_display = display_map(geo_df_total,
+                                    "Locations associated to all bacteria",
+                                    "type",
+                                    ["red", "blue", "green"])
+
 
     # bar plot by quantity of infection by subgroups 
     bar_data = {}
@@ -112,6 +124,8 @@ def main():
     y_int = range(0, math.ceil(max(np_no_drugs) + 1))
     plt.yticks(y_int)
     ax.legend()
+    if not os.path.exists('plot_print'):
+        os.makedirs('plot_print')
     fname = './plot_print/comparative_drugs_bar_plot.png'
     plt.show()
     fig.set_size_inches((16, 12), forward=False)
@@ -333,7 +347,6 @@ def main():
                         print(id_tmp)
                         if id_tmp != "None":
                             tmp_drugs.append(id_tmp)
-                    print(tmp_drugs)
                     tmp_extra_drugs += tmp_drugs
                 if len(tmp_extra_drugs) > 0:
                     tmp_drugs = []
@@ -443,7 +456,6 @@ def main():
                         print(id_tmp)
                         if id_tmp != "None":
                             tmp_drugs.append(id_tmp)
-                    print(tmp_drugs)
                     tmp_extra_drugs += tmp_drugs
                 if len(tmp_extra_drugs) > 0:
                     tmp_drugs = []

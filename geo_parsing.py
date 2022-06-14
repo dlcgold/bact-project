@@ -197,6 +197,10 @@ def display_map(geo_df, title, color, color_discrete_sequence):
 
 
 def fix_lon_lat(df):
+    df = df.drop_duplicates(subset=["id", "lat", "lon", "type"], keep="first")
+    df = df.reset_index(drop=True)
+    df = df.drop_duplicates(subset=["name", "lat", "lon", "type"], keep="first")
+    df = df.reset_index(drop=True)
     lat_df = df.sort_values(by='lat')
     curr_lat = float(lat_df.loc[[0], "lat"])
     curr_incr = 0.5
@@ -206,10 +210,12 @@ def fix_lon_lat(df):
             curr_lat = float(row["lat"])
         else:
             lat_df.at[idx, "lat"] = float(row["lat"]) + curr_incr
-            if idx != len(lat_df) - 1 and float(lat_df.at[idx, "lat"]) == float(
-                    lat_df.at[idx + 1, "lat"]):
-                lat_df.at[idx + 1, "lat"] = float(lat_df.at[idx + 1, "lat"]) + 0.5
+            if idx != len(lat_df) - 1:
+                if float(lat_df.at[idx, "lat"]) == float(lat_df.at[idx + 1, "lat"]):
+                    lat_df.at[idx + 1, "lat"] = float(lat_df.at[idx + 1, "lat"]) + 0.5
+                    curr_lat = float(lat_df.at[idx + 1, "lat"])
             curr_incr += 0.5
+    lat_df = lat_df.sort_index()
     lon_df = lat_df.sort_values(by='lon')
     curr_lon = float(lon_df.loc[[0], "lon"])
     curr_incr = 0.5
@@ -220,8 +226,9 @@ def fix_lon_lat(df):
         else:
             lon_df.at[idx, "lon"] = float(row["lon"]) + curr_incr
             curr_incr += 0.5
-            if idx != len(lon_df) - 1 and float(lon_df.at[idx, "lon"]) == float(
-                    lon_df.at[idx + 1, "lon"]):
-                lon_df.at[idx + 1, "lon"] = float(lon_df.at[idx + 1, "lon"]) + 0.5
+            if idx != len(lon_df) - 1:
+                if float(lon_df.at[idx, "lon"]) == float(lon_df.at[idx + 1, "lon"]):
+                    lon_df.at[idx + 1, "lon"] = float(lon_df.at[idx + 1, "lon"]) + 0.5
+                    curr_lon = float(lon_df.at[idx + 1, "lon"])
     final_df = lon_df.sort_index()
     return final_df

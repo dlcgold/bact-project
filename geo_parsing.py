@@ -1,10 +1,9 @@
-import os
 import pickle
-from matplotlib import pyplot as plt
 
 import pandas as pd
 import plotly.express as px
 from Bio import Entrez
+from matplotlib import pyplot as plt
 from mordecai import Geoparser
 
 from utils import *
@@ -233,6 +232,7 @@ def fix_lon_lat(df):
     final_df = lon_df.sort_index()
     return final_df
 
+
 def geo_bar_chart(bacts_drug, bacts_nodrug, bacts_total):
     count_drug = len(bacts_drug)
     count_nodrug = len(bacts_nodrug)
@@ -240,9 +240,9 @@ def geo_bar_chart(bacts_drug, bacts_nodrug, bacts_total):
     count_geo_drug = len(bacts_drug.index)
     count_geo_nodrug = len(bacts_nodrug.index)
     data = {
-    'label' : ['With drug','Without drug'],
-    'recorded':[count_drug,count_nodrug],
-    'geolocalized' : [count_geo_drug,count_geo_nodrug]
+        'label': ['With drug', 'Without drug'],
+        'recorded': [count_drug, count_nodrug],
+        'geolocalized': [count_geo_drug, count_geo_nodrug]
     }
 
     width = 0.4

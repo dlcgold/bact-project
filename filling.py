@@ -1,9 +1,8 @@
 import math
-from gensim.parsing.preprocessing import remove_stopwords
-from wordcloud import WordCloud
-import matplotlib.pyplot as plt
+
 import numpy as np
 from gensim.parsing.preprocessing import remove_stopwords
+from wordcloud import WordCloud
 
 from genomejp import *
 from geo_parsing import *
@@ -52,7 +51,7 @@ def main():
                 with open(f"kegg_get_drug/{h_id}.txt", "w") as f:
                     f.write(bact_tmp)
                 no_drug_list.append(h_id)
-    
+
     # folder where plots will be stored
     if not os.path.exists('plot_print'):
         os.makedirs('plot_print')
@@ -94,9 +93,8 @@ def main():
                                         "type",
                                         ["red", "blue", "green"])
 
-
     # bar chart of number of infections geolocalized using name and papers
-    geo_bar_chart(bacts_drug,bacts,bacts_drug_df,bacts_nodrug_df)
+    geo_bar_chart(bacts_drug, bacts, bacts_drug_df, bacts_nodrug_df)
 
     # Data for the plots
     bar_data = {}
@@ -564,6 +562,9 @@ def main():
     word_cloud_name = ""
     word_cloud_des = ""
     word_cloud_pap = ""
+    word_cloud_name_drug = ""
+    word_cloud_des_drug = ""
+    word_cloud_pap_drug = ""
     word_cloud_abs_no_drug = get_full_abstract("nodrug")
     word_cloud_abs_drug = get_full_abstract("drug")
     bad_words = ["infection", "Infection", "human", "Human", "pathogen", "Pathogen",
@@ -581,6 +582,20 @@ def main():
         word_cloud_name += (name + " ")
         word_cloud_des += (des + " ")
         word_cloud_pap += (pap + " ")
+
+    for bact_tmp in bacts_drug:
+        name = bact_tmp.name
+        des = bact_tmp.description
+        pap = ""
+        for paper in bact_tmp.papers:
+            pap += paper.title
+        for bw in bad_words:
+            name = name.replace(bw, "")
+            des = des.replace(bw, "")
+            pap = pap.replace(bw, "")
+        word_cloud_name_drug += (name + " ")
+        word_cloud_des_drug += (des + " ")
+        word_cloud_pap_drug += (pap + " ")
 
     for bw in bad_words:
         word_cloud_abs_drug.replace(bw, "")
@@ -607,6 +622,31 @@ def main():
     plt.imshow(wordcloud, interpolation="bilinear")
     plt.axis("off")
     plt.savefig("plot_print/pap_wc.png", dpi=500)
+
+    wordcloud = WordCloud(max_font_size=40, background_color="white", contour_color='#5e81ac',
+                          contour_width=0.1, scale=2).generate(
+        remove_stopwords(word_cloud_name_drug))
+    plt.figure()
+    plt.imshow(wordcloud, interpolation="bilinear")
+    plt.axis("off")
+    plt.savefig("plot_print/name_drug_wc.png", dpi=500)
+    plt.close()
+
+    wordcloud = WordCloud(max_font_size=40, background_color="white", contour_color='#5e81ac',
+                          contour_width=0.1, scale=2).generate(
+        remove_stopwords(word_cloud_des_drug))
+    plt.figure()
+    plt.imshow(wordcloud, interpolation="bilinear")
+    plt.axis("off")
+    plt.savefig("plot_print/des_drug_wc.png", dpi=500)
+
+    wordcloud = WordCloud(max_font_size=40, background_color="white", contour_color='#5e81ac',
+                          contour_width=0.1, scale=2).generate(
+        remove_stopwords(word_cloud_pap_drug))
+    plt.figure()
+    plt.imshow(wordcloud, interpolation="bilinear")
+    plt.axis("off")
+    plt.savefig("plot_print/pap_drug_wc.png", dpi=500)
 
     wordcloud = WordCloud(max_font_size=40, background_color="white", contour_color='#5e81ac',
                           contour_width=0.1, scale=2).generate(

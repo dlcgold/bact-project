@@ -174,11 +174,14 @@ def merge_geo_df(df1, df2, label1, label2):
                                                      row.lon,
                                                      row.type,
                                                      label2]
+    print("sono qui")
+    print(geo_df_total.head(5))
     return geo_df_total
 
 
 def display_map(geo_df, title, color, color_discrete_sequence):
     print(f"Producing map: {title}")
+    
     fig = px.scatter_mapbox(geo_df,
                             hover_name="name",
                             lat="lat",
@@ -234,12 +237,12 @@ def fix_lon_lat(df):
     final_df = lon_df.sort_index()
     return final_df
 
-def geo_bar_chart(bacts_drug, bacts_nodrug, bacts_total):
+def geo_bar_chart(bacts_drug, bacts_nodrug, bacts_drug_geo, bacts_nodrug_geo):
     count_drug = len(bacts_drug)
     count_nodrug = len(bacts_nodrug)
 
-    count_geo_drug = len(bacts_drug.index)
-    count_geo_nodrug = len(bacts_nodrug.index)
+    count_geo_drug = len(bacts_drug_geo.index)
+    count_geo_nodrug = len(bacts_nodrug_geo.index)
     data = {
     'label' : ['With drug','Without drug'],
     'recorded':[count_drug,count_nodrug],

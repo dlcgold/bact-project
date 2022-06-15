@@ -91,7 +91,7 @@ def main():
                                     ["red", "blue", "green"])
 
     # bar chart of number of infections geolocalized using name and papers
-    geo_bar_chart(bacts_drug_df,bacts_nodrug_df, geo_df_total)
+    geo_bar_chart(bacts_drug,bacts,bacts_drug_df,bacts_nodrug_df)
 
     # bar plot by quantity of infection by subgroups 
     bar_data = {}

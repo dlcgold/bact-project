@@ -1,5 +1,6 @@
 import os
 import pickle
+from matplotlib import pyplot as plt
 
 import pandas as pd
 import plotly.express as px
@@ -231,3 +232,26 @@ def fix_lon_lat(df):
                     curr_lon = float(lon_df.at[idx + 1, "lon"])
     final_df = lon_df.sort_index()
     return final_df
+
+def geo_bar_chart(bacts_drug, bacts_nodrug, bacts_total):
+    count_drug = len(bacts_drug)
+    count_nodrug = len(bacts_nodrug)
+
+    count_geo_drug = len(bacts_drug.index)
+    count_geo_nodrug = len(bacts_nodrug.index)
+    data = {
+    'label' : ['With drug','Without drug'],
+    'recorded':[count_drug,count_nodrug],
+    'geolocalized' : [count_geo_drug,count_geo_nodrug]
+    }
+
+    width = 0.4
+    fig, ax = plt.subplots()
+    ax.bar(data['label'], data['recorded'], color='red', width=width, label='Recorded')
+    ax.bar(data['label'], data['geolocalized'], color='green', width=width, label='Geolocalized')
+    plt.title("Bacterial infections geolocalized using papers")
+    plt.ylabel("Number of infections")
+    ax.legend()
+    fname = './plot_print/geolocalized_bar_plot.png'
+    fig.set_size_inches((16, 12), forward=False)
+    fig.savefig(fname, dpi=500)

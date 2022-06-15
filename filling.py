@@ -3,6 +3,7 @@ from gensim.parsing.preprocessing import remove_stopwords
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import numpy as np
+from gensim.parsing.preprocessing import remove_stopwords
 
 from genomejp import *
 from geo_parsing import *
@@ -64,14 +65,15 @@ def main():
             tmp_bact = parse(str(f.read()))
             bacts.append(tmp_bact)
     print(f"{len(bacts)} bacterial infections found w/out drugs")
-    #print(bacts)
 
+    # display map of diseases without drugs
     bacts_nodrug_df = geo_parse(bacts, "nodrug")
     bacts_nodrug_map_display = display_map(bacts_nodrug_df,
-                                    "Locations associated to bacteria without drugs",
-                                    "type",
-                                    ["red", "blue", "green"])
+                                           "Locations associated to bacteria without drugs",
+                                           "type",
+                                           ["red", "blue", "green"])
 
+    # Filling list with disease with drugs
     print("parse KEGG data with drugs")
     bacts_drug = []
     for filename in os.listdir("kegg_get_drug"):
@@ -79,21 +81,24 @@ def main():
             tmp_bact = parse(str(f.read()))
             bacts_drug.append(tmp_bact)
     print(f"{len(bacts_drug)} bacterial infections found w/ drugs")
-    #print(bacts_drug)
 
+    # display map of diseases with drugs
     bacts_drug_df = geo_parse(bacts_drug, "drug")
-    bacts_drug_map_display = display_map(bacts_drug_df,"Locations associated to bacteria with drugs", "type",["red", "blue", "green"])
+    bacts_drug_map_display = display_map(bacts_drug_df,
+                                         "Locations associated to bacteria with drugs", "type",
+                                         ["red", "blue", "green"])
 
     geo_df_total = merge_geo_df(bacts_nodrug_df, bacts_drug_df, "no drug", "drug")
     bacts_all_map_display = display_map(geo_df_total,
-                                    "Locations associated to all bacteria",
-                                    "type",
-                                    ["red", "blue", "green"])
+                                        "Locations associated to all bacteria",
+                                        "type",
+                                        ["red", "blue", "green"])
+
 
     # bar chart of number of infections geolocalized using name and papers
     geo_bar_chart(bacts_drug,bacts,bacts_drug_df,bacts_nodrug_df)
 
-    # bar plot by quantity of infection by subgroups 
+    # Data for the plots
     bar_data = {}
     for bact in bacts:
         if bact.sub not in bar_data.keys():
@@ -108,6 +113,7 @@ def main():
         else:
             bar_data_drugs[bact.sub] += 1
 
+    # charge np array for the bar and plot them
     labels = []
     keys = list(set(list(bar_data.keys()) + list(bar_data_drugs.keys())))
     np_drugs = np.zeros(len(keys))
@@ -173,6 +179,7 @@ def main():
     print(f"{len(no_drug_after_genomejp_patho)} bacterial infections found w/out drugs after "
           f"genomejp by pathogen")
 
+    # proceed to plot iff there was some filling
     if len(no_drug_after_genomejp_patho) != len(bacts):
         # bar plot by quantity of infection by subgroups after genomejp
         bar_data_genome_patho = {}
@@ -220,6 +227,7 @@ def main():
         fig.set_size_inches((16, 12), forward=False)
         fig.savefig(fname, dpi=500)
 
+        # update with/without drug data
         for key in keys:
             if key in bar_data_genome_patho.keys():
                 if key not in bar_data_drugs.keys():
@@ -231,6 +239,8 @@ def main():
                 bar_data[key] = bar_data[key] - bar_data_genome_patho[key]
             if key in bar_data.keys() and bar_data[key] == 0:
                 bar_data.pop(key)
+
+    # update bacts list
     bacts = no_drug_after_genomejp_patho
 
     print("Filling from genomejp by pathway query")
@@ -270,6 +280,8 @@ def main():
             no_drug_after_genomejp_path.append(bact)
     print(f"{len(no_drug_after_genomejp_path)} {type_infection} found w/out drugs after genomejp "
           f"pathway")
+
+    # proceed to plot iff there was some filling
     if len(no_drug_after_genomejp_path) != len(bacts):
         # bar plot by quantity of infection by subgroups after genomejp
         bar_data_genome_path = {}
@@ -343,7 +355,7 @@ def main():
                     tmp_drugs = []
                     for tmp in db_drugs:
                         print(tmp)
-                        ## Aggiunto per evitare 400 bad requests
+                        ## Avoid 400 bad requests
                         try:
                             id_tmp = conv_db_id_to_kegg_id(tmp)
                         except:
@@ -381,6 +393,7 @@ def main():
         f"{len(bacts_db_without_drugs)} {type_infection} found w/out drugs after drugbank filling "
         f"by pathogen")
 
+    # proceed to plot iff there was some filling
     if len(bacts_db_without_drugs) != len(bacts):
         bar_data_db = {}
         for bact in bacts_db:
@@ -489,6 +502,7 @@ def main():
     print(f"{len(bacts_db_path_without_drugs)} {type_infection} found w/out drugs after drugbank "
           f"filling by pathways")
 
+    # proceed to plot iff there was some filling
     if len(bacts_db_path_without_drugs) != len(bacts):
         bar_data_db_path = {}
         for bact in bacts_db_path:
@@ -546,9 +560,12 @@ def main():
                 bar_data.pop(key)
     bacts = bacts_db_path_without_drugs
 
+    # some wordclouds
     word_cloud_name = ""
     word_cloud_des = ""
     word_cloud_pap = ""
+    word_cloud_abs_no_drug = get_full_abstract("nodrug")
+    word_cloud_abs_drug = get_full_abstract("drug")
     bad_words = ["infection", "Infection", "human", "Human", "pathogen", "Pathogen",
                  "Bacterium", "bacterium", "Disease", "disease", "Clinical", "clinical"]
     for bact_tmp in bacts:
@@ -564,6 +581,10 @@ def main():
         word_cloud_name += (name + " ")
         word_cloud_des += (des + " ")
         word_cloud_pap += (pap + " ")
+
+    for bw in bad_words:
+        word_cloud_abs_drug.replace(bw, "")
+        word_cloud_abs_no_drug.replace(bw, "")
 
     wordcloud = WordCloud(max_font_size=40, background_color="white", contour_color='#5e81ac',
                           contour_width=0.1, scale=2).generate(remove_stopwords(word_cloud_name))
@@ -586,6 +607,22 @@ def main():
     plt.imshow(wordcloud, interpolation="bilinear")
     plt.axis("off")
     plt.savefig("plot_print/pap_wc.png", dpi=500)
+
+    wordcloud = WordCloud(max_font_size=40, background_color="white", contour_color='#5e81ac',
+                          contour_width=0.1, scale=2).generate(
+        remove_stopwords(word_cloud_abs_no_drug))
+    plt.figure()
+    plt.imshow(wordcloud, interpolation="bilinear")
+    plt.axis("off")
+    plt.savefig("plot_print/no_drug_wc.png", dpi=500)
+
+    wordcloud = WordCloud(max_font_size=40, background_color="white", contour_color='#5e81ac',
+                          contour_width=0.1, scale=2).generate(
+        remove_stopwords(word_cloud_abs_drug))
+    plt.figure()
+    plt.imshow(wordcloud, interpolation="bilinear")
+    plt.axis("off")
+    plt.savefig("plot_print/drug_wc.png", dpi=500)
 
 
 if __name__ == "__main__":

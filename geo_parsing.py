@@ -1,10 +1,9 @@
-import os
 import pickle
-from matplotlib import pyplot as plt
 
 import pandas as pd
 import plotly.express as px
 from Bio import Entrez
+from matplotlib import pyplot as plt
 from mordecai import Geoparser
 
 from utils import *
@@ -51,7 +50,7 @@ def geo_parse(bacts, type_print=""):
     geo_list_abs = []
     if not os.path.exists(path_ser_abs):
         os.makedirs(path_ser_abs)
-    if len(os.listdir(path_abs)) == 0:
+    if len(os.listdir(path_ser_abs)) == 0:
         for filename in os.listdir(path_abs):
             id_file = filename.split(".")[0]
             if not os.path.isfile(f"ser_abs_{type_print}/{id_file}.ser"):
@@ -63,7 +62,6 @@ def geo_parse(bacts, type_print=""):
                         geo_list_abs.append(tmp)
                         with open(f"ser_abs_{type_print}/{tmp.id_geo}.ser", "wb") as fw:
                             pickle.dump(tmp, fw)
-
     else:
         for filename in os.listdir(path_ser_abs):
             with open(f"ser_abs_{type_print}/{filename}", "rb") as f:
@@ -244,9 +242,9 @@ def geo_bar_chart(bacts_drug, bacts_nodrug, bacts_drug_geo, bacts_nodrug_geo):
     count_geo_drug = len(bacts_drug_geo.index)
     count_geo_nodrug = len(bacts_nodrug_geo.index)
     data = {
-    'label' : ['With drug','Without drug'],
-    'recorded':[count_drug,count_nodrug],
-    'geolocalized' : [count_geo_drug,count_geo_nodrug]
+        'label': ['With drug', 'Without drug'],
+        'recorded': [count_drug, count_nodrug],
+        'geolocalized': [count_geo_drug, count_geo_nodrug]
     }
 
     width = 0.4

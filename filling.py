@@ -1,9 +1,5 @@
 import math
-<<<<<<< HEAD
-
-=======
 from gensim.parsing.preprocessing import remove_stopwords
->>>>>>> 1cf002ce48272a06e19bdb7ac0db1390af9374f6
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import numpy as np
@@ -69,10 +65,6 @@ def main():
             tmp_bact = parse(str(f.read()))
             bacts.append(tmp_bact)
     print(f"{len(bacts)} bacterial infections found w/out drugs")
-<<<<<<< HEAD
-=======
-    #print(bacts)
->>>>>>> 1cf002ce48272a06e19bdb7ac0db1390af9374f6
 
     # display map of diseases without drugs
     bacts_nodrug_df = geo_parse(bacts, "nodrug")
@@ -89,10 +81,6 @@ def main():
             tmp_bact = parse(str(f.read()))
             bacts_drug.append(tmp_bact)
     print(f"{len(bacts_drug)} bacterial infections found w/ drugs")
-<<<<<<< HEAD
-=======
-    #print(bacts_drug)
->>>>>>> 1cf002ce48272a06e19bdb7ac0db1390af9374f6
 
     # display map of diseases with drugs
     bacts_drug_df = geo_parse(bacts_drug, "drug")
@@ -106,12 +94,9 @@ def main():
                                         "type",
                                         ["red", "blue", "green"])
 
-<<<<<<< HEAD
-    # bar plot by quantity of infection by subgroups
-=======
+
     # bar chart of number of infections geolocalized using name and papers
     geo_bar_chart(bacts_drug_df,bacts_nodrug_df, geo_df_total)
->>>>>>> 1cf002ce48272a06e19bdb7ac0db1390af9374f6
 
     # Data for the plots
     bar_data = {}

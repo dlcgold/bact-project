@@ -1,6 +1,6 @@
 import math
 from gensim.parsing.preprocessing import remove_stopwords
-import WordCloud as WordCloud
+from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -51,6 +51,10 @@ def main():
                 with open(f"kegg_get_drug/{h_id}.txt", "w") as f:
                     f.write(bact_tmp)
                 no_drug_list.append(h_id)
+    
+    # folder where plots will be stored
+    if not os.path.exists('plot_print'):
+        os.makedirs('plot_print')
 
     # fill lists of bacterials with all the data parsed from KEGG
     print("parse KEGG data")
@@ -60,7 +64,7 @@ def main():
             tmp_bact = parse(str(f.read()))
             bacts.append(tmp_bact)
     print(f"{len(bacts)} bacterial infections found w/out drugs")
-    print(bacts)
+    #print(bacts)
 
     bacts_nodrug_df = geo_parse(bacts, "nodrug")
     bacts_nodrug_map_display = display_map(bacts_nodrug_df,
@@ -75,7 +79,7 @@ def main():
             tmp_bact = parse(str(f.read()))
             bacts_drug.append(tmp_bact)
     print(f"{len(bacts_drug)} bacterial infections found w/ drugs")
-    print(bacts_drug)
+    #print(bacts_drug)
 
     bacts_drug_df = geo_parse(bacts_drug, "drug")
     bacts_drug_map_display = display_map(bacts_drug_df,"Locations associated to bacteria with drugs", "type",["red", "blue", "green"])
@@ -86,6 +90,8 @@ def main():
                                     "type",
                                     ["red", "blue", "green"])
 
+    # bar chart of number of infections geolocalized using name and papers
+    geo_bar_chart(bacts_drug_df,bacts_nodrug_df, geo_df_total)
 
     # bar plot by quantity of infection by subgroups 
     bar_data = {}
@@ -125,8 +131,6 @@ def main():
     y_int = range(0, math.ceil(max(np_no_drugs) + 1))
     plt.yticks(y_int)
     ax.legend()
-    if not os.path.exists('plot_print'):
-        os.makedirs('plot_print')
     fname = './plot_print/comparative_drugs_bar_plot.png'
     plt.show()
     fig.set_size_inches((16, 12), forward=False)

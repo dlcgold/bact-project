@@ -50,7 +50,7 @@ def geo_parse(bacts, type_print=""):
     geo_list_abs = []
     if not os.path.exists(path_ser_abs):
         os.makedirs(path_ser_abs)
-    if len(os.listdir(path_abs)) == 0:
+    if len(os.listdir(path_ser_abs)) == 0:
         for filename in os.listdir(path_abs):
             id_file = filename.split(".")[0]
             if not os.path.isfile(f"ser_abs_{type_print}/{id_file}.ser"):
@@ -62,7 +62,6 @@ def geo_parse(bacts, type_print=""):
                         geo_list_abs.append(tmp)
                         with open(f"ser_abs_{type_print}/{tmp.id_geo}.ser", "wb") as fw:
                             pickle.dump(tmp, fw)
-
     else:
         for filename in os.listdir(path_ser_abs):
             with open(f"ser_abs_{type_print}/{filename}", "rb") as f:

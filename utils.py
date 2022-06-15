@@ -1,5 +1,8 @@
-from bact_classes import *
+import os
+
 import requests
+
+from bact_classes import *
 
 
 def parse(data):
@@ -133,3 +136,12 @@ def is_valid(item, bact_names):
     valid = only_letters and not upper_case and not no_cap_letters and not no_country and not is_bacteria and not is_species
 
     return valid
+
+
+def get_full_abstract(type_print):
+    path_abs = f"abstract_get_{type_print}"
+    full_abs = ""
+    for filename in os.listdir(path_abs):
+        with open(f"abstract_get_{type_print}/{filename}", "r") as f:
+            full_abs += (str(f.read()) + "\n")
+    return full_abs

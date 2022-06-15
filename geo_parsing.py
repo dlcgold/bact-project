@@ -253,9 +253,9 @@ def geo_bar_chart(bacts_drug, bacts_nodrug, bacts_drug_geo, bacts_nodrug_geo):
     fig, ax = plt.subplots()
     ax.bar(data['label'], data['recorded'], color='red', width=width, label='Recorded')
     ax.bar(data['label'], data['geolocalized'], color='green', width=width, label='Geolocalized')
-    plt.title("Bacterial infections geolocalized using papers")
+    plt.title("Bacterial infections geolocalized using descriptions, papers titles and abstracts")
     plt.ylabel("Number of infections")
     ax.legend()
-    fname = './plot_print/geolocalized_bar_plot.png'
+    fname = './plot_print/geoloc_infec_bar_plot.png'
     fig.set_size_inches((16, 12), forward=False)
     fig.savefig(fname, dpi=500)

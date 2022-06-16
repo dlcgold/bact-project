@@ -4,6 +4,19 @@ import pickle
 import requests as req
 from bs4 import BeautifulSoup as bfs
 
+def get_genome_id_from_disease_id(disease_id):
+    query = f"ds:{disease_id}"  
+    # url = f"https://www.genome.jp/dbget-bin/get_linkdb?-t+genome+{query}"
+    # url = "https://www.genome.jp/dbget-bin/get_linkdb?genome ds:H01083"
+    url = f"https://www.genome.jp/dbget-bin/get_linkdb?-t+genome+{query}"
+    response = req.get(url)
+    soup = bfs(response.content, 'html.parser')
+    try: 
+        links = soup.select('a[href*="/entry/gn:"]')
+        genomes = [l['href'][-6:] for l in links]
+    except:
+        genomes = []
+    return genomes
 
 def get_drugs_for_id(id):
     url = f"https://www.genome.jp/entry/{id}"
@@ -19,6 +32,29 @@ def get_drugs_for_id(id):
 
     return drugs
 
+def get_assembly_for_id(id):
+    url = f"https://www.genome.jp/entry/{id}"
+
+    response = req.get(url)
+    soup = bfs(response.content, 'html.parser')
+    try:
+        links = soup.select('a[href*="/assembly"]')
+        assembly = [l['href'][38:] for l in links]
+    except:
+        assembly = ''
+    return assembly[0]
+
+def get_biosample_for_id(id):
+    url = f"https://www.genome.jp/entry/{id}"
+
+    response = req.get(url)
+    soup = bfs(response.content, 'html.parser')
+    try:
+        links = soup.select('a[href*="/bioproject"]')
+        bios = [l['href'][40:] for l in links]
+    except:
+        bios = ''
+    return bios[0]
 
 def get_drugs_for_disease_name(disease):
     query = disease.replace(" ", "+")

@@ -569,7 +569,7 @@ def main():
     word_cloud_abs_no_drug = get_full_abstract("nodrug")
     word_cloud_abs_drug = get_full_abstract("drug")
     bad_words = ["infection", "Infection", "human", "Human", "pathogen", "Pathogen",
-                 "Bacterium", "bacterium", "Disease", "disease", "Clinical", "clinical"]
+                 "Bacterium", "bacterium", "Disease", "disease", "Clinical", "clinical", "Bacterial", "bacterial"]
     for bact_tmp in bacts:
         name = bact_tmp.name
         des = bact_tmp.description

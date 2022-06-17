@@ -159,7 +159,7 @@ def main():
 
     if not os.path.exists('csv/assembly_nodrug_df.csv'):
     # display map of assemblies without drugs
-        assemblies_nodrug_df = geo_parse(bacts, "assembly")
+        assemblies_nodrug_df = geo_parse_assembly(bacts, "assembly")
         assemblies_nodrug_df.to_csv("csv/assembly_nodrug_df.csv")
     else:
         assemblies_nodrug_df = pd.read_csv("csv/assembly_nodrug_df.csv")
@@ -171,7 +171,7 @@ def main():
 
     if not os.path.exists('csv/assembly_drug_df.csv'):
     # display map of assemblies with drugs
-        assemblies_drug_df = geo_parse(bacts_drug, "assembly")
+        assemblies_drug_df = geo_parse_assembly(bacts_drug, "assembly")
         assemblies_drug_df.to_csv("csv/assembly_drug_df.csv")
     else:
         assemblies_drug_df = pd.read_csv("csv/assembly_drug_df.csv")
@@ -182,7 +182,7 @@ def main():
 
 
     # bar chart of number of infections geolocalized using name and papers
-    geo_bar_chart(bacts_drug, bacts, bacts_drug_df, bacts_nodrug_df, assemblies_nodrug_df, assemblies_drug_df)
+    geo_bar_chart(bacts_drug, bacts, bacts_drug_df, bacts_nodrug_df)
 
     # Data for the plots
     bar_data = {}

@@ -52,7 +52,7 @@ def geo_parse_assembly(bacts, type_print=""):
                                                          name_tmp,
                                                          float(single_elem['geo']['lat']),
                                                          float(single_elem['geo']['lon']),
-                                                         "Title"]
+                                                         "Submitter"]
 
     ass_geo = []
     if not os.path.exists(path_assembly_geo) or not os.listdir(path_assembly_geo):
@@ -66,15 +66,15 @@ def geo_parse_assembly(bacts, type_print=""):
                 if assembly_tmp.geo_tag != "":
                     tmp = GeoData(assembly_tmp.id, assembly_tmp.geo_tmp,
                                 geo.geoparse(assembly_tmp.geo_tmp), assembly_tmp.name)
-                    ass_submitter.append(tmp)
+                    ass_geo.append(tmp)
                 with open(f"ser_title_{type_print}/{assembly_tmp.id}_{count}.ser", "wb") as fw:
                     pickle.dump(tmp, fw)
     else:
         for filename in os.listdir(path_assembly_geo):
             with open(f"ser_title_{type_print}/{filename}", "rb") as f:
-                ass_submitter.append(pickle.load(f))
+                ass_geo.append(pickle.load(f))
 
-    for geo_elem in ass_submitter:
+    for geo_elem in ass_geo:
         if geo_elem.geo_dict:
             id_tmp = geo_elem.id_geo
             name_tmp = geo_elem.name
@@ -84,7 +84,7 @@ def geo_parse_assembly(bacts, type_print=""):
                                                          name_tmp,
                                                          float(single_elem['geo']['lat']),
                                                          float(single_elem['geo']['lon']),
-                                                         "Title"]
+                                                         "Biosample"]
 
 
     return fix_lon_lat(geo_df)

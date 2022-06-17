@@ -14,6 +14,8 @@ from utils import *
 
 
 def geo_parse_assembly(bacts, type_print=""):
+    print("Extract geo_data from assemblies")
+
     geo = Geoparser()
 
     path_assembly_sub = f"assembly_sub_{type_print}"

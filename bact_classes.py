@@ -1,6 +1,18 @@
 import requests as req
 from bs4 import BeautifulSoup as bfs
 
+class Assembly:
+    def __init__(self, id, name, biosample_id, submitter, geotag, data):
+        self.biosample_id = biosample_id
+        self.id = id
+        self.name = name
+        self.submitter = submitter
+        self.geotag = geotag
+        self.data = data
+
+    def __repr__(self):
+        return f"{self.id, self.name, self.submitter, self.data, self.geotag}"
+
 
 class Paper:
     def __init__(self, pmid, authors, title, journal, doi):
@@ -16,7 +28,7 @@ class Paper:
 
 class Bact:
     def __init__(self, name, id_bact, description, category, sub, drugs, papers, pathways,
-                 pathogens):
+                 pathogens, assembly):
         self.name = name
         self.id_bact = id_bact
         self.drugs = drugs
@@ -26,6 +38,7 @@ class Bact:
         self.category = category
         self.sub = sub
         self.pathogens = pathogens
+        self.assembly = assembly
 
     def __repr__(self):
         return f"{self.name} ({self.id_bact})\n{self.drugs}\n ({self.papers})"

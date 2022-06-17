@@ -58,43 +58,130 @@ def main():
 
     # fill lists of bacterials with all the data parsed from KEGG
     print("parse KEGG data")
+
+    folder = 'tmp_bact'      
+    kegg_folder = 'kegg_get'
     bacts = []
-    for filename in os.listdir("kegg_get"):
-        with open("kegg_get/" + filename, "r") as f:
-            tmp_bact = parse(str(f.read()))
-            bacts.append(tmp_bact)
+
+    if not os.path.exists(folder):
+        os.makedirs(folder)
+    if len(os.listdir(folder)) == 0:
+        for filename in os.listdir(kegg_folder):
+            with open(kegg_folder+"/" + filename, "r") as f:
+                tmp_bact = parse(str(f.read()))
+                bacts.append(tmp_bact)
+                with open(folder + "/" + filename, "wb") as f:
+                    pickle.dump(tmp_bact, f)
+    else:
+        for filename in os.listdir(folder):
+            with open(folder +"/" + filename, "rb") as f:
+                bacts.append(pickle.load(f))
+        diff = list_diff(os.listdir(kegg_folder), os.listdir(folder))
+        for filename in diff:
+            with open(kegg_folder + "/" + filename, "r") as f:
+                tmp_bact = parse(str(f.read()))
+                bacts.append(tmp_bact)
+                with open(folder+ "/" + filename, "wb") as f:
+                    pickle.dump(tmp_bact, f)
+
     print(f"{len(bacts)} bacterial infections found w/out drugs")
 
+    
+    # Filling list with disease with drugs
+    print("parse KEGG data with drugs")
+
+    folder = 'tmp_bact_drug'      
+    kegg_folder = 'kegg_get_drug'  
+
+    bacts_drug = []
+    if not os.path.exists(folder):
+        os.makedirs(folder)
+    if len(os.listdir(folder)) == 0:
+        for filename in os.listdir(kegg_folder):
+            with open(kegg_folder+"/" + filename, "r") as f:
+                tmp_bact = parse(str(f.read()))
+                bacts_drug.append(tmp_bact)
+                with open(folder + "/" + filename, "wb") as f:
+                    pickle.dump(tmp_bact, f)
+    else:
+        for filename in os.listdir(folder):
+            with open(folder +"/" + filename, "rb") as f:
+                bacts_drug.append(pickle.load(f))
+        diff = list_diff(os.listdir(kegg_folder), os.listdir(folder))
+        for filename in diff:
+            with open(kegg_folder + "/" + filename, "r") as f:
+                tmp_bact = parse(str(f.read()))
+                bacts_drug.append(tmp_bact)
+                with open(folder+ "/" + filename, "wb") as f:
+                    pickle.dump(tmp_bact, f)
+
+    
+    print(f"{len(bacts_drug)} bacterial infections found w/ drugs")
+
+    print("printing maps ...")
+    if not os.path.exists('csv'):
+        os.makedirs('csv')
+    if not os.path.exists('csv/bacts_nodrug_df.csv'):
     # display map of diseases without drugs
-    bacts_nodrug_df = geo_parse(bacts, "nodrug")
+        bacts_nodrug_df = geo_parse(bacts, "nodrug")
+        bacts_nodrug_df.to_csv("csv/bacts_nodrug_df.csv")
+    else:
+        bacts_nodrug_df = pd.read_csv("csv/bacts_nodrug_df.csv")
+
     bacts_nodrug_map_display = display_map(bacts_nodrug_df,
                                            "Locations associated to bacteria without drugs",
                                            "type",
                                            ["red", "blue", "green"])
 
-    # Filling list with disease with drugs
-    print("parse KEGG data with drugs")
-    bacts_drug = []
-    for filename in os.listdir("kegg_get_drug"):
-        with open("kegg_get_drug/" + filename, "r") as f:
-            tmp_bact = parse(str(f.read()))
-            bacts_drug.append(tmp_bact)
-    print(f"{len(bacts_drug)} bacterial infections found w/ drugs")
 
     # display map of diseases with drugs
-    bacts_drug_df = geo_parse(bacts_drug, "drug")
+    if not os.path.exists('csv/bacts_drug_df.csv'):
+        bacts_drug_df = geo_parse(bacts_drug, "drug")
+        bacts_drug_df.to_csv("csv/bacts_drug_df.csv")
+    else:
+        bacts_drug_df = pd.read_csv("csv/bacts_drug_df.csv")
     bacts_drug_map_display = display_map(bacts_drug_df,
                                          "Locations associated to bacteria with drugs", "type",
                                          ["red", "blue", "green"])
 
-    geo_df_total = merge_geo_df(bacts_nodrug_df, bacts_drug_df, "no drug", "drug")
-    bacts_all_map_display = display_map(geo_df_total,
+    # display total map of diseases
+    if not os.path.exists('csv/total_df.csv'):
+        total_df = geo_parse(bacts, "total")
+        total_df.to_csv("csv/total_df.csv")
+    else:
+        total_df = pd.read_csv("csv/total_df.csv")
+    bacts_all_map_display = display_map(total_df,
                                         "Locations associated to all bacteria",
                                         "type",
                                         ["red", "blue", "green"])
 
+
+    if not os.path.exists('csv/assembly_nodrug_df.csv'):
+    # display map of assemblies without drugs
+        assemblies_nodrug_df = geo_parse(bacts, "assembly")
+        assemblies_nodrug_df.to_csv("csv/assembly_nodrug_df.csv")
+    else:
+        assemblies_nodrug_df = pd.read_csv("csv/assembly_nodrug_df.csv")
+
+    assemblies_nodrug_map_display = display_map(bacts_nodrug_df,
+                                           "Locations associated to bacteria without drugs",
+                                           "type",
+                                           ["red", "blue", "green"])
+
+    if not os.path.exists('csv/assembly_drug_df.csv'):
+    # display map of assemblies with drugs
+        assemblies_drug_df = geo_parse(bacts_drug, "assembly")
+        assemblies_drug_df.to_csv("csv/assembly_drug_df.csv")
+    else:
+        assemblies_drug_df = pd.read_csv("csv/assembly_drug_df.csv")
+    assemblies_drug_map_display = display_map(bacts_drug_df,
+                                                "Locations associated to bacteria with drugs",
+                                                "type",
+                                                ["red", "blue", "green"])
+
+
     # bar chart of number of infections geolocalized using name and papers
-    geo_bar_chart(bacts_drug, bacts, bacts_drug_df, bacts_nodrug_df)
+    geo_bar_chart(bacts_drug, bacts, bacts_drug_df, bacts_nodrug_df, assemblies_nodrug_df, assemblies_drug_df)
 
     # Data for the plots
     bar_data = {}

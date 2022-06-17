@@ -1,9 +1,13 @@
 import os
 
 import requests
+from Bio import Entrez
+from bs4 import BeautifulSoup as bfs
+from genomejp import *
 
 from bact_classes import *
 
+Entrez.email = "m.sgro2@campus.unimib.it"
 
 def parse(data):
     """
@@ -31,6 +35,7 @@ def parse(data):
     pathways_bool = False
     pathogens = []
     pathogens_bool = False
+
     for line in data.splitlines():
         spl = line.split()
         if spl[0] == "NAME":
@@ -104,8 +109,62 @@ def parse(data):
             paper_bool = False
             papers.append(Paper(id_tmp, authors_tmp, title_tmp, journal_tmp, doi_tmp))
 
+    assemblies = []
+    genomes = get_genome_id_from_disease_id(bact_id)
+    assemblies_id = []
+    biosamples_id = []
+
+    for ids in genomes:
+        id_tmp = get_assembly_biosample(ids)
+        assemblies_id.append(id_tmp[0])
+        biosamples_id.append(id_tmp[1])
+
+    for assembly in assemblies_id:
+        assembly_tmp = Assembly("","", "", "", "", "")
+        assembly_tmp.id = assembly
+
+        query = f"https://www.ncbi.nlm.nih.gov/assembly/{assembly}"
+        res = req.get(query)
+
+        # print(res.text)
+        soup = bfs(res.content, 'html.parser')
+        soup_find = soup.find(class_="assembly_summary_new margin_t0")
+        titles = []
+        descriptions = []
+        if soup_find != None:
+            for title in soup_find.find_all("dt"):
+                titles.append(title.text)
+            for description in soup_find.find_all("dd"):
+                descriptions.append(description.text)
+            i = 0
+            bioid = ""
+            for _ in titles:
+                if titles[i] == "BioSample: ":
+                    assembly_tmp.biosample_id = descriptions[i].strip()
+                elif titles[i] == "Submitter: ":
+                    assembly_tmp.submitter = descriptions[i].strip()
+                elif titles[i] == "Organism name: ":
+                    assembly_tmp.name = descriptions[i].strip()
+                elif titles[i] == "Date: ":
+                    assembly_tmp.data = descriptions[i].strip()
+                i += 1
+
+
+            bio3 = Entrez.efetch(id=bioid, db="biosample", rettmode='text')
+            bio3_text = bio3.read()
+            bio3_str = str(bio3_text)
+            position_geotag = bio3_str.find('geo_loc_name')
+            position_geotag_begin = bio3_str.find('>', position_geotag)
+            position_geotag_end = bio3_str.find('</Attribute>', position_geotag)
+            if (position_geotag != -1):
+                assembly_tmp.geo_tag = bio3_str[position_geotag_begin + 1:position_geotag_end]
+            print(assembly_tmp)
+        else:
+            print("no assembly found")
+        assemblies.append(assembly_tmp)
+
     bact_tmp = Bact(bact_name, "ds:" + bact_id, bact_des, bact_cat, bact_sub, drugs, papers,
-                    pathways, pathogens)
+                    pathways, pathogens, assemblies)
     return bact_tmp
 
 

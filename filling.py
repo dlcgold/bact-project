@@ -147,38 +147,50 @@ def main():
 
     # display total map of diseases
     if not os.path.exists('csv/total_df.csv'):
-        total_df = geo_parse(bacts, "total")
+        total_df = merge_geo_df(bacts_nodrug_df, bacts_drug_df, "no drug", "drug")
         total_df.to_csv("csv/total_df.csv")
     else:
         total_df = pd.read_csv("csv/total_df.csv")
     bacts_all_map_display = display_map(total_df,
                                         "Locations associated to all bacteria",
-                                        "type",
-                                        ["red", "blue", "green"])
+                                        "label",
+                                        ["red", "green"])
 
 
     if not os.path.exists('csv/assembly_nodrug_df.csv'):
     # display map of assemblies without drugs
-        assemblies_nodrug_df = geo_parse_assembly(bacts, "assembly")
+        assemblies_nodrug_df = geo_parse_assembly(bacts, "assembly_nodrug")
         assemblies_nodrug_df.to_csv("csv/assembly_nodrug_df.csv")
     else:
         assemblies_nodrug_df = pd.read_csv("csv/assembly_nodrug_df.csv")
 
-    assemblies_nodrug_map_display = display_map(bacts_nodrug_df,
+    assemblies_nodrug_map_display = display_map(assemblies_nodrug_df,
                                            "Locations associated to bacteria's assembly without drugs",
                                            "type",
                                            ["red", "blue"])
 
     if not os.path.exists('csv/assembly_drug_df.csv'):
     # display map of assemblies with drugs
-        assemblies_drug_df = geo_parse_assembly(bacts_drug, "assembly")
+        assemblies_drug_df = geo_parse_assembly(bacts_drug, "assembly_drug")
         assemblies_drug_df.to_csv("csv/assembly_drug_df.csv")
     else:
         assemblies_drug_df = pd.read_csv("csv/assembly_drug_df.csv")
-    assemblies_drug_map_display = display_map(bacts_drug_df,
+    assemblies_drug_map_display = display_map(assemblies_drug_df,
                                                 "Locations associated to bacteria's assembly with drugs",
                                                 "type",
                                                 ["red", "blue"])
+
+    
+    if not os.path.exists('csv/assembly_total_df.csv'):
+    # display map of TOTAL assemblies
+        assemblies_total_df = merge_geo_df(assemblies_nodrug_df, assemblies_drug_df, "assembly_nodrug", "assembly_drug")
+        assemblies_total_df.to_csv("csv/assembly_total_df.csv")
+    else:
+        assemblies_total_df = pd.read_csv("csv/assembly_total_df.csv")
+    assemblies_total_map_display = display_map(assemblies_total_df,
+                                                "Locations associated to all bacteria's assemblies",
+                                                "label",
+                                                ["red", "green"])
 
 
     # bar chart of number of infections geolocalized using name and papers

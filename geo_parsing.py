@@ -250,19 +250,18 @@ def merge_geo_df(df1, df2, label1, label2):
                                                      row.lon,
                                                      row.type,
                                                      label2]
-    print("sono qui")
-    print(geo_df_total.head(5))
-    return geo_df_total
+   
+    return fix_lon_lat(geo_df_total)
 
 
-def display_map(geo_df, title, color, color_discrete_sequence):
+def display_map(geo_df, title, type_label, color_discrete_sequence):
     print(f"Producing map: {title}")
     
     fig = px.scatter_mapbox(geo_df,
                             hover_name="name",
                             lat="lat",
                             lon="lon",
-                            color=color,
+                            color=type_label,
                             title=title,
                             # size_max=15,
                             zoom=1,

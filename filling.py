@@ -569,7 +569,8 @@ def main():
     word_cloud_abs_no_drug = get_full_abstract("nodrug")
     word_cloud_abs_drug = get_full_abstract("drug")
     bad_words = ["infection", "Infection", "human", "Human", "pathogen", "Pathogen",
-                 "Bacterium", "bacterium", "Disease", "disease", "Clinical", "clinical", "Bacterial", "bacterial"]
+                 "Bacterium", "bacterium", "Disease", "disease", "Clinical", "clinical",
+                 "Bacterial", "bacterial"]
     for bact_tmp in bacts:
         name = bact_tmp.name
         des = bact_tmp.description
@@ -664,6 +665,46 @@ def main():
     plt.imshow(wordcloud, interpolation="bilinear")
     plt.axis("off")
     plt.savefig("plot_print/drug_wc.png", dpi=500)
+
+    relevant_word_no_drug = {"Escherichia coli": 0, "Bordetella": 0, "resistant": 0,
+                             "Streptococcal": 0, "Staphylococcal": 0, "Methicillin": 0,
+                             "tuberculosis": 0}
+    relevant_word_drug = {"Escherichia coli": 0, "Bordetella": 0, "resistant": 0,
+                          "Streptococcal": 0, "Staphylococcal": 0, "Methicillin": 0,
+                          "tuberculosis": 0}
+    labels_relevant = list(relevant_word_drug.keys())
+
+    for label in labels_relevant:
+        relevant_word_no_drug[label] = word_cloud_name.count(label) + word_cloud_des.count(
+            label) + word_cloud_pap.count(label) + word_cloud_abs_no_drug.count(label)
+        relevant_word_drug[label] = word_cloud_name_drug.count(label) + word_cloud_des_drug.count(
+            label) + word_cloud_pap_drug.count(label) + word_cloud_abs_drug.count(label)
+
+    np_rel_values = np.zeros(len(labels_relevant))
+    np_rel_drugs_values = np.zeros(len(labels_relevant))
+    i = 0
+    for key in labels_relevant:
+        if key in relevant_word_no_drug.keys():
+            np_rel_values[i] = relevant_word_no_drug[key]
+        if key in relevant_word_drug.keys():
+            np_rel_drugs_values[i] = relevant_word_drug[key]
+        i += 1
+    fig, ax = plt.subplots()
+    delta = np.arange(len(labels_relevant))
+    width = 0.4
+    ax.bar(delta, np_rel_values, color='red', width=width, label="Without drug")
+    ax.bar(delta + width, np_rel_drugs_values, color='green', width=width,
+           label="With drug")
+    plt.title("Frequencies of relvenat words in wordclouds")
+    plt.ylabel("Quantity of infections")
+    plt.xticks(delta + width / 2, labels_relevant, rotation=45, fontsize=7)
+    y_int = range(0, math.ceil(max(max(np_rel_values), max(np_rel_drugs_values))) + 1, 5)
+    plt.yticks(y_int)
+    ax.legend()
+    fname = './plot_print/relevants_words.png'
+    plt.show()
+    fig.set_size_inches((16, 12), forward=False)
+    fig.savefig(fname, dpi=500)
 
 
 if __name__ == "__main__":

@@ -13,6 +13,81 @@ from utils import *
     filtered_title_drug = []"""
 
 
+def geo_parse_assembly(bacts, type_print=""):
+    geo = Geoparser()
+
+    path_assembly_sub = f"assembly_sub_{type_print}"
+    path_assembly_geo = f"assembly_geo_{type_print}"
+    
+    geo_df = pd.DataFrame(columns=["id", "name", "lat", "lon", "type"])
+
+    ass_submitter = []
+    if not os.path.exists(path_assembly_sub) or not os.listdir(path_assembly_sub):
+        if not os.path.exists(path_assembly_sub):
+            os.makedirs(path_assembly_sub)
+
+    if len(os.listdir(path_assembly_sub)) == 0:
+        for bact_tmp in bacts:
+            count = 0
+            for assembly_tmp in bact_tmp.assembly:
+                tmp = GeoData(assembly_tmp.id, assembly_tmp.submitter,
+                              geo.geoparse(assembly_tmp.submitter), assembly_tmp.name)
+                ass_submitter.append(tmp)
+                with open(f"ser_title_{type_print}/{assembly_tmp.id}_{count}.ser", "wb") as fw:
+                    pickle.dump(tmp, fw)
+    else:
+        for filename in os.listdir(path_assembly_sub):
+            with open(f"ser_title_{type_print}/{filename}", "rb") as f:
+                ass_submitter.append(pickle.load(f))
+
+    for geo_elem in ass_submitter:
+        if geo_elem.geo_dict:
+            id_tmp = geo_elem.id_geo
+            name_tmp = geo_elem.name
+            for single_elem in geo_elem.geo_dict:
+                if 'geo' in single_elem:
+                        geo_df.loc[len(geo_df.index)] = [id_tmp,
+                                                         name_tmp,
+                                                         float(single_elem['geo']['lat']),
+                                                         float(single_elem['geo']['lon']),
+                                                         "Title"]
+
+    ass_geo = []
+    if not os.path.exists(path_assembly_geo) or not os.listdir(path_assembly_geo):
+        if not os.path.exists(path_assembly_geo):
+            os.makedirs(path_assembly_geo)
+
+    if len(os.listdir(path_assembly_geo)) == 0:
+        for bact_tmp in bacts:
+            count = 0
+            for assembly_tmp in bact_tmp.assembly:
+                if assembly_tmp.geo_tag != "":
+                    tmp = GeoData(assembly_tmp.id, assembly_tmp.geo_tmp,
+                                geo.geoparse(assembly_tmp.geo_tmp), assembly_tmp.name)
+                    ass_submitter.append(tmp)
+                with open(f"ser_title_{type_print}/{assembly_tmp.id}_{count}.ser", "wb") as fw:
+                    pickle.dump(tmp, fw)
+    else:
+        for filename in os.listdir(path_assembly_geo):
+            with open(f"ser_title_{type_print}/{filename}", "rb") as f:
+                ass_submitter.append(pickle.load(f))
+
+    for geo_elem in ass_submitter:
+        if geo_elem.geo_dict:
+            id_tmp = geo_elem.id_geo
+            name_tmp = geo_elem.name
+            for single_elem in geo_elem.geo_dict:
+                if 'geo' in single_elem:
+                        geo_df.loc[len(geo_df.index)] = [id_tmp,
+                                                         name_tmp,
+                                                         float(single_elem['geo']['lat']),
+                                                         float(single_elem['geo']['lon']),
+                                                         "Title"]
+
+
+    return fix_lon_lat(geo_df)
+
+
 def geo_parse(bacts, type_print=""):
     geo = Geoparser()
     # geo locations filtered

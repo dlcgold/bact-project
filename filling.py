@@ -167,7 +167,7 @@ def main():
     assemblies_nodrug_map_display = display_map(bacts_nodrug_df,
                                            "Locations associated to bacteria's assembly without drugs",
                                            "type",
-                                           ["red", "blue", "green"])
+                                           ["red", "blue"])
 
     if not os.path.exists('csv/assembly_drug_df.csv'):
     # display map of assemblies with drugs
@@ -178,7 +178,7 @@ def main():
     assemblies_drug_map_display = display_map(bacts_drug_df,
                                                 "Locations associated to bacteria's assembly with drugs",
                                                 "type",
-                                                ["red", "blue", "green"])
+                                                ["red", "blue"])
 
 
     # bar chart of number of infections geolocalized using name and papers

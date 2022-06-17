@@ -32,9 +32,10 @@ def geo_parse_assembly(bacts, type_print=""):
         for bact_tmp in bacts:
             count = 0
             for assembly_tmp in bact_tmp.assembly:
-                tmp = GeoData(assembly_tmp.id, assembly_tmp.submitter,
-                              geo.geoparse(assembly_tmp.submitter), assembly_tmp.name)
-                ass_submitter.append(tmp)
+                if assembly_tmp.submitter != "":
+                    tmp = GeoData(assembly_tmp.id, assembly_tmp.submitter,
+                                geo.geoparse(assembly_tmp.submitter), assembly_tmp.name)
+                    ass_submitter.append(tmp)
                 with open(f"ser_title_{type_print}/{assembly_tmp.id}_{count}.ser", "wb") as fw:
                     pickle.dump(tmp, fw)
     else:
@@ -63,9 +64,9 @@ def geo_parse_assembly(bacts, type_print=""):
         for bact_tmp in bacts:
             count = 0
             for assembly_tmp in bact_tmp.assembly:
-                if assembly_tmp.geo_tag != "":
-                    tmp = GeoData(assembly_tmp.id, assembly_tmp.geo_tmp,
-                                geo.geoparse(assembly_tmp.geo_tmp), assembly_tmp.name)
+                if assembly_tmp.geotag != "":
+                    tmp = GeoData(assembly_tmp.id, assembly_tmp.geotag,
+                                geo.geoparse(assembly_tmp.geotag), assembly_tmp.name)
                     ass_geo.append(tmp)
                 with open(f"ser_title_{type_print}/{assembly_tmp.id}_{count}.ser", "wb") as fw:
                     pickle.dump(tmp, fw)

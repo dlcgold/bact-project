@@ -4,7 +4,6 @@ import numpy as np
 from gensim.parsing.preprocessing import remove_stopwords
 from wordcloud import WordCloud
 
-from genomejp import *
 from geo_parsing import *
 from kegg_helper import *
 from utils import *
@@ -60,7 +59,7 @@ def main():
     # fill lists of bacterials with all the data parsed from KEGG
     print("parse KEGG data")
 
-    folder = 'tmp_bact'      
+    folder = 'tmp_bact'
     kegg_folder = 'kegg_get'
     bacts = []
 
@@ -68,67 +67,64 @@ def main():
         os.makedirs(folder)
     if len(os.listdir(folder)) == 0:
         for filename in os.listdir(kegg_folder):
-            with open(kegg_folder+"/" + filename, "r") as f:
+            with open(kegg_folder + "/" + filename, "r") as f:
                 tmp_bact = parse(str(f.read()))
                 bacts.append(tmp_bact)
                 with open(folder + "/" + filename, "wb") as f:
                     pickle.dump(tmp_bact, f)
     else:
         for filename in os.listdir(folder):
-            with open(folder +"/" + filename, "rb") as f:
+            with open(folder + "/" + filename, "rb") as f:
                 bacts.append(pickle.load(f))
         diff = list_diff(os.listdir(kegg_folder), os.listdir(folder))
         for filename in diff:
             with open(kegg_folder + "/" + filename, "r") as f:
                 tmp_bact = parse(str(f.read()))
                 bacts.append(tmp_bact)
-                with open(folder+ "/" + filename, "wb") as f:
+                with open(folder + "/" + filename, "wb") as f:
                     pickle.dump(tmp_bact, f)
 
     print(f"{len(bacts)} bacterial infections found w/out drugs")
 
-    
     # Filling list with disease with drugs
     print("parse KEGG data with drugs")
 
-    folder = 'tmp_bact_drug'      
-    kegg_folder = 'kegg_get_drug'  
+    folder = 'tmp_bact_drug'
+    kegg_folder = 'kegg_get_drug'
 
     bacts_drug = []
     if not os.path.exists(folder):
         os.makedirs(folder)
     if len(os.listdir(folder)) == 0:
         for filename in os.listdir(kegg_folder):
-            with open(kegg_folder+"/" + filename, "r") as f:
+            with open(kegg_folder + "/" + filename, "r") as f:
                 tmp_bact = parse(str(f.read()))
                 bacts_drug.append(tmp_bact)
                 with open(folder + "/" + filename, "wb") as f:
                     pickle.dump(tmp_bact, f)
     else:
         for filename in os.listdir(folder):
-            with open(folder +"/" + filename, "rb") as f:
+            with open(folder + "/" + filename, "rb") as f:
                 bacts_drug.append(pickle.load(f))
         diff = list_diff(os.listdir(kegg_folder), os.listdir(folder))
         for filename in diff:
             with open(kegg_folder + "/" + filename, "r") as f:
                 tmp_bact = parse(str(f.read()))
                 bacts_drug.append(tmp_bact)
-                with open(folder+ "/" + filename, "wb") as f:
+                with open(folder + "/" + filename, "wb") as f:
                     pickle.dump(tmp_bact, f)
 
-    
     print(f"{len(bacts_drug)} bacterial infections found w/ drugs")
 
     print("printing maps ...")
     if not os.path.exists('csv'):
         os.makedirs('csv')
     if not os.path.exists('csv/bacts_nodrug_df.csv'):
-    # display map of diseases without drugs
+        # display map of diseases without drugs
         bacts_nodrug_df = geo_parse(bacts, "nodrug")
         bacts_nodrug_df.to_csv("csv/bacts_nodrug_df.csv")
     else:
         bacts_nodrug_df = pd.read_csv("csv/bacts_nodrug_df.csv")
-
 
     # display map of diseases with drugs
     if not os.path.exists('csv/bacts_drug_df.csv'):
@@ -137,7 +133,6 @@ def main():
     else:
         bacts_drug_df = pd.read_csv("csv/bacts_drug_df.csv")
 
-
     # display total map of diseases
     if not os.path.exists('csv/total_df.csv'):
         total_df = merge_geo_df(bacts_nodrug_df, bacts_drug_df, "no drug", "drug")
@@ -145,65 +140,68 @@ def main():
     else:
         total_df = pd.read_csv("csv/total_df.csv")
 
-
     if not os.path.exists('csv/assembly_nodrug_df.csv'):
+<<<<<<< HEAD
     # display map of assemblies without drugs
         assemblies_nodrug_df = geo_parse_assembly(bacts, "nodrug")
+=======
+        # display map of assemblies without drugs
+        assemblies_nodrug_df = geo_parse_assembly(bacts, "assembly_nodrug")
+>>>>>>> 249c9ae2dedfca5ca1d7eff98540c64ad939b8eb
         assemblies_nodrug_df.to_csv("csv/assembly_nodrug_df.csv")
     else:
         assemblies_nodrug_df = pd.read_csv("csv/assembly_nodrug_df.csv")
 
- 
-
     if not os.path.exists('csv/assembly_drug_df.csv'):
+<<<<<<< HEAD
     # display map of assemblies with drugs
         assemblies_drug_df = geo_parse_assembly(bacts_drug, "drug")
+=======
+        # display map of assemblies with drugs
+        assemblies_drug_df = geo_parse_assembly(bacts_drug, "assembly_drug")
+>>>>>>> 249c9ae2dedfca5ca1d7eff98540c64ad939b8eb
         assemblies_drug_df.to_csv("csv/assembly_drug_df.csv")
     else:
         assemblies_drug_df = pd.read_csv("csv/assembly_drug_df.csv")
 
-    
     if not os.path.exists('csv/assembly_total_df.csv'):
-    # display map of TOTAL assemblies
-        assemblies_total_df = merge_geo_df(assemblies_nodrug_df, assemblies_drug_df, "assembly_nodrug", "assembly_drug")
+        # display map of TOTAL assemblies
+        assemblies_total_df = merge_geo_df(assemblies_nodrug_df, assemblies_drug_df,
+                                           "assembly_nodrug", "assembly_drug")
         assemblies_total_df.to_csv("csv/assembly_total_df.csv")
     else:
         assemblies_total_df = pd.read_csv("csv/assembly_total_df.csv")
-    
-    
-    
-    
+
     ## DISPLAY MAPS
     bacts_nodrug_map_display = display_map(bacts_nodrug_df,
-                                        "Locations associated to bacteria without drugs",
-                                        "type",
-                                        ["red", "blue", "green"])
+                                           "Locations associated to bacteria without drugs",
+                                           "type",
+                                           ["red", "blue", "green"])
 
     bacts_drug_map_display = display_map(bacts_drug_df,
-                                        "Locations associated to bacteria with drugs",
-                                        "type",
-                                        ["red", "blue", "green"])
+                                         "Locations associated to bacteria with drugs",
+                                         "type",
+                                         ["red", "blue", "green"])
 
     bacts_all_map_display = display_map(total_df,
-                                    "Locations associated to all bacteria",
-                                    "label",
-                                    ["red", "green"])
+                                        "Locations associated to all bacteria",
+                                        "label",
+                                        ["red", "green"])
 
     assemblies_nodrug_map_display = display_map(assemblies_nodrug_df,
-                                        "Locations associated to bacteria's assembly without drugs",
-                                        "type",
-                                        ["red", "blue"])
+                                                "Locations associated to bacteria's assembly without drugs",
+                                                "type",
+                                                ["red", "blue"])
 
     assemblies_drug_map_display = display_map(assemblies_drug_df,
-                                            "Locations associated to bacteria's assembly with drugs",
-                                            "type",
-                                            ["red", "blue"])
+                                              "Locations associated to bacteria's assembly with drugs",
+                                              "type",
+                                              ["red", "blue"])
 
     assemblies_total_map_display = display_map(assemblies_total_df,
-                                                "Locations associated to all bacteria's assemblies",
-                                                "label",
-                                                ["red", "green"])
-
+                                               "Locations associated to all bacteria's assemblies",
+                                               "label",
+                                               ["red", "green"])
 
     # bar chart of number of infections geolocalized using name and papers
     geo_bar_chart(bacts_drug, bacts, bacts_drug_df, bacts_nodrug_df)
@@ -225,7 +223,16 @@ def main():
 
     # charge np array for the bar and plot them
     labels = []
-    keys = list(set(list(bar_data.keys()) + list(bar_data_drugs.keys())))
+    #keys = list(set(list(bar_data.keys()) + list(bar_data_drugs.keys())))
+    keys = ['Infections caused by spirochaetes ',
+            'Infections caused by other gamma proteobacteria ', 'Infections caused by chlamydia ',
+            'Infections caused by enterobacteria ', 'Infections caused by actinobacteria ',
+            'Infections caused by Gram-positive bacteria ',
+            'Infections caused by beta proteobacteria ',
+            'Infections caused by alpha proteobacteria ',
+            'Infections caused by epsilon proteobacteria ', 'Infections caused by bacteria ',
+            'Infections caused by fusobacteria ']
+
     np_drugs = np.zeros(len(keys))
     np_no_drugs = np.zeros(len(keys))
     i = 0
@@ -453,13 +460,17 @@ def main():
 
     print("Filling from drugbank by pathogen")
     bacts_db = []
+    patho_extra = []
     if not os.path.exists('db_patho') or not os.listdir("db_patho"):
         if not os.path.exists('db_patho'):
             os.makedirs('db_patho')
-        for tmp_bact in bacts:
+        for tmp_bact in bacts:   
             if len(tmp_bact.pathogens) > 0:
+                print(tmp_bact.name)
+                print(tmp_bact.pathogens)
                 tmp_extra_drugs = []
                 for patho_tmp in tmp_bact.pathogens:
+                    print(patho_tmp)
                     db_drugs = get_drugs_for_all(patho_tmp)
                     print(db_drugs)
                     tmp_drugs = []
@@ -482,6 +493,8 @@ def main():
                     diffs = list_diff(tmp_extra_drugs, tmp_drugs)
                     print("adding extra drugs from drugbank by pathogens")
                     if len(diffs) > 0:
+                        print(patho_tmp, tmp_bact.category, tmp_bact.sub)
+                        patho_extra.append((patho_tmp, tmp_bact.category, tmp_bact.sub))
                         for elem in diffs:
                             print(elem)
                             if elem not in tmp_drugs:
@@ -492,15 +505,21 @@ def main():
             with open(f"db_patho/{tmp_bact.id_bact}.txt", "wb") as f:
                 pickle.dump(tmp_bact, f)
             bacts_db.append(tmp_bact)
+        with open(f"db_patho/extra.txt", "wb") as f:
+            pickle.dump(patho_extra, f)
     else:
         for filename in os.listdir("db_patho"):
             with open("db_patho/" + filename, "rb") as f:
                 bacts_db.append(pickle.load(f))
+        with open(f"db_patho/extra.txt", "eb") as f:
+            patho_extra=pickle.load(f)
     bacts_db_without_drugs = []
-
+    bacts_db_with_drugs = []
     for bact_tmp in bacts_db:
         if len(bact_tmp.drugs) == 0:
             bacts_db_without_drugs.append(bact_tmp)
+        else:
+            bacts_db_with_drugs.append(bact_tmp)
     print(
         f"{len(bacts_db_without_drugs)} {type_infection} found w/out drugs after drugbank filling "
         f"by pathogen")
@@ -516,7 +535,6 @@ def main():
         bar_data_no_db = {}
         for key, value in bar_data_db.items():
             bar_data_no_db[key] = bar_data[key] - value
-
         fig, ax = plt.subplots()
         np_no_db_values = np.zeros(len(keys))
         np_drugs_values = np.zeros(len(keys))
@@ -561,6 +579,32 @@ def main():
                 bar_data[key] = bar_data[key] - bar_data_db[key]
             if key in bar_data.keys() and bar_data[key] == 0:
                 bar_data.pop(key)
+
+        drugs_fill = {}
+        for bact_tmp in bacts_db_with_drugs:
+            drugs_fill[bact_tmp.name] = len(bact_tmp.drugs)
+        fig, ax = plt.subplots()
+        val = np.zeros(len(drugs_fill))
+        labels_fill = []
+        for x in list(drugs_fill.keys()):
+            labels_fill.append(
+                x.replace("infection", "").replace("disease", "").replace("intoxication",
+                                                                          "").replace(" ",
+                                                                                      "\n").strip())
+        vals = list(drugs_fill.values())
+        for x in range(len(vals)):
+            val[x] = vals[x]
+        delta = np.arange(len(labels_fill))
+        ax.bar(delta, val, color='green', width=width)
+        plt.title("Drugs filled count after pathogen filling from drugbank")
+        plt.ylabel("Quantity of drugs")
+        plt.xticks(delta + width / 2, labels_fill, rotation=90, fontsize=6)
+        y_int = range(0, math.ceil(max(val) + 1), 10)
+        plt.yticks(y_int)
+        fname = './plot_print/filled_quantity_drugs.png'
+        plt.show()
+        fig.set_size_inches((16, 12), forward=False)
+        fig.savefig(fname, dpi=500)
     bacts = bacts_db_without_drugs
 
     print("Filling from drugbank by pathways")

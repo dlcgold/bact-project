@@ -13,3 +13,6 @@ ser_title_drug/
 geonames_index/
 test_full_infections/
 .idea/
+mordecai-env/
+serialization/
+geonames_index/

@@ -129,11 +129,6 @@ def main():
     else:
         bacts_nodrug_df = pd.read_csv("csv/bacts_nodrug_df.csv")
 
-    bacts_nodrug_map_display = display_map(bacts_nodrug_df,
-                                           "Locations associated to bacteria without drugs",
-                                           "type",
-                                           ["red", "blue", "green"])
-
 
     # display map of diseases with drugs
     if not os.path.exists('csv/bacts_drug_df.csv'):
@@ -141,9 +136,7 @@ def main():
         bacts_drug_df.to_csv("csv/bacts_drug_df.csv")
     else:
         bacts_drug_df = pd.read_csv("csv/bacts_drug_df.csv")
-    bacts_drug_map_display = display_map(bacts_drug_df,
-                                         "Locations associated to bacteria with drugs", "type",
-                                         ["red", "blue", "green"])
+
 
     # display total map of diseases
     if not os.path.exists('csv/total_df.csv'):
@@ -151,10 +144,6 @@ def main():
         total_df.to_csv("csv/total_df.csv")
     else:
         total_df = pd.read_csv("csv/total_df.csv")
-    bacts_all_map_display = display_map(total_df,
-                                        "Locations associated to all bacteria",
-                                        "label",
-                                        ["red", "green"])
 
 
     if not os.path.exists('csv/assembly_nodrug_df.csv'):
@@ -164,10 +153,7 @@ def main():
     else:
         assemblies_nodrug_df = pd.read_csv("csv/assembly_nodrug_df.csv")
 
-    assemblies_nodrug_map_display = display_map(assemblies_nodrug_df,
-                                           "Locations associated to bacteria's assembly without drugs",
-                                           "type",
-                                           ["red", "blue"])
+ 
 
     if not os.path.exists('csv/assembly_drug_df.csv'):
     # display map of assemblies with drugs
@@ -175,10 +161,6 @@ def main():
         assemblies_drug_df.to_csv("csv/assembly_drug_df.csv")
     else:
         assemblies_drug_df = pd.read_csv("csv/assembly_drug_df.csv")
-    assemblies_drug_map_display = display_map(assemblies_drug_df,
-                                                "Locations associated to bacteria's assembly with drugs",
-                                                "type",
-                                                ["red", "blue"])
 
     
     if not os.path.exists('csv/assembly_total_df.csv'):
@@ -187,6 +169,36 @@ def main():
         assemblies_total_df.to_csv("csv/assembly_total_df.csv")
     else:
         assemblies_total_df = pd.read_csv("csv/assembly_total_df.csv")
+    
+    
+    
+    
+    ## DISPLAY MAPS
+    bacts_nodrug_map_display = display_map(bacts_nodrug_df,
+                                        "Locations associated to bacteria without drugs",
+                                        "type",
+                                        ["red", "blue", "green"])
+
+    bacts_drug_map_display = display_map(bacts_drug_df,
+                                        "Locations associated to bacteria with drugs",
+                                        "type",
+                                        ["red", "blue", "green"])
+
+    bacts_all_map_display = display_map(total_df,
+                                    "Locations associated to all bacteria",
+                                    "label",
+                                    ["red", "green"])
+
+    assemblies_nodrug_map_display = display_map(assemblies_nodrug_df,
+                                        "Locations associated to bacteria's assembly without drugs",
+                                        "type",
+                                        ["red", "blue"])
+
+    assemblies_drug_map_display = display_map(assemblies_drug_df,
+                                            "Locations associated to bacteria's assembly with drugs",
+                                            "type",
+                                            ["red", "blue"])
+
     assemblies_total_map_display = display_map(assemblies_total_df,
                                                 "Locations associated to all bacteria's assemblies",
                                                 "label",
@@ -471,10 +483,12 @@ def main():
                     print("adding extra drugs from drugbank by pathogens")
                     if len(diffs) > 0:
                         for elem in diffs:
+                            print(elem)
                             if elem not in tmp_drugs:
-                                tmp_drug = get_drug_kegg(elem)
-                                tmp_drug.origin = "DrugBank pathogen"
-                                tmp_bact.drugs.append(tmp_drug)
+                                if elem != None:
+                                    tmp_drug = get_drug_kegg(elem)
+                                    tmp_drug.origin = "DrugBank pathogen"
+                                    tmp_bact.drugs.append(tmp_drug)
             with open(f"db_patho/{tmp_bact.id_bact}.txt", "wb") as f:
                 pickle.dump(tmp_bact, f)
             bacts_db.append(tmp_bact)
@@ -582,9 +596,10 @@ def main():
                     if len(diffs) > 0:
                         for elem in diffs:
                             if elem not in tmp_drugs:
-                                tmp_drug = get_drug_kegg(elem)
-                                tmp_drug.origin = "DrugBank Pathway"
-                                tmp_bact.drugs.append(tmp_drug)
+                                if elem != None:
+                                    tmp_drug = get_drug_kegg(elem)
+                                    tmp_drug.origin = "DrugBank Pathway"
+                                    tmp_bact.drugs.append(tmp_drug)
             with open(f"db_path/{tmp_bact.id_bact}.txt", "wb") as f:
                 pickle.dump(tmp_bact, f)
             bacts_db_path.append(tmp_bact)

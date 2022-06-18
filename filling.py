@@ -450,13 +450,17 @@ def main():
 
     print("Filling from drugbank by pathogen")
     bacts_db = []
+    patho_extra = []
     if not os.path.exists('db_patho') or not os.listdir("db_patho"):
         if not os.path.exists('db_patho'):
             os.makedirs('db_patho')
-        for tmp_bact in bacts:
+        for tmp_bact in bacts:   
             if len(tmp_bact.pathogens) > 0:
+                print(tmp_bact.name)
+                print(tmp_bact.pathogens)
                 tmp_extra_drugs = []
                 for patho_tmp in tmp_bact.pathogens:
+                    print(patho_tmp)
                     db_drugs = get_drugs_for_all(patho_tmp)
                     print(db_drugs)
                     tmp_drugs = []
@@ -479,6 +483,8 @@ def main():
                     diffs = list_diff(tmp_extra_drugs, tmp_drugs)
                     print("adding extra drugs from drugbank by pathogens")
                     if len(diffs) > 0:
+                        print(patho_tmp, tmp_bact.category, tmp_bact.sub)
+                        patho_extra.append((patho_tmp, tmp_bact.category, tmp_bact.sub))
                         for elem in diffs:
                             print(elem)
                             if elem not in tmp_drugs:
@@ -489,10 +495,14 @@ def main():
             with open(f"db_patho/{tmp_bact.id_bact}.txt", "wb") as f:
                 pickle.dump(tmp_bact, f)
             bacts_db.append(tmp_bact)
+        with open(f"db_patho/extra.txt", "wb") as f:
+            pickle.dump(patho_extra, f)
     else:
         for filename in os.listdir("db_patho"):
             with open("db_patho/" + filename, "rb") as f:
                 bacts_db.append(pickle.load(f))
+        with open(f"db_patho/extra.txt", "eb") as f:
+            patho_extra=pickle.load(f)
     bacts_db_without_drugs = []
     bacts_db_with_drugs = []
     for bact_tmp in bacts_db:

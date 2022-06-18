@@ -497,10 +497,12 @@ def main():
             with open("db_patho/" + filename, "rb") as f:
                 bacts_db.append(pickle.load(f))
     bacts_db_without_drugs = []
-
+    bacts_db_with_drugs = []
     for bact_tmp in bacts_db:
         if len(bact_tmp.drugs) == 0:
             bacts_db_without_drugs.append(bact_tmp)
+        else:
+            bacts_db_with_drugs.append(bact_tmp)
     print(
         f"{len(bacts_db_without_drugs)} {type_infection} found w/out drugs after drugbank filling "
         f"by pathogen")
@@ -561,6 +563,32 @@ def main():
                 bar_data[key] = bar_data[key] - bar_data_db[key]
             if key in bar_data.keys() and bar_data[key] == 0:
                 bar_data.pop(key)
+
+        drugs_fill = {}
+        for bact_tmp in bacts_db_with_drugs:
+            drugs_fill[bact_tmp.name] = len(bact_tmp.drugs)
+        fig, ax = plt.subplots()
+        val = np.zeros(len(drugs_fill))
+        labels_fill = []
+        for x in list(drugs_fill.keys()):
+            labels_fill.append(
+                x.replace("infection", "").replace("disease", "").replace("intoxication",
+                                                                          "").replace(" ",
+                                                                                      "\n").strip())
+        vals = list(drugs_fill.values())
+        for x in range(len(vals)):
+            val[x] = vals[x]
+        delta = np.arange(len(labels_fill))
+        ax.bar(delta, val, color='green', width=width)
+        plt.title("Drugs filled count after pathogen filling from drugbank")
+        plt.ylabel("Quantity of drugs")
+        plt.xticks(delta + width / 2, labels_fill, rotation=90, fontsize=6)
+        y_int = range(0, math.ceil(max(val) + 1), 10)
+        plt.yticks(y_int)
+        fname = './plot_print/filled_quantity_drugs.png'
+        plt.show()
+        fig.set_size_inches((16, 12), forward=False)
+        fig.savefig(fname, dpi=500)
     bacts = bacts_db_without_drugs
 
     print("Filling from drugbank by pathways")

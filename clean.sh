@@ -1,6 +1,7 @@
 rm -rf abstract_get_drug \
 abstract_get_nodrug \
 assembly_geo_assembly_nodrug \
+assembly_geo_assembly_drug \
 assembly_sub_assembly_drug \
 assembly_sub_assembly_nodrug  \
 csv \

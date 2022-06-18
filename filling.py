@@ -13,7 +13,7 @@ Entrez.email = "d.cozzi@campus.unimib.it"
 
 
 def main():
-    print("getting bacterial infections list")
+    print("getting bacterical infections list")
     type_infection = "Bacterial infections"
     bactetial_infections = REST.kegg_get("br:br08401").read()
     H_list = []
@@ -148,7 +148,7 @@ def main():
 
     if not os.path.exists('csv/assembly_nodrug_df.csv'):
     # display map of assemblies without drugs
-        assemblies_nodrug_df = geo_parse_assembly(bacts, "assembly_nodrug")
+        assemblies_nodrug_df = geo_parse_assembly(bacts, "nodrug")
         assemblies_nodrug_df.to_csv("csv/assembly_nodrug_df.csv")
     else:
         assemblies_nodrug_df = pd.read_csv("csv/assembly_nodrug_df.csv")
@@ -157,7 +157,7 @@ def main():
 
     if not os.path.exists('csv/assembly_drug_df.csv'):
     # display map of assemblies with drugs
-        assemblies_drug_df = geo_parse_assembly(bacts_drug, "assembly_drug")
+        assemblies_drug_df = geo_parse_assembly(bacts_drug, "drug")
         assemblies_drug_df.to_csv("csv/assembly_drug_df.csv")
     else:
         assemblies_drug_df = pd.read_csv("csv/assembly_drug_df.csv")

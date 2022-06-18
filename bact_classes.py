@@ -11,7 +11,7 @@ class Assembly:
         self.data = data
 
     def __repr__(self):
-        return f"{self.id, self.name, self.submitter, self.data, self.geotag}"
+        return f"{self.id, self.name, self.biosample_id, self.submitter, self.geotag, self.data}"
 
 
 class Paper:

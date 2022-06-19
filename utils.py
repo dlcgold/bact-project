@@ -149,15 +149,24 @@ def parse(data):
                     assembly_tmp.data = descriptions[i].strip()
                 i += 1
 
-
-            bio3 = Entrez.efetch(id=bioid, db="biosample", rettmode='text')
+            bio3 = Entrez.esearch(term=assembly_tmp.biosample_id, db="biosample", retmax=1)
+            # bio3 = Entrez.esearch(term=bioid, db="biosample", retmax=1)
+            bio3_res = Entrez.read(bio3)
+            try:
+                id = bio3_res['IdList'][0] ## take the first ID
+            except:
+                id = ""
+            bio3 = Entrez.efetch(id=id, db="biosample", retmax=1)
+            # bio3 = Entrez.efetch(id=bioid, db="biosample", rettmode='text')
             bio3_text = bio3.read()
             bio3_str = str(bio3_text)
             position_geotag = bio3_str.find('geo_loc_name')
+            # print(position_geotag)
             position_geotag_begin = bio3_str.find('>', position_geotag)
             position_geotag_end = bio3_str.find('</Attribute>', position_geotag)
-            if (position_geotag != -1):
-                assembly_tmp.geo_tag = bio3_str[position_geotag_begin + 1:position_geotag_end]
+            if (position_geotag > 0):
+                print("adding geo-tag from BioSample")
+                assembly_tmp.geotag = bio3_str[position_geotag_begin + 1:position_geotag_end]
             print(assembly_tmp)
         else:
             print("no assembly found")

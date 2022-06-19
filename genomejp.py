@@ -1,3 +1,4 @@
+from cmath import e
 import os
 import pickle
 
@@ -46,9 +47,10 @@ def get_assembly_biosample(id):
         bios = [l['href'][40:] for l in links]
     except:
         bios = ''
-
-    return (assembly[0], bios[0])
-
+    try:
+        return(assembly[0], bios[0])
+    except:
+        return("","")
 
 def get_assembly_for_id(id):
     url = f"https://www.genome.jp/entry/{id}"

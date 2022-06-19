@@ -141,25 +141,15 @@ def main():
         total_df = pd.read_csv("csv/total_df.csv")
 
     if not os.path.exists('csv/assembly_nodrug_df.csv'):
-<<<<<<< HEAD
-    # display map of assemblies without drugs
-        assemblies_nodrug_df = geo_parse_assembly(bacts, "nodrug")
-=======
         # display map of assemblies without drugs
         assemblies_nodrug_df = geo_parse_assembly(bacts, "assembly_nodrug")
->>>>>>> 249c9ae2dedfca5ca1d7eff98540c64ad939b8eb
         assemblies_nodrug_df.to_csv("csv/assembly_nodrug_df.csv")
     else:
         assemblies_nodrug_df = pd.read_csv("csv/assembly_nodrug_df.csv")
 
     if not os.path.exists('csv/assembly_drug_df.csv'):
-<<<<<<< HEAD
-    # display map of assemblies with drugs
-        assemblies_drug_df = geo_parse_assembly(bacts_drug, "drug")
-=======
         # display map of assemblies with drugs
         assemblies_drug_df = geo_parse_assembly(bacts_drug, "assembly_drug")
->>>>>>> 249c9ae2dedfca5ca1d7eff98540c64ad939b8eb
         assemblies_drug_df.to_csv("csv/assembly_drug_df.csv")
     else:
         assemblies_drug_df = pd.read_csv("csv/assembly_drug_df.csv")

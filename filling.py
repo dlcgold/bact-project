@@ -3,6 +3,7 @@ import math
 import numpy as np
 from gensim.parsing.preprocessing import remove_stopwords
 from wordcloud import WordCloud
+from drugbank_filling import drugbank_filling
 
 from geo_parsing import *
 from kegg_helper import *
@@ -141,15 +142,15 @@ def main():
         total_df = pd.read_csv("csv/total_df.csv")
 
     if not os.path.exists('csv/assembly_nodrug_df.csv'):
-        # display map of assemblies without drugs
-        assemblies_nodrug_df = geo_parse_assembly(bacts, "assembly_nodrug")
+    # display map of assemblies without drugs
+        assemblies_nodrug_df = geo_parse_assembly(bacts, "nodrug")
         assemblies_nodrug_df.to_csv("csv/assembly_nodrug_df.csv")
     else:
         assemblies_nodrug_df = pd.read_csv("csv/assembly_nodrug_df.csv")
 
     if not os.path.exists('csv/assembly_drug_df.csv'):
-        # display map of assemblies with drugs
-        assemblies_drug_df = geo_parse_assembly(bacts_drug, "assembly_drug")
+    # display map of assemblies with drugs
+        assemblies_drug_df = geo_parse_assembly(bacts_drug, "drug")
         assemblies_drug_df.to_csv("csv/assembly_drug_df.csv")
     else:
         assemblies_drug_df = pd.read_csv("csv/assembly_drug_df.csv")
@@ -448,6 +449,12 @@ def main():
                 bar_data.pop(key)
     bacts = no_drug_after_genomejp_path
 
+    #drug
+    drugbank_filling(bacts, type_infection)
+    #noDrug
+    # drugbank_filling(bacts, type_infection)
+
+
     print("Filling from drugbank by pathogen")
     bacts_db = []
     if not os.path.exists('db_patho') or not os.listdir("db_patho"):
@@ -494,6 +501,8 @@ def main():
         for filename in os.listdir("db_patho"):
             with open("db_patho/" + filename, "rb") as f:
                 bacts_db.append(pickle.load(f))
+        with open(f"db_patho/extra.txt", "rb") as f:
+            patho_extra=pickle.load(f)
     bacts_db_without_drugs = []
     bacts_db_with_drugs = []
     for bact_tmp in bacts_db:
@@ -504,6 +513,7 @@ def main():
     print(
         f"{len(bacts_db_without_drugs)} {type_infection} found w/out drugs after drugbank filling "
         f"by pathogen")
+
 
     # proceed to plot iff there was some filling
     if len(bacts_db_without_drugs) != len(bacts):

@@ -163,3 +163,4 @@ df_patho_extra.loc[len(df_patho_extra.index)] = ["total",
                                                  "",
                                                  val_tot]
 print(df_patho_extra)
+

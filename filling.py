@@ -3,7 +3,6 @@ import math
 import numpy as np
 from gensim.parsing.preprocessing import remove_stopwords
 from wordcloud import WordCloud
-from drugbank_filling import drugbank_filling
 
 from geo_parsing import *
 from kegg_helper import *
@@ -449,37 +448,54 @@ def main():
                 bar_data.pop(key)
     bacts = no_drug_after_genomejp_path
 
-    #drug
-    drugbank_filling(bacts, type_infection)
-    #noDrug
-    # drugbank_filling(bacts, type_infection)
+    ###############################################################################
+    # import bacts if not
+    # bacts = []
+    # for filename in os.listdir("genomejp_patho"):
+    #     with open("genomejp_patho/" + filename, "rb") as f:
+    #         bacts.append(pickle.load(f))
 
-
-    print("Filling from drugbank by pathogen")
+    type = "db_extra"
+    print("Extra Filling from Drugbank")
     bacts_db = []
-    if not os.path.exists('db_patho') or not os.listdir("db_patho"):
-        if not os.path.exists('db_patho'):
-            os.makedirs('db_patho')
-        for tmp_bact in bacts:   
+    pathos = []
+    pathos_extra = []
+    bact_count = 0
+    if not os.path.exists(type) or not os.listdir(type):
+        if not os.path.exists(type):
+            os.makedirs(type)
+        for tmp_bact in bacts:
+            bact_count += 1
+            print("Current bact", bact_count, "of", len(bacts), "---------------------------------")
             if len(tmp_bact.pathogens) > 0:
                 tmp_extra_drugs = []
+                tmp_extra_db = []
+                drug_patho = {}
+                drug_patho_extra = {}
+
                 for patho_tmp in tmp_bact.pathogens:
                     print(patho_tmp)
                     db_drugs = get_drugs_for_all(patho_tmp)
                     print(db_drugs)
                     tmp_drugs = []
+                    extra_drugs = []
                     for tmp in db_drugs:
-                        print(tmp)
                         ## Avoid 400 bad requests
                         try:
                             id_tmp = conv_db_id_to_kegg_id(tmp)
                         except:
                             id_tmp = None
                         ##
-                        print(id_tmp)
+                        print(tmp, "converted_to", id_tmp)
                         if id_tmp != "None":
                             tmp_drugs.append(id_tmp)
+                        else:
+                            extra_drugs.append(tmp)
+                    drug_patho[patho_tmp] = tmp_drugs
+                    drug_patho_extra[patho_tmp] = extra_drugs
+
                     tmp_extra_drugs += tmp_drugs
+                    tmp_extra_db += extra_drugs
                 if len(tmp_extra_drugs) > 0:
                     tmp_drugs = []
                     for elem in tmp_bact.drugs:
@@ -494,15 +510,36 @@ def main():
                                     tmp_drug = get_drug_kegg(elem)
                                     tmp_drug.origin = "DrugBank pathogen"
                                     tmp_bact.drugs.append(tmp_drug)
-            with open(f"db_patho/{tmp_bact.id_bact}.txt", "wb") as f:
+    
+                                    for k, v in drug_patho.items():
+                                        if elem in v:
+                                            pathos.append((k, "", tmp_bact.sub))
+
+                if len(tmp_extra_db) > 0 :
+                    for elem in tmp_extra_db:
+                        print("Drugbank extra FILLING")
+                        tmp_name = get_name_drug(elem)
+                        print(tmp_name)
+                        tmp_bact.drugs.append(Drug(tmp_name, ""))
+                        for k, v in drug_patho_extra.items():
+                            if elem in v:
+                                pathos_extra.append((k, "", tmp_bact.sub))
+
+            with open(f"{type}/{tmp_bact.id_bact}.txt", "wb") as f:
                 pickle.dump(tmp_bact, f)
             bacts_db.append(tmp_bact)
+        with open(f"{type}/extra_1.txt", "wb") as f:
+            pickle.dump(pathos, f)
+        with open(f"{type}/extra_pathos.txt", "wb") as f:
+            pickle.dump(pathos_extra, f)
+
+
     else:
-        for filename in os.listdir("db_patho"):
-            with open("db_patho/" + filename, "rb") as f:
+        for filename in os.listdir(type):
+            with open(f"{type}/{filename}", "rb") as f:
                 bacts_db.append(pickle.load(f))
-        with open(f"db_patho/extra.txt", "rb") as f:
-            patho_extra=pickle.load(f)
+        # with open(f"db_patho/extra.txt", "rb") as f:
+        #     patho_extra=pickle.load(f)
     bacts_db_without_drugs = []
     bacts_db_with_drugs = []
     for bact_tmp in bacts_db:
@@ -511,8 +548,71 @@ def main():
         else:
             bacts_db_with_drugs.append(bact_tmp)
     print(
-        f"{len(bacts_db_without_drugs)} {type_infection} found w/out drugs after drugbank filling "
+        f"{len(bacts_db_without_drugs)} extra FIlling from DrugBank"
         f"by pathogen")
+    print("TOTAL count of Diseases filled with Drugs", len(bacts_db_with_drugs))
+
+
+
+
+    # print("Filling from drugbank by pathogen")
+    # bacts_db = []
+    # if not os.path.exists('db_patho') or not os.listdir("db_patho"):
+    #     if not os.path.exists('db_patho'):
+    #         os.makedirs('db_patho')
+    #     for tmp_bact in bacts:   
+    #         if len(tmp_bact.pathogens) > 0:
+    #             tmp_extra_drugs = []
+    #             for patho_tmp in tmp_bact.pathogens:
+    #                 print(patho_tmp)
+    #                 db_drugs = get_drugs_for_all(patho_tmp)
+    #                 print(db_drugs)
+    #                 tmp_drugs = []
+    #                 for tmp in db_drugs:
+    #                     print(tmp)
+    #                     ## Avoid 400 bad requests
+    #                     try:
+    #                         id_tmp = conv_db_id_to_kegg_id(tmp)
+    #                     except:
+    #                         id_tmp = None
+    #                     ##
+    #                     print(id_tmp)
+    #                     if id_tmp != "None":
+    #                         tmp_drugs.append(id_tmp)
+    #                 tmp_extra_drugs += tmp_drugs
+    #             if len(tmp_extra_drugs) > 0:
+    #                 tmp_drugs = []
+    #                 for elem in tmp_bact.drugs:
+    #                     tmp_drugs.append(elem.id_drug)
+    #                 diffs = list_diff(tmp_extra_drugs, tmp_drugs)
+    #                 print("adding extra drugs from drugbank by pathogens")
+    #                 if len(diffs) > 0:
+    #                     for elem in diffs:
+    #                         print(elem)
+    #                         if elem not in tmp_drugs:
+    #                             if elem != None:
+    #                                 tmp_drug = get_drug_kegg(elem)
+    #                                 tmp_drug.origin = "DrugBank pathogen"
+    #                                 tmp_bact.drugs.append(tmp_drug)
+    #         with open(f"db_patho/{tmp_bact.id_bact}.txt", "wb") as f:
+    #             pickle.dump(tmp_bact, f)
+    #         bacts_db.append(tmp_bact)
+    # else:
+    #     for filename in os.listdir("db_patho"):
+    #         with open("db_patho/" + filename, "rb") as f:
+    #             bacts_db.append(pickle.load(f))
+    #     with open(f"db_patho/extra.txt", "rb") as f:
+    #         patho_extra=pickle.load(f)
+    # bacts_db_without_drugs = []
+    # bacts_db_with_drugs = []
+    # for bact_tmp in bacts_db:
+    #     if len(bact_tmp.drugs) == 0:
+    #         bacts_db_without_drugs.append(bact_tmp)
+    #     else:
+    #         bacts_db_with_drugs.append(bact_tmp)
+    # print(
+    #     f"{len(bacts_db_without_drugs)} {type_infection} found w/out drugs after drugbank filling "
+    #     f"by pathogen")
 
 
     # proceed to plot iff there was some filling

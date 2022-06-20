@@ -40,7 +40,7 @@ def get_pathway_target_from_kegg(drug_id):
 
 
 def conv_name_to_kegg_id(drug_name):
-    drug_name = drug_name.replace(" ", "_")
+    drug_name = drug_name.replace(" ", "+")
     data = REST.kegg_find("Drug", drug_name).read()
     if data.splitlines()[0] != "":
         return data.splitlines()[0].split()[0].split(":")[1]

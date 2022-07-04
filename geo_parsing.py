@@ -8,10 +8,6 @@ from mordecai import Geoparser
 
 from utils import *
 
-"""    filtered_bact_drug = []
-    filtered_abs_drug = []
-    filtered_title_drug = []"""
-
 
 def geo_parse_assembly(bacts, type_print=""):
     print("Extract geo_data from assemblies")

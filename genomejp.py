@@ -93,11 +93,11 @@ def get_drugs_for_disease_name(disease):
 
 
 def get_drugs_for_pathway_kegg(pathway):
-    if not os.path.exists(f"pathways_obj/{pathway}.ser"):
+    if not os.path.exists(f"data/pathways_obj/{pathway}.ser"):
         print("not serialized")
         return get_drugs_for_id(pathway)
     else:
-        with open(f"pathways_obj/{pathway}.ser", "rb") as f:
+        with open(f"data/pathways_obj/{pathway}.ser", "rb") as f:
             p = pickle.load(f)
             return p['drugs']
 

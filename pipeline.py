@@ -16,6 +16,12 @@ Entrez.email = ""
 
 
 def main():
+    # folder where tmp data will be stored
+    if not os.path.exists('data'):
+            os.makedirs('data')
+    # folder where plots will be stored
+    if not os.path.exists('plot_print'):
+        os.makedirs('plot_print')   
     # gett all bacterial infections (for human) from kegg
     print("getting bacterical infections list")
     type_infection = "Bacterial infections"
@@ -41,31 +47,29 @@ def main():
     print("Fetch data from KEGG")
     drug_list = []
     no_drug_list = []
-    if not os.path.exists('kegg_get') or not os.listdir("kegg_get"):
-        if not os.path.exists('kegg_get'):
-            os.makedirs('kegg_get')
-        if not os.path.exists('kegg_get_drug'):
-            os.makedirs('kegg_get_drug')
+    if not os.path.exists('data/kegg_get') or not os.listdir("data/kegg_get"):
+        if not os.path.exists('data/kegg_get'):
+            os.makedirs('data/kegg_get')
+        if not os.path.exists('data/kegg_get_drug'):
+            os.makedirs('data/kegg_get_drug')
         for h_id in H_list:
             bact_tmp = REST.kegg_get(h_id).read()
             if 'DRUG' not in bact_tmp:
-                with open(f"kegg_get/{h_id}.txt", "w") as f:
+                with open(f"data/kegg_get/{h_id}.txt", "w") as f:
                     f.write(bact_tmp)
                 drug_list.append(h_id)
             else:
-                with open(f"kegg_get_drug/{h_id}.txt", "w") as f:
+                with open(f"data/kegg_get_drug/{h_id}.txt", "w") as f:
                     f.write(bact_tmp)
                 no_drug_list.append(h_id)
 
-    # folder where plots will be stored
-    if not os.path.exists('plot_print'):
-        os.makedirs('plot_print')
+    
 
     # fill lists of bacterials with all the data parsed from KEGG
     print("parse KEGG data")
 
-    folder = 'tmp_bact'
-    kegg_folder = 'kegg_get'
+    folder = 'data/tmp_bact'
+    kegg_folder = 'data/kegg_get'
     bacts = []
 
     # parse data from all bacterials and serialize them
@@ -96,8 +100,8 @@ def main():
     # Filling list with disease with drugs
     print("parse KEGG data with drugs")
 
-    folder = 'tmp_bact_drug'
-    kegg_folder = 'kegg_get_drug'
+    folder = 'data/tmp_bact_drug'
+    kegg_folder = 'data/kegg_get_drug'
 
     bacts_drug = []
     if not os.path.exists(folder):
@@ -124,50 +128,50 @@ def main():
     print(f"{len(bacts_drug)} bacterial infections found w/ drugs")
 
     print("printing maps ...")
-    if not os.path.exists('csv'):
-        os.makedirs('csv')
-    if not os.path.exists('csv/bacts_nodrug_df.csv'):
+    if not os.path.exists('data/csv'):
+        os.makedirs('data/csv')
+    if not os.path.exists('data/csv/bacts_nodrug_df.csv'):
         # display map of diseases without drugs
         bacts_nodrug_df = geo_parse(bacts, "nodrug")
-        bacts_nodrug_df.to_csv("csv/bacts_nodrug_df.csv")
+        bacts_nodrug_df.to_csv("data/csv/bacts_nodrug_df.csv")
     else:
-        bacts_nodrug_df = pd.read_csv("csv/bacts_nodrug_df.csv")
+        bacts_nodrug_df = pd.read_csv("data/csv/bacts_nodrug_df.csv")
 
     # display map of diseases with drugs
-    if not os.path.exists('csv/bacts_drug_df.csv'):
+    if not os.path.exists('data/csv/bacts_drug_df.csv'):
         bacts_drug_df = geo_parse(bacts_drug, "drug")
-        bacts_drug_df.to_csv("csv/bacts_drug_df.csv")
+        bacts_drug_df.to_csv("data/csv/bacts_drug_df.csv")
     else:
-        bacts_drug_df = pd.read_csv("csv/bacts_drug_df.csv")
+        bacts_drug_df = pd.read_csv("data/csv/bacts_drug_df.csv")
 
     # display total map of diseases
-    if not os.path.exists('csv/total_df.csv'):
+    if not os.path.exists('data/csv/total_df.csv'):
         total_df = merge_geo_df(bacts_nodrug_df, bacts_drug_df, "no drug", "drug")
-        total_df.to_csv("csv/total_df.csv")
+        total_df.to_csv("data/csv/total_df.csv")
     else:
-        total_df = pd.read_csv("csv/total_df.csv")
+        total_df = pd.read_csv("data/csv/total_df.csv")
 
-    if not os.path.exists('csv/assembly_nodrug_df.csv'):
+    if not os.path.exists('data/csv/assembly_nodrug_df.csv'):
     # display map of assemblies without drugs
         assemblies_nodrug_df = geo_parse_assembly(bacts, "nodrug")
-        assemblies_nodrug_df.to_csv("csv/assembly_nodrug_df.csv")
+        assemblies_nodrug_df.to_csv("data/csv/assembly_nodrug_df.csv")
     else:
-        assemblies_nodrug_df = pd.read_csv("csv/assembly_nodrug_df.csv")
+        assemblies_nodrug_df = pd.read_csv("data/csv/assembly_nodrug_df.csv")
 
-    if not os.path.exists('csv/assembly_drug_df.csv'):
+    if not os.path.exists('data/csv/assembly_drug_df.csv'):
     # display map of assemblies with drugs
         assemblies_drug_df = geo_parse_assembly(bacts_drug, "drug")
-        assemblies_drug_df.to_csv("csv/assembly_drug_df.csv")
+        assemblies_drug_df.to_csv("data/csv/assembly_drug_df.csv")
     else:
-        assemblies_drug_df = pd.read_csv("csv/assembly_drug_df.csv")
+        assemblies_drug_df = pd.read_csv("data/csv/assembly_drug_df.csv")
 
-    if not os.path.exists('csv/assembly_total_df.csv'):
+    if not os.path.exists('data/csv/assembly_total_df.csv'):
         # display map of TOTAL assemblies
         assemblies_total_df = merge_geo_df(assemblies_nodrug_df, assemblies_drug_df,
                                            "assembly_nodrug", "assembly_drug")
-        assemblies_total_df.to_csv("csv/assembly_total_df.csv")
+        assemblies_total_df.to_csv("data/csv/assembly_total_df.csv")
     else:
-        assemblies_total_df = pd.read_csv("csv/assembly_total_df.csv")
+        assemblies_total_df = pd.read_csv("data/csv/assembly_total_df.csv")
 
     ## DISPLAY MAPS
     bacts_nodrug_map_display = display_map(bacts_nodrug_df,
@@ -220,7 +224,7 @@ def main():
 
     # charge np array for the bar and plot them
     labels = []
-    #keys = list(set(list(bar_data.keys()) + list(bar_data_drugs.keys())))
+    # keys order harcoded for prettier plots
     keys = ['Infections caused by spirochaetes ',
             'Infections caused by other gamma proteobacteria ', 'Infections caused by chlamydia ',
             'Infections caused by enterobacteria ', 'Infections caused by actinobacteria ',
@@ -252,7 +256,7 @@ def main():
     plt.yticks(y_int)
     ax.legend()
     fname = './plot_print/comparative_drugs_bar_plot.png'
-    plt.show()
+    #plt.show()
     fig.set_size_inches((16, 12), forward=False)
     fig.savefig(fname, dpi=500)
 
@@ -260,9 +264,9 @@ def main():
     print("Filling from genomejp by pathogen query")
     bact_names = ""  # for geo parsing
     bacts_genomejp_patho = []
-    if not os.path.exists('genomejp_patho') or not os.listdir("genomejp_patho"):
-        if not os.path.exists('genomejp_patho'):
-            os.makedirs('genomejp_patho')
+    if not os.path.exists('data/genomejp_patho') or not os.listdir("data/genomejp_patho"):
+        if not os.path.exists('data/genomejp_patho'):
+            os.makedirs('data/genomejp_patho')
         for tmp_bact in bacts:
             bact_names += (' ' + tmp_bact.name.lower())
             tmp_extra_drugs = get_drugs_for_disease_name(tmp_bact.name)
@@ -278,12 +282,12 @@ def main():
                             tmp_drug = get_drug_kegg(elem)
                             tmp_drug.origin = "Genomejp Pathogen"
                             tmp_bact.drugs.append(tmp_drug)
-            with open(f"genomejp_patho/{tmp_bact.id_bact}.txt", "wb") as f:
+            with open(f"data/genomejp_patho/{tmp_bact.id_bact}.txt", "wb") as f:
                 pickle.dump(tmp_bact, f)
             bacts_genomejp_patho.append(tmp_bact)
     else:
-        for filename in os.listdir("genomejp_patho"):
-            with open("genomejp_patho/" + filename, "rb") as f:
+        for filename in os.listdir("data/genomejp_patho"):
+            with open("data/genomejp_patho/" + filename, "rb") as f:
                 bacts_genomejp_patho.append(pickle.load(f))
 
     no_drug_after_genomejp_patho = []
@@ -337,7 +341,7 @@ def main():
         plt.yticks(y_int)
         ax.legend()
         fname = './plot_print/comparative_drugs_bar_plot_after_genomejp_patho.png'
-        plt.show()
+        # plt.show()
         fig.set_size_inches((16, 12), forward=False)
         fig.savefig(fname, dpi=500)
 
@@ -360,9 +364,9 @@ def main():
     print("Filling from genomejp by pathway query")
     bact_names_path = ""  # for geo parsing
     bacts_genomejp_path = []
-    if not os.path.exists('genomejp_path') or not os.listdir("genomejp_path"):
-        if not os.path.exists('genomejp_path'):
-            os.makedirs('genomejp_path')
+    if not os.path.exists('data/genomejp_path') or not os.listdir("data/genomejp_path"):
+        if not os.path.exists('data/genomejp_path'):
+            os.makedirs('data/genomejp_path')
         for tmp_bact in bacts:
             bact_names_path += (' ' + tmp_bact.name.lower())
             tmp_extra_drugs = []
@@ -380,12 +384,12 @@ def main():
                             tmp_drug = get_drug_kegg(elem)
                             tmp_drug.origin = "Origin Pathway"
                             tmp_bact.drugs.append(tmp_drug)
-            with open(f"genomejp_path/{tmp_bact.id_bact}.txt", "wb") as f:
+            with open(f"data/genomejp_path/{tmp_bact.id_bact}.txt", "wb") as f:
                 pickle.dump(tmp_bact, f)
             bacts_genomejp_path.append(tmp_bact)
     else:
-        for filename in os.listdir("genomejp_path"):
-            with open("genomejp_path/" + filename, "rb") as f:
+        for filename in os.listdir("data/genomejp_path"):
+            with open("data/genomejp_path/" + filename, "rb") as f:
                 bacts_genomejp_path.append(pickle.load(f))
     # print(len(bacts))
     no_drug_after_genomejp_path = []
@@ -438,7 +442,7 @@ def main():
         plt.yticks(y_int)
         ax.legend()
         fname = './plot_print/comparative_drugs_bar_plot_after_genomejp_path.png'
-        plt.show()
+        # plt.show()
         fig.set_size_inches((16, 12), forward=False)
         fig.savefig(fname, dpi=500)
 
@@ -456,7 +460,7 @@ def main():
     bacts = no_drug_after_genomejp_path
 
     # filling from drugbank by pathogens
-    type = "db_extra"
+    type = "data/db_extra"
     print("Extra Filling from Drugbank")
     bacts_db = []
     pathos = []
@@ -510,7 +514,6 @@ def main():
                                     tmp_drug = get_drug_kegg(elem)
                                     tmp_drug.origin = "DrugBank pathogen"
                                     tmp_bact.drugs.append(tmp_drug)
-    
                                     for k, v in drug_patho.items():
                                         if elem in v:
                                             pathos.append((k, "", tmp_bact.sub))
@@ -528,7 +531,7 @@ def main():
             with open(f"{type}/{tmp_bact.id_bact}.txt", "wb") as f:
                 pickle.dump(tmp_bact, f)
             bacts_db.append(tmp_bact)
-        with open(f"{type}/extra_1.txt", "wb") as f:
+        with open(f"{type}/extra.txt", "wb") as f:
             pickle.dump(pathos, f)
         with open(f"{type}/extra_pathos.txt", "wb") as f:
             pickle.dump(pathos_extra, f)
@@ -549,7 +552,6 @@ def main():
         f"{len(bacts_db_without_drugs)} extra FIlling from DrugBank"
         f"by pathogen")
     print("TOTAL count of Diseases filled with Drugs", len(bacts_db_with_drugs))
-
 
     # proceed to plot iff there was some filling
     if len(bacts_db_without_drugs) != len(bacts):
@@ -591,7 +593,7 @@ def main():
         plt.yticks(y_int)
         ax.legend()
         fname = './plot_print/comparative_drugs_bar_plot_after_db_patho.png'
-        plt.show()
+        # plt.show()
         fig.set_size_inches((16, 12), forward=False)
         fig.savefig(fname, dpi=500)
         for key in keys:
@@ -629,7 +631,7 @@ def main():
         y_int = range(0, math.ceil(max(val) + 1), 10)
         plt.yticks(y_int)
         fname = './plot_print/filled_quantity_drugs.png'
-        plt.show()
+        # plt.show()
         fig.set_size_inches((16, 12), forward=False)
         fig.savefig(fname, dpi=500)
     bacts = bacts_db_without_drugs
@@ -637,9 +639,9 @@ def main():
      # filling from drugbank by pathways
     print("Filling from drugbank by pathways")
     bacts_db_path = []
-    if not os.path.exists('db_path') or not os.listdir("db_path"):
-        if not os.path.exists('db_path'):
-            os.makedirs('db_path')
+    if not os.path.exists('data/db_path') or not os.listdir("data/db_path"):
+        if not os.path.exists('data/db_path'):
+            os.makedirs('data/db_path')
         for tmp_bact in bacts:
             if len(tmp_bact.pathways) > 0:
                 tmp_extra_drugs = []
@@ -672,12 +674,12 @@ def main():
                                     tmp_drug = get_drug_kegg(elem)
                                     tmp_drug.origin = "DrugBank Pathway"
                                     tmp_bact.drugs.append(tmp_drug)
-            with open(f"db_path/{tmp_bact.id_bact}.txt", "wb") as f:
+            with open(f"data/db_path/{tmp_bact.id_bact}.txt", "wb") as f:
                 pickle.dump(tmp_bact, f)
             bacts_db_path.append(tmp_bact)
     else:
-        for filename in os.listdir("db_path"):
-            with open("db_path/" + filename, "rb") as f:
+        for filename in os.listdir("data/db_path"):
+            with open("data/db_path/" + filename, "rb") as f:
                 bacts_db_path.append(pickle.load(f))
     bacts_db_path_without_drugs = []
 
@@ -728,7 +730,7 @@ def main():
         plt.yticks(y_int)
         ax.legend()
         fname = './plot_print/comparative_drugs_bar_plot_after_db.png'
-        plt.show()
+        # plt.show()
         fig.set_size_inches((16, 12), forward=False)
         fig.savefig(fname, dpi=500)
         for key in keys:
@@ -744,7 +746,60 @@ def main():
                 bar_data.pop(key)
     bacts = bacts_db_path_without_drugs
 
-    # some wordclouds
+    #####  Dataframe prints
+    with open("data/db_extra/extra.txt", "rb") as f:
+        patho_extra = pickle.load(f)
+    data_patho_extra = {}
+    for elem in patho_extra:
+            key = f"{elem[0]}|{elem[2]}"
+            if key not in data_patho_extra.keys():
+                data_patho_extra[key] = 1
+            else:
+                data_patho_extra[key] += 1
+    df_patho_extra = pd.DataFrame(columns=["pathogen", "subcategory", "frequency"])
+
+    val_tot = 0
+    for key, val in data_patho_extra.items():
+        tmp = key.split("|")
+        df_patho_extra.loc[len(df_patho_extra.index)] = [tmp[0],
+                                                        tmp[1],
+                                                        val]
+        val_tot += val
+
+    df_patho_extra = df_patho_extra.sort_values(by="frequency", ascending=False).reset_index(drop=True)
+    df_patho_extra.loc[len(df_patho_extra.index)] = ["total",
+                                                    "",
+                                                    val_tot]
+    print(df_patho_extra)
+
+    # infos regarding filling
+    with open("data/db_extra/extra_pathos.txt", "rb") as f:
+        patho_extra = pickle.load(f)
+    data_patho_extra = {}
+    for elem in patho_extra:
+            key = f"{elem[0]}|{elem[2]}"
+            if key not in data_patho_extra.keys():
+                data_patho_extra[key] = 1
+            else:
+                data_patho_extra[key] += 1
+    df_patho_extra = pd.DataFrame(columns=["pathogen", "subcategory", "frequency"])
+
+    val_tot = 0
+    for key, val in data_patho_extra.items():
+        tmp = key.split("|")
+        df_patho_extra.loc[len(df_patho_extra.index)] = [tmp[0],
+                                                        tmp[1],
+                                                        val]
+        val_tot += val
+
+    df_patho_extra = df_patho_extra.sort_values(by="frequency", ascending=False).reset_index(drop=True)
+    df_patho_extra.loc[len(df_patho_extra.index)] = ["total",
+                                                    "",
+                                                    val_tot]
+    print(df_patho_extra)
+
+
+    ### some wordclouds
     word_cloud_name = ""
     word_cloud_des = ""
     word_cloud_pap = ""
@@ -791,7 +846,7 @@ def main():
     wordcloud = WordCloud(max_font_size=40, background_color="white", contour_color='#5e81ac',
                           contour_width=0.1, scale=2).generate(remove_stopwords(word_cloud_name))
     plt.figure()
-    plt.imshow(wordcloud, interpolation="bilinear")
+    # plt.imshow(wordcloud, interpolation="bilinear")
     plt.axis("off")
     plt.savefig("plot_print/name_wc.png", dpi=500)
     plt.close()
@@ -799,14 +854,14 @@ def main():
     wordcloud = WordCloud(max_font_size=40, background_color="white", contour_color='#5e81ac',
                           contour_width=0.1, scale=2).generate(remove_stopwords(word_cloud_des))
     plt.figure()
-    plt.imshow(wordcloud, interpolation="bilinear")
+    # plt.imshow(wordcloud, interpolation="bilinear")
     plt.axis("off")
     plt.savefig("plot_print/des_wc.png", dpi=500)
 
     wordcloud = WordCloud(max_font_size=40, background_color="white", contour_color='#5e81ac',
                           contour_width=0.1, scale=2).generate(remove_stopwords(word_cloud_pap))
     plt.figure()
-    plt.imshow(wordcloud, interpolation="bilinear")
+    # plt.imshow(wordcloud, interpolation="bilinear")
     plt.axis("off")
     plt.savefig("plot_print/pap_wc.png", dpi=500)
 
@@ -814,7 +869,7 @@ def main():
                           contour_width=0.1, scale=2).generate(
         remove_stopwords(word_cloud_name_drug))
     plt.figure()
-    plt.imshow(wordcloud, interpolation="bilinear")
+    # plt.imshow(wordcloud, interpolation="bilinear")
     plt.axis("off")
     plt.savefig("plot_print/name_drug_wc.png", dpi=500)
     plt.close()
@@ -823,7 +878,7 @@ def main():
                           contour_width=0.1, scale=2).generate(
         remove_stopwords(word_cloud_des_drug))
     plt.figure()
-    plt.imshow(wordcloud, interpolation="bilinear")
+    # plt.imshow(wordcloud, interpolation="bilinear")
     plt.axis("off")
     plt.savefig("plot_print/des_drug_wc.png", dpi=500)
 
@@ -831,7 +886,7 @@ def main():
                           contour_width=0.1, scale=2).generate(
         remove_stopwords(word_cloud_pap_drug))
     plt.figure()
-    plt.imshow(wordcloud, interpolation="bilinear")
+    # plt.imshow(wordcloud, interpolation="bilinear")
     plt.axis("off")
     plt.savefig("plot_print/pap_drug_wc.png", dpi=500)
 
@@ -839,7 +894,7 @@ def main():
                           contour_width=0.1, scale=2).generate(
         remove_stopwords(word_cloud_abs_no_drug))
     plt.figure()
-    plt.imshow(wordcloud, interpolation="bilinear")
+    # plt.imshow(wordcloud, interpolation="bilinear")
     plt.axis("off")
     plt.savefig("plot_print/no_drug_wc.png", dpi=500)
 
@@ -847,7 +902,7 @@ def main():
                           contour_width=0.1, scale=2).generate(
         remove_stopwords(word_cloud_abs_drug))
     plt.figure()
-    plt.imshow(wordcloud, interpolation="bilinear")
+    # plt.imshow(wordcloud, interpolation="bilinear")
     plt.axis("off")
     plt.savefig("plot_print/drug_wc.png", dpi=500)
 
@@ -888,7 +943,7 @@ def main():
     plt.yticks(y_int)
     ax.legend()
     fname = './plot_print/relevants_words.png'
-    plt.show()
+    # plt.show()
     fig.set_size_inches((16, 12), forward=False)
     fig.savefig(fname, dpi=500)
 

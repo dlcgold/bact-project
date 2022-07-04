@@ -9,13 +9,37 @@ from mordecai import Geoparser
 from utils import *
 
 
+def is_valid(item, bact_names):
+    word = item['word']
+    only_letters = word.replace(" ", "").isalpha()
+    upper_case = word.isupper()
+    no_cap_letters = all(w[0].islower() for w in word.split(' '))
+    no_country = item['country_predicted'] == ''
+
+    # Abstracts contain terms related to bacterias and species
+    # so we exclude geographic location names containing these terms
+
+    is_bacteria = bact_names.find(word.lower()) != -1
+    is_species = False
+
+    # Wikipedia pages related to species show an infobox containing
+    # their scientific classification
+
+    response = req.get(url="https://en.wikipedia.org/wiki/" + word.replace(" ", "_"))
+    if response.status_code == 200:
+        is_species = response.text.find("Scientific classification") != -1
+
+    valid = only_letters and not upper_case and not no_cap_letters and not no_country and not is_bacteria and not is_species
+
+    return valid
+    
 def geo_parse_assembly(bacts, type_print=""):
     print("Extract geo_data from assemblies")
 
     geo = Geoparser()
 
-    path_assembly_sub = f"assembly_sub_{type_print}"
-    path_assembly_geo = f"assembly_geo_{type_print}"
+    path_assembly_sub = f"data/assembly_sub_{type_print}"
+    path_assembly_geo = f"data/assembly_geo_{type_print}"
     
     geo_df = pd.DataFrame(columns=["id", "name", "lat", "lon", "type"])
 
@@ -98,10 +122,10 @@ def geo_parse(bacts, type_print=""):
     for tmp_bact in bacts:
         bact_names += (' ' + tmp_bact.name.lower())
 
-    path_abs = f"abstract_get_{type_print}"
-    path_ser_abs = f"ser_abs_{type_print}"
-    path_ser_title = f"ser_title_{type_print}"
-    path_ser_bacts = f"ser_bacts_{type_print}"
+    path_abs = f"data/abstract_get_{type_print}"
+    path_ser_abs = f"data/ser_abs_{type_print}"
+    path_ser_title = f"data/ser_title_{type_print}"
+    path_ser_bacts = f"data/ser_bacts_{type_print}"
     print("Extract geo_data from abstract")
 
     if not os.path.exists(path_abs) or not os.listdir(path_abs):
@@ -113,7 +137,7 @@ def geo_parse(bacts, type_print=""):
                 bact_name = bact_name[:-1]
             for paper_tmp in bact_tmp.papers:
                 if paper_tmp.pmid:
-                    with open(f"abstract_get_{type_print}/{paper_tmp.pmid}.txt", "w") as f:
+                    with open(f"data/abstract_get_{type_print}/{paper_tmp.pmid}.txt", "w") as f:
                         pubmed_entry = Entrez.efetch(db="pubmed",
                                                      id=paper_tmp.pmid,
                                                      retmode="xml")
@@ -127,18 +151,18 @@ def geo_parse(bacts, type_print=""):
     if len(os.listdir(path_ser_abs)) == 0:
         for filename in os.listdir(path_abs):
             id_file = filename.split(".")[0]
-            if not os.path.isfile(f"ser_abs_{type_print}/{id_file}.ser"):
-                with open(f"abstract_get_{type_print}/" + filename, "r") as f:
+            if not os.path.isfile(f"data/ser_abs_{type_print}/{id_file}.ser"):
+                with open(f"data/abstract_get_{type_print}/" + filename, "r") as f:
                     lines = f.readlines()
                     if len(lines) >= 2:
                         text = " ".join(lines[1:])
                         tmp = GeoData(id_file, text, geo.geoparse(text), lines[0])
                         geo_list_abs.append(tmp)
-                        with open(f"ser_abs_{type_print}/{tmp.id_geo}.ser", "wb") as fw:
+                        with open(f"data/ser_abs_{type_print}/{tmp.id_geo}.ser", "wb") as fw:
                             pickle.dump(tmp, fw)
     else:
         for filename in os.listdir(path_ser_abs):
-            with open(f"ser_abs_{type_print}/{filename}", "rb") as f:
+            with open(f"data/ser_abs_{type_print}/{filename}", "rb") as f:
                 geo_list_abs.append(pickle.load(f))
     geo_df = pd.DataFrame(columns=["id", "name", "lat", "lon", "type"])
     for geo_elem in geo_list_abs:
@@ -171,11 +195,11 @@ def geo_parse(bacts, type_print=""):
                 tmp = GeoData(paper_tmp.pmid, paper_tmp.title,
                               geo.geoparse(paper_tmp.title), name_tmp)
                 geo_list_title.append(tmp)
-                with open(f"ser_title_{type_print}/{paper_tmp.pmid}_{count}.ser", "wb") as fw:
+                with open(f"data/ser_title_{type_print}/{paper_tmp.pmid}_{count}.ser", "wb") as fw:
                     pickle.dump(tmp, fw)
     else:
         for filename in os.listdir(path_ser_title):
-            with open(f"ser_title_{type_print}/{filename}", "rb") as f:
+            with open(f"data/ser_title_{type_print}/{filename}", "rb") as f:
                 geo_list_title.append(pickle.load(f))
 
     for geo_elem in geo_list_title:
@@ -204,11 +228,11 @@ def geo_parse(bacts, type_print=""):
             tmp = GeoData(bact_tmp.id_bact, bact_tmp.description,
                           geo.geoparse(bact_tmp.description), bact_tmp.name)
             geo_list_bact.append(tmp)
-            with open(f"ser_bacts_{type_print}/{bact_tmp.id_bact}.ser", "wb") as fw:
+            with open(f"data/ser_bacts_{type_print}/{bact_tmp.id_bact}.ser", "wb") as fw:
                 pickle.dump(tmp, fw)
     else:
         for filename in os.listdir(path_ser_bacts):
-            with open(f"ser_bacts_{type_print}/{filename}", "rb") as f:
+            with open(f"data/ser_bacts_{type_print}/{filename}", "rb") as f:
                 geo_list_bact.append(pickle.load(f))
     for geo_elem in geo_list_bact:
         if geo_elem.geo_dict:
@@ -272,6 +296,7 @@ def display_map(geo_df, title, type_label, color_discrete_sequence):
 
 
 def fix_lon_lat(df):
+    # if there are points that're in overlpas, we need to "separate" them
     df = df.drop_duplicates(subset=["id", "lat", "lon", "type"], keep="first")
     df = df.reset_index(drop=True)
     df = df.drop_duplicates(subset=["name", "lat", "lon", "type"], keep="first")
